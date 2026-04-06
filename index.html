@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -9,39 +8,14 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --green: #1D9E75;
-      --green-light: #E1F5EE;
-      --green-dark: #0F6E56;
-      --text: #1a1a1a;
-      --text-muted: #666;
-      --text-faint: #999;
-      --border: rgba(0,0,0,0.1);
-      --border-light: rgba(0,0,0,0.06);
-      --bg: #fff;
-      --bg-secondary: #f9f9f8;
-      --radius: 8px;
-      --radius-lg: 12px;
+      --green: #1D9E75; --green-light: #E1F5EE; --green-dark: #0F6E56;
+      --text: #1a1a1a; --text-muted: #666; --text-faint: #999;
+      --border: rgba(0,0,0,0.1); --border-light: rgba(0,0,0,0.06);
+      --bg: #fff; --bg-secondary: #f9f9f8; --radius: 8px; --radius-lg: 12px;
     }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Assistant', sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 48px;
-      border-bottom: 1px solid var(--border-light);
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(8px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+    body { font-family: 'Assistant', sans-serif; color: var(--text); background: var(--bg); font-size: 16px; line-height: 1.6; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; border-bottom: 1px solid var(--border-light); background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 100; }
     .nav-logo { font-size: 16px; font-weight: 600; }
     .nav-logo span { color: var(--green); }
     .nav-links { display: flex; gap: 32px; }
@@ -105,21 +79,17 @@
     .m-badge { background: var(--green); color: #fff; font-size: 10px; padding: 3px 8px; border-radius: 10px; font-weight: 600; }
     footer { padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); font-size: 12px; color: var(--text-faint); max-width: 1100px; margin: 0 auto; }
     @media (max-width: 720px) {
-      nav { padding: 14px 20px; }
-      .nav-links { display: none; }
+      nav { padding: 14px 20px; } .nav-links { display: none; }
       .hero { flex-direction: column-reverse; padding: 40px 20px; gap: 32px; }
-      .hero-image { width: 160px; height: 190px; }
-      .hero-title { font-size: 30px; }
+      .hero-image { width: 160px; height: 190px; } .hero-title { font-size: 30px; }
       .stats-row { flex-wrap: wrap; }
       .stat-item { min-width: 50%; border-left: none; border-bottom: 1px solid var(--border-light); }
-      .section { padding: 40px 20px; }
-      .contact-section { flex-direction: column; padding: 40px 20px; }
+      .section { padding: 40px 20px; } .contact-section { flex-direction: column; padding: 40px 20px; }
       footer { flex-direction: column; gap: 8px; text-align: center; padding: 20px; }
     }
   </style>
 </head>
 <body>
-
   <nav>
     <div class="nav-logo">ד"ר <span>יונתן שפירא</span></div>
     <div class="nav-links">
@@ -155,38 +125,20 @@
   </div>
 
   <div class="stats-row">
-    <div class="stat-item">
-      <div class="stat-num">1997</div>
-      <div class="stat-label">סיום לימודי רפואה, אוניברסיטת ת"א</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">38+</div>
-      <div class="stat-label">פרסומים מדעיים</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">AAD</div>
-      <div class="stat-label">חבר האקדמיה האמריקאית לרפואת עור</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">AI</div>
-      <div class="stat-label">פיתוח אלגוריתמי למידת מכונה</div>
-    </div>
+    <div class="stat-item"><div class="stat-num">1997</div><div class="stat-label">סיום לימודי רפואה, אוניברסיטת ת"א</div></div>
+    <div class="stat-item"><div class="stat-num">38+</div><div class="stat-label">פרסומים מדעיים</div></div>
+    <div class="stat-item"><div class="stat-num">AAD</div><div class="stat-label">חבר האקדמיה האמריקאית לרפואת עור</div></div>
+    <div class="stat-item"><div class="stat-num">AI</div><div class="stat-label">פיתוח אלגוריתמי למידת מכונה</div></div>
   </div>
 
   <div class="section" id="bio">
-    <div class="section-header">
-      <div class="section-title">ביוגרפיה</div>
-      <div class="section-line"></div>
-    </div>
+    <div class="section-header"><div class="section-title">ביוגרפיה</div><div class="section-line"></div></div>
     <p class="bio-text">ד"ר יונתן שפירא הוא רופא עור ומנהל שירות הטלדרמטולוגיה במכבי שירותי בריאות. בנוסף, הוא מרצה בבית הספר לרפואה בטכניון בחיפה ובבית הספר לרפואה באוניברסיטת תל אביב.</p>
     <p class="bio-text" style="margin-top: 14px;">ד"ר שפירא משמש כיועץ לחברת Predicta-Med LTD, שם הוא מפתח אלגוריתמי למידת מכונה לגילוי מוקדם של מחלות אוטואימוניות ודלקתיות. לפני לימודי הרפואה, שימש כמתכנת בין השנים 1985–1990, וסיים את לימודי הרפואה בשנת 1997. בשנת 2003 סיים התמחות ברפואת עור במרכז סוראסקי בתל אביב.</p>
   </div>
 
   <div class="section" id="expertise">
-    <div class="section-header">
-      <div class="section-title">תחומי מומחיות קלינית</div>
-      <div class="section-line"></div>
-    </div>
+    <div class="section-header"><div class="section-title">תחומי מומחיות קלינית</div><div class="section-line"></div></div>
     <div class="expertise-grid">
       <div class="expertise-card"><div class="expertise-dot"></div><div class="expertise-name">פסוריאזיס</div><div class="expertise-desc">אבחון וטיפול ביולוגי</div></div>
       <div class="expertise-card"><div class="expertise-dot"></div><div class="expertise-name">אקנה</div><div class="expertise-desc">טיפול מותאם אישית</div></div>
@@ -201,92 +153,35 @@
   </div>
 
   <div class="section" id="research">
-    <div class="section-header">
-      <div class="section-title">תחומי מחקר</div>
-      <div class="section-line"></div>
-    </div>
+    <div class="section-header"><div class="section-title">תחומי מחקר</div><div class="section-line"></div></div>
     <div class="timeline-item">
       <div class="timeline-year">AI</div>
-      <div class="timeline-content">
-        <div class="timeline-title">בינה מלאכותית ולמידת מכונה בדרמטולוגיה</div>
-        <div class="timeline-sub">פיתוח אלגוריתמים לגילוי מוקדם, לאבחון ותוכניות טיפול</div>
-      </div>
+      <div class="timeline-content"><div class="timeline-title">בינה מלאכותית ולמידת מכונה בדרמטולוגיה</div><div class="timeline-sub">פיתוח אלגוריתמים לגילוי מוקדם, לאבחון ותוכניות טיפול</div></div>
     </div>
     <div class="timeline-item">
       <div class="timeline-year">פסוריאזיס</div>
-      <div class="timeline-content">
-        <div class="timeline-title">פסוריאזיס</div>
-        <div class="timeline-sub">מחקרים על חיידקי המעי של חולי פסוריאזיס ומחלות נלוות לפסוריאזיס</div>
-      </div>
+      <div class="timeline-content"><div class="timeline-title">פסוריאזיס</div><div class="timeline-sub">מחקרים על חיידקי המעי של חולי פסוריאזיס ומחלות נלוות לפסוריאזיס</div></div>
     </div>
     <div class="timeline-item">
       <div class="timeline-year">טלרפואה</div>
-      <div class="timeline-content">
-        <div class="timeline-title">טלדרמטולוגיה</div>
-        <div class="timeline-sub">מחקרים על יעילות ייעוץ אסינכרוני ושיפור דיוק אבחנות מרחוק</div>
-      </div>
+      <div class="timeline-content"><div class="timeline-title">טלדרמטולוגיה</div><div class="timeline-sub">מחקרים על יעילות ייעוץ אסינכרוני ושיפור דיוק אבחנות מרחוק</div></div>
     </div>
   </div>
 
   <div class="section" id="publications">
-    <div class="section-header">
-      <div class="section-title">פרסומים נבחרים</div>
-      <div class="section-line"></div>
-    </div>
-    <div class="pub-item">
-      <div class="pub-year">2024</div>
-      <div>
-        <div class="pub-title">Application of an NLP AI Tool in Psoriasis: A Cross-Sectional Comparative Study on Identifying Affected Areas in Patient's Data</div>
-        <div class="pub-journal">Clinics in Dermatology · Jun 2024</div>
-      </div>
-    </div>
-    <div class="pub-item">
-      <div class="pub-year">2024</div>
-      <div>
-        <div class="pub-title">Revolutionizing Teledermatology: Exploring the Integration of AI including GPT Chatbots for Driven Anamnesis, Diagnosis and Treatment Plans</div>
-        <div class="pub-journal">Clinics in Dermatology · Jun 2024</div>
-      </div>
-    </div>
-    <div class="pub-item">
-      <div class="pub-year">2024</div>
-      <div>
-        <div class="pub-title">Diagnostic Accuracy and Rates of Face-to-Face Visits Occurring Shortly After an Asynchronized Teledermatology Consultation — An 18-Month Cohort Study</div>
-        <div class="pub-journal">Dermatology · Mar 2024</div>
-      </div>
-    </div>
-    <div class="pub-item">
-      <div class="pub-year">2023</div>
-      <div>
-        <div class="pub-title">Evaluation of a Machine Learning Tool for the Early Identification of Patients with Undiagnosed Psoriatic Arthritis — A Retrospective Population-Based Study</div>
-        <div class="pub-journal">J Transl Autoimmun · Aug 2023</div>
-      </div>
-    </div>
-    <div class="pub-item">
-      <div class="pub-year">2019</div>
-      <div>
-        <div class="pub-title">Psoriatic Patients Have a Distinct Structural and Functional Fecal Microbiota Compared with Controls</div>
-        <div class="pub-journal">Dermatology · May 2019 · <span style="color: #1D9E75; font-size:11px; font-weight:600;">פרסום מצוטט ביותר 2021</span></div>
-      </div>
-    </div>
+    <div class="section-header"><div class="section-title">פרסומים נבחרים</div><div class="section-line"></div></div>
+    <div class="pub-item"><div class="pub-year">2024</div><div><div class="pub-title">Application of an NLP AI Tool in Psoriasis: A Cross-Sectional Comparative Study on Identifying Affected Areas in Patient's Data</div><div class="pub-journal">Clinics in Dermatology · Jun 2024</div></div></div>
+    <div class="pub-item"><div class="pub-year">2024</div><div><div class="pub-title">Revolutionizing Teledermatology: Exploring the Integration of AI including GPT Chatbots for Driven Anamnesis, Diagnosis and Treatment Plans</div><div class="pub-journal">Clinics in Dermatology · Jun 2024</div></div></div>
+    <div class="pub-item"><div class="pub-year">2024</div><div><div class="pub-title">Diagnostic Accuracy and Rates of Face-to-Face Visits Occurring Shortly After an Asynchronized Teledermatology Consultation — An 18-Month Cohort Study</div><div class="pub-journal">Dermatology · Mar 2024</div></div></div>
+    <div class="pub-item"><div class="pub-year">2023</div><div><div class="pub-title">Evaluation of a Machine Learning Tool for the Early Identification of Patients with Undiagnosed Psoriatic Arthritis — A Retrospective Population-Based Study</div><div class="pub-journal">J Transl Autoimmun · Aug 2023</div></div></div>
+    <div class="pub-item"><div class="pub-year">2019</div><div><div class="pub-title">Psoriatic Patients Have a Distinct Structural and Functional Fecal Microbiota Compared with Controls</div><div class="pub-journal">Dermatology · May 2019 · <span style="color:#1D9E75;font-size:11px;font-weight:600;">פרסום מצוטט ביותר 2021</span></div></div></div>
   </div>
 
   <div class="section" id="awards">
-    <div class="section-header">
-      <div class="section-title">הישגים ופרסים</div>
-      <div class="section-line"></div>
-    </div>
-    <div class="award-item">
-      <div class="award-icon">&#9733;</div>
-      <div class="award-text"><strong style="font-weight:600;">עבודה מצטיינת</strong> &#8212; &#8220;יעילות חיסון השפעת &#8211; ניתוח מסד נתונים ממוחשב&#8221;<br><span style="color: var(--text-muted); font-size:12.5px;">הכנס השנתי של מערכות מידע ברפואה, תל אביב 2003</span></div>
-    </div>
-    <div class="award-item">
-      <div class="award-icon">&#9733;</div>
-      <div class="award-text"><strong style="font-weight:600;">פוסטר מצטיין</strong> &#8212; &#8220;אלגוריתם למידת מכונה לגילוי מוקדם של דלקת מפרקים פסוריאטית&#8221;<br><span style="color: var(--text-muted); font-size:12.5px;">הכנס השנתי ה-42 של האגודה הדרמטולוגית הישראלית, תל אביב 2022</span></div>
-    </div>
-    <div class="award-item">
-      <div class="award-icon">&#9733;</div>
-      <div class="award-text"><strong style="font-weight:600;">JD Award &#8212; המאמר המצוטט ביותר 2021</strong><br><span style="color: var(--text-muted); font-size:12.5px;">The Journal of Dermatology &middot; Psoriatic Patients Have a Distinct Fecal Microbiota (2019)</span></div>
-    </div>
+    <div class="section-header"><div class="section-title">הישגים ופרסים</div><div class="section-line"></div></div>
+    <div class="award-item"><div class="award-icon">&#9733;</div><div class="award-text"><strong>עבודה מצטיינת</strong> — "יעילות חיסון השפעת – ניתוח מסד נתונים ממוחשב"<br><span style="color:var(--text-muted);font-size:12.5px;">הכנס השנתי של מערכות מידע ברפואה, תל אביב 2003</span></div></div>
+    <div class="award-item"><div class="award-icon">&#9733;</div><div class="award-text"><strong>פוסטר מצטיין</strong> — "אלגוריתם למידת מכונה לגילוי מוקדם של דלקת מפרקים פסוריאטית"<br><span style="color:var(--text-muted);font-size:12.5px;">הכנס השנתי ה-42 של האגודה הדרמטולוגית הישראלית, תל אביב 2022</span></div></div>
+    <div class="award-item"><div class="award-icon">&#9733;</div><div class="award-text"><strong>JD Award — המאמר המצוטט ביותר 2021</strong><br><span style="color:var(--text-muted);font-size:12.5px;">The Journal of Dermatology · Psoriatic Patients Have a Distinct Fecal Microbiota (2019)</span></div></div>
   </div>
 
   <div class="contact-section" id="contact">
@@ -296,7 +191,7 @@
       <div class="contact-detail"><div class="contact-dot"></div> מכבי שירותי בריאות</div>
       <div class="contact-detail"><div class="contact-dot"></div> הטכניון ואוניברסיטת תל אביב</div>
       <div class="contact-detail"><div class="contact-dot"></div> חבר AAD ו-EADV</div>
-      <a class="contact-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">מלא שאלון ייעוץ &#8592;</a>
+      <a class="contact-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">מלא שאלון ייעוץ ←</a>
     </div>
     <div class="memberships">
       <div class="membership-label">חברות מקצועית</div>
@@ -307,9 +202,8 @@
   </div>
 
   <footer>
-    <span>&#169; 2025 ד"ר יונתן שפירא | רופא עור</span>
+    <span>© 2025 ד"ר יונתן שפירא | רופא עור</span>
     <span>jshapiro.co.il</span>
   </footer>
-
 </body>
 </html>
