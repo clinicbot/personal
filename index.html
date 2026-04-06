@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0059)file:///C:/Users/yonatan/Downloads/dr_jonathan_shapiro.html -->
+<!-- saved from url=(0045)file:///C:/Users/yonatan/Downloads/index.html -->
 <html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ד"ר יונתן שפירא | רופא עור</title>
-  <link href="./index_files/css2" rel="stylesheet">
+  <link href="./index 01_files/css2" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -29,8 +29,6 @@
       font-size: 16px;
       line-height: 1.6;
     }
-
-    /* NAV */
     nav {
       display: flex;
       align-items: center;
@@ -43,278 +41,68 @@
       top: 0;
       z-index: 100;
     }
-    .nav-logo { font-size: 16px; font-weight: 600; letter-spacing: 0.01em; }
+    .nav-logo { font-size: 16px; font-weight: 600; }
     .nav-logo span { color: var(--green); }
     .nav-links { display: flex; gap: 32px; }
-    .nav-links a {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .nav-links a { font-size: 13.5px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
-    .nav-cta {
-      background: var(--green);
-      color: #fff;
-      border: none;
-      padding: 9px 22px;
-      border-radius: var(--radius);
-      font-size: 13.5px;
-      cursor: pointer;
-      font-family: 'Assistant', sans-serif;
-      font-weight: 500;
-      text-decoration: none;
-    }
-
-    /* HERO */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 72px 48px 64px;
-      gap: 56px;
-      border-bottom: 1px solid var(--border-light);
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    .nav-cta { background: var(--green); color: #fff; border: none; padding: 9px 22px; border-radius: var(--radius); font-size: 13.5px; cursor: pointer; font-family: 'Assistant', sans-serif; font-weight: 500; text-decoration: none; }
+    .hero { display: flex; align-items: center; justify-content: space-between; padding: 72px 48px 64px; gap: 56px; border-bottom: 1px solid var(--border-light); max-width: 1100px; margin: 0 auto; }
     .hero-text { flex: 1; max-width: 600px; }
-    .hero-badge {
-      display: inline-block;
-      background: var(--green-light);
-      color: var(--green-dark);
-      font-size: 12px;
-      padding: 5px 14px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
+    .hero-badge { display: inline-block; background: var(--green-light); color: var(--green-dark); font-size: 12px; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; font-weight: 600; }
     .hero-title { font-size: 42px; font-weight: 600; line-height: 1.15; margin-bottom: 8px; }
     .hero-title span { color: var(--green); }
     .hero-subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 12px; font-weight: 400; }
     .hero-roles { font-size: 13.5px; color: var(--text-faint); margin-bottom: 36px; line-height: 2; }
     .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--green);
-      color: #fff;
-      border: none;
-      padding: 13px 30px;
-      border-radius: var(--radius);
-      font-size: 14px;
-      cursor: pointer;
-      font-family: 'Assistant', sans-serif;
-      font-weight: 500;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-      padding: 13px 30px;
-      border-radius: var(--radius);
-      font-size: 14px;
-      cursor: pointer;
-      font-family: 'Assistant', sans-serif;
-      font-weight: 500;
-      text-decoration: none;
-    }
-    .hero-image {
-      flex-shrink: 0;
-      width: 240px;
-      height: 290px;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--border-light);
-      background: var(--green-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    .btn-primary { background: var(--green); color: #fff; border: none; padding: 13px 30px; border-radius: var(--radius); font-size: 14px; cursor: pointer; font-family: 'Assistant', sans-serif; font-weight: 500; text-decoration: none; display: inline-block; }
+    .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 13px 30px; border-radius: var(--radius); font-size: 14px; cursor: pointer; font-family: 'Assistant', sans-serif; font-weight: 500; text-decoration: none; }
+    .hero-image { flex-shrink: 0; width: 240px; height: 290px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-light); background: var(--green-light); display: flex; align-items: center; justify-content: center; }
     .hero-image img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-avatar {
-      font-size: 56px;
-      font-weight: 600;
-      color: var(--green-dark);
-    }
-
-    /* STATS */
-    .stats-row {
-      display: flex;
-      border-bottom: 1px solid var(--border-light);
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .stat-item {
-      flex: 1;
-      padding: 32px;
-      border-left: 1px solid var(--border-light);
-      text-align: center;
-    }
+    .hero-avatar { font-size: 56px; font-weight: 600; color: var(--green-dark); }
+    .stats-row { display: flex; border-bottom: 1px solid var(--border-light); max-width: 1100px; margin: 0 auto; }
+    .stat-item { flex: 1; padding: 32px; border-left: 1px solid var(--border-light); text-align: center; }
     .stat-item:last-child { border-left: none; }
     .stat-num { font-size: 30px; font-weight: 600; color: var(--green); }
     .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-
-    /* SECTION */
-    .section {
-      padding: 56px 48px;
-      border-bottom: 1px solid var(--border-light);
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 36px;
-    }
+    .section { padding: 56px 48px; border-bottom: 1px solid var(--border-light); max-width: 1100px; margin: 0 auto; }
+    .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
     .section-title { font-size: 20px; font-weight: 600; white-space: nowrap; }
     .section-line { flex: 1; height: 1px; background: var(--border-light); }
-
-    /* EXPERTISE */
-    .expertise-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 12px;
-    }
-    .expertise-card {
-      background: var(--bg-secondary);
-      border-radius: var(--radius);
-      padding: 18px;
-      border: 1px solid var(--border-light);
-    }
+    .expertise-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .expertise-card { background: var(--bg-secondary); border-radius: var(--radius); padding: 18px; border: 1px solid var(--border-light); }
     .expertise-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); margin-bottom: 10px; }
     .expertise-name { font-size: 13.5px; font-weight: 600; }
     .expertise-desc { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-
-    /* BIO */
     .bio-text { font-size: 15.5px; line-height: 1.85; color: var(--text-muted); max-width: 800px; }
-
-    /* TIMELINE */
-    .timeline-item {
-      display: flex;
-      gap: 24px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--border-light);
-    }
+    .timeline-item { display: flex; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--border-light); }
     .timeline-item:last-child { border-bottom: none; }
     .timeline-year { width: 80px; flex-shrink: 0; font-size: 12px; color: var(--green); font-weight: 600; padding-top: 2px; }
     .timeline-content { flex: 1; }
     .timeline-title { font-size: 14px; font-weight: 600; }
     .timeline-sub { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
-
-    /* PUBLICATIONS */
-    .pub-item {
-      padding: 22px 0;
-      border-bottom: 1px solid var(--border-light);
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
+    .pub-item { padding: 22px 0; border-bottom: 1px solid var(--border-light); display: flex; gap: 16px; align-items: flex-start; }
     .pub-item:last-child { border-bottom: none; }
-    .pub-year {
-      font-size: 11px;
-      color: var(--text-faint);
-      background: var(--bg-secondary);
-      padding: 4px 10px;
-      border-radius: var(--radius);
-      white-space: nowrap;
-      margin-top: 3px;
-      flex-shrink: 0;
-      border: 1px solid var(--border-light);
-    }
+    .pub-year { font-size: 11px; color: var(--text-faint); background: var(--bg-secondary); padding: 4px 10px; border-radius: var(--radius); white-space: nowrap; margin-top: 3px; flex-shrink: 0; border: 1px solid var(--border-light); }
     .pub-title { font-size: 13.5px; font-weight: 500; line-height: 1.55; }
     .pub-journal { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-
-    /* AWARDS */
-    .award-item {
-      display: flex;
-      gap: 16px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border-light);
-      align-items: flex-start;
-    }
+    .award-item { display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border-light); align-items: flex-start; }
     .award-item:last-child { border-bottom: none; }
-    .award-icon {
-      width: 34px; height: 34px;
-      border-radius: 50%;
-      background: var(--green-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--green-dark);
-      font-size: 15px;
-    }
+    .award-icon { width: 34px; height: 34px; border-radius: 50%; background: var(--green-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--green-dark); font-size: 15px; }
     .award-text { font-size: 13.5px; line-height: 1.65; }
-
-    /* CONTACT */
-    .contact-section {
-      padding: 56px 48px;
-      display: flex;
-      gap: 56px;
-      align-items: flex-start;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    .contact-section { padding: 56px 48px; display: flex; gap: 56px; align-items: flex-start; max-width: 1100px; margin: 0 auto; }
     .contact-info { flex: 1; }
     .contact-title { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
     .contact-sub { font-size: 14.5px; color: var(--text-muted); margin-bottom: 28px; line-height: 1.75; }
     .contact-detail { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; font-size: 13.5px; color: var(--text-muted); }
     .contact-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
-    .contact-cta {
-      margin-top: 32px;
-      background: var(--green);
-      color: #fff;
-      border: none;
-      padding: 14px 36px;
-      border-radius: var(--radius);
-      font-size: 14px;
-      cursor: pointer;
-      font-family: 'Assistant', sans-serif;
-      font-weight: 500;
-      display: inline-block;
-      text-decoration: none;
-    }
-    .memberships {
-      flex: 1;
-      background: var(--bg-secondary);
-      border-radius: var(--radius-lg);
-      padding: 30px;
-      border: 1px solid var(--border-light);
-    }
+    .contact-cta { margin-top: 32px; background: var(--green); color: #fff; border: none; padding: 14px 36px; border-radius: var(--radius); font-size: 14px; cursor: pointer; font-family: 'Assistant', sans-serif; font-weight: 500; display: inline-block; text-decoration: none; }
+    .memberships { flex: 1; background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 30px; border: 1px solid var(--border-light); }
     .membership-label { font-size: 11px; color: var(--text-faint); margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.08em; }
-    .membership-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border-light);
-      font-size: 13.5px;
-      font-weight: 500;
-    }
+    .membership-item { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border-light); font-size: 13.5px; font-weight: 500; }
     .membership-item:last-child { border-bottom: none; }
-    .m-badge {
-      background: var(--green);
-      color: #fff;
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: 10px;
-      font-weight: 600;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 28px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--border-light);
-      font-size: 12px;
-      color: var(--text-faint);
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
+    .m-badge { background: var(--green); color: #fff; font-size: 10px; padding: 3px 8px; border-radius: 10px; font-weight: 600; }
+    footer { padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); font-size: 12px; color: var(--text-faint); max-width: 1100px; margin: 0 auto; }
     @media (max-width: 720px) {
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
@@ -331,21 +119,19 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="nav-logo">ד"ר <span>יונתן שפירא</span></div>
     <div class="nav-links">
-      <a href="file:///C:/Users/yonatan/Downloads/dr_jonathan_shapiro.html#bio">ביוגרפיה</a>
-      <a href="file:///C:/Users/yonatan/Downloads/dr_jonathan_shapiro.html#expertise">מומחיות</a>
-      <a href="file:///C:/Users/yonatan/Downloads/dr_jonathan_shapiro.html#research">מחקר</a>
-      <a href="file:///C:/Users/yonatan/Downloads/dr_jonathan_shapiro.html#publications">פרסומים</a>
-      <a href="file:///C:/Users/yonatan/Downloads/dr_jonathan_shapiro.html#awards">פרסים</a>
-      <a href="file:///C:/Users/yonatan/Downloads/dr_jonathan_shapiro.html#contact">צור קשר</a>
+      <a href="file:///C:/Users/yonatan/Downloads/index.html#bio">ביוגרפיה</a>
+      <a href="file:///C:/Users/yonatan/Downloads/index.html#expertise">מומחיות</a>
+      <a href="file:///C:/Users/yonatan/Downloads/index.html#research">מחקר</a>
+      <a href="file:///C:/Users/yonatan/Downloads/index.html#publications">פרסומים</a>
+      <a href="file:///C:/Users/yonatan/Downloads/index.html#awards">פרסים</a>
+      <a href="file:///C:/Users/yonatan/Downloads/index.html#contact">צור קשר</a>
     </div>
     <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">קביעת ייעוץ</a>
   </nav>
 
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-text">
       <div class="hero-badge">מומחה עור ובינה מלאכותית</div>
@@ -358,16 +144,15 @@
       </div>
       <div class="hero-btns">
         <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">בקשת ייעוץ</a>
-        <a class="btn-secondary" href="file:///C:/Users/yonatan/Downloads/dr_jonathan_shapiro.html#publications">פרסומים</a>
+        <a class="btn-secondary" href="file:///C:/Users/yonatan/Downloads/index.html#publications">פרסומים</a>
       </div>
     </div>
     <div class="hero-image">
-      <img src="./image.jpg" alt="ד&quot;ר יונתן שפירא" onerror="this.style.display=&#39;none&#39;; document.getElementById(&#39;fallback-avatar&#39;).style.display=&#39;flex&#39;;">
-      <div id="fallback-avatar" class="hero-avatar" style="display:none;">י.ש</div>
+      <img src="file:///C:/Users/yonatan/Downloads/image.jpg" alt="ד&quot;ר יונתן שפירא" onerror="this.style.display=&#39;none&#39;; document.getElementById(&#39;fallback-avatar&#39;).style.display=&#39;flex&#39;;" style="display: none;">
+      <div id="fallback-avatar" class="hero-avatar" style="display: flex;">י.ש</div>
     </div>
   </div>
 
-  <!-- STATS -->
   <div class="stats-row">
     <div class="stat-item">
       <div class="stat-num">1997</div>
@@ -387,17 +172,15 @@
     </div>
   </div>
 
-  <!-- BIO -->
   <div class="section" id="bio">
     <div class="section-header">
       <div class="section-title">ביוגרפיה</div>
       <div class="section-line"></div>
     </div>
-    <p class="bio-text">ד"ר יונתן שפירא הוא רופא עור ומנהל שירות הטלדרמטולוגיה במכבי שירותי בריאות,     . בנוסף, הוא מרצה בבית הספר לרפואה בטכניון בחיפה ובבית הספר לרפואה באוניברסיטת תל אביב.</p>
+    <p class="bio-text">ד"ר יונתן שפירא הוא רופא עור ומנהל שירות הטלדרמטולוגיה במכבי שירותי בריאות. בנוסף, הוא מרצה בבית הספר לרפואה בטכניון בחיפה ובבית הספר לרפואה באוניברסיטת תל אביב.</p>
     <p class="bio-text" style="margin-top: 14px;">ד"ר שפירא משמש כיועץ לחברת Predicta-Med LTD, שם הוא מפתח אלגוריתמי למידת מכונה לגילוי מוקדם של מחלות אוטואימוניות ודלקתיות. לפני לימודי הרפואה, שימש כמתכנת בין השנים 1985–1990, וסיים את לימודי הרפואה בשנת 1997. בשנת 2003 סיים התמחות ברפואת עור במרכז סוראסקי בתל אביב.</p>
   </div>
 
-  <!-- EXPERTISE -->
   <div class="section" id="expertise">
     <div class="section-header">
       <div class="section-title">תחומי מומחיות קלינית</div>
@@ -416,7 +199,6 @@
     </div>
   </div>
 
-  <!-- RESEARCH -->
   <div class="section" id="research">
     <div class="section-header">
       <div class="section-title">תחומי מחקר</div>
@@ -432,8 +214,8 @@
     <div class="timeline-item">
       <div class="timeline-year">פסוריאזיס</div>
       <div class="timeline-content">
-        <div class="timeline-title">פסוריאזיס </div>
-        <div class="timeline-sub">מחקרים על חיידקי המעי של חולי סוריאזיס ומחלות נלוות לפסוריאזיס </div>
+        <div class="timeline-title">פסוריאזיס</div>
+        <div class="timeline-sub">מחקרים על חיידקי המעי של חולי פסוריאזיס ומחלות נלוות לפסוריאזיס</div>
       </div>
     </div>
     <div class="timeline-item">
@@ -445,7 +227,6 @@
     </div>
   </div>
 
-  <!-- PUBLICATIONS -->
   <div class="section" id="publications">
     <div class="section-header">
       <div class="section-title">פרסומים נבחרים</div>
@@ -488,7 +269,6 @@
     </div>
   </div>
 
-  <!-- AWARDS -->
   <div class="section" id="awards">
     <div class="section-header">
       <div class="section-title">הישגים ופרסים</div>
@@ -496,11 +276,11 @@
     </div>
     <div class="award-item">
       <div class="award-icon">★</div>
-      <div class="award-text"><strong style="font-weight:600;">עבודה  מצטיינת</strong> — "יעילות חיסון השפעת – ניתוח מסד נתונים ממוחשב"<br><span style="color: var(--text-muted); font-size:12.5px;">הכנס השנתי של מערכות מידע ברפואה, תל אביב 2003</span></div>
+      <div class="award-text"><strong style="font-weight:600;">עבודה מצטיינת</strong> — “יעילות חיסון השפעת – ניתוח מסד נתונים ממוחשב”<br><span style="color: var(--text-muted); font-size:12.5px;">הכנס השנתי של מערכות מידע ברפואה, תל אביב 2003</span></div>
     </div>
     <div class="award-item">
       <div class="award-icon">★</div>
-      <div class="award-text"><strong style="font-weight:600;">פוסטר מצטיין</strong> — "אלגוריתם למידת מכונה לגילוי מוקדם של דלקת מפרקים פסוריאטית"<br><span style="color: var(--text-muted); font-size:12.5px;">הכנס השנתי ה-42 של האגודה הדרמטולוגית הישראלית, תל אביב 2022</span></div>
+      <div class="award-text"><strong style="font-weight:600;">פוסטר מצטיין</strong> — “אלגוריתם למידת מכונה לגילוי מוקדם של דלקת מפרקים פסוריאטית”<br><span style="color: var(--text-muted); font-size:12.5px;">הכנס השנתי ה-42 של האגודה הדרמטולוגית הישראלית, תל אביב 2022</span></div>
     </div>
     <div class="award-item">
       <div class="award-icon">★</div>
@@ -508,7 +288,6 @@
     </div>
   </div>
 
-  <!-- CONTACT -->
   <div class="contact-section" id="contact">
     <div class="contact-info">
       <div class="contact-title">קביעת ייעוץ</div>
@@ -526,10 +305,9 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <span>© 2025 ד"ר יונתן שפירא | רופא עור</span>
-    <span>jonathanshapiro.neocities.org</span>
+    <span>jshapiro.co.il</span>
   </footer>
 
 
