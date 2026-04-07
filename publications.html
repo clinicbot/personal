@@ -1,50 +1,42 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>פרסומים | ד"ר יונתן שפירא</title>
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
-    .filter-btn { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 20px; padding: 6px 16px; font-size: 13px; cursor: pointer; font-family: 'Assistant', sans-serif; color: var(--text-muted); transition: all 0.2s; }
-    .filter-btn:hover, .filter-btn.active { background: var(--green); color: #fff; border-color: var(--green); }
-    .pub-item { padding: 22px 0; border-bottom: 1px solid var(--border-light); display: flex; gap: 16px; align-items: flex-start; }
-    .pub-item:last-child { border-bottom: none; }
-    .pub-num { font-size: 12px; color: var(--text-faint); min-width: 28px; flex-shrink: 0; padding-top: 3px; font-weight: 600; }
-    .pub-body { flex: 1; }
-    .pub-title { font-size: 13.5px; font-weight: 500; line-height: 1.55; margin-bottom: 5px; }
-    .pub-authors { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; line-height: 1.5; }
-    .pub-journal { font-size: 12px; color: var(--text-faint); }
-    .pub-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; align-items: center; }
-    .pub-tag { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: var(--green-light); color: var(--green-dark); font-weight: 500; }
-    .pub-tag.cited { background: #f0f0f0; color: #555; }
-    .pub-tag.award { background: #fff3cd; color: #856404; }
-    .pub-link { font-size: 11px; color: var(--green); text-decoration: none; padding: 2px 8px; border: 1px solid var(--green); border-radius: 10px; white-space: nowrap; }
-    .pub-link:hover { background: var(--green); color: #fff; }
+    .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;}
+    .filter-btn{background:var(--navy-mid);border:1px solid var(--border-light);border-radius:20px;padding:6px 16px;font-size:12.5px;cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--text-muted);transition:all 0.2s;letter-spacing:0.02em;}
+    .filter-btn:hover{border-color:var(--teal);color:var(--teal);}
+    .filter-btn.active{background:var(--teal);color:var(--navy);border-color:var(--teal);font-weight:500;}
+    .pub-item{padding:22px 0;border-bottom:1px solid var(--border-light);display:flex;gap:18px;align-items:flex-start;}
+    .pub-item:last-child{border-bottom:none;}
+    .pub-num{font-size:12px;color:var(--text-faint);min-width:28px;flex-shrink:0;padding-top:3px;font-weight:500;}
+    .pub-body{flex:1;}
+    .pub-title{font-size:13.5px;font-weight:400;line-height:1.6;color:var(--text);margin-bottom:5px;}
+    .pub-authors{font-size:12px;color:var(--text-faint);margin-bottom:4px;line-height:1.5;}
+    .pub-journal{font-size:12px;color:var(--text-muted);}
+    .pub-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;align-items:center;}
+    .pub-tag{font-size:10.5px;padding:2px 8px;border-radius:10px;background:var(--teal-dim);color:var(--teal);font-weight:500;border:1px solid rgba(14,181,168,0.3);}
+    .pub-tag.cited{background:rgba(255,255,255,0.05);color:var(--text-faint);border-color:var(--border-light);}
+    .pub-tag.award{background:var(--gold-dim);color:var(--gold);border-color:rgba(201,168,76,0.3);}
+    .pub-link{font-size:10.5px;color:var(--teal);text-decoration:none;padding:2px 8px;border:1px solid rgba(14,181,168,0.4);border-radius:10px;white-space:nowrap;transition:all 0.2s;}
+    .pub-link:hover{background:var(--teal);color:var(--navy);}
   </style>
 </head>
 <body>
   <nav>
-    <a class="nav-logo" href="index.html"><img src="logo.png" alt="ד"ר יונתן שפירא" style="height:48px; width:auto; vertical-align:middle;" /></a>
+    <a class="nav-logo" href="index.html"><img src="logo.png" alt="logo" onerror="this.style.display='none'" /></a>
     <div class="nav-links">
-      <a href="bio.html">ביוגרפיה</a>
-      <a href="expertise.html">מומחיות</a>
-      <a href="research.html">מחקר</a>
-      <a href="publications.html" class="active">פרסומים</a>
-      <a href="awards.html">פרסים</a>
-      <a href="appointment.html">קביעת תור</a>
-      <a href="contact.html">צור קשר</a>
+      <a href="bio.html">ביוגרפיה</a><a href="expertise.html">מומחיות</a><a href="research.html">מחקר</a><a href="publications.html" class="active">פרסומים</a><a href="awards.html">פרסים</a><a href="appointment.html">קביעת תור</a><a href="contact.html">צור קשר</a>
     </div>
     <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">קביעת ייעוץ</a>
   </nav>
-
   <div class="page-header">
     <div class="page-title">פרסומים מדעיים</div>
     <div class="page-subtitle">38 מאמרים בכתבי עת מדעיים בינלאומיים</div>
   </div>
-
   <div class="content">
     <div class="filter-bar">
       <button class="filter-btn active" onclick="filterPubs('all',this)">הכל (38)</button>
@@ -53,404 +45,55 @@
       <button class="filter-btn" onclick="filterPubs('psoriasis',this)">פסוריאזיס</button>
       <button class="filter-btn" onclick="filterPubs('other',this)">אחר</button>
     </div>
-
     <div id="pub-list">
-
-      <div class="pub-item" data-cat="ai teledermatology">
-        <div class="pub-num">1</div>
-        <div class="pub-body">
-          <div class="pub-title">The Role of AI-Generated Clinical Image Descriptions in Enhancing Teledermatology Diagnosis: A Cross-Sectional Exploratory Study</div>
-          <div class="pub-authors"><strong>Shapiro J</strong>, Greenfield B, Cohen I, Dodiuk-Gad RP, Valdman-Grinshpoun Y, Freud T, Lyakhovitsky A, Khamaysi Z, Avitan-Hersh E.</div>
-          <div class="pub-journal">Diagnostics 2026, 16, 384.</div>
-          <div class="pub-tags"><span class="pub-tag">AI</span><span class="pub-tag">טלדרמטולוגיה</span><a class="pub-link" href="https://doi.org/10.3390/diagnostics16030384" target="_blank">DOI ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="ai">
-        <div class="pub-num">2</div>
-        <div class="pub-body">
-          <div class="pub-title">Beyond Black-Box AI: Comparing ChatGPT-4 Interpretability and Accuracy to CNNs in Melanocytic Lesions Diagnosis</div>
-          <div class="pub-authors">Reiter O, Navarrete-Dechent C, Atlas M, Nathansohn N, Ben Mordehai Y, Mimouni T, Gleicher R, Awwad M, Cohen I, Khamaysi Z*, <strong>Shapiro J</strong>.</div>
-          <div class="pub-journal">JDDG: Journal der Deutschen Dermatologischen Gesellschaft. 2026;1–9.</div>
-          <div class="pub-tags"><span class="pub-tag">AI</span><a class="pub-link" href="https://doi.org/10.1111/ddg.70039" target="_blank">DOI ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="ai psoriasis">
-        <div class="pub-num">3</div>
-        <div class="pub-body">
-          <div class="pub-title">One Step Closer to Conversational Medical Records: ChatGPT Parses Psoriasis Treatments from EMRs</div>
-          <div class="pub-authors"><strong>Shapiro J</strong>, Atlas M, Baum S, Pavlotsky F, Barzilai A, Gershon R, Gleicher R, Cohen I.</div>
-          <div class="pub-journal">J. Clin. Med. 2025, 14, 7845.</div>
-          <div class="pub-tags"><span class="pub-tag">AI</span><span class="pub-tag">פסוריאזיס</span><a class="pub-link" href="https://doi.org/10.3390/jcm14217845" target="_blank">DOI ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="ai">
-        <div class="pub-num">4</div>
-        <div class="pub-body">
-          <div class="pub-title">Exploring AI's Potential in Papilledema Diagnosis to Support Dermatological Treatment Decisions in Rural Healthcare</div>
-          <div class="pub-authors"><strong>Shapiro J</strong>, Atlas M, Fridman N, Cohen I, Khamaysi Z, Awwad M, Silverstein N, Kozlovsky T, Maharshak I.</div>
-          <div class="pub-journal">Diagnostics 2025, 15, 2547.</div>
-          <div class="pub-tags"><span class="pub-tag">AI</span><a class="pub-link" href="https://doi.org/10.3390/diagnostics15192547" target="_blank">DOI ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="ai">
-        <div class="pub-num">5</div>
-        <div class="pub-body">
-          <div class="pub-title">Exploring the Potential of ChatGPT in Identifying Drug–Drug Interactions in Dermatology</div>
-          <div class="pub-authors"><strong>Shapiro J</strong>, Freud T, Kaplan B, Ramot Y.</div>
-          <div class="pub-journal">Isr Med Assoc J. 2025;27(June).</div>
-          <div class="pub-tags"><span class="pub-tag">AI</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+ChatGPT+drug+interactions+dermatology+2025" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="ai">
-        <div class="pub-num">6</div>
-        <div class="pub-body">
-          <div class="pub-title">The Role of ChatGPT in Dermatology Diagnostics</div>
-          <div class="pub-authors">Khamaysi Z, Awwad M, Jiryis B, Bathish N, <strong>Shapiro J</strong>.</div>
-          <div class="pub-journal">Diagnostics 2025, 15, 1529.</div>
-          <div class="pub-tags"><span class="pub-tag">AI</span><a class="pub-link" href="https://doi.org/10.3390/diagnostics15121529" target="_blank">DOI ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="ai">
-        <div class="pub-num">7</div>
-        <div class="pub-body">
-          <div class="pub-title">Assessing ChatGPT-4's Capabilities in Generating Dermatology Board Examination Content: An Explorational Study</div>
-          <div class="pub-authors"><strong>Shapiro J</strong>, Lyakhovitsky A, Freud T, Pavlotsky F, Khamaysi Z, Valdman-Grinshpoun Y, Dodiuk-Gad R, Goldberg I, Ingber A, Kaplan B, Avitan-Hersh E.</div>
-          <div class="pub-journal">Acta Derm Venereol. 2025 Jan 3;105:adv41208.</div>
-          <div class="pub-tags"><span class="pub-tag">AI</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+ChatGPT+dermatology+board+examination+2025" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="ai teledermatology">
-        <div class="pub-num">8</div>
-        <div class="pub-body">
-          <div class="pub-title">The Use of a ChatGPT-4-Based Chatbot in Teledermatology: A Retrospective Exploratory Study</div>
-          <div class="pub-authors"><strong>Shapiro J</strong>, Avitan-Hersh E, Greenfield B, Khamaysi Z, Dodiuk-Gad RP, Valdman-Grinshpoun Y, Freud T, Lyakhovitsky A.</div>
-          <div class="pub-journal">J Dtsch Dermatol Ges. 2024 – in print.</div>
-          <div class="pub-tags"><span class="pub-tag">AI</span><span class="pub-tag">טלדרמטולוגיה</span></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="ai teledermatology">
-        <div class="pub-num">9</div>
-        <div class="pub-body">
-          <div class="pub-title">Response to "Revolutionizing Teledermatology: Exploring the Integration of AI, Including GPT Chatbots for AI-Driven Anamnesis, Diagnosis, and Treatment Plans"</div>
-          <div class="pub-authors"><strong>Shapiro J</strong>, Lyakhovitsky A.</div>
-          <div class="pub-journal">Clin Dermatol. 2024 Jul 17; S0738-081X(24)00132-9.</div>
-          <div class="pub-tags"><span class="pub-tag">AI</span><span class="pub-tag">טלדרמטולוגיה</span><span class="pub-tag cited">צוטט 15×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+revolutionizing+teledermatology+response+2024" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="ai psoriasis">
-        <div class="pub-num">10</div>
-        <div class="pub-body">
-          <div class="pub-title">Application of an NLP AI Tool in Psoriasis: A Cross-Sectional Comparative Study on Identifying Affected Areas in Patient's Data</div>
-          <div class="pub-authors"><strong>Shapiro J</strong>, Baum S, Pavlotzky F, Ben Mordechai Y, Barzilai A, Freud T, Gershon R.</div>
-          <div class="pub-journal">Clinics in Dermatology. 2024 Sep-Oct;42(5):480–486.</div>
-          <div class="pub-tags"><span class="pub-tag">AI</span><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 5×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+NLP+AI+psoriasis+clinics+dermatology+2024" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="ai teledermatology">
-        <div class="pub-num">11</div>
-        <div class="pub-body">
-          <div class="pub-title">Revolutionizing Teledermatology: Exploring the Integration of AI, Including GPT Chatbots for Driven Anamnesis, Diagnosis and Treatment Plans</div>
-          <div class="pub-authors"><strong>Shapiro J</strong>, Lyakhovitsky A.</div>
-          <div class="pub-journal">Clin Dermatol. 2024 Sep-Oct;42(5):492–497.</div>
-          <div class="pub-tags"><span class="pub-tag">AI</span><span class="pub-tag">טלדרמטולוגיה</span><span class="pub-tag cited">צוטט 15×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+revolutionizing+teledermatology+GPT+2024" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="teledermatology">
-        <div class="pub-num">12</div>
-        <div class="pub-body">
-          <div class="pub-title">Does the Diagnostic Accuracy and Rates of Face-to-Face Visits Occurring Shortly After an Asynchronized Tele-Dermatology Consultation Justify Its Implementation: An 18-Month Cohort Study</div>
-          <div class="pub-authors"><strong>Shapiro J</strong>, Kun D, Ingber A, Freud T, Grunfeld O.</div>
-          <div class="pub-journal">Dermatology. 2024;240(3):425–433.</div>
-          <div class="pub-tags"><span class="pub-tag">טלדרמטולוגיה</span><span class="pub-tag cited">צוטט 4×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+teledermatology+asynchronized+cohort+2024" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="ai psoriasis">
-        <div class="pub-num">13</div>
-        <div class="pub-body">
-          <div class="pub-title">Evaluation of a Machine Learning Tool for the Early Identification of Patients with Undiagnosed Psoriatic Arthritis — A Retrospective Population-Based Study</div>
-          <div class="pub-authors"><strong>Shapiro J</strong>, Getz B, Cohen SB, Jenudi Y, Underberger D, Dreyfuss M, Ber TI, Steinberg-Koch S, Ben-Tov A, Shoenfeld Y, Shovman O.</div>
-          <div class="pub-journal">J Transl Autoimmun. 2023 Aug 2;7.</div>
-          <div class="pub-tags"><span class="pub-tag">AI</span><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 19×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+machine+learning+psoriatic+arthritis+2023" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="psoriasis">
-        <div class="pub-num">14</div>
-        <div class="pub-body">
-          <div class="pub-title">Psoriatic Patients Have a Distinct Structural and Functional Fecal Microbiota Compared with Controls</div>
-          <div class="pub-authors"><strong>Shapiro J</strong>, Cohen NA, Shalev V, Uzan A, Koren O, Maharshak N.</div>
-          <div class="pub-journal">J Dermatol. 2019 May 29.</div>
-          <div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 161×</span><span class="pub-tag award">JD Award 2021</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+psoriatic+fecal+microbiota+2019" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="psoriasis">
-        <div class="pub-num">15</div>
-        <div class="pub-body">
-          <div class="pub-title">The Association Between Psoriasis, Diabetes Mellitus, and Atherosclerosis in Israel: A Case-Control Study</div>
-          <div class="pub-authors"><strong>Shapiro J</strong>, Cohen AD, David M, Hodak E, Chodik G, Viner A, Kremer E, Heymann A.</div>
-          <div class="pub-journal">J Am Acad Dermatol. 2007 Apr;56(4):629–34.</div>
-          <div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 390×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+psoriasis+diabetes+atherosclerosis+Israel+2007" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">16</div>
-        <div class="pub-body">
-          <div class="pub-title">Influenza Vaccination: Reduction in Hospitalizations and Death Rates Among Members of Maccabi Health Care Services During the 2000–2001 Influenza Season</div>
-          <div class="pub-authors"><strong>Shapiro Y</strong>, Shemer J, Heymann A, Shalev V, Maharshak N, Chodik G, Green M, Kokia E.</div>
-          <div class="pub-journal">IMAJ 2003;5:706–708.</div>
-          <div class="pub-tags"><span class="pub-tag cited">צוטט 80×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+influenza+vaccination+Maccabi+2003" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="psoriasis">
-        <div class="pub-num">17</div>
-        <div class="pub-body">
-          <div class="pub-title">Psoriasis and Cardiovascular Risk Factors: A Case-Control Study on Inpatients Comparing Psoriasis to Dermatitis</div>
-          <div class="pub-authors"><strong>Shapiro J</strong>, Cohen AD, Weitzman D, Tal R, David M.</div>
-          <div class="pub-journal">J Am Acad Dermatol. 2012 Feb;66(2):252–8.</div>
-          <div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 97×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+psoriasis+cardiovascular+risk+2012" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">18</div>
-        <div class="pub-body">
-          <div class="pub-title">The Role of Erbium-YAG in Treating Male Genital Warts</div>
-          <div class="pub-authors">Jiryis B, Khamaysi K, Avitan-Hersh E, <strong>Shapiro J*</strong>, Dawood M, Shehadeh M, Khamaysi Z.</div>
-          <div class="pub-journal">J. Clin. Med. 2025, 14(5), 1575.</div>
-          <div class="pub-tags"><a class="pub-link" href="https://doi.org/10.3390/jcm14051575" target="_blank">DOI ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">19</div>
-        <div class="pub-body">
-          <div class="pub-title">Lichen Planus and Dyslipidemia: A Case-Control Study</div>
-          <div class="pub-authors">Dreiher J, <strong>Shapiro J</strong>, Cohen AD.</div>
-          <div class="pub-journal">Br J Dermatol. 2009 Sep;161(3):626–9.</div>
-          <div class="pub-tags"><span class="pub-tag cited">צוטט 172×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Dreiher+Shapiro+lichen+planus+dyslipidemia+2009" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">20</div>
-        <div class="pub-body">
-          <div class="pub-title">Reduced Hospitalizations and Death Associated with Influenza Vaccination Among Patients with and without Diabetes</div>
-          <div class="pub-authors">Heymann AD, <strong>Shapiro Y</strong>, Chodick G, Shalev V, Kokia E, Kramer E, Shemer J.</div>
-          <div class="pub-journal">Diabetes Care. 2004 Nov;27(11):2581–4.</div>
-          <div class="pub-tags"><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Heymann+Shapiro+influenza+vaccination+diabetes+2004" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">21</div>
-        <div class="pub-body">
-          <div class="pub-title">Carotenoderma — A Review of the Current Literature</div>
-          <div class="pub-authors">Maharshak N, <strong>Shapiro J</strong>, Trau H.</div>
-          <div class="pub-journal">Int J Dermatol. 2003 Mar;42(3):178–81. Review.</div>
-          <div class="pub-tags"><span class="pub-tag cited">צוטט 86×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Maharshak+Shapiro+carotenoderma+2003" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="psoriasis">
-        <div class="pub-num">22</div>
-        <div class="pub-body">
-          <div class="pub-title">Psoriasis and Ischemic Heart Disease: A Case-Control Study</div>
-          <div class="pub-authors">Cohen AD, <strong>Shapiro Y</strong>, Davidovici B, Meyerovitch J, Vidavsky L, Vardy DA, Shalev R, Sikurel A, Dreiher J.</div>
-          <div class="pub-journal">Giornale Italiano di Dermatologia e Venereologia 2007;142:299–302.</div>
-          <div class="pub-tags"><span class="pub-tag">פסוריאזיס</span></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">23</div>
-        <div class="pub-body">
-          <div class="pub-title">Anti-Thyroid Antibodies, Parietal Cell Antibodies and Tissue Transglutaminase Antibodies in Patients with Autoimmune Thyroid Disease</div>
-          <div class="pub-authors">Twito O, <strong>Shapiro Y</strong>, Golan-Cohen A, Dickstein Y, Ness-Abramof R, Shapiro M.</div>
-          <div class="pub-journal">Arch Med Sci. 2018 Apr;14(3):516–520.</div>
-          <div class="pub-tags"><span class="pub-tag cited">צוטט 18×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Twito+Shapiro+anti-thyroid+antibodies+2018" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">24</div>
-        <div class="pub-body">
-          <div class="pub-title">Cutaneous Manifestations of Internal Malignancies</div>
-          <div class="pub-authors">Brenner S, Tamir E, Maharshak N, <strong>Shapira J</strong>.</div>
-          <div class="pub-journal">Clin Dermatol. 2001 May-Jun;19(3):290–7. Review.</div>
-          <div class="pub-tags"><span class="pub-tag cited">צוטט 90×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Brenner+Shapira+cutaneous+manifestations+malignancies+2001" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">25</div>
-        <div class="pub-body">
-          <div class="pub-title">Increased Warfarin Doses and Decreased International Normalized Ratio Response After Nationwide Generic Switching</div>
-          <div class="pub-authors">Halkin H, <strong>Shapiro J</strong>, Kurnik D, Loebstein R, Shalev V, Kokia E.</div>
-          <div class="pub-journal">Clin Pharmacol Ther. 2003 Sep;74(3):215–21.</div>
-          <div class="pub-tags"><span class="pub-tag cited">צוטט 73×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Halkin+Shapiro+warfarin+generic+switching+2003" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="psoriasis">
-        <div class="pub-num">26</div>
-        <div class="pub-body">
-          <div class="pub-title">Outcome of "Short-Term" Dead Sea Climatotherapy for Psoriasis</div>
-          <div class="pub-authors">Cohen AD, <strong>Shapiro J</strong>, Michael D, Hodak E, Van-Dijk D, Naggan L, Vardy DA.</div>
-          <div class="pub-journal">Acta Derm Venereol. 2008;88(1):90–1.</div>
-          <div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 26×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Cohen+Shapiro+Dead+Sea+psoriasis+2008" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">27</div>
-        <div class="pub-body">
-          <div class="pub-title">Cardiovascular and Metabolic Risk Assessment in Patients with Lichen Planus: A Tertiary Care Hospital-Based Study from Northern India</div>
-          <div class="pub-authors">Mushtaq S, Dogra D, Dogra N, <strong>Shapiro J</strong>, Fatema K, Faizi N, Gupta G.</div>
-          <div class="pub-journal">Indian Dermatology Online Journal. 2020 Jan.</div>
-          <div class="pub-tags"><span class="pub-tag cited">צוטט 14×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Mushtaq+Shapiro+lichen+planus+cardiovascular+2020" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">28</div>
-        <div class="pub-body">
-          <div class="pub-title">Pemphigus Vulgaris: Environmental Factors. Occupational, Behavioral, Medical, and Qualitative Food Frequency Questionnaire</div>
-          <div class="pub-authors">Brenner S, Tur E, <strong>Shapiro J</strong>, Ruocco V, D'Avino M, et al.</div>
-          <div class="pub-journal">Int J Dermatol. 2001 Sep;40(9):562–9.</div>
-          <div class="pub-tags"><span class="pub-tag cited">צוטט 193×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Brenner+Shapiro+pemphigus+vulgaris+environmental+2001" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">29</div>
-        <div class="pub-body">
-          <div class="pub-title">Hospitalization for Primary Varicella-Zoster Virus Infection and Its Complications in Patients from Southern Israel</div>
-          <div class="pub-authors">Somekh E, Maharashak N, <strong>Shapira Y</strong>, Greenberg D, Dagan R.</div>
-          <div class="pub-journal">Infection. 2000 Jul-Aug;28(4):200–4.</div>
-          <div class="pub-tags"><span class="pub-tag cited">צוטט 22×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Somekh+Shapira+varicella+zoster+Israel+2000" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">30</div>
-        <div class="pub-body">
-          <div class="pub-title">A Questionnaire for the Assessment of Pruritus: Validation in Uremic Patients</div>
-          <div class="pub-authors">Yosipovitch G, Zucker I, Boner G, Gafter U, <strong>Shapira Y</strong>, David M.</div>
-          <div class="pub-journal">Acta Derm Venereol. 2001 May;81(2):108–11.</div>
-          <div class="pub-tags"><span class="pub-tag cited">צוטט 258×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Yosipovitch+Shapira+pruritus+questionnaire+uremic+2001" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">31</div>
-        <div class="pub-body">
-          <div class="pub-title">Health Provider Factors Associated with Nonattendance in Pediatric Dermatology Ambulatory Patients</div>
-          <div class="pub-authors">Cohen AD, Goldbart AD, Levi I, <strong>Shapiro J</strong>, Vardy DA.</div>
-          <div class="pub-journal">Pediatr Dermatol. 2007 Mar-Apr;24(2):113–7.</div>
-          <div class="pub-tags"><span class="pub-tag cited">צוטט 19×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Cohen+Shapiro+nonattendance+pediatric+dermatology+2007" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">32</div>
-        <div class="pub-body">
-          <div class="pub-title">Health Provider Determinants of Nonattendance in Pediatric Otolaryngology Patients</div>
-          <div class="pub-authors">Cohen AD, Kaplan DM, <strong>Shapiro J</strong>, Levi I, Vardy DA.</div>
-          <div class="pub-journal">Laryngoscope. 2005 Oct;115(10):1804–8.</div>
-          <div class="pub-tags"><span class="pub-tag cited">צוטט 38×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Cohen+Shapiro+nonattendance+otolaryngology+2005" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="psoriasis">
-        <div class="pub-num">33</div>
-        <div class="pub-body">
-          <div class="pub-title">Psoriasis and Diabetes: A Population-Based Cross-Sectional Study</div>
-          <div class="pub-authors">Cohen AD, Dreiher J, <strong>Shapiro Y</strong>, Vidavsky L, Vardy DA, Davidovici B, Meyerovitch J.</div>
-          <div class="pub-journal">J Eur Acad Dermatol Venereol. 2008 May;22(5):585–9.</div>
-          <div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 242×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Cohen+Shapiro+psoriasis+diabetes+population+2008" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="psoriasis">
-        <div class="pub-num">34</div>
-        <div class="pub-body">
-          <div class="pub-title">Psoriasis and Chronic Obstructive Pulmonary Disease: A Case-Control Study</div>
-          <div class="pub-authors">Dreiher J, Weitzman D, <strong>Shapiro J</strong>, Davidovici B, Cohen AD.</div>
-          <div class="pub-journal">Br J Dermatol. 2008 Jul.</div>
-          <div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 131×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Dreiher+Shapiro+psoriasis+COPD+2008" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="psoriasis">
-        <div class="pub-num">35</div>
-        <div class="pub-body">
-          <div class="pub-title">Association Between Psoriasis and the Metabolic Syndrome: A Cross-Sectional Study</div>
-          <div class="pub-authors">Cohen AD, Sherf M, Vidavsky L, Vardy DA, <strong>Shapiro J</strong>, Meyerovitch J.</div>
-          <div class="pub-journal">Dermatology. 2008;216(2):152–5.</div>
-          <div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 437×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Cohen+Shapiro+psoriasis+metabolic+syndrome+2008" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="psoriasis">
-        <div class="pub-num">36</div>
-        <div class="pub-body">
-          <div class="pub-title">Psoriasis and the Metabolic Syndrome</div>
-          <div class="pub-authors">Cohen AD, Gilutz H, Henkin Y, Zahger D, <strong>Shapiro J</strong>, Bonneh DY, Vardy DA.</div>
-          <div class="pub-journal">Acta Derm Venereol. 2007;87(6):506–9.</div>
-          <div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 252×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Cohen+Shapiro+psoriasis+metabolic+syndrome+acta+2007" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="psoriasis">
-        <div class="pub-num">37</div>
-        <div class="pub-body">
-          <div class="pub-title">Psoriasis and Dyslipidaemia: A Population-Based Study</div>
-          <div class="pub-authors">Dreiher J, Weitzman D, Davidovici B, <strong>Shapiro J</strong>, Cohen AD.</div>
-          <div class="pub-journal">Acta Derm Venereol. 2008;88(6):561–5.</div>
-          <div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 145×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Dreiher+Shapiro+psoriasis+dyslipidaemia+2008" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
-      <div class="pub-item" data-cat="other">
-        <div class="pub-num">38</div>
-        <div class="pub-body">
-          <div class="pub-title">New Insights into Associated Co-morbidities in Patients with Cutaneous T-cell Lymphoma (Mycosis Fungoides)</div>
-          <div class="pub-authors">Hodak E, Lessin S, Friedland R, Freud T, David M, Pavlovsky L, <strong>Shapiro J</strong>, Cohen AD.</div>
-          <div class="pub-journal">Acta Derm Venereol. 2013 Jan 10.</div>
-          <div class="pub-tags"><span class="pub-tag cited">צוטט 32×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Hodak+Shapiro+mycosis+fungoides+comorbidities+2013" target="_blank">PubMed ↗</a></div>
-        </div>
-      </div>
-
+      <div class="pub-item" data-cat="ai teledermatology"><div class="pub-num">1</div><div class="pub-body"><div class="pub-title">The Role of AI-Generated Clinical Image Descriptions in Enhancing Teledermatology Diagnosis: A Cross-Sectional Exploratory Study</div><div class="pub-authors"><strong>Shapiro J</strong>, Greenfield B, Cohen I, Dodiuk-Gad RP, Valdman-Grinshpoun Y, Freud T, Lyakhovitsky A, Khamaysi Z, Avitan-Hersh E.</div><div class="pub-journal">Diagnostics 2026, 16, 384.</div><div class="pub-tags"><span class="pub-tag">AI</span><span class="pub-tag">טלדרמטולוגיה</span><a class="pub-link" href="https://doi.org/10.3390/diagnostics16030384" target="_blank">DOI ↗</a></div></div></div>
+      <div class="pub-item" data-cat="ai"><div class="pub-num">2</div><div class="pub-body"><div class="pub-title">Beyond Black-Box AI: Comparing ChatGPT-4 Interpretability and Accuracy to CNNs in Melanocytic Lesions Diagnosis</div><div class="pub-authors">Reiter O, Navarrete-Dechent C, Atlas M, et al., <strong>Shapiro J</strong>.</div><div class="pub-journal">JDDG: Journal der Deutschen Dermatologischen Gesellschaft. 2026;1–9.</div><div class="pub-tags"><span class="pub-tag">AI</span><a class="pub-link" href="https://doi.org/10.1111/ddg.70039" target="_blank">DOI ↗</a></div></div></div>
+      <div class="pub-item" data-cat="ai psoriasis"><div class="pub-num">3</div><div class="pub-body"><div class="pub-title">One Step Closer to Conversational Medical Records: ChatGPT Parses Psoriasis Treatments from EMRs</div><div class="pub-authors"><strong>Shapiro J</strong>, Atlas M, Baum S, Pavlotsky F, Barzilai A, Gershon R, Gleicher R, Cohen I.</div><div class="pub-journal">J. Clin. Med. 2025, 14, 7845.</div><div class="pub-tags"><span class="pub-tag">AI</span><span class="pub-tag">פסוריאזיס</span><a class="pub-link" href="https://doi.org/10.3390/jcm14217845" target="_blank">DOI ↗</a></div></div></div>
+      <div class="pub-item" data-cat="ai"><div class="pub-num">4</div><div class="pub-body"><div class="pub-title">Exploring AI's Potential in Papilledema Diagnosis to Support Dermatological Treatment Decisions in Rural Healthcare</div><div class="pub-authors"><strong>Shapiro J</strong>, Atlas M, Fridman N, Cohen I, Khamaysi Z, Awwad M, Silverstein N, Kozlovsky T, Maharshak I.</div><div class="pub-journal">Diagnostics 2025, 15, 2547.</div><div class="pub-tags"><span class="pub-tag">AI</span><a class="pub-link" href="https://doi.org/10.3390/diagnostics15192547" target="_blank">DOI ↗</a></div></div></div>
+      <div class="pub-item" data-cat="ai"><div class="pub-num">5</div><div class="pub-body"><div class="pub-title">Exploring the Potential of ChatGPT in Identifying Drug–Drug Interactions in Dermatology</div><div class="pub-authors"><strong>Shapiro J</strong>, Freud T, Kaplan B, Ramot Y.</div><div class="pub-journal">Isr Med Assoc J. 2025;27(June).</div><div class="pub-tags"><span class="pub-tag">AI</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+ChatGPT+drug+interactions+dermatology+2025" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="ai"><div class="pub-num">6</div><div class="pub-body"><div class="pub-title">The Role of ChatGPT in Dermatology Diagnostics</div><div class="pub-authors">Khamaysi Z, Awwad M, Jiryis B, Bathish N, <strong>Shapiro J</strong>.</div><div class="pub-journal">Diagnostics 2025, 15, 1529.</div><div class="pub-tags"><span class="pub-tag">AI</span><a class="pub-link" href="https://doi.org/10.3390/diagnostics15121529" target="_blank">DOI ↗</a></div></div></div>
+      <div class="pub-item" data-cat="ai"><div class="pub-num">7</div><div class="pub-body"><div class="pub-title">Assessing ChatGPT-4's Capabilities in Generating Dermatology Board Examination Content: An Explorational Study</div><div class="pub-authors"><strong>Shapiro J</strong>, Lyakhovitsky A, Freud T, Pavlotsky F, Khamaysi Z, et al.</div><div class="pub-journal">Acta Derm Venereol. 2025 Jan 3;105:adv41208.</div><div class="pub-tags"><span class="pub-tag">AI</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+ChatGPT+dermatology+board+examination+2025" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="ai teledermatology"><div class="pub-num">8</div><div class="pub-body"><div class="pub-title">The Use of a ChatGPT-4-Based Chatbot in Teledermatology: A Retrospective Exploratory Study</div><div class="pub-authors"><strong>Shapiro J</strong>, Avitan-Hersh E, Greenfield B, Khamaysi Z, et al.</div><div class="pub-journal">J Dtsch Dermatol Ges. 2024 – in print.</div><div class="pub-tags"><span class="pub-tag">AI</span><span class="pub-tag">טלדרמטולוגיה</span></div></div></div>
+      <div class="pub-item" data-cat="ai teledermatology"><div class="pub-num">9</div><div class="pub-body"><div class="pub-title">Response to "Revolutionizing Teledermatology: Exploring the Integration of AI, Including GPT Chatbots for AI-Driven Anamnesis, Diagnosis, and Treatment Plans"</div><div class="pub-authors"><strong>Shapiro J</strong>, Lyakhovitsky A.</div><div class="pub-journal">Clin Dermatol. 2024 Jul 17; S0738-081X(24)00132-9.</div><div class="pub-tags"><span class="pub-tag">AI</span><span class="pub-tag">טלדרמטולוגיה</span><span class="pub-tag cited">צוטט 15×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+revolutionizing+teledermatology+response+2024" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="ai psoriasis"><div class="pub-num">10</div><div class="pub-body"><div class="pub-title">Application of an NLP AI Tool in Psoriasis: A Cross-Sectional Comparative Study on Identifying Affected Areas in Patient's Data</div><div class="pub-authors"><strong>Shapiro J</strong>, Baum S, Pavlotzky F, Ben Mordechai Y, Barzilai A, Freud T, Gershon R.</div><div class="pub-journal">Clinics in Dermatology. 2024 Sep-Oct;42(5):480–486.</div><div class="pub-tags"><span class="pub-tag">AI</span><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 5×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+NLP+AI+psoriasis+clinics+dermatology+2024" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="ai teledermatology"><div class="pub-num">11</div><div class="pub-body"><div class="pub-title">Revolutionizing Teledermatology: Exploring the Integration of AI, Including GPT Chatbots for Driven Anamnesis, Diagnosis and Treatment Plans</div><div class="pub-authors"><strong>Shapiro J</strong>, Lyakhovitsky A.</div><div class="pub-journal">Clin Dermatol. 2024 Sep-Oct;42(5):492–497.</div><div class="pub-tags"><span class="pub-tag">AI</span><span class="pub-tag">טלדרמטולוגיה</span><span class="pub-tag cited">צוטט 15×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+revolutionizing+teledermatology+GPT+2024" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="teledermatology"><div class="pub-num">12</div><div class="pub-body"><div class="pub-title">Does the Diagnostic Accuracy and Rates of Face-to-Face Visits Occurring Shortly After an Asynchronized Tele-Dermatology Consultation Justify Its Implementation: An 18-Month Cohort Study</div><div class="pub-authors"><strong>Shapiro J</strong>, Kun D, Ingber A, Freud T, Grunfeld O.</div><div class="pub-journal">Dermatology. 2024;240(3):425–433.</div><div class="pub-tags"><span class="pub-tag">טלדרמטולוגיה</span><span class="pub-tag cited">צוטט 4×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+teledermatology+asynchronized+cohort+2024" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="ai psoriasis"><div class="pub-num">13</div><div class="pub-body"><div class="pub-title">Evaluation of a Machine Learning Tool for the Early Identification of Patients with Undiagnosed Psoriatic Arthritis — A Retrospective Population-Based Study</div><div class="pub-authors"><strong>Shapiro J</strong>, Getz B, Cohen SB, Jenudi Y, Underberger D, Dreyfuss M, et al.</div><div class="pub-journal">J Transl Autoimmun. 2023 Aug 2;7.</div><div class="pub-tags"><span class="pub-tag">AI</span><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 19×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+machine+learning+psoriatic+arthritis+2023" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="psoriasis"><div class="pub-num">14</div><div class="pub-body"><div class="pub-title">Psoriatic Patients Have a Distinct Structural and Functional Fecal Microbiota Compared with Controls</div><div class="pub-authors"><strong>Shapiro J</strong>, Cohen NA, Shalev V, Uzan A, Koren O, Maharshak N.</div><div class="pub-journal">J Dermatol. 2019 May 29.</div><div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 161×</span><span class="pub-tag award">JD Award 2021</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+psoriatic+fecal+microbiota+2019" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="psoriasis"><div class="pub-num">15</div><div class="pub-body"><div class="pub-title">The Association Between Psoriasis, Diabetes Mellitus, and Atherosclerosis in Israel: A Case-Control Study</div><div class="pub-authors"><strong>Shapiro J</strong>, Cohen AD, David M, Hodak E, Chodik G, Viner A, Kremer E, Heymann A.</div><div class="pub-journal">J Am Acad Dermatol. 2007 Apr;56(4):629–34.</div><div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 390×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+psoriasis+diabetes+atherosclerosis+Israel+2007" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">16</div><div class="pub-body"><div class="pub-title">Influenza Vaccination: Reduction in Hospitalizations and Death Rates Among Members of Maccabi Health Care Services During the 2000–2001 Influenza Season</div><div class="pub-authors"><strong>Shapiro Y</strong>, Shemer J, Heymann A, Shalev V, Maharshak N, Chodik G, Green M, Kokia E.</div><div class="pub-journal">IMAJ 2003;5:706–708.</div><div class="pub-tags"><span class="pub-tag cited">צוטט 80×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+influenza+vaccination+Maccabi+2003" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="psoriasis"><div class="pub-num">17</div><div class="pub-body"><div class="pub-title">Psoriasis and Cardiovascular Risk Factors: A Case-Control Study on Inpatients Comparing Psoriasis to Dermatitis</div><div class="pub-authors"><strong>Shapiro J</strong>, Cohen AD, Weitzman D, Tal R, David M.</div><div class="pub-journal">J Am Acad Dermatol. 2012 Feb;66(2):252–8.</div><div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 97×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Shapiro+psoriasis+cardiovascular+risk+2012" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">18</div><div class="pub-body"><div class="pub-title">The Role of Erbium-YAG in Treating Male Genital Warts</div><div class="pub-authors">Jiryis B, Khamaysi K, Avitan-Hersh E, <strong>Shapiro J*</strong>, Dawood M, Shehadeh M, Khamaysi Z.</div><div class="pub-journal">J. Clin. Med. 2025, 14(5), 1575.</div><div class="pub-tags"><a class="pub-link" href="https://doi.org/10.3390/jcm14051575" target="_blank">DOI ↗</a></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">19</div><div class="pub-body"><div class="pub-title">Lichen Planus and Dyslipidemia: A Case-Control Study</div><div class="pub-authors">Dreiher J, <strong>Shapiro J</strong>, Cohen AD.</div><div class="pub-journal">Br J Dermatol. 2009 Sep;161(3):626–9.</div><div class="pub-tags"><span class="pub-tag cited">צוטט 172×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Dreiher+Shapiro+lichen+planus+dyslipidemia+2009" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">20</div><div class="pub-body"><div class="pub-title">Reduced Hospitalizations and Death Associated with Influenza Vaccination Among Patients with and without Diabetes</div><div class="pub-authors">Heymann AD, <strong>Shapiro Y</strong>, Chodick G, Shalev V, Kokia E, Kramer E, Shemer J.</div><div class="pub-journal">Diabetes Care. 2004 Nov;27(11):2581–4.</div><div class="pub-tags"><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Heymann+Shapiro+influenza+vaccination+diabetes+2004" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">21</div><div class="pub-body"><div class="pub-title">Carotenoderma — A Review of the Current Literature</div><div class="pub-authors">Maharshak N, <strong>Shapiro J</strong>, Trau H.</div><div class="pub-journal">Int J Dermatol. 2003 Mar;42(3):178–81. Review.</div><div class="pub-tags"><span class="pub-tag cited">צוטט 86×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Maharshak+Shapiro+carotenoderma+2003" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="psoriasis"><div class="pub-num">22</div><div class="pub-body"><div class="pub-title">Psoriasis and Ischemic Heart Disease: A Case-Control Study</div><div class="pub-authors">Cohen AD, <strong>Shapiro Y</strong>, Davidovici B, Meyerovitch J, Vidavsky L, Vardy DA, et al.</div><div class="pub-journal">Giornale Italiano di Dermatologia e Venereologia 2007;142:299–302.</div><div class="pub-tags"><span class="pub-tag">פסוריאזיס</span></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">23</div><div class="pub-body"><div class="pub-title">Anti-Thyroid Antibodies, Parietal Cell Antibodies and Tissue Transglutaminase Antibodies in Patients with Autoimmune Thyroid Disease</div><div class="pub-authors">Twito O, <strong>Shapiro Y</strong>, Golan-Cohen A, Dickstein Y, Ness-Abramof R, Shapiro M.</div><div class="pub-journal">Arch Med Sci. 2018 Apr;14(3):516–520.</div><div class="pub-tags"><span class="pub-tag cited">צוטט 18×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Twito+Shapiro+anti-thyroid+antibodies+2018" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">24</div><div class="pub-body"><div class="pub-title">Cutaneous Manifestations of Internal Malignancies</div><div class="pub-authors">Brenner S, Tamir E, Maharshak N, <strong>Shapira J</strong>.</div><div class="pub-journal">Clin Dermatol. 2001 May-Jun;19(3):290–7. Review.</div><div class="pub-tags"><span class="pub-tag cited">צוטט 90×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Brenner+Shapira+cutaneous+manifestations+malignancies+2001" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">25</div><div class="pub-body"><div class="pub-title">Increased Warfarin Doses and Decreased International Normalized Ratio Response After Nationwide Generic Switching</div><div class="pub-authors">Halkin H, <strong>Shapiro J</strong>, Kurnik D, Loebstein R, Shalev V, Kokia E.</div><div class="pub-journal">Clin Pharmacol Ther. 2003 Sep;74(3):215–21.</div><div class="pub-tags"><span class="pub-tag cited">צוטט 73×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Halkin+Shapiro+warfarin+generic+switching+2003" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="psoriasis"><div class="pub-num">26</div><div class="pub-body"><div class="pub-title">Outcome of "Short-Term" Dead Sea Climatotherapy for Psoriasis</div><div class="pub-authors">Cohen AD, <strong>Shapiro J</strong>, Michael D, Hodak E, Van-Dijk D, Naggan L, Vardy DA.</div><div class="pub-journal">Acta Derm Venereol. 2008;88(1):90–1.</div><div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 26×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Cohen+Shapiro+Dead+Sea+psoriasis+2008" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">27</div><div class="pub-body"><div class="pub-title">Cardiovascular and Metabolic Risk Assessment in Patients with Lichen Planus: A Tertiary Care Hospital-Based Study from Northern India</div><div class="pub-authors">Mushtaq S, Dogra D, Dogra N, <strong>Shapiro J</strong>, Fatema K, Faizi N, Gupta G.</div><div class="pub-journal">Indian Dermatology Online Journal. 2020 Jan.</div><div class="pub-tags"><span class="pub-tag cited">צוטט 14×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Mushtaq+Shapiro+lichen+planus+cardiovascular+2020" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">28</div><div class="pub-body"><div class="pub-title">Pemphigus Vulgaris: Environmental Factors. Occupational, Behavioral, Medical, and Qualitative Food Frequency Questionnaire</div><div class="pub-authors">Brenner S, Tur E, <strong>Shapiro J</strong>, Ruocco V, D'Avino M, et al.</div><div class="pub-journal">Int J Dermatol. 2001 Sep;40(9):562–9.</div><div class="pub-tags"><span class="pub-tag cited">צוטט 193×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Brenner+Shapiro+pemphigus+vulgaris+environmental+2001" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">29</div><div class="pub-body"><div class="pub-title">Hospitalization for Primary Varicella-Zoster Virus Infection and Its Complications in Patients from Southern Israel</div><div class="pub-authors">Somekh E, Maharashak N, <strong>Shapira Y</strong>, Greenberg D, Dagan R.</div><div class="pub-journal">Infection. 2000 Jul-Aug;28(4):200–4.</div><div class="pub-tags"><span class="pub-tag cited">צוטט 22×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Somekh+Shapira+varicella+zoster+Israel+2000" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">30</div><div class="pub-body"><div class="pub-title">A Questionnaire for the Assessment of Pruritus: Validation in Uremic Patients</div><div class="pub-authors">Yosipovitch G, Zucker I, Boner G, Gafter U, <strong>Shapira Y</strong>, David M.</div><div class="pub-journal">Acta Derm Venereol. 2001 May;81(2):108–11.</div><div class="pub-tags"><span class="pub-tag cited">צוטט 258×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Yosipovitch+Shapira+pruritus+questionnaire+uremic+2001" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">31</div><div class="pub-body"><div class="pub-title">Health Provider Factors Associated with Nonattendance in Pediatric Dermatology Ambulatory Patients</div><div class="pub-authors">Cohen AD, Goldbart AD, Levi I, <strong>Shapiro J</strong>, Vardy DA.</div><div class="pub-journal">Pediatr Dermatol. 2007 Mar-Apr;24(2):113–7.</div><div class="pub-tags"><span class="pub-tag cited">צוטט 19×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Cohen+Shapiro+nonattendance+pediatric+dermatology+2007" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">32</div><div class="pub-body"><div class="pub-title">Health Provider Determinants of Nonattendance in Pediatric Otolaryngology Patients</div><div class="pub-authors">Cohen AD, Kaplan DM, <strong>Shapiro J</strong>, Levi I, Vardy DA.</div><div class="pub-journal">Laryngoscope. 2005 Oct;115(10):1804–8.</div><div class="pub-tags"><span class="pub-tag cited">צוטט 38×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Cohen+Shapiro+nonattendance+otolaryngology+2005" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="psoriasis"><div class="pub-num">33</div><div class="pub-body"><div class="pub-title">Psoriasis and Diabetes: A Population-Based Cross-Sectional Study</div><div class="pub-authors">Cohen AD, Dreiher J, <strong>Shapiro Y</strong>, Vidavsky L, Vardy DA, Davidovici B, Meyerovitch J.</div><div class="pub-journal">J Eur Acad Dermatol Venereol. 2008 May;22(5):585–9.</div><div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 242×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Cohen+Shapiro+psoriasis+diabetes+population+2008" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="psoriasis"><div class="pub-num">34</div><div class="pub-body"><div class="pub-title">Psoriasis and Chronic Obstructive Pulmonary Disease: A Case-Control Study</div><div class="pub-authors">Dreiher J, Weitzman D, <strong>Shapiro J</strong>, Davidovici B, Cohen AD.</div><div class="pub-journal">Br J Dermatol. 2008 Jul.</div><div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 131×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Dreiher+Shapiro+psoriasis+COPD+2008" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="psoriasis"><div class="pub-num">35</div><div class="pub-body"><div class="pub-title">Association Between Psoriasis and the Metabolic Syndrome: A Cross-Sectional Study</div><div class="pub-authors">Cohen AD, Sherf M, Vidavsky L, Vardy DA, <strong>Shapiro J</strong>, Meyerovitch J.</div><div class="pub-journal">Dermatology. 2008;216(2):152–5.</div><div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 437×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Cohen+Shapiro+psoriasis+metabolic+syndrome+2008" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="psoriasis"><div class="pub-num">36</div><div class="pub-body"><div class="pub-title">Psoriasis and the Metabolic Syndrome</div><div class="pub-authors">Cohen AD, Gilutz H, Henkin Y, Zahger D, <strong>Shapiro J</strong>, Bonneh DY, Vardy DA.</div><div class="pub-journal">Acta Derm Venereol. 2007;87(6):506–9.</div><div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 252×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Cohen+Shapiro+psoriasis+metabolic+syndrome+acta+2007" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="psoriasis"><div class="pub-num">37</div><div class="pub-body"><div class="pub-title">Psoriasis and Dyslipidaemia: A Population-Based Study</div><div class="pub-authors">Dreiher J, Weitzman D, Davidovici B, <strong>Shapiro J</strong>, Cohen AD.</div><div class="pub-journal">Acta Derm Venereol. 2008;88(6):561–5.</div><div class="pub-tags"><span class="pub-tag">פסוריאזיס</span><span class="pub-tag cited">צוטט 145×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Dreiher+Shapiro+psoriasis+dyslipidaemia+2008" target="_blank">PubMed ↗</a></div></div></div>
+      <div class="pub-item" data-cat="other"><div class="pub-num">38</div><div class="pub-body"><div class="pub-title">New Insights into Associated Co-morbidities in Patients with Cutaneous T-cell Lymphoma (Mycosis Fungoides)</div><div class="pub-authors">Hodak E, Lessin S, Friedland R, Freud T, David M, Pavlovsky L, <strong>Shapiro J</strong>, Cohen AD.</div><div class="pub-journal">Acta Derm Venereol. 2013 Jan 10.</div><div class="pub-tags"><span class="pub-tag cited">צוטט 32×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Hodak+Shapiro+mycosis+fungoides+comorbidities+2013" target="_blank">PubMed ↗</a></div></div></div>
     </div>
   </div>
-
-  <footer>
-    <span>© 2025 ד"ר יונתן שפירא | רופא עור</span>
-    <span>jshapiro.co.il</span>
-  </footer>
-
+  <footer><span>© 2025 ד"ר יונתן שפירא | רופא עור</span><span>jshapiro.co.il</span></footer>
   <script>
-    function filterPubs(cat, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    function filterPubs(cat,btn){
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
-      document.querySelectorAll('.pub-item').forEach(item => {
-        if (cat === 'all') { item.style.display = 'flex'; return; }
-        item.style.display = (item.getAttribute('data-cat') || '').includes(cat) ? 'flex' : 'none';
+      document.querySelectorAll('.pub-item').forEach(item=>{
+        if(cat==='all'){item.style.display='flex';return;}
+        item.style.display=(item.getAttribute('data-cat')||'').includes(cat)?'flex':'none';
       });
     }
   </script>

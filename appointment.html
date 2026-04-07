@@ -1,113 +1,49 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>קביעת תור | ד"ר יונתן שפירא</title>
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .clinic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .clinic-card { background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 32px; border: 1px solid var(--border-light); }
-    .clinic-card-title { font-size: 17px; font-weight: 600; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border-light); color: var(--green-dark); }
-    .clinic-row { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border-light); align-items: flex-start; }
-    .clinic-row:last-child { border-bottom: none; }
-    .clinic-label { font-size: 12px; color: var(--text-faint); min-width: 110px; flex-shrink: 0; padding-top: 2px; }
-    .clinic-value { font-size: 14px; font-weight: 500; line-height: 1.6; }
-    .clinic-value a { color: var(--green); text-decoration: none; }
-    .clinic-value a:hover { text-decoration: underline; }
-    .hours-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border-light); font-size: 13.5px; }
-    .hours-row:last-child { border-bottom: none; }
-    .hours-day { font-weight: 600; }
-    .hours-time { color: var(--text-muted); }
-    .call-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--green); color: #fff; padding: 11px 24px; border-radius: var(--radius); font-size: 14px; font-weight: 500; text-decoration: none; font-family: 'Assistant', sans-serif; margin-top: 16px; }
-    .call-btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--green); border: 1px solid var(--green); padding: 11px 24px; border-radius: var(--radius); font-size: 14px; font-weight: 500; text-decoration: none; font-family: 'Assistant', sans-serif; margin-top: 10px; }
-    @media (max-width: 720px) {
-      .clinic-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 <body>
   <nav>
-    <a class="nav-logo" href="index.html"><img src="logo.png" alt="ד"ר יונתן שפירא" style="height:48px; width:auto; vertical-align:middle;" /></a>
+    <a class="nav-logo" href="index.html"><img src="logo.png" alt="logo" onerror="this.style.display='none'" /></a>
     <div class="nav-links">
-      <a href="bio.html">ביוגרפיה</a>
-      <a href="expertise.html">מומחיות</a>
-      <a href="research.html">מחקר</a>
-      <a href="publications.html">פרסומים</a>
-      <a href="awards.html">פרסים</a>
-      <a href="appointment.html" class="active">קביעת תור</a>
-      <a href="contact.html">צור קשר</a>
+      <a href="bio.html">ביוגרפיה</a><a href="expertise.html">מומחיות</a><a href="research.html">מחקר</a><a href="publications.html">פרסומים</a><a href="awards.html">פרסים</a><a href="appointment.html" class="active">קביעת תור</a><a href="contact.html">צור קשר</a>
     </div>
-    <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">ייעוץ מקצועי</a>
+    <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">קביעת ייעוץ</a>
   </nav>
-
   <div class="page-header">
     <div class="page-title">קביעת תור</div>
     <div class="page-subtitle">מרפאה בקופת חולים מכבי ומרפאה פרטית — רמת השרון</div>
   </div>
-
   <div class="content">
     <div class="clinic-grid">
-
-      <!-- מכבי -->
       <div class="clinic-card">
         <div class="clinic-card-title">מרפאה לחברי מכבי — רמת השרון</div>
-
-        <div style="margin-bottom: 20px;">
-          <div style="font-size:12px;color:var(--text-faint);margin-bottom:10px;">שעות פעילות</div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:10px;color:var(--text-faint);margin-bottom:12px;letter-spacing:0.1em;text-transform:uppercase;">שעות פעילות</div>
           <div class="hours-row"><span class="hours-day">יום ראשון</span><span class="hours-time">10:00 – 13:00</span></div>
           <div class="hours-row"><span class="hours-day">יום שלישי</span><span class="hours-time">15:00 – 18:00</span></div>
         </div>
-
-        <div class="clinic-row">
-          <div class="clinic-label">טלפון (ממוחשב)</div>
-          <div class="clinic-value"><a href="tel:0539956085">053-995-6085</a></div>
-        </div>
-        <div class="clinic-row">
-          <div class="clinic-label">קביעה אונליין</div>
-          <div class="clinic-value"><a href="https://www.doctorim.co.il" target="_blank">www.doctorim.co.il</a></div>
-        </div>
-        <div class="clinic-row">
-          <div class="clinic-label">מכבי אונליין</div>
-          <div class="clinic-value"><a href="https://www.maccabi4u.co.il" target="_blank">www.maccabi4u.co.il</a></div>
-        </div>
-        <div class="clinic-row">
-          <div class="clinic-label">טלפון מכבי (אנושי)</div>
-          <div class="clinic-value">
-            <a href="tel:1700505353">1-700-50-53-53</a><br>
-            <a href="tel:3555">3555*</a>
-          </div>
-        </div>
-
+        <div class="clinic-row"><div class="clinic-label">טלפון (ממוחשב)</div><div class="clinic-value"><a href="tel:0539956085">053-995-6085</a></div></div>
+        <div class="clinic-row"><div class="clinic-label">קביעה אונליין</div><div class="clinic-value"><a href="https://www.doctorim.co.il" target="_blank">www.doctorim.co.il</a></div></div>
+        <div class="clinic-row"><div class="clinic-label">מכבי אונליין</div><div class="clinic-value"><a href="https://www.maccabi4u.co.il" target="_blank">www.maccabi4u.co.il</a></div></div>
+        <div class="clinic-row"><div class="clinic-label">טלפון מכבי</div><div class="clinic-value"><a href="tel:1700505353">1-700-50-53-53</a> &nbsp;|&nbsp; <a href="tel:3555">3555*</a></div></div>
         <div style="display:flex;flex-direction:column;gap:0;">
           <a class="call-btn" href="tel:0539956085">&#128222; חייג לקביעת תור</a>
           <a class="call-btn-secondary" href="https://www.maccabi4u.co.il" target="_blank">&#128279; קביעה באתר מכבי</a>
         </div>
       </div>
-
-      <!-- פרטי -->
       <div class="clinic-card">
         <div class="clinic-card-title">מרפאה פרטית — רמת השרון</div>
-
-        <div class="clinic-row">
-          <div class="clinic-label">כתובת</div>
-          <div class="clinic-value">רחוב שמואל הנגיד 96<br>רמת השרון</div>
-        </div>
-        <div class="clinic-row">
-          <div class="clinic-label">טלפון</div>
-          <div class="clinic-value"><a href="tel:0505823675">050-582-3675</a></div>
-        </div>
-
+        <div class="clinic-row"><div class="clinic-label">כתובת</div><div class="clinic-value">רחוב שמואל הנגיד 96<br>רמת השרון</div></div>
+        <div class="clinic-row"><div class="clinic-label">טלפון</div><div class="clinic-value"><a href="tel:0505823675">050-582-3675</a></div></div>
         <a class="call-btn" href="tel:0505823675">&#128222; חייג למרפאה הפרטית</a>
       </div>
-
     </div>
   </div>
-
-  <footer>
-    <span>© 2025 ד"ר יונתן שפירא | רופא עור</span>
-    <span>jshapiro.co.il</span>
-  </footer>
+  <footer><span>© 2025 ד"ר יונתן שפירא | רופא עור</span><span>jshapiro.co.il</span></footer>
 </body>
 </html>
