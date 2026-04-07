@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מולוסקום קונטגיוזום | ד"ר יונתן שפירא</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Frank+Ruhl+Libre:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ---- MOLLUSCUM VARIABLES ---- */
+    :root {
+      --pink: #e0607a;
+      --pink-dim: rgba(224,96,122,0.12);
+      --pink-light: rgba(224,96,122,0.25);
+      --amber: #c9933a;
+      --amber-dim: rgba(201,147,58,0.12);
+      --green-ok: #4a9a4a;
+      --green-ok-dim: rgba(74,154,74,0.12);
+      --red-warn: #c84040;
+      --red-warn-dim: rgba(200,64,64,0.12);
+      --blue-info: #3a7acc;
+      --blue-info-dim: rgba(58,122,204,0.12);
+    }
+
+    /* ---- MOLLUSCUM HERO ---- */
+    .mol-hero {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 48px 48px 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .mol-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    }
+    .mol-hero-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .mol-hero-text p {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge {
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid;
+    }
+    .badge-teal { background: var(--teal-dim); color: var(--teal); border-color: rgba(14,181,168,0.3); }
+    .badge-pink { background: var(--pink-dim); color: var(--pink); border-color: rgba(224,96,122,0.3); }
+    .badge-amber { background: var(--amber-dim); color: var(--amber); border-color: rgba(201,147,58,0.3); }
+
+    /* ---- TAB NAV ---- */
+    .mol-tabs {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid var(--border-light);
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+    .mol-tabs::-webkit-scrollbar { display: none; }
+    .mol-tab {
+      padding: 14px 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--text-faint);
+      white-space: nowrap;
+      border-bottom: 2.5px solid transparent;
+      transition: all 0.18s;
+      flex-shrink: 0;
+    }
+    .mol-tab:hover { color: var(--text-muted); }
+    .mol-tab.active { color: var(--pink); border-bottom-color: var(--pink); font-weight: 500; }
+
+    /* ---- SECTIONS ---- */
+    .mol-main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 48px 80px;
+    }
+    .mol-section { display: none; }
+    .mol-section.active { display: block; animation: fadeIn 0.25s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    .mol-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    /* ---- CARDS ---- */
+    .mol-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+    .mol-card h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .mol-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+    .mol-card p:last-child { margin-bottom: 0; }
+    .mol-card p strong { color: var(--text); font-weight: 500; }
+
+    /* ---- VISUAL BUMP ---- */
+    .visual-bump {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--pink-dim);
+      border: 1px solid rgba(224,96,122,0.2);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+    .bump-text { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+    .bump-text strong { color: var(--pink); font-weight: 500; }
+
+    /* ---- INFO GRID ---- */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .info-cell {
+      background: var(--navy-mid);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      border: 1px solid var(--border-light);
+    }
+    .info-cell .label { font-size: 11px; color: var(--text-faint); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+    .info-cell .value { font-size: 15px; font-weight: 500; color: var(--white); }
+    .info-cell .sub { font-size: 12.5px; color: var(--text-muted); margin-top: 3px; }
+
+    /* ---- ROUTE ROWS ---- */
+    .route-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .route-row:last-child { border-bottom: none; }
+    .route-icon {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+      background: var(--navy-light);
+    }
+    .route-body .title { font-size: 15px; font-weight: 500; color: var(--white); margin-bottom: 5px; }
+    .route-body .desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+    /* ---- RISK BARS ---- */
+    .risk-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .risk-label { font-size: 14px; color: var(--text-muted); min-width: 170px; text-align: right; }
+    .risk-bar-track { flex: 1; height: 8px; background: var(--navy); border-radius: 4px; overflow: hidden; border: 1px solid var(--border-light); }
+    .risk-bar-fill { height: 100%; border-radius: 4px; }
+    .risk-pct { font-size: 12px; color: var(--text-faint); min-width: 50px; font-weight: 500; }
+
+    /* ---- TIMELINE ---- */
+    .tl-wrap { position: relative; padding-right: 28px; }
+    .tl-wrap::before { content: ''; position: absolute; right: 9px; top: 6px; bottom: 6px; width: 1.5px; background: var(--border); }
+    .tl-item { position: relative; margin-bottom: 24px; }
+    .tl-dot { position: absolute; right: -24px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--navy-mid); border: 2px solid var(--border); }
+    .tl-dot.active { background: var(--pink); border-color: var(--pink); }
+    .tl-title { font-size: 15px; font-weight: 500; color: var(--white); margin-bottom: 5px; }
+    .tl-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+    /* ---- TREATMENT CARDS ---- */
+    .tx-card {
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 18px 22px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      background: var(--navy-mid);
+    }
+    .tx-card:hover { border-color: var(--teal); }
+    .tc-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .tc-title { font-size: 15px; font-weight: 500; color: var(--white); }
+    .tc-tag { font-size: 12px; padding: 3px 12px; border-radius: 999px; font-weight: 500; white-space: nowrap; }
+    .tc-common { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(14,181,168,0.3); }
+    .tc-office { background: var(--blue-info-dim); color: #78aaee; border: 1px solid rgba(58,122,204,0.3); }
+    .tc-rx { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(201,147,58,0.3); }
+    .tc-watch { background: rgba(255,255,255,0.05); color: var(--text-muted); border: 1px solid var(--border-light); }
+    .tc-body { font-size: 14px; color: var(--text-muted); line-height: 1.75; margin-top: 14px; display: none; padding-top: 14px; border-top: 1px solid var(--border-light); }
+    .tx-card.open .tc-body { display: block; }
+    .tc-chevron { font-size: 11px; color: var(--text-faint); transition: transform 0.2s; flex-shrink: 0; }
+    .tx-card.open .tc-chevron { transform: rotate(180deg); }
+
+    /* ---- ALERTS ---- */
+    .mol-alert {
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      border: 1px solid;
+      font-weight: 400;
+    }
+    .alert-warn { background: var(--amber-dim); color: var(--amber); border-color: rgba(201,147,58,0.3); }
+    .alert-info { background: var(--blue-info-dim); color: #78aaee; border-color: rgba(58,122,204,0.3); }
+    .alert-danger { background: var(--red-warn-dim); color: #e07070; border-color: rgba(200,64,64,0.3); }
+    .alert-success { background: var(--green-ok-dim); color: #7acc7a; border-color: rgba(74,154,74,0.3); }
+
+    /* ---- DO / DONT ---- */
+    .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .do-col { padding: 18px 20px; border-radius: var(--radius-lg); border: 1px solid rgba(74,154,74,0.3); background: var(--green-ok-dim); }
+    .dont-col { padding: 18px 20px; border-radius: var(--radius-lg); border: 1px solid rgba(200,64,64,0.3); background: var(--red-warn-dim); }
+    .do-col h3 { font-size: 14px; font-weight: 500; color: #7acc7a; margin-bottom: 12px; }
+    .dont-col h3 { font-size: 14px; font-weight: 500; color: #e07070; margin-bottom: 12px; }
+    .do-item, .dont-item { font-size: 13.5px; display: flex; gap: 8px; margin-bottom: 8px; line-height: 1.6; align-items: flex-start; }
+    .do-marker { color: #7acc7a; font-weight: 700; flex-shrink: 0; }
+    .dont-marker { color: #e07070; font-weight: 700; flex-shrink: 0; }
+    .do-item span:last-child { color: rgba(122,204,122,0.85); }
+    .dont-item span:last-child { color: rgba(224,112,112,0.85); }
+
+    /* ---- QUIZ ---- */
+    .quiz-q { font-size: 16px; font-weight: 500; color: var(--white); margin-bottom: 18px; line-height: 1.55; }
+    .quiz-opts { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .quiz-opt {
+      padding: 12px 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-light);
+      background: var(--navy);
+      font-size: 14px;
+      color: var(--text-muted);
+      cursor: pointer;
+      text-align: right;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.15s;
+      line-height: 1.5;
+    }
+    .quiz-opt:hover { background: var(--navy-light); color: var(--text); border-color: var(--border); }
+    .quiz-opt.correct { background: var(--green-ok-dim); color: #7acc7a; border-color: rgba(74,154,74,0.4); font-weight: 500; }
+    .quiz-opt.wrong { background: var(--red-warn-dim); color: #e07070; border-color: rgba(200,64,64,0.4); }
+    .quiz-feedback { font-size: 14px; line-height: 1.7; padding: 12px 16px; border-radius: var(--radius); display: none; margin-bottom: 16px; border: 1px solid; }
+    .quiz-nav { display: flex; justify-content: space-between; align-items: center; }
+    .quiz-progress { font-size: 13px; color: var(--text-faint); font-weight: 500; }
+    .mol-btn {
+      padding: 9px 24px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--navy);
+      color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.15s;
+    }
+    .mol-btn:hover { background: var(--navy-light); }
+    .mol-btn:disabled { opacity: 0.35; cursor: default; }
+    .mol-btn-primary {
+      background: var(--pink);
+      color: var(--white);
+      border-color: var(--pink);
+    }
+    .mol-btn-primary:hover { opacity: 0.85; }
+
+    /* ---- QUIZ RESULT ---- */
+    .quiz-result { text-align: center; padding: 36px 16px; }
+    .quiz-result .score { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; color: var(--pink); }
+    .quiz-result .score-label { font-size: 15px; color: var(--text-muted); margin-bottom: 20px; }
+    .quiz-result p { font-size: 15px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.7; }
+
+    /* ---- SIMULATOR ---- */
+    .sim-tbtn {
+      padding: 9px 16px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--border-light);
+      background: var(--navy-mid);
+      color: var(--text-muted);
+      transition: all 0.18s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .sim-tbtn:hover { border-color: var(--teal); color: var(--teal); }
+    .sim-tbtn.sim-sel { border-color: var(--teal); background: var(--teal-dim); color: var(--teal); }
+    .sim-pill {
+      background: var(--navy-mid);
+      border: 1px solid var(--border-light);
+      border-radius: 999px;
+      padding: 4px 16px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .sim-pill b { color: var(--text); }
+
+    .sim-info-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+    }
+    .sim-step-num { font-size: 11px; font-weight: 500; color: var(--teal); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
+    .sim-step-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; color: var(--white); margin-bottom: 8px; line-height: 1.3; }
+    .sim-step-desc { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
+    .sim-progress-bar { margin-top: 14px; height: 4px; background: var(--navy); border-radius: 2px; overflow: hidden; }
+    .sim-pb-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--teal), #5DCAA5); transition: width 0.5s; }
+    .sim-dots { display: flex; gap: 5px; margin-top: 10px; justify-content: flex-end; }
+    .sim-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); transition: background 0.3s; }
+    .sim-dot.done { background: var(--teal); }
+    .sim-dot.current { background: var(--blue-info); }
+
+    .sim-win {
+      display: none;
+      background: var(--green-ok-dim);
+      border: 1.5px solid rgba(74,154,74,0.35);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .sim-win h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: #7acc7a; margin-bottom: 10px; }
+    .sim-win p { font-size: 14px; color: rgba(122,204,122,0.8); line-height: 1.7; margin-bottom: 16px; }
+
+    .sim-legend { margin-top: 12px; background: var(--navy-mid); border: 1px solid var(--border-light); border-radius: var(--radius); padding: 14px 16px; }
+    .sim-legend-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); margin-bottom: 10px; }
+    .sim-legend-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
+    .sim-legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+    .sim-hint { padding: 8px 14px 10px; background: var(--navy); font-size: 12px; color: var(--text-faint); text-align: center; font-style: italic; border-top: 1px solid var(--border-light); }
+
+    .mol-doc-footer {
+      margin-top: 36px;
+      padding: 16px 20px;
+      background: var(--navy-mid);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-light);
+      font-size: 13px;
+      color: var(--text-faint);
+      line-height: 1.7;
+    }
+    .mol-doc-footer strong { color: var(--text-muted); }
+
+    @media (max-width: 720px) {
+      .mol-hero { padding: 36px 20px 24px; flex-direction: column; }
+      .mol-tabs { padding: 0 20px; }
+      .mol-main { padding: 32px 20px 60px; }
+      .mol-hero-text h1 { font-size: 30px; }
+      .info-grid, .do-dont { grid-template-columns: 1fr; }
+      #sim-layout { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SITE NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html"><img src="logo.png" alt="ד&quot;ר יונתן שפירא" onerror="this.style.display='none'" /></a>
+    <div class="nav-links">
+      <a href="bio.html">ביוגרפיה</a>
+      <a href="expertise.html" class="active">מומחיות</a>
+      <a href="research.html">מחקר</a>
+      <a href="publications.html">פרסומים</a>
+      <a href="awards.html">פרסים</a>
+      <a href="appointment.html">קביעת תור</a>
+      <a href="contact.html">צור קשר</a>
+    </div>
+    <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">קביעת ייעוץ</a>
+  </nav>
+
+  <!-- MOLLUSCUM HERO -->
+  <div class="mol-hero">
+    <svg style="flex-shrink:0;width:64px;height:64px;" viewBox="0 0 56 56" fill="none">
+      <circle cx="28" cy="28" r="26" fill="rgba(224,96,122,0.12)" stroke="rgba(224,96,122,0.4)" stroke-width="1"/>
+      <circle cx="21" cy="24" r="7" fill="rgba(224,96,122,0.25)" stroke="#e0607a" stroke-width="0.8"/>
+      <circle cx="34" cy="20" r="5.5" fill="rgba(224,96,122,0.25)" stroke="#e0607a" stroke-width="0.8"/>
+      <circle cx="28" cy="34" r="7.5" fill="rgba(224,96,122,0.25)" stroke="#e0607a" stroke-width="0.8"/>
+      <circle cx="21" cy="24" r="2" fill="#e0607a"/>
+      <circle cx="34" cy="20" r="1.6" fill="#e0607a"/>
+      <circle cx="28" cy="34" r="2.2" fill="#e0607a"/>
+    </svg>
+    <div class="mol-hero-text">
+      <h1>מולוסקום קונטגיוזום</h1>
+      <p>המדריך המלא — מהי המחלה, כיצד היא מתפשטת, ומה ניתן לעשות בנוגע אליה.</p>
+      <div class="badge-row">
+        <span class="badge badge-teal">בדרך כלל לא מסוכן</span>
+        <span class="badge badge-pink">מדבק</span>
+        <span class="badge badge-amber">חולף לרוב מעצמו</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB NAV -->
+  <div class="mol-tabs">
+    <button class="mol-tab" onclick="showSection('what',this)">מהו?</button>
+    <button class="mol-tab" onclick="showSection('spread',this)">כיצד מתפשט</button>
+    <button class="mol-tab active" onclick="showSection('course',this)">לוח זמנים</button>
+    <button class="mol-tab" onclick="showSection('treat',this)">טיפול</button>
+    <button class="mol-tab" onclick="showSection('prevent',this)">מניעה</button>
+    <button class="mol-tab" onclick="showSection('complications',this)">סיבוכים</button>
+    <button class="mol-tab" onclick="showSection('quiz',this)">חידון</button>
+    <button class="mol-tab" onclick="showSection('simulator',this)">🎮 סימולטור</button>
+  </div>
+
+  <main class="mol-main">
+
+    <!-- WHAT IS IT -->
+    <section class="mol-section" id="section-what">
+      <h2 class="mol-heading">מהו מולוסקום קונטגיוזום?</h2>
+      <div class="visual-bump">
+        <svg width="80" height="80" viewBox="0 0 88 88" style="flex-shrink:0">
+          <circle cx="44" cy="44" r="40" fill="rgba(224,96,122,0.1)" stroke="rgba(224,96,122,0.3)" stroke-width="1"/>
+          <circle cx="32" cy="37" r="10" fill="rgba(224,96,122,0.2)" stroke="#e0607a" stroke-width="0.8"/>
+          <circle cx="51" cy="32" r="8" fill="rgba(224,96,122,0.2)" stroke="#e0607a" stroke-width="0.8"/>
+          <circle cx="41" cy="51" r="11" fill="rgba(224,96,122,0.2)" stroke="#e0607a" stroke-width="0.8"/>
+          <circle cx="32" cy="37" r="2.5" fill="#e0607a"/>
+          <circle cx="51" cy="32" r="2" fill="#e0607a"/>
+          <circle cx="41" cy="51" r="3" fill="#e0607a"/>
+        </svg>
+        <div class="bump-text"><strong>פצעונים עגולים קטנים</strong> עם שקע אופייני במרכזם (umbilication). הם בצבע העור או גוון פנינה, רוחבם 2–5 מ"מ, ועשויים להיראות מבריקים. בדרך כלל אינם כואבים.</div>
+      </div>
+      <div class="mol-card">
+        <h2>עובדות בסיסיות</h2>
+        <p>מולוסקום קונטגיוזום היא זיהום ויראלי עורי נפוץ הנגרם על ידי <em>נגיף מולוסקום קונטגיוזום</em> (MCV), השייך למשפחת הפוקסווירוס. למרות השם המפחיד, מדובר כמעט תמיד במצב קל וחולף מעצמו.</p>
+        <p>הנגיף גורם לפצעונים מורמים קטנים על העור. הוא <strong>אינו</strong> מתפשט לאיברים פנימיים ואינו הופך לסרטן.</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-cell"><div class="label">גורם</div><div class="value">נגיף מולוסקום קונטגיוזום</div><div class="sub">משפחת פוקסווירוס (DNA virus)</div></div>
+        <div class="info-cell"><div class="label">מי נפגע</div><div class="value">כל אחד</div><div class="sub">שכיח במיוחד בילדים מתחת לגיל 10</div></div>
+        <div class="info-cell"><div class="label">מראה</div><div class="value">פצעונים כיפתיים 2–5 מ"מ</div><div class="sub">שקע מרכזי אופייני (umbilication)</div></div>
+        <div class="info-cell"><div class="label">מיקום</div><div class="value">בכל מקום על העור</div><div class="sub">לא בכפות ידיים, רגליים, או ריריות</div></div>
+      </div>
+      <div class="mol-card">
+        <h2>מה יש בתוך הפצעון?</h2>
+        <p>כל פצעון מכיל גרעין לבן, שעווי של תאי עור נגועים וחלקיקי נגיף. גרעין זה מדבק מאוד — לחיצה על פצעון משחררת אותו ועלולה להפיץ את הזיהום לעור שבסביבה או לאנשים אחרים.</p>
+      </div>
+    </section>
+
+    <!-- SPREAD -->
+    <section class="mol-section" id="section-spread">
+      <h2 class="mol-heading">כיצד הנגיף מתפשט?</h2>
+      <div class="mol-alert alert-info">הנגיף חי בעור בלבד — הוא אינו יכול להתפשט לאיברים פנימיים או דרך מחזור הדם.</div>
+      <div class="mol-card">
+        <h2>דרכי הדבקה</h2>
+        <div class="route-row"><div class="route-icon">👋</div><div class="route-body"><div class="title">מגע ישיר בין עור לעור</div><div class="desc">נגיעה, חיבוק, או משחק קרוב עם מי שיש לו מולוסקום. הדרך השכיחה ביותר בילדים.</div></div></div>
+        <div class="route-row"><div class="route-icon">🧸</div><div class="route-body"><div class="title">חפצים מזוהמים (fomites)</div><div class="desc">מגבות, בגדים, ספוגים, או צעצועים משותפים שנגעו בפצעון פעיל.</div></div></div>
+        <div class="route-row"><div class="route-icon">🤚</div><div class="route-body"><div class="title">הדבקה עצמית (autoinoculation)</div><div class="desc">גרידה בפצעון ולאחר מכן נגיעה באזור אחר. לכן פצעונים חדשים מופיעים לעיתים קרובות באשכולות.</div></div></div>
+        <div class="route-row"><div class="route-icon">❤️</div><div class="route-body"><div class="title">מגע מיני (במבוגרים)</div><div class="desc">אצל מבוגרים, מולוסקום באזור המפשעה מועבר לעתים קרובות במגע מיני.</div></div></div>
+      </div>
+      <div class="mol-card">
+        <h2>גורמי סיכון</h2>
+        <div class="risk-row"><span class="risk-label">ילדים (מתחת לגיל 10)</span><div class="risk-bar-track"><div class="risk-bar-fill" style="width:90%;background:var(--teal)"></div></div><span class="risk-pct">גבוה</span></div>
+        <div class="risk-row"><span class="risk-label">אקזמה / עור אטופי</span><div class="risk-bar-track"><div class="risk-bar-fill" style="width:80%;background:var(--amber)"></div></div><span class="risk-pct">גבוה</span></div>
+        <div class="risk-row"><span class="risk-label">מדוכאי חיסון</span><div class="risk-bar-track"><div class="risk-bar-fill" style="width:95%;background:var(--red-warn)"></div></div><span class="risk-pct">גבוה מאוד</span></div>
+        <div class="risk-row"><span class="risk-label">ספורטאי מגע</span><div class="risk-bar-track"><div class="risk-bar-fill" style="width:55%;background:var(--blue-info)"></div></div><span class="risk-pct">בינוני</span></div>
+        <div class="risk-row"><span class="risk-label">מבוגרים בריאים</span><div class="risk-bar-track"><div class="risk-bar-fill" style="width:20%;background:var(--text-faint)"></div></div><span class="risk-pct">נמוך</span></div>
+      </div>
+      <div class="mol-alert alert-warn">הנגיף <strong>אינו</strong> מתפשט באוויר, במזון או מים מזוהמים, או בדם.</div>
+    </section>
+
+    <!-- COURSE -->
+    <section class="mol-section active" id="section-course">
+      <h2 class="mol-heading">מה לצפות לאורך הזמן</h2>
+      <div class="info-grid" style="margin-bottom:20px">
+        <div class="info-cell"><div class="label">תקופת דגירה</div><div class="value">2–7 שבועות</div><div class="sub">זמן מהחשיפה עד לפצעונים הראשונים</div></div>
+        <div class="info-cell"><div class="label">משך טיפוסי</div><div class="value">6–18 חודשים</div><div class="sub">רוב המקרים חולפים מעצמם</div></div>
+      </div>
+      <div class="mol-card">
+        <h2>כיצד הזיהום מתפתח בדרך כלל</h2>
+        <div class="tl-wrap">
+          <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title">שבוע 0 — חשיפה</div><div class="tl-desc">הנגיף נכנס לעור דרך שברים קטנים. עדיין אין תסמינים.</div></div>
+          <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title">שבועות 2–7 — הפצעונים הראשונים מופיעים</div><div class="tl-desc">פצעונים קטנים צצים. בדרך כלל 1–10 נגעים בתחילה. ללא כאב, ללא חום.</div></div>
+          <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title">שבועות 8–24 — שלב ההתפשטות</div><div class="tl-desc">גרידה מפיצה את הנגיף. פצעונים חדשים מופיעים סביב הנגעים המקוריים.</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-title">חודשים 6–18 — תגובת המערכת החיסונית</div><div class="tl-desc">הפצעונים עשויים להאדים ולהתלקח לפני שהם נפתרים — זהו סימן טוב.</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-title">החלמה — העור מתנקה</div><div class="tl-desc">כל הפצעונים נפתרים, בדרך כלל ללא צלקת. מתפתחת חסינות.</div></div>
+        </div>
+      </div>
+      <div class="mol-alert alert-info">אדמומיות ונפיחות קלה לפני היעלמות הפצעונים — סימן שהמערכת החיסונית נלחמת. זהו סימן תקין ומעודד.</div>
+    </section>
+
+    <!-- TREATMENT -->
+    <section class="mol-section" id="section-treat">
+      <h2 class="mol-heading">אפשרויות טיפול</h2>
+      <div class="mol-alert alert-success">בילדים בריאים, לעיתים קרובות "לא לטפל" הוא הבחירה הנכונה — הזיהום נפתר מעצמו וטיפול עלול להיות לא נעים.</div>
+      <div class="mol-card">
+        <h2>מתי כדאי לטפל?</h2>
+        <p>טיפול <strong>מומלץ</strong> כאשר: הפצעונים רבים או מתפשטים במהירות; גורמים לגירוד משמעותי; נמצאים באזור רגיש; האדם הוא מדוכא חיסון; או מבוגרים עם מולוסקום גניטלי.</p>
+        <p>טיפול <strong>אופציונלי</strong> (המתנה תקפה באותה מידה) עבור ילדים בריאים עם נגעים מעטים.</p>
+      </div>
+      <p style="font-size:14px;color:var(--text-faint);margin-bottom:14px;">לחצו על כל אפשרות לפרטים נוספים.</p>
+      <div class="tx-card" onclick="toggleTx(this)"><div class="tc-header"><span class="tc-title">המתנה (ללא טיפול)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-watch">השגחה</span><span class="tc-chevron">▾</span></div></div><div class="tc-body">הבחירה הטובה ביותר לילדים בריאים עם נגעים מעטים. הזיהום כמעט תמיד נפתר מעצמו תוך 6–18 חודשים. ללא אי-נוחות, ללא סיכון לצלקות מהטיפול.</div></div>
+      <div class="tx-card" onclick="toggleTx(this)"><div class="tc-header"><span class="tc-title">קנטרידין</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-office">אצל הרופא</span><span class="tc-chevron">▾</span></div></div><div class="tc-body">מורח על ידי הרופא ישירות על כל פצעון. גורם לשלפוחית שמרימה את הנגע מהעור. אינו כואב בעת המריחה. יעיל מאוד — לרוב הטיפול הראשון בילדים. בדרך כלל דורש 1–3 ביקורים.</div></div>
+      <div class="tx-card" onclick="toggleTx(this)"><div class="tc-header"><span class="tc-title">קריותרפיה (הקפאה)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-office">אצל הרופא</span><span class="tc-chevron">▾</span></div></div><div class="tc-body">חנקן נוזלי מורח על כל פצעון. מהיר ויעיל אך עוקץ במהלך הטיפול. עשוי לדרוש מספר מפגשים. עלול להשאיר כתמים כהים זמניים.</div></div>
+      <div class="tx-card" onclick="toggleTx(this)"><div class="tc-header"><span class="tc-title">קוראטאז' (גרידה)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-office">אצל הרופא</span><span class="tc-chevron">▾</span></div></div><div class="tc-body">כלי קטן (קוראט) מסיר פיזית את הגרעין. מהיר ומסיר את הנגע מיד. קרם הרדמה מקומי מורח מראש. הטוב ביותר למספר קטן של נגעים גדולים.</div></div>
+      <div class="tx-card" onclick="toggleTx(this)"><div class="tc-header"><span class="tc-title">קרם פודופילוטוקסין</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-rx">מרשם רופא</span><span class="tc-chevron">▾</span></div></div><div class="tc-body">מורח בבית, פעמיים ביום, 3 ימים טיפול ו-4 ימי הפסקה, עד 4–6 שבועות. אינו בטוח בהריון. נפוץ במולוסקום גניטלי.</div></div>
+      <div class="tx-card" onclick="toggleTx(this)"><div class="tc-header"><span class="tc-title">קרם אימיקווימוד</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-rx">מרשם רופא</span><span class="tc-chevron">▾</span></div></div><div class="tc-body">קרם ממריץ חיסוני המורח 3 פעמים בשבוע. פועל על ידי גירוי המערכת החיסונית לתקוף את הנגיף. עלול לגרום לאדמומיות מקומית משמעותית.</div></div>
+      <div class="tx-card" onclick="toggleTx(this)"><div class="tc-header"><span class="tc-title">חומצה סליצילית</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-common">ללא מרשם</span><span class="tc-chevron">▾</span></div></div><div class="tc-body">זמין ללא מרשם. מורח יומיומית. מפרק לאט את רקמת הנגע. פחות יעיל מהליכים בקליניקה. שימושי כאשר טיפול מקצועי אינו נגיש.</div></div>
+      <div class="mol-alert alert-warn" style="margin-top:16px;"><strong>לעולם אל תלחצו, תפוצצו, או תגרדו את הפצעונים בעצמכם</strong> — הדבר מגביר את הסיכון להתפשטות ועלול לגרום לצלקות.</div>
+    </section>
+
+    <!-- PREVENTION -->
+    <section class="mol-section" id="section-prevent">
+      <h2 class="mol-heading">הפחתת הסיכון להתפשטות</h2>
+      <div class="do-dont">
+        <div class="do-col">
+          <h3>מה לעשות ✓</h3>
+          <div class="do-item"><span class="do-marker">✓</span><span>כסו פצעונים בבגדים או תחבושות</span></div>
+          <div class="do-item"><span class="do-marker">✓</span><span>שטפו ידיים לאחר נגיעה בפצעונים</span></div>
+          <div class="do-item"><span class="do-marker">✓</span><span>השתמשו במגבת ובגדים משלכם</span></div>
+          <div class="do-item"><span class="do-marker">✓</span><span>שמרו על ציפורניים קצרות</span></div>
+          <div class="do-item"><span class="do-marker">✓</span><span>הודיעו למאמני הספורט</span></div>
+        </div>
+        <div class="dont-col">
+          <h3>מה להימנע ✗</h3>
+          <div class="dont-item"><span class="dont-marker">✗</span><span>שיתוף מגבות, ספוגים, או בגדים</span></div>
+          <div class="dont-item"><span class="dont-marker">✗</span><span>גרידה או נגיעה בפצעונים</span></div>
+          <div class="dont-item"><span class="dont-marker">✗</span><span>גילוח מעל אזורים עם פצעונים</span></div>
+          <div class="dont-item"><span class="dont-marker">✗</span><span>בריכות שחייה ללא כיסוי הפצעונים</span></div>
+          <div class="dont-item"><span class="dont-marker">✗</span><span>ספורט מגע ללא כיסוי הפצעונים</span></div>
+        </div>
+      </div>
+      <div class="mol-card">
+        <h2>האם ילדי צריך להישאר בבית?</h2>
+        <p>בדרך כלל, <strong>לא</strong>. ילדים עם מולוסקום אינם צריכים להיות מוחרגים מהגן או ממסגרות חינוך. כל עוד הפצעונים מכוסים, נוכחות תקינה בסדר גמור.</p>
+      </div>
+    </section>
+
+    <!-- COMPLICATIONS -->
+    <section class="mol-section" id="section-complications">
+      <h2 class="mol-heading">סיבוכים ומצבים מיוחדים</h2>
+      <div class="mol-alert alert-success">עבור רוב האנשים הבריאים, למולוסקום קונטגיוזום אין סיבוכים חמורים.</div>
+      <div class="mol-card" style="margin-top:16px">
+        <h2>סיבוכים אפשריים</h2>
+        <div class="route-row"><div class="route-icon">⚠️</div><div class="route-body"><div class="title">זיהום חיידקי משני</div><div class="desc">אם פצעונים נגרדים ונפתחים, חיידקים יכולים להיכנס. סימנים: אדמומיות גוברת, חום, נפיחות, כאב.</div></div></div>
+        <div class="route-row"><div class="route-icon">🔴</div><div class="route-body"><div class="title">דרמטיטיס מולוסקום</div><div class="desc">פריחה אדומה, מגרדת, דמוית אקזמה סביב הפצעונים. לרוב מעידה שהפצעונים עומדים להתנקות.</div></div></div>
+        <div class="route-row"><div class="route-icon">📍</div><div class="route-body"><div class="title">צלקות</div><div class="desc">הזיהום עצמו לעיתים רחוקות גורם לצלקות. גרידה אגרסיבית או טיפולים לא זהירים עלולים להשאיר כתמים.</div></div></div>
+        <div class="route-row"><div class="route-icon">👁️</div><div class="route-body"><div class="title">מעורבות עיניים</div><div class="desc">פצעונים ליד העפעף עלולים לגרום לדלקת לחמית. מחייב טיפול מהיר.</div></div></div>
+      </div>
+      <div class="mol-card">
+        <h2>מדוכאי חיסון</h2>
+        <p>אנשים עם מערכת חיסון מוחלשת (HIV, מקבלי השתלות, תרופות מדכאות חיסון) עלולים לפתח מאות נגעים ופצעונים ענקיים שאינם נפתרים ללא טיפול. יש לפנות לרופא מוקדם.</p>
+      </div>
+      <div class="mol-alert alert-danger">פנו לרופא בהקדם אם פצעונים הופכים כואבים, חמים, מתחילים לייצר מוגלה — או אם מופיע מולוסקום בקרבת עיניכם.</div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="mol-section" id="section-quiz">
+      <h2 class="mol-heading">בחן את ההבנה שלך</h2>
+      <div class="mol-card" id="quiz-container">
+        <div id="quiz-content">
+          <div class="quiz-q">שאלה 1 מתוך 6: מה גורם למולוסקום קונטגיוזום?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" onclick="checkAns(this,0)">זיהום פטרייתי</button>
+            <button class="quiz-opt" onclick="checkAns(this,1)">זיהום חיידקי עורי</button>
+            <button class="quiz-opt" onclick="checkAns(this,2)">פוקסווירוס הנקרא נגיף מולוסקום קונטגיוזום</button>
+            <button class="quiz-opt" onclick="checkAns(this,3)">תגובה אלרגית עורית</button>
+          </div>
+          <div class="quiz-feedback mol-alert alert-info" id="qfb" style="display:none"></div>
+          <div class="quiz-nav">
+            <span class="quiz-progress">שאלה 1 מתוך 6</span>
+            <button class="mol-btn mol-btn-primary" id="qnext" onclick="nextQ()" disabled>השאלה הבאה ←</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIMULATOR -->
+    <section class="mol-section" id="section-simulator">
+      <h2 class="mol-heading">סימולטור טיפול אינטראקטיבי</h2>
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px;line-height:1.7">בחרו שיטת טיפול ולחצו על אחד מהנגעים על הגוף כדי לראות כיצד הטיפול מתבצע — שלב אחר שלב.</p>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px" id="sim-tx-bar">
+        <button class="sim-tbtn sim-sel" onclick="chooseTx('cryo',this)">❄️ קריותרפיה</button>
+        <button class="sim-tbtn" onclick="chooseTx('curet',this)">🔪 קוראטאז'</button>
+        <button class="sim-tbtn" onclick="chooseTx('canthar',this)">💧 קנטרידין</button>
+        <button class="sim-tbtn" onclick="chooseTx('salicyl',this)">🧴 חומצה סליצילית</button>
+        <button class="sim-tbtn" onclick="chooseTx('imiq',this)">💊 אימיקווימוד</button>
+        <button class="sim-tbtn" onclick="chooseTx('wait',this)">⏳ המתנה</button>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+        <div class="sim-pill">טופלו: <b id="sim-cN">0</b> / <b>8</b></div>
+        <div class="sim-pill" id="sim-txPill">❄️ קריותרפיה (הקפאה)</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:start" id="sim-layout">
+        <div>
+          <div style="background:var(--navy-mid);border-radius:var(--radius-lg);border:1px solid var(--border-light);overflow:hidden;">
+            <div style="position:relative;display:block;line-height:0">
+              <canvas id="sim-BC" width="300" height="460" style="display:block;width:100%;height:auto;cursor:default;"></canvas>
+              <canvas id="sim-TC" width="300" height="460" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none"></canvas>
+            </div>
+            <div class="sim-hint" id="sim-hint">בחרו טיפול ולחצו על פצעון</div>
+          </div>
+          <div class="sim-legend">
+            <div class="sim-legend-label">מקרא</div>
+            <div class="sim-legend-item"><div class="sim-legend-dot" style="background:#C8846A;border:1.5px solid #8B3A1A;"></div>נגע פעיל — לחצו לטיפול</div>
+            <div class="sim-legend-item"><div class="sim-legend-dot" style="background:var(--green-ok-dim);border:1.5px solid rgba(74,154,74,0.4);"></div>נגע שטופל בהצלחה</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="sim-info-card">
+            <div class="sim-step-num" id="sim-sn">מוכן</div>
+            <div class="sim-step-title" id="sim-st">בחרו שיטת טיפול</div>
+            <div class="sim-step-desc" id="sim-sd">לחצו על אחד מכפתורי הטיפול, ואז לחצו על אחד מהנגעים המהבהבים.</div>
+            <div class="sim-progress-bar"><div class="sim-pb-fill" id="sim-pb" style="width:0%"></div></div>
+            <div class="sim-dots" id="sim-dots"></div>
+          </div>
+          <div class="sim-win" id="sim-win">
+            <div style="font-size:36px;margin-bottom:10px">🎉</div>
+            <h3>כל הנגעים טופלו!</h3>
+            <p>כל הכבוד! בחיים האמיתיים רוב הטיפולים דורשים מספר ביקורים ושבועות של ריפוי.</p>
+            <button class="mol-btn mol-btn-primary" onclick="resetSim()">שחקו שוב</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;padding:12px 16px;background:var(--navy-mid);border-radius:var(--radius);border:1px solid var(--border-light);font-size:13px;color:var(--text-faint);line-height:1.7;text-align:center;">
+        <strong style="color:var(--text-muted);">הערה:</strong> סימולטור זה נועד להמחשה חינוכית בלבד. הטיפולים מבוצעים על ידי רופא מוסמך.
+      </div>
+    </section>
+
+    <div class="mol-doc-footer">
+      <strong>הערה חשובה:</strong> מדריך זה נועד למטרות מידע כלליות בלבד ואינו מהווה ייעוץ רפואי. תמיד פנו לרופא לגבי האבחנה הספציפית שלכם ותוכנית הטיפול המתאימה.
+    </div>
+
+  </main>
+
+  <footer><span>© 2025 ד"ר יונתן שפירא | רופא עור</span><span>jshapiro.co.il</span></footer>
+
+<script>
+const sections=['what','spread','course','treat','prevent','complications','quiz','simulator'];
+function showSection(id,btn){
+  sections.forEach(s=>document.getElementById('section-'+s).classList.remove('active'));
+  document.querySelectorAll('.mol-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('section-'+id).classList.add('active');
+  if(btn)btn.classList.add('active');
+  if(id==='quiz')initQuiz();
+  if(id==='simulator')initSimulator();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleTx(el){el.classList.toggle('open');}
+
+const questions=[
+  {q:"מה גורם למולוסקום קונטגיוזום?",opts:["זיהום פטרייתי","זיהום חיידקי עורי","פוקסווירוס הנקרא נגיף מולוסקום קונטגיוזום","תגובה אלרגית עורית"],correct:2,feedback:"נכון! הוא נגרם על ידי נגיף מולוסקום קונטגיוזום (MCV), חבר במשפחת הפוקסווירוס."},
+  {q:"איזו תכונה אופיינית ביותר לפצעוני מולוסקום?",opts:["הם כואבים וחמים","יש להם שקע מרכזי (umbilication)","הם תמיד גדולים מ-1 ס\"מ","הם מתפוצצים ומדממים בקלות"],correct:1,feedback:"השקע המרכזי — הנקרא umbilication — הוא המאפיין האופייני. הפצעונים בדרך כלל אינם כואבים."},
+  {q:"כיצד מולוסקום מתפשט לרוב בילדים?",opts:["באוויר על ידי שיעול","על ידי שיתוף מזון מזוהם","על ידי מגע ישיר בין עור לעור ופריטים משותפים","דרך עירויי דם"],correct:2,feedback:"בילדים, מגע ישיר בין עור לעור ופריטים משותפים כמו מגבות הם הדרכים השכיחות ביותר."},
+  {q:"מה אומר זה שפצעון מולוסקום הופך אדום ודלקתי מעצמו?",opts:["זיהום חיידקי חמור התחיל","הפצעון עומד להצטלק לצמיתות","זהו סימן שהמערכת החיסונית נלחמת בנגיף","הנגיף התפשט לאיברים פנימיים"],correct:2,feedback:"אדמומיות ודלקת של פצעוני מולוסקום הוא למעשה סימן חיובי. פירושו שהמערכת החיסונית זיהתה את הנגיף ומגיבה."},
+  {q:"מי צריך תמיד לפנות לטיפול ולא פשוט להמתין?",opts:["ילדים בריאים עם 2–3 פצעונים","כל החולים ללא קשר למצב הבריאות","מדוכאי חיסון","מבוגרים עם פצעונים על הזרועות"],correct:2,feedback:"מדוכאי חיסון עלולים לפתח זיהום חמור ונרחב שאינו נעלם מעצמו. עליהם לפנות לטיפול רפואי בהקדם."},
+  {q:"מה לא כדאי לעשות עם פצעוני מולוסקום?",opts:["לכסות אותם בתחבושת","לשטוף ידיים לאחר נגיעה בהם","ללחוץ או לפוצץ אותם לבד","לפנות לרופא לבדיקה"],correct:2,feedback:"לחיצה או פיצוץ פצעונים משחררת את הגרעין הנגיפי, מפיצה את הזיהום לאזורים חדשים ועלולה לגרום לצלקות."}
+];
+
+let qi=0,answered=false,score=0;
+function initQuiz(){qi=0;score=0;renderQ();}
+function renderQ(){
+  answered=false;
+  const q=questions[qi];
+  let html=`<div class="quiz-q">שאלה ${qi+1} מתוך ${questions.length}: ${q.q}</div><div class="quiz-opts">`;
+  q.opts.forEach((opt,i)=>{html+=`<button class="quiz-opt" onclick="checkAns(this,${i})">${opt}</button>`;});
+  html+=`</div><div class="quiz-feedback mol-alert alert-info" id="qfb" style="display:none">${q.feedback}</div>`;
+  html+=`<div class="quiz-nav"><span class="quiz-progress">שאלה ${qi+1} מתוך ${questions.length}</span><button class="mol-btn mol-btn-primary" id="qnext" onclick="nextQ()" disabled>${qi<questions.length-1?'השאלה הבאה ←':'סיום'}</button></div>`;
+  document.getElementById('quiz-content').innerHTML=html;
+}
+function checkAns(btn,idx){
+  if(answered)return;answered=true;
+  const q=questions[qi];
+  if(idx===q.correct)score++;
+  document.querySelectorAll('.quiz-opt').forEach((o,i)=>{if(i===q.correct)o.classList.add('correct');else if(i===idx&&i!==q.correct)o.classList.add('wrong');});
+  const fb=document.getElementById('qfb');fb.style.display='block';
+  fb.className=`quiz-feedback mol-alert ${idx===q.correct?'alert-success':'alert-warn'}`;
+  document.getElementById('qnext').disabled=false;
+}
+function nextQ(){
+  qi++;
+  if(qi>=questions.length){
+    const pct=Math.round((score/questions.length)*100);
+    let msg=pct>=80?'כל הכבוד! הבנה מצוינת של המדריך.':pct>=50?'עבודה טובה! עיינו שוב בסעיפים הרלוונטיים.':'המשיכו ללמוד! חזרו למדריך וקראו שוב.';
+    document.getElementById('quiz-content').innerHTML=`<div class="quiz-result"><div class="score">${score}/${questions.length}</div><div class="score-label">${pct}% תשובות נכונות</div><p>${msg}</p><button class="mol-btn mol-btn-primary" onclick="initQuiz()">שחק שוב</button></div>`;
+  }else{renderQ();}
+}
+
+/* ─── SIMULATOR (original logic, adapted colors) ─── */
+let simBC,simTC,sbx,stx,simW=300,simH=460;
+let simLesions=[],simSelTx=null,simBusy=false,simCleared=0,simRafId=null;
+const simSK0='#F0BE8C',simSK1='#E8A870',simSK2='#D9905A',simSK3='#C87848',simSK4='#A05830';
+const simLB='#C8846A',simLC='#8B3A1A',simLD='#5A1A08';
+const simLesionDefs=[{x:132,y:162,r:7},{x:160,y:148,r:6},{x:118,y:195,r:8},{x:162,y:186,r:6},{x:84,y:177,r:6},{x:208,y:173,r:7},{x:130,y:320,r:7},{x:162,y:334,r:6}];
+
+function initSimulator(){if(simBC)return;simBC=document.getElementById('sim-BC');simTC=document.getElementById('sim-TC');sbx=simBC.getContext('2d');stx=simTC.getContext('2d');resetSim();simBC.style.cursor='default';simBC.addEventListener('click',simClick);simBC.addEventListener('mousemove',simMousemove);}
+function simCoords(e){const r=simBC.getBoundingClientRect();return{mx:(e.clientX-r.left)*(simW/r.width),my:(e.clientY-r.top)*(simH/r.height)};}
+function simClick(e){if(!simSelTx||simBusy)return;const{mx,my}=simCoords(e);for(const l of simLesions){if(l.state==='alive'&&Math.hypot(mx-l.x,my-l.y)<l.r+12){simStartTx(l);break;}}}
+function simMousemove(e){if(!simSelTx||simBusy){simBC.style.cursor='default';return;}const{mx,my}=simCoords(e);simBC.style.cursor=simLesions.some(l=>l.state==='alive'&&Math.hypot(mx-l.x,my-l.y)<l.r+12)?'crosshair':'default';}
+function simStartLoop(){if(simRafId)return;function lp(){simRender();simRafId=requestAnimationFrame(lp);}simRafId=requestAnimationFrame(lp);}
+function simStopLoop(){if(simRafId){cancelAnimationFrame(simRafId);simRafId=null;}}
+function simSgrad(ctx,x,y,r,light,dark){const g=ctx.createRadialGradient(x-r*.3,y-r*.3,r*.05,x,y,r*1.1);g.addColorStop(0,light);g.addColorStop(1,dark);return g;}
+function simDrawBody(){sbx.clearRect(0,0,simW,simH);sbx.save();const sh=(fn,f,s,lw=0.7)=>{sbx.beginPath();fn();sbx.fillStyle=f;sbx.fill();if(s){sbx.strokeStyle=s;sbx.lineWidth=lw;sbx.stroke();}};sbx.beginPath();sbx.roundRect(100,134,100,212,14);sbx.fillStyle=simSgrad(sbx,150,235,68,simSK0,simSK2);sbx.fill();sbx.strokeStyle=simSK3;sbx.lineWidth=.7;sbx.stroke();sbx.save();sbx.globalAlpha=.055;sbx.strokeStyle='#6B3010';sbx.lineWidth=.55;for(let y=148;y<344;y+=9){sbx.beginPath();sbx.moveTo(105,y);sbx.bezierCurveTo(120,y-1,180,y+1,195,y);sbx.stroke();}sbx.restore();sbx.save();sbx.globalAlpha=.11;sbx.strokeStyle=simSK4;sbx.lineWidth=.8;sbx.beginPath();sbx.moveTo(150,142);sbx.lineTo(150,234);sbx.stroke();sbx.restore();sh(()=>sbx.ellipse(150,252,4,3,0,0,Math.PI*2),simSK3,simSK4,.6);sbx.beginPath();sbx.moveTo(100,140);sbx.bezierCurveTo(78,148,54,168,50,254);sbx.bezierCurveTo(50,274,60,280,68,276);sbx.bezierCurveTo(76,272,80,262,82,248);sbx.bezierCurveTo(86,198,100,170,104,150);sbx.closePath();sbx.fillStyle=simSgrad(sbx,76,200,30,simSK0,simSK2);sbx.fill();sbx.strokeStyle=simSK3;sbx.lineWidth=.7;sbx.stroke();sh(()=>sbx.ellipse(58,274,12,10,.2,0,Math.PI*2),simSgrad(sbx,58,274,12,simSK0,simSK2),simSK3);sbx.beginPath();sbx.moveTo(200,140);sbx.bezierCurveTo(222,148,246,168,250,254);sbx.bezierCurveTo(250,274,240,280,232,276);sbx.bezierCurveTo(224,272,220,262,218,248);sbx.bezierCurveTo(214,198,200,170,196,150);sbx.closePath();sbx.fillStyle=simSgrad(sbx,224,200,30,simSK0,simSK2);sbx.fill();sbx.strokeStyle=simSK3;sbx.lineWidth=.7;sbx.stroke();sh(()=>sbx.ellipse(242,274,12,10,-.2,0,Math.PI*2),simSgrad(sbx,242,274,12,simSK0,simSK2),simSK3);sbx.beginPath();sbx.moveTo(108,340);sbx.bezierCurveTo(100,356,96,396,98,444);sbx.bezierCurveTo(98,456,108,460,116,458);sbx.bezierCurveTo(126,456,130,446,130,434);sbx.bezierCurveTo(134,404,140,364,142,342);sbx.closePath();sbx.fillStyle=simSgrad(sbx,116,396,24,simSK0,simSK2);sbx.fill();sbx.strokeStyle=simSK3;sbx.lineWidth=.7;sbx.stroke();sh(()=>sbx.ellipse(108,456,13,9,.1,0,Math.PI*2),simSgrad(sbx,108,456,13,simSK0,simSK2),simSK3);sbx.beginPath();sbx.moveTo(158,342);sbx.bezierCurveTo(160,364,166,404,170,434);sbx.bezierCurveTo(170,446,174,456,182,458);sbx.bezierCurveTo(192,460,202,456,202,444);sbx.bezierCurveTo(204,396,200,356,192,340);sbx.closePath();sbx.fillStyle=simSgrad(sbx,184,396,24,simSK0,simSK2);sbx.fill();sbx.strokeStyle=simSK3;sbx.lineWidth=.7;sbx.stroke();sh(()=>sbx.ellipse(192,456,13,9,-.1,0,Math.PI*2),simSgrad(sbx,192,456,13,simSK0,simSK2),simSK3);sbx.beginPath();sbx.ellipse(150,78,46,54,0,0,Math.PI*2);sbx.fillStyle=simSgrad(sbx,140,62,46,simSK0,simSK2);sbx.fill();sbx.strokeStyle=simSK3;sbx.lineWidth=.7;sbx.stroke();sbx.save();sbx.globalAlpha=.07;sbx.beginPath();sbx.ellipse(148,57,22,13,0,0,Math.PI*2);sbx.fillStyle='#fff';sbx.fill();sbx.restore();sh(()=>sbx.ellipse(104,82,7,10,0,0,Math.PI*2),simSgrad(sbx,104,82,7,simSK0,simSK2),simSK3);sh(()=>sbx.ellipse(196,82,7,10,0,0,Math.PI*2),simSgrad(sbx,196,82,7,simSK0,simSK2),simSK3);sh(()=>sbx.ellipse(133,74,7,8.5,0,0,Math.PI*2),simSK1,simSK3);sh(()=>sbx.ellipse(167,74,7,8.5,0,0,Math.PI*2),simSK1,simSK3);sbx.beginPath();sbx.arc(133,74,3.5,0,Math.PI*2);sbx.fillStyle='#180804';sbx.fill();sbx.beginPath();sbx.arc(167,74,3.5,0,Math.PI*2);sbx.fillStyle='#180804';sbx.fill();sbx.beginPath();sbx.arc(135,72,1.1,0,Math.PI*2);sbx.fillStyle='rgba(255,255,255,.7)';sbx.fill();sbx.beginPath();sbx.arc(169,72,1.1,0,Math.PI*2);sbx.fillStyle='rgba(255,255,255,.7)';sbx.fill();sbx.save();sbx.strokeStyle=simSK4;sbx.lineWidth=1.5;sbx.lineCap='round';sbx.beginPath();sbx.moveTo(126,63);sbx.quadraticCurveTo(133,60,140,63);sbx.stroke();sbx.beginPath();sbx.moveTo(160,63);sbx.quadraticCurveTo(167,60,174,63);sbx.stroke();sbx.restore();sbx.save();sbx.strokeStyle=simSK4;sbx.lineWidth=1;sbx.lineCap='round';sbx.globalAlpha=.45;sbx.beginPath();sbx.moveTo(148,82);sbx.bezierCurveTo(146,90,148,95,150,95);sbx.bezierCurveTo(152,95,154,90,152,82);sbx.stroke();sbx.beginPath();sbx.arc(145,95,4,.1,Math.PI-.1);sbx.stroke();sbx.beginPath();sbx.arc(155,95,4,.1,Math.PI-.1);sbx.stroke();sbx.restore();sbx.save();sbx.strokeStyle=simSK4;sbx.lineWidth=1.2;sbx.lineCap='round';sbx.beginPath();sbx.moveTo(138,106);sbx.quadraticCurveTo(150,113,162,106);sbx.stroke();sbx.restore();sh(()=>{sbx.beginPath();sbx.moveTo(138,127);sbx.lineTo(162,127);sbx.lineTo(162,136);sbx.lineTo(138,136);sbx.closePath();},simSK1,simSK3);sbx.restore();}
+function simDrawLesions(){for(const l of simLesions){if(l.state==='gone')continue;sbx.save();sbx.globalAlpha=l.alpha;sbx.translate(l.x,l.y);const sc=Math.max(0,l.shrink||1);sbx.scale(sc,sc);if(l.iceA>0){sbx.beginPath();sbx.arc(0,0,l.r+5,0,Math.PI*2);sbx.fillStyle=`rgba(155,210,240,${l.iceA*.7})`;sbx.fill();}if(l.redA>0){sbx.beginPath();sbx.arc(0,0,l.r+6,0,Math.PI*2);sbx.fillStyle=`rgba(210,65,45,${l.redA*.35})`;sbx.fill();}if(l.dropA>0){sbx.beginPath();sbx.arc(0,0,l.r+3,0,Math.PI*2);sbx.fillStyle=`rgba(75,175,65,${l.dropA*.4})`;sbx.fill();}const dg=sbx.createRadialGradient(-l.r*.3,-l.r*.35,l.r*.05,0,0,l.r*1.1);dg.addColorStop(0,'#DEAA96');dg.addColorStop(.55,simLB);dg.addColorStop(1,'#9B4A28');sbx.beginPath();sbx.arc(0,0,l.r,0,Math.PI*2);sbx.fillStyle=dg;sbx.fill();sbx.strokeStyle=simSK4;sbx.lineWidth=.7;sbx.stroke();const cg=sbx.createRadialGradient(-l.r*.2,-l.r*.2,.5,0,0,l.r*.68);cg.addColorStop(0,'#BE6040');cg.addColorStop(1,simLC);sbx.beginPath();sbx.arc(0,0,l.r*.68,0,Math.PI*2);sbx.fillStyle=cg;sbx.fill();sbx.beginPath();sbx.arc(0,0,l.r*.28,0,Math.PI*2);sbx.fillStyle=simLD;sbx.fill();sbx.beginPath();sbx.arc(-l.r*.07,-l.r*.07,l.r*.1,0,Math.PI*2);sbx.fillStyle='rgba(255,195,150,.3)';sbx.fill();if(l.blisterA>0&&l.blisterPop<1){const br=l.blisterR*(1-l.blisterPop*.5),ba=l.blisterA*(1-l.blisterPop);const bg2=sbx.createRadialGradient(-br*.25,-l.r*.38-br*.25,br*.05,0,-l.r*.38,br);bg2.addColorStop(0,`rgba(232,250,255,${ba})`);bg2.addColorStop(.65,`rgba(182,225,248,${ba*.8})`);bg2.addColorStop(1,`rgba(135,195,230,${ba*.5})`);sbx.beginPath();sbx.ellipse(0,-l.r*.38,br,br*.65,0,0,Math.PI*2);sbx.fillStyle=bg2;sbx.fill();sbx.strokeStyle=`rgba(95,160,210,${ba*.8})`;sbx.lineWidth=.8;sbx.stroke();sbx.beginPath();sbx.ellipse(-br*.22,-l.r*.38-br*.26,br*.28,br*.16,-.3,0,Math.PI*2);sbx.fillStyle=`rgba(255,255,255,${ba*.45})`;sbx.fill();}if(l.blisterPop>0&&l.blisterPop<1){const pp=l.blisterPop;for(let i=0;i<10;i++){const a=i/10*Math.PI*2+pp*.5;const dist=(l.blisterR||l.r)*pp*2.1;const dx=Math.cos(a)*dist,dy=Math.sin(a)*dist-l.r*.38*pp;const dr=3*(1-pp);if(dr>.2){sbx.beginPath();sbx.arc(dx,dy,dr,0,Math.PI*2);sbx.fillStyle=`rgba(175,225,250,${(1-pp)*.9})`;sbx.fill();}}sbx.beginPath();sbx.arc(0,-l.r*.38,l.r*(.25+pp*.5),0,Math.PI*2);sbx.fillStyle=`rgba(200,240,255,${(1-pp)*.55})`;sbx.fill();}if(l.state==='alive'){const p=.28+.14*Math.sin(Date.now()/560+l.id*1.3);sbx.beginPath();sbx.arc(0,0,l.r+4,0,Math.PI*2);sbx.strokeStyle=`rgba(175,95,55,${p})`;sbx.lineWidth=1.5;sbx.stroke();}sbx.restore();}}
+function simRender(){sbx.clearRect(0,0,simW,simH);simDrawBody();simDrawLesions();}
+
+const simTxMeta={cryo:{n:'קריותרפיה (הקפאה)',e:'❄️',r:'לחצו על נגע להתחלת הקפאה',s:6},curet:{n:"קוראטאז' (גרידה)",e:'🔪',r:'לחצו על נגע להרדמה והסרה',s:6},canthar:{n:'קנטרידין',e:'💧',r:'לחצו על נגע להנחת הטיפה',s:5},salicyl:{n:'חומצה סליצילית',e:'🧴',r:'לחצו על נגע להתחלת הטיפול',s:5},imiq:{n:'אימיקווימוד',e:'💊',r:'לחצו על נגע למריחת הקרם',s:5},wait:{n:'המתנה',e:'⏳',r:'לחצו על נגע לצפייה בהחלמה',s:5}};
+
+function chooseTx(t,btn){simSelTx=t;document.querySelectorAll('.sim-tbtn').forEach(b=>b.classList.remove('sim-sel'));btn.classList.add('sim-sel');const m=simTxMeta[t];document.getElementById('sim-txPill').textContent=m.e+' '+m.n;simInfo('מוכן',m.n+' נבחר',m.r,0,0,m.s);document.getElementById('sim-hint').textContent='לחצו על פצעון מהבהב על הגוף';}
+function simInfo(num,title,desc,pct,si,tot){document.getElementById('sim-sn').textContent=num;document.getElementById('sim-st').textContent=title;document.getElementById('sim-sd').textContent=desc;document.getElementById('sim-pb').style.width=pct+'%';const el=document.getElementById('sim-dots');el.innerHTML='';for(let i=0;i<(tot||0);i++){const d=document.createElement('div');d.className='sim-dot'+(i<si?' done':i===si?' current':'');el.appendChild(d);}}
+
+const sdl=ms=>new Promise(r=>setTimeout(r,ms));
+function sal(fn,dur){return new Promise(res=>{const t0=performance.now();function fr(now){const t=Math.min((now-t0)/dur,1);fn(t);if(t<1)requestAnimationFrame(fr);else res();}requestAnimationFrame(fr);});}
+
+async function simStartTx(l){simBusy=true;l.state='treating';simBC.style.cursor='default';document.getElementById('sim-hint').textContent='מטפלים… צפו בתהליך!';if(simSelTx==='cryo')await simCryo(l);else if(simSelTx==='curet')await simCuret(l);else if(simSelTx==='canthar')await simCanthar(l);else if(simSelTx==='salicyl')await simSalicyl(l);else if(simSelTx==='imiq')await simImiq(l);else if(simSelTx==='wait')await simWait(l);await simFadeOut(l);l.state='gone';simCleared++;document.getElementById('sim-cN').textContent=simCleared;simBusy=false;stx.clearRect(0,0,simW,simH);if(simCleared>=8){document.getElementById('sim-win').style.display='block';document.getElementById('sim-hint').textContent='כל הנגעים טופלו — כל הכבוד!';simStopLoop();simRender();}else{document.getElementById('sim-hint').textContent='לחצו על נגע נוסף לטיפול';simInfo('נגע טופל!','הנגע הוסר בהצלחה','אזור הטיפול יחלים בימים הקרובים. מוכנים לנגע הבא?',100,6,6);}}
+
+async function simCryo(l){const N=6;simInfo('שלב 1/6','מיקום בקבוק החנקן','הרופא מקרב את מיכל ה-N₂ לנגע.',8,0,N);await sal(t=>{stx.clearRect(0,0,simW,simH);simDrawCryoBottle(l.x+50-t*47,l.y-72+t*26,t);},600);simInfo('שלב 2/6','ריסוס חנקן נוזלי','סילון ב-196°C מינוס מקפיא את התאים הנגועים.',22,1,N);await sal(t=>{stx.clearRect(0,0,simW,simH);simDrawCryoBottle(l.x+3,l.y-46,1);const steps=Math.floor(t*26)+2;for(let i=0;i<steps;i++){const pt=i/26;const px=l.x+3+Math.sin(pt*18)*3.5;const py=l.y-46+pt*44;stx.beginPath();stx.arc(px,py,Math.max(.3,2.2-pt*.9),0,Math.PI*2);stx.fillStyle=`rgba(190,232,255,${(1-pt*.35)*(.5+t*.5)})`;stx.fill();}if(t>.45){const mp=(t-.45)/.55;for(let i=0;i<6;i++){const a=i/6*Math.PI*2+t*4;stx.beginPath();stx.arc(l.x+Math.cos(a)*l.r*.7,l.y+Math.sin(a)*l.r*.7,2.5*(1-mp*.6),0,Math.PI*2);stx.fillStyle=`rgba(215,242,255,${.55-mp*.35})`;stx.fill();}}l.iceA=t*.95;},1400);simInfo('שלב 3/6','הנגע קופא ומלבין','גבישי קרח נוצרים.',40,2,N);await sal(t=>{stx.clearRect(0,0,simW,simH);simDrawCryoBottle(l.x+3,l.y-46,1);stx.save();stx.globalAlpha=t*.6;stx.beginPath();stx.arc(l.x,l.y,l.r+2,0,Math.PI*2);stx.fillStyle='rgba(225,245,255,1)';stx.fill();stx.strokeStyle='rgba(150,210,240,.85)';stx.lineWidth=.8;for(let i=0;i<8;i++){const a=i/8*Math.PI*2;stx.beginPath();stx.moveTo(l.x,l.y);stx.lineTo(l.x+Math.cos(a)*(l.r+5),l.y+Math.sin(a)*(l.r+5));stx.stroke();}stx.restore();l.iceA=.95;},800);simInfo('שלב 4/6','הכלי מוסר','הריסוס נפסק.',57,3,N);await sal(t=>{stx.clearRect(0,0,simW,simH);simDrawCryoBottle(l.x+3+t*62,l.y-46-t*30,1-t);l.iceA=1-t*.4;},650);simInfo('שלב 5/6','שלפוחית מתפתחת','נוזל מצטבר ויוצר שלפוחית.',74,4,N);await sal(t=>{stx.clearRect(0,0,simW,simH);l.blisterR=t*l.r*1.35;l.blisterA=t;l.iceA=.6-t*.5;},1150);simInfo('שלב 6/6','השלפוחית מתפוצצת!','הנגע נושר.',92,5,N);await sal(t=>{stx.clearRect(0,0,simW,simH);l.blisterPop=t;l.blisterA=1-t*.7;l.iceA=Math.max(0,.12-t*.12);},950);l.blisterA=0;l.blisterPop=0;l.blisterR=0;l.iceA=0;}
+function simDrawCryoBottle(x,y,alpha){stx.save();stx.globalAlpha=alpha;stx.translate(x,y);stx.beginPath();stx.roundRect(-11,-33,22,33,4);stx.fillStyle='#C2E2F5';stx.fill();stx.strokeStyle='#4888C0';stx.lineWidth=1.2;stx.stroke();stx.beginPath();stx.roundRect(-11,-21,22,11,0);stx.fillStyle='rgba(25,95,175,.13)';stx.fill();stx.beginPath();stx.roundRect(-7,-44,14,14,3);stx.fillStyle='#88BAD5';stx.fill();stx.strokeStyle='#4888C0';stx.lineWidth=1;stx.stroke();stx.beginPath();stx.roundRect(-3,-50,6,10,2);stx.fillStyle='#d8d8d8';stx.fill();stx.strokeStyle='#aaa';stx.lineWidth=.8;stx.stroke();stx.font='bold 8px Arial';stx.fillStyle='#185080';stx.textAlign='center';stx.fillText('N₂',0,-14);stx.restore();}
+
+async function simCuret(l){const N=6;simInfo('שלב 1/6','קרם הרדמה','קרם EMLA מורח.',10,0,N);await sal(t=>{stx.clearRect(0,0,simW,simH);stx.beginPath();stx.arc(l.x,l.y,l.r+7+t*4,0,Math.PI*2);stx.fillStyle=`rgba(250,242,212,${t*.82})`;stx.fill();},700);simInfo('שלב 2/6','הקוראט מתקרב','הרופא ממקם את הכלי.',28,1,N);await sal(t=>{stx.clearRect(0,0,simW,simH);stx.beginPath();stx.arc(l.x,l.y,l.r+5,0,Math.PI*2);stx.fillStyle='rgba(250,242,212,.5)';stx.fill();simDrawCurette(l.x+56-t*53,l.y-57+t*33,0);},650);simInfo('שלב 3/6','גרידה — המולוסקום נשלף!','תנועה מהירה מוציאה את הגרעין!',48,2,N);await sal(t=>{stx.clearRect(0,0,simW,simH);stx.beginPath();stx.arc(l.x,l.y,l.r+4,0,Math.PI*2);stx.fillStyle='rgba(250,242,212,.38)';stx.fill();const scoopY=t<.38?l.y-23+t*22/.38:l.y-23+22-(t-.38)/.62*30;const ang=t<.45?t*.65:.65-(t-.45)*.55;simDrawCurette(l.x+3,scoopY,ang);if(t>.35){const lift=(t-.35)/.65;sbx.save();sbx.globalAlpha=lift*.5;sbx.beginPath();sbx.arc(l.x,l.y,l.r*.6,0,Math.PI*2);sbx.fillStyle=simSK4;sbx.fill();sbx.restore();l.shrink=1-lift*.85;simDrawLesionBlob(l.x+3,l.y-(lift*38),l.r*(1-lift*.3),1);}},1050);simInfo('שלב 4/6','המולוסקום דבוק לקוראט','הגרעין מחוץ לעור.',65,3,N);await sal(t=>{stx.clearRect(0,0,simW,simH);const cx2=l.x+3+t*75,cy2=l.y-53-t*18;simDrawCurette(cx2,cy2,.08);simDrawLesionBlob(cx2,cy2+6,l.r*.75,1);sbx.save();sbx.globalAlpha=.28*(1-t);sbx.beginPath();sbx.arc(l.x,l.y,l.r*.45,0,Math.PI*2);sbx.fillStyle='#C03830';sbx.fill();sbx.restore();l.shrink=.15*(1-t);l.alpha=1-t*.15;},800);simInfo('שלב 5/6','גזה מנגבת','תחבושת גזה מסירה את המולוסקום.',82,4,N);await sal(t=>{stx.clearRect(0,0,simW,simH);const cx3=l.x+78,cy3=l.y-71;simDrawCurette(cx3,cy3,.08);if(t<.65)simDrawLesionBlob(cx3,cy3+6,l.r*.75,1-t/.65);const gx=cx3+30-t*55;simDrawGauze(gx,cy3+8,Math.min(1,t*3));},950);simInfo('שלב 6/6','ניקוי ואנטיספטיקה','האזור מנוקה.',95,5,N);l.shrink=0;l.alpha=0;await sdl(350);}
+function simDrawCurette(x,y,angle){stx.save();stx.translate(x,y);stx.rotate(-Math.PI/5+angle);stx.beginPath();stx.moveTo(0,0);stx.lineTo(0,-52);stx.strokeStyle='#b0b0b0';stx.lineWidth=2.5;stx.stroke();for(let i=0;i<4;i++){stx.beginPath();stx.moveTo(-4,-13-i*9);stx.lineTo(4,-13-i*9);stx.strokeStyle='#999';stx.lineWidth=.9;stx.stroke();}stx.beginPath();stx.roundRect(-5,-58,10,8,2.5);stx.fillStyle='#c5c5c5';stx.fill();stx.strokeStyle='#999';stx.lineWidth=.8;stx.stroke();stx.beginPath();stx.arc(0,7,9,Math.PI*1.0,Math.PI*2.0);stx.strokeStyle='#b0b0b0';stx.lineWidth=2.8;stx.stroke();stx.restore();}
+function simDrawLesionBlob(x,y,r,alpha){stx.save();stx.globalAlpha=alpha;const dg2=stx.createRadialGradient(x-r*.3,y-r*.3,r*.05,x,y,r*1.1);dg2.addColorStop(0,'#DEAA96');dg2.addColorStop(.55,simLB);dg2.addColorStop(1,'#9B4A28');stx.beginPath();stx.ellipse(x,y,r,r*.8,0,0,Math.PI*2);stx.fillStyle=dg2;stx.fill();stx.strokeStyle=simSK4;stx.lineWidth=.6;stx.stroke();stx.beginPath();stx.arc(x,y,r*.28,0,Math.PI*2);stx.fillStyle=simLD;stx.fill();stx.restore();}
+function simDrawGauze(x,y,alpha){stx.save();stx.globalAlpha=alpha;stx.beginPath();stx.roundRect(x-15,y-11,30,22,3);stx.fillStyle='rgba(250,248,242,.93)';stx.fill();stx.strokeStyle='rgba(178,168,148,.7)';stx.lineWidth=.8;stx.stroke();stx.globalAlpha=alpha*.18;stx.strokeStyle='#aaa';stx.lineWidth=.4;for(let i=0;i<6;i++){stx.beginPath();stx.moveTo(x-15+i*6,y-11);stx.lineTo(x-15+i*6,y+11);stx.stroke();stx.beginPath();stx.moveTo(x-15,y-11+i*4.5);stx.lineTo(x+15,y-11+i*4.5);stx.stroke();}stx.restore();}
+
+async function simCanthar(l){const N=5;simInfo('שלב 1/5','הכנת האפליקטור','הרופא פותח צנצנת קנטרידין.',12,0,N);await sal(t=>{stx.clearRect(0,0,simW,simH);simDrawDropper(l.x+46-t*41,l.y-62+t*25,t);},600);simInfo('שלב 2/5','הנחת הטיפה','טיפה זעירה — ללא כאב!',32,1,N);await sal(t=>{stx.clearRect(0,0,simW,simH);simDrawDropper(l.x+5,l.y-42,1);if(t<.58){const dy=l.y-40+(t/.58)*38;stx.beginPath();stx.arc(l.x+5,dy,3.2,0,Math.PI*2);stx.fillStyle='rgba(75,200,75,.88)';stx.fill();}else l.dropA=(t-.58)/.42;},800);simInfo('שלב 3/5','ספיגה (2–4 שעות)','הנוזל נספג בשקט.',54,2,N);await sal(t=>{stx.clearRect(0,0,simW,simH);simDrawDropper(l.x+5+t*62,l.y-42-t*32,1-t);l.dropA=1-t*.5;},700);simInfo('שלב 4/5','שלפוחית עולה','נוזל מצטבר ויוצר כיפה.',76,3,N);await sal(t=>{stx.clearRect(0,0,simW,simH);l.blisterR=t*l.r*1.32;l.blisterA=t;l.dropA=.5-t*.5;},1050);simInfo('שלב 5/5','קרום ופרידה','השלפוחית והנגע מתייבשים.',92,4,N);await sdl(350);}
+function simDrawDropper(x,y,alpha){stx.save();stx.globalAlpha=alpha;stx.translate(x,y);stx.beginPath();stx.roundRect(-6,-37,12,37,3.5);stx.fillStyle='rgba(165,240,165,.93)';stx.fill();stx.strokeStyle='#3a9a3a';stx.lineWidth=.9;stx.stroke();stx.beginPath();stx.moveTo(-3.5,0);stx.lineTo(3.5,0);stx.lineTo(1.8,10);stx.lineTo(-1.8,10);stx.closePath();stx.fillStyle='rgba(55,175,55,.9)';stx.fill();stx.beginPath();stx.roundRect(-5,-45,10,10,2.5);stx.fillStyle='#3a9a3a';stx.fill();stx.stroke();stx.restore();}
+
+async function simSalicyl(l){const N=5;simInfo('שלב 1/5','השריה במים חמים','5 דקות לריכוך העור.',12,0,N);await sal(t=>{stx.clearRect(0,0,simW,simH);for(let i=0;i<8;i++){const wx=l.x-14+i*4,wy=l.y+l.r+3+Math.sin(t*10+i)*2.3*t;stx.beginPath();stx.arc(wx,wy,1.5,0,Math.PI*2);stx.fillStyle=`rgba(95,165,230,${t*.65})`;stx.fill();}},700);simInfo("שלב 2/5","מריחת הג'ל","מורח בדיוק על הנגע.",35,1,N);await sal(t=>{stx.clearRect(0,0,simW,simH);simDrawGelTube(l.x+35-t*30,l.y-42+t*19,t);if(t>.42){const gt=(t-.42)/.58;stx.beginPath();stx.arc(l.x,l.y,l.r*.9,0,Math.PI*2);stx.fillStyle=`rgba(225,245,172,${gt*.77})`;stx.fill();}},800);simInfo('שלב 3/5','מריחה יומיומית','החומצה עובדת לאט.',58,2,N);await sal(t=>{stx.clearRect(0,0,simW,simH);simDrawGelTube(l.x+5,l.y-22,1);l.shrink=1-t*.28;stx.beginPath();stx.arc(l.x,l.y,l.r*.88,0,Math.PI*2);stx.fillStyle=`rgba(225,245,172,${.77-t*.36})`;stx.fill();},1050);simInfo('שלב 4/5','הנגע מתשטח','מתרכך בהדרגה.',78,3,N);await sal(t=>{stx.clearRect(0,0,simW,simH);simDrawGelTube(l.x+5+t*62,l.y-22,1-t);l.shrink=.72-t*.32;},700);simInfo('שלב 5/5','הנגע מתקלף','נעלם בהדרגה.',93,4,N);l.shrink=.4;await sdl(400);}
+function simDrawGelTube(x,y,alpha){stx.save();stx.globalAlpha=alpha;stx.translate(x,y);stx.beginPath();stx.roundRect(-8,-28,16,28,5);stx.fillStyle='rgba(216,245,162,.95)';stx.fill();stx.strokeStyle='#7ab030';stx.lineWidth=.9;stx.stroke();stx.beginPath();stx.roundRect(-5,-36,10,10,3);stx.fillStyle='#7ab030';stx.fill();stx.stroke();stx.font='7px Arial';stx.fillStyle='#4a7a10';stx.textAlign='center';stx.fillText('SA',0,-12);stx.restore();}
+
+async function simImiq(l){const N=5;simInfo('שלב 1/5','מריחת הקרם','3 לילות בשבוע.',14,0,N);await sal(t=>{stx.clearRect(0,0,simW,simH);simDrawCreamTube(l.x+40-t*35,l.y-46+t*24,t);if(t>.38){const ct=(t-.38)/.62;stx.beginPath();stx.arc(l.x,l.y,l.r+ct*4,0,Math.PI*2);stx.fillStyle=`rgba(200,200,245,${ct*.65})`;stx.fill();}},800);simInfo('שלב 2/5','אותות חיסוניים','אינטרפרונים תוקפים את הנגיף.',38,1,N);await sal(t=>{stx.clearRect(0,0,simW,simH);simDrawCreamTube(l.x+5,l.y-25,1);for(let i=0;i<9;i++){const a=i/9*Math.PI*2;const r2=(l.r+7)+t*10;stx.beginPath();stx.arc(l.x+Math.cos(a)*r2,l.y+Math.sin(a)*r2,1.9,0,Math.PI*2);stx.fillStyle=`rgba(118,98,228,${t*.86})`;stx.fill();}},950);simInfo('שלב 3/5','אדמומיות — תגובה תקינה!','העור מאדים — הקרם עובד.',58,2,N);await sal(t=>{stx.clearRect(0,0,simW,simH);simDrawCreamTube(l.x+5,l.y-25,1);l.redA=t;for(let i=0;i<9;i++){const a=i/9*Math.PI*2+t*2.2;const r2=l.r+11+t*5;stx.beginPath();stx.arc(l.x+Math.cos(a)*r2,l.y+Math.sin(a)*r2,2.2,0,Math.PI*2);stx.fillStyle=`rgba(118,98,228,${.86-t*.42})`;stx.fill();}},950);simInfo('שלב 4/5','מתקפה חיסונית','6–12 שבועות — הנגיף מתפרק.',76,3,N);await sal(t=>{stx.clearRect(0,0,simW,simH);simDrawCreamTube(l.x+5+t*62,l.y-25,1-t);l.redA=1-t*.46;l.shrink=1-t*.38;},850);simInfo('שלב 5/5','הנגע נעלם','מצטמק ונעלם.',92,4,N);l.shrink=.62;await sdl(400);}
+function simDrawCreamTube(x,y,alpha){stx.save();stx.globalAlpha=alpha;stx.translate(x,y);stx.beginPath();stx.roundRect(-8,-29,16,29,5);stx.fillStyle='rgba(200,200,245,.95)';stx.fill();stx.strokeStyle='#7070cc';stx.lineWidth=.9;stx.stroke();stx.beginPath();stx.roundRect(-6,-37,12,11,3.5);stx.fillStyle='#7070cc';stx.fill();stx.stroke();stx.font='7px Arial';stx.fillStyle='#3030aa';stx.textAlign='center';stx.fillText('IMQ',0,-13);stx.restore();}
+
+async function simWait(l){const N=5;simInfo('שבוע 1','ממתינים — ללא טיפול','הנגע פעיל. המערכת החיסונית עדיין לא זיהתה.',10,0,N);await sal(t=>{stx.clearRect(0,0,simW,simH);stx.globalAlpha=t*.52;stx.font='22px serif';stx.textAlign='center';stx.fillText('⏳',l.x,l.y-32);stx.globalAlpha=1;l.shrink=1+t*.12;},900);simInfo('שבועות 4–8','הנגע גדל קמעה','הנגיף עדיין פעיל — סבלנות!',28,1,N);await sal(t=>{stx.clearRect(0,0,simW,simH);stx.globalAlpha=(.52-t*.28);stx.font='22px serif';stx.textAlign='center';stx.fillText('⏳',l.x,l.y-32);stx.globalAlpha=1;l.shrink=1.12;},700);simInfo('חודשים 3–6','המערכת החיסונית מתעוררת','האדמומיות — סימן מצוין!',50,2,N);await sal(t=>{stx.clearRect(0,0,simW,simH);l.redA=t;for(let i=0;i<7;i++){const a=i/7*Math.PI*2+t*3.5;stx.beginPath();stx.arc(l.x+Math.cos(a)*(l.r+9),l.y+Math.sin(a)*(l.r+9),1.9,0,Math.PI*2);stx.fillStyle=`rgba(220,78,58,${t*.76})`;stx.fill();}},1050);simInfo('חודשים 6–12','הדלקת בשיאה','תאי חיסון מפרקים את הנגיף.',72,3,N);await sal(t=>{stx.clearRect(0,0,simW,simH);l.redA=1-t*.46;l.shrink=1.12-t*.72;for(let i=0;i<7;i++){const a=i/7*Math.PI*2-t*2.5;stx.beginPath();stx.arc(l.x+Math.cos(a)*(l.r+9),l.y+Math.sin(a)*(l.r+9),1.9,0,Math.PI*2);stx.fillStyle=`rgba(220,78,58,${.76-t*.76})`;stx.fill();}},1050);simInfo('החלמה','הנגע דועך מעצמו','ריפוי טבעי ללא צלקת!',92,4,N);l.shrink=.4;l.redA=0;await sdl(400);}
+
+async function simFadeOut(l){const s0=l.shrink||1,a0=l.alpha;await sal(t=>{stx.clearRect(0,0,simW,simH);l.shrink=s0*(1-t);l.alpha=a0*(1-t);l.blisterA*=(1-t);l.iceA*=(1-t);l.redA*=(1-t);l.dropA*=(1-t);},520);l.alpha=0;}
+
+function resetSim(){simLesions=simLesionDefs.map((d,i)=>({...d,id:i,state:'alive',alpha:1,blisterR:0,blisterA:0,blisterPop:0,iceA:0,dropA:0,redA:0,shrink:1}));simSelTx=null;simCleared=0;simBusy=false;document.querySelectorAll('.sim-tbtn').forEach(b=>b.classList.remove('sim-sel'));document.getElementById('sim-txPill').textContent='לא נבחר טיפול';document.getElementById('sim-cN').textContent='0';document.getElementById('sim-win').style.display='none';document.getElementById('sim-hint').textContent='בחרו טיפול ולחצו על נגע';simInfo('מוכן','בחרו שיטת טיפול','לחצו על אחד מכפתורי הטיפול, ואז על אחד מהנגעים המהבהבים.',0,0,0);if(stx)stx.clearRect(0,0,simW,simH);if(!simRafId&&simBC)simStartLoop();}
+</script>
+</body>
+</html>
