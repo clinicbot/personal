@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ד"ר יונתן שפירא | רופא עור</title>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .hero { display: flex; align-items: center; justify-content: space-between; padding: 72px 48px 64px; gap: 56px; border-bottom: 1px solid var(--border-light); max-width: 1100px; margin: 0 auto; }
+    .hero-text { flex: 1; max-width: 600px; }
+    .hero-badge { display: inline-block; background: var(--green-light); color: var(--green-dark); font-size: 12px; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; font-weight: 600; }
+    .hero-title { font-size: 42px; font-weight: 600; line-height: 1.15; margin-bottom: 8px; }
+    .hero-title span { color: var(--green); }
+    .hero-subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 12px; font-weight: 400; }
+    .hero-roles { font-size: 13.5px; color: var(--text-faint); margin-bottom: 36px; line-height: 2; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: var(--green); color: #fff; border: none; padding: 13px 30px; border-radius: var(--radius); font-size: 14px; cursor: pointer; font-family: 'Assistant', sans-serif; font-weight: 500; text-decoration: none; display: inline-block; }
+    .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 13px 30px; border-radius: var(--radius); font-size: 14px; font-family: 'Assistant', sans-serif; font-weight: 500; text-decoration: none; display: inline-block; }
+    .hero-image { flex-shrink: 0; width: 240px; height: 290px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-light); background: var(--green-light); display: flex; align-items: center; justify-content: center; }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-avatar { font-size: 56px; font-weight: 600; color: var(--green-dark); }
+    .stats-row { display: flex; border-bottom: 1px solid var(--border-light); max-width: 1100px; margin: 0 auto; }
+    .stat-item { flex: 1; padding: 32px; border-left: 1px solid var(--border-light); text-align: center; }
+    .stat-item:last-child { border-left: none; }
+    .stat-num { font-size: 30px; font-weight: 600; color: var(--green); }
+    .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+    .quick-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; max-width: 1100px; margin: 0 auto; padding: 48px; }
+    .quick-card { background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 24px; border: 1px solid var(--border-light); text-decoration: none; color: var(--text); transition: border-color 0.2s; }
+    .quick-card:hover { border-color: var(--green); }
+    .quick-card-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .quick-card-sub { font-size: 13px; color: var(--text-muted); }
+    .quick-arrow { color: var(--green); font-size: 18px; margin-bottom: 12px; }
+    @media (max-width: 720px) {
+      .hero { flex-direction: column-reverse; padding: 40px 20px; gap: 32px; }
+      .hero-image { width: 160px; height: 190px; }
+      .hero-title { font-size: 30px; }
+      .stats-row { flex-wrap: wrap; }
+      .stat-item { min-width: 50%; border-left: none; border-bottom: 1px solid var(--border-light); }
+      .quick-links { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="index.html">ד"ר <span>יונתן שפירא</span></a>
+    <div class="nav-links">
+      <a href="bio.html">ביוגרפיה</a>
+      <a href="expertise.html">מומחיות</a>
+      <a href="research.html">מחקר</a>
+      <a href="publications.html">פרסומים</a>
+      <a href="awards.html">פרסים</a>
+      <a href="contact.html">צור קשר</a>
+    </div>
+    <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">קביעת ייעוץ</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-badge">מומחה עור ובינה מלאכותית</div>
+      <div class="hero-title">ד"ר <span>יונתן שפירא</span></div>
+      <div class="hero-subtitle">רופא עור בכיר · טלרפואה · AI רפואי</div>
+      <div class="hero-roles">
+        מנהל שירות הטלדרמטולוגיה · מכבי שירותי בריאות<br>
+        מרצה · הטכניון ואוניברסיטת תל אביב<br>
+        יועץ · Predicta-Med LTD
+      </div>
+      <div class="hero-btns">
+        <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">בקשת ייעוץ</a>
+        <a class="btn-secondary" href="publications.html">פרסומים</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="image.jpg" alt="ד&quot;ר יונתן שפירא" onerror="this.style.display='none'; document.getElementById('fallback-avatar').style.display='flex';" />
+      <div id="fallback-avatar" class="hero-avatar" style="display:none;">י.ש</div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-item"><div class="stat-num">1997</div><div class="stat-label">סיום לימודי רפואה, אוניברסיטת ת"א</div></div>
+    <div class="stat-item"><div class="stat-num">38+</div><div class="stat-label">פרסומים מדעיים</div></div>
+    <div class="stat-item"><div class="stat-num">AAD</div><div class="stat-label">חבר האקדמיה האמריקאית לרפואת עור</div></div>
+    <div class="stat-item"><div class="stat-num">AI</div><div class="stat-label">פיתוח אלגוריתמי למידת מכונה</div></div>
+  </div>
+
+  <div class="quick-links">
+    <a class="quick-card" href="bio.html"><div class="quick-arrow">→</div><div class="quick-card-title">ביוגרפיה</div><div class="quick-card-sub">רקע מקצועי ואקדמי</div></a>
+    <a class="quick-card" href="expertise.html"><div class="quick-arrow">→</div><div class="quick-card-title">מומחיות קלינית</div><div class="quick-card-sub">תחומי טיפול והתמחות</div></a>
+    <a class="quick-card" href="research.html"><div class="quick-arrow">→</div><div class="quick-card-title">מחקר</div><div class="quick-card-sub">AI, פסוריאזיס, טלרפואה</div></a>
+    <a class="quick-card" href="publications.html"><div class="quick-arrow">→</div><div class="quick-card-title">פרסומים</div><div class="quick-card-sub">מאמרים מדעיים</div></a>
+    <a class="quick-card" href="awards.html"><div class="quick-arrow">→</div><div class="quick-card-title">פרסים</div><div class="quick-card-sub">הישגים והוקרה</div></a>
+    <a class="quick-card" href="contact.html"><div class="quick-arrow">→</div><div class="quick-card-title">צור קשר</div><div class="quick-card-sub">ייעוץ ושיתוף פעולה</div></a>
+  </div>
+
+  <footer>
+    <span>© 2025 ד"ר יונתן שפירא | רופא עור</span>
+    <span>jshapiro.co.il</span>
+  </footer>
+</body>
+</html>
