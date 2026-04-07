@@ -33,8 +33,8 @@ body {
   font-family: 'DM Sans', sans-serif;
   color: var(--text);
   background: var(--navy);
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 18px;
+  line-height: 1.75;
   min-height: 100vh;
 }
 
@@ -66,7 +66,7 @@ nav {
 }
 
 .nav-links a {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
   color: var(--text-muted);
   text-decoration: none;
@@ -88,7 +88,7 @@ nav {
   border: none;
   padding: 9px 22px;
   border-radius: var(--radius);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
   font-family: 'DM Sans', sans-serif;
@@ -117,7 +117,7 @@ nav {
 
 .page-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 44px;
+  font-size: 54px;
   font-weight: 300;
   color: var(--white);
   letter-spacing: -0.01em;
@@ -126,7 +126,7 @@ nav {
 }
 
 .page-subtitle {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -150,7 +150,7 @@ nav {
 
 /* ---- BIO ---- */
 .bio-text {
-  font-size: 15.5px;
+  font-size: 17px;
   line-height: 1.9;
   color: var(--text-muted);
   max-width: 800px;
@@ -184,8 +184,8 @@ nav {
   box-shadow: 0 0 8px var(--teal);
 }
 
-.expertise-name { font-size: 13.5px; font-weight: 500; color: var(--white); }
-.expertise-desc { font-size: 12px; color: var(--text-faint); margin-top: 4px; }
+.expertise-name { font-size: 15px; font-weight: 500; color: var(--white); }
+.expertise-desc { font-size: 13.5px; color: var(--text-faint); margin-top: 4px; }
 
 /* ---- TIMELINE ---- */
 .timeline-item {
@@ -198,7 +198,7 @@ nav {
 
 .timeline-year {
   width: 90px; flex-shrink: 0;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--teal);
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -207,8 +207,8 @@ nav {
 }
 
 .timeline-content { flex: 1; }
-.timeline-title { font-size: 14px; font-weight: 500; color: var(--white); }
-.timeline-sub { font-size: 13px; color: var(--text-muted); margin-top: 5px; }
+.timeline-title { font-size: 16px; font-weight: 500; color: var(--white); }
+.timeline-sub { font-size: 15px; color: var(--text-muted); margin-top: 5px; }
 
 /* ---- PUBLICATIONS ---- */
 .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
@@ -217,8 +217,8 @@ nav {
   background: var(--navy-mid);
   border: 1px solid var(--border-light);
   border-radius: 20px;
-  padding: 6px 16px;
-  font-size: 12.5px;
+  padding: 7px 18px;
+  font-size: 14px;
   cursor: pointer;
   font-family: 'DM Sans', sans-serif;
   color: var(--text-muted);
@@ -243,7 +243,7 @@ nav {
 .pub-item:last-child { border-bottom: none; }
 
 .pub-num {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-faint);
   min-width: 28px;
   flex-shrink: 0;
@@ -252,14 +252,14 @@ nav {
 }
 
 .pub-body { flex: 1; }
-.pub-title { font-size: 13.5px; font-weight: 400; line-height: 1.6; color: var(--text); margin-bottom: 5px; }
-.pub-authors { font-size: 12px; color: var(--text-faint); margin-bottom: 4px; line-height: 1.5; }
-.pub-journal { font-size: 12px; color: var(--text-muted); }
+.pub-title { font-size: 15px; font-weight: 400; line-height: 1.6; color: var(--text); margin-bottom: 5px; }
+.pub-authors { font-size: 13.5px; color: var(--text-faint); margin-bottom: 4px; line-height: 1.5; }
+.pub-journal { font-size: 13.5px; color: var(--text-muted); }
 
 .pub-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; align-items: center; }
 
 .pub-tag {
-  font-size: 10.5px; padding: 2px 8px; border-radius: 10px;
+  font-size: 12px; padding: 3px 10px; border-radius: 10px;
   background: var(--teal-dim); color: var(--teal); font-weight: 500;
   border: 1px solid rgba(14,181,168,0.3);
 }
@@ -275,7 +275,7 @@ nav {
 }
 
 .pub-link {
-  font-size: 10.5px; color: var(--teal); text-decoration: none;
+  font-size: 12px; color: var(--teal); text-decoration: none;
   padding: 2px 8px; border: 1px solid rgba(14,181,168,0.4); border-radius: 10px;
   white-space: nowrap; transition: all 0.2s;
 }
@@ -295,7 +295,7 @@ nav {
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0; color: var(--gold); font-size: 16px;
 }
-.award-text { font-size: 13.5px; line-height: 1.7; color: var(--text-muted); }
+.award-text { font-size: 15px; line-height: 1.7; color: var(--text-muted); }
 .award-text strong { color: var(--white); font-weight: 500; }
 
 /* ---- CONTACT / APPOINTMENT ---- */
@@ -303,11 +303,11 @@ nav {
 .contact-info { flex: 1; }
 .contact-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 28px; font-weight: 300; color: var(--white);
+  font-size: 34px; font-weight: 300; color: var(--white);
   margin-bottom: 12px;
 }
-.contact-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; line-height: 1.8; }
-.contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; font-size: 13.5px; color: var(--text-muted); }
+.contact-sub { font-size: 16px; color: var(--text-muted); margin-bottom: 28px; line-height: 1.8; }
+.contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; font-size: 15px; color: var(--text-muted); }
 .contact-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); flex-shrink: 0; box-shadow: 0 0 6px var(--teal); }
 .contact-cta {
   margin-top: 32px;
@@ -328,13 +328,13 @@ nav {
   border: 1px solid var(--border-light);
 }
 .membership-label {
-  font-size: 10px; color: var(--text-faint); margin-bottom: 20px;
+  font-size: 12px; color: var(--text-faint); margin-bottom: 20px;
   text-transform: uppercase; letter-spacing: 0.12em;
 }
 .membership-item {
   display: flex; align-items: center; gap: 14px;
   padding: 14px 0; border-bottom: 1px solid var(--border-light);
-  font-size: 13px; font-weight: 400; color: var(--text-muted);
+  font-size: 15px; font-weight: 400; color: var(--text-muted);
 }
 .membership-item:last-child { border-bottom: none; }
 .m-badge {
@@ -350,19 +350,19 @@ nav {
   padding: 32px; border: 1px solid var(--border-light);
 }
 .clinic-card-title {
-  font-size: 16px; font-weight: 500; color: var(--teal);
+  font-size: 18px; font-weight: 500; color: var(--teal);
   margin-bottom: 24px; padding-bottom: 16px;
   border-bottom: 1px solid var(--border-light);
   letter-spacing: 0.01em;
 }
 .clinic-row { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border-light); align-items: flex-start; }
 .clinic-row:last-child { border-bottom: none; }
-.clinic-label { font-size: 11px; color: var(--text-faint); min-width: 110px; flex-shrink: 0; padding-top: 2px; letter-spacing: 0.04em; text-transform: uppercase; }
-.clinic-value { font-size: 13.5px; color: var(--text); line-height: 1.6; }
+.clinic-label { font-size: 12px; color: var(--text-faint); min-width: 120px; flex-shrink: 0; padding-top: 2px; letter-spacing: 0.04em; text-transform: uppercase; }
+.clinic-value { font-size: 15px; color: var(--text); line-height: 1.6; }
 .clinic-value a { color: var(--teal); text-decoration: none; }
 .clinic-value a:hover { text-decoration: underline; }
 
-.hours-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border-light); font-size: 13.5px; }
+.hours-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border-light); font-size: 15px; }
 .hours-row:last-child { border-bottom: none; }
 .hours-day { font-weight: 500; color: var(--white); }
 .hours-time { color: var(--text-muted); }
@@ -370,8 +370,8 @@ nav {
 .call-btn {
   display: inline-flex; align-items: center; gap: 8px;
   background: linear-gradient(135deg, var(--teal), #0a9e92);
-  color: var(--navy); padding: 11px 24px; border-radius: var(--radius);
-  font-size: 13.5px; font-weight: 500; text-decoration: none;
+  color: var(--navy); padding: 13px 28px; border-radius: var(--radius);
+  font-size: 15px; font-weight: 500; text-decoration: none;
   font-family: 'DM Sans', sans-serif; margin-top: 20px; transition: opacity 0.2s;
 }
 .call-btn:hover { opacity: 0.85; }
@@ -379,8 +379,8 @@ nav {
   display: inline-flex; align-items: center; gap: 8px;
   background: transparent; color: var(--teal);
   border: 1px solid rgba(14,181,168,0.4);
-  padding: 11px 24px; border-radius: var(--radius);
-  font-size: 13.5px; font-weight: 500; text-decoration: none;
+  padding: 13px 28px; border-radius: var(--radius);
+  font-size: 15px; font-weight: 500; text-decoration: none;
   font-family: 'DM Sans', sans-serif; margin-top: 10px; transition: all 0.2s;
 }
 .call-btn-secondary:hover { background: var(--teal-dim); }
