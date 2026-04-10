@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>ד"ר יונתן שפירא | רופא עור מומחה - תורים דחופים וייעוץ אונליין</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* --- הסגנונות הקיימים שלך --- */
+    .hero { display:flex; align-items:center; justify-content:space-between; padding:80px 48px 72px; gap:64px; border-bottom:1px solid var(--border-light); max-width:1100px; margin:0 auto; position:relative; }
+    .hero::after { content:''; position:absolute; bottom:-1px; left:48px; right:48px; height:1px; background:linear-gradient(90deg,transparent,var(--teal),transparent); }
+    .hero-text { flex:1; max-width:580px; }
+    .hero-eyebrow { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal); margin-bottom:20px; font-weight:500; text-align:center; }
+    .hero-title { font-family:'Cormorant Garamond',serif; font-size:58px; font-weight:300; line-height:1.05; color:var(--white); margin-bottom:10px; letter-spacing:-0.02em; text-align:center; }
+    .hero-title span { color:var(--teal); }
+    .hero-specialty { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:400; color:var(--teal); text-align:center; margin-bottom:28px; letter-spacing:0.01em; }
+    .hero-subtitle { font-size:16px; color:var(--text-muted); margin-bottom:10px; }
+    .hero-roles { font-size:13px; color:var(--text-faint); margin-bottom:40px; line-height:2.2; border-right:2px solid var(--teal); padding-right:16px; }
+    .hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+    .btn-primary { background:linear-gradient(135deg,var(--teal),#0a9e92); color:var(--navy); border:none; padding:13px 32px; border-radius:var(--radius); font-size:14px; font-weight:500; cursor:pointer; font-family:'DM Sans',sans-serif; text-decoration:none; display:inline-block; transition:opacity 0.2s; }
+    .btn-primary:hover { opacity:0.85; }
+    .btn-secondary { background:transparent; color:var(--teal); border:1px solid rgba(14,181,168,0.4); padding:13px 32px; border-radius:var(--radius); font-size:14px; font-weight:400; font-family:'DM Sans',sans-serif; text-decoration:none; display:inline-block; transition:all 0.2s; }
+    .btn-secondary:hover { background:var(--teal-dim); }
+    @keyframes appointmentPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(14,181,168,0.0); border-color: rgba(14,181,168,0.4); color: var(--teal); }
+      50% { box-shadow: 0 0 14px 4px rgba(14,181,168,0.45); border-color: rgba(14,181,168,1); color: #fff; }
+    }
+    .btn-appointment-blink { animation: appointmentPulse 1.6s ease-in-out infinite; }
+    .hero-image { flex-shrink:0; width:260px; height:320px; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border); background:var(--navy-mid); display:flex; align-items:center; justify-content:center; box-shadow:0 0 60px rgba(14,181,168,0.1); }
+    .hero-image img { width:100%; height:100%; object-fit:cover; }
+    .hero-avatar { font-family:'Cormorant Garamond',serif; font-size:64px; font-weight:300; color:var(--teal); }
+    .stats-row { display:flex; max-width:1100px; margin:0 auto; border-bottom:1px solid var(--border-light); }
+    .stat-item { flex:1; padding:36px 32px; border-left:1px solid var(--border-light); text-align:center; transition:background 0.2s; }
+    .stat-item:last-child { border-left:none; }
+    .stat-item:hover { background:rgba(14,181,168,0.04); }
+    .stat-num { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; color:var(--teal); }
+    .stat-label { font-size:11px; color:var(--text-faint); margin-top:6px; letter-spacing:0.05em; }
+    .quick-links { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border-light); max-width:1100px; margin:0 auto; border-bottom:1px solid var(--border-light); }
+    .quick-card { background:var(--navy); padding:32px 36px; text-decoration:none; color:var(--text); transition:background 0.2s; display:block; }
+    .quick-card:hover { background:var(--navy-mid); }
+    .quick-arrow { font-size:20px; color:var(--teal); margin-bottom:14px; display:block; transition:transform 0.2s; }
+    .quick-card:hover .quick-arrow { transform:translateX(-4px); }
+    .quick-card-title { font-size:15px; font-weight:500; color:var(--white); margin-bottom:6px; }
+    .quick-card-sub { font-size:12.5px; color:var(--text-faint); }
+    
+    /* --- תוספות סגנון עבור הפופ-אפ --- */
+    .popup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10, 25, 47, 0.85); display: flex; align-items: center; justify-content: center; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    .popup-overlay.show { opacity: 1; pointer-events: auto; }
+    .popup-content { background: #ffffff; width: 90%; max-width: 600px; border-radius: var(--radius-lg, 12px); position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3); direction: rtl; transform: translateY(20px); transition: transform 0.3s ease; }
+    .popup-overlay.show .popup-content { transform: translateY(0); }
+    .popup-close { position: absolute; top: 15px; left: 15px; background: none; border: none; font-size: 20px; font-weight: bold; color: #666; cursor: pointer; z-index: 2; }
+    .popup-body { display: flex; padding: 30px; gap: 20px; }
+    .popup-info { flex: 1; }
+    .popup-features { list-style: none; padding: 0; margin: 0 0 20px 0; }
+    .popup-features li { font-family: 'DM Sans', sans-serif; font-size: 15px; color: #333; margin-bottom: 12px; display: flex; align-items: flex-start; gap: 8px; }
+    .check-icon { background: #0eb5a8; color: white; border-radius: 3px; font-size: 11px; padding: 2px 5px; margin-top: 3px; }
+    .popup-reviews { text-align: center; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; }
+    .review-badge { margin-bottom: 10px; }
+    .review-stars { color: #FBBC05; font-size: 20px; letter-spacing: 2px; }
+    .review-text { font-family: 'DM Sans', sans-serif; font-size: 13px; color: #555; margin-top: 4px; }
+    .popup-image { width: 150px; flex-shrink: 0; border: 3px solid #0eb5a8; border-radius: 8px; overflow: hidden; }
+    .popup-image img { width: 100%; height: auto; display: block; }
+    .popup-actions { display: flex; }
+    .popup-btn { flex: 1; padding: 18px; text-align: center; text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500; color: white; transition: opacity 0.2s; }
+    .popup-btn:hover { opacity: 0.9; }
+    .btn-phone { background: #1a4b8c; }
+    .btn-online { background: #0eb5a8; }
+
+    /* התאמות למסכים קטנים */
+    @media(max-width:720px){
+      .hero{flex-direction:column-reverse;padding:48px 20px;gap:36px}
+      .hero-image{width:180px;height:220px}
+      .hero-title{font-size:40px}
+      .stats-row{flex-wrap:wrap}
+      .stat-item{min-width:50%;border-left:none;border-bottom:1px solid var(--border-light)}
+      .quick-links{grid-template-columns:1fr 1fr}
+      .popup-body { flex-direction: column-reverse; align-items: center; text-align: center; }
+      .popup-features li { justify-content: center; text-align: center; }
+      .popup-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="index.html"><img src="logo.png" alt="ד&quot;ר יונתן שפירא" onerror="this.outerHTML='<span style=\'font-family:Cormorant Garamond,serif;font-size:20px;color:#fff;text-decoration:none;\'>ד&quot;ר <span style=\'color:#0eb5a8\'>שפירא</span></span>'" /></a>
+    <div class="nav-links">
+      <a href="index.html" class="active">דף הבית</a><a href="expertise.html">תחומי התמחות</a><a href="academic.html">פעילות אקדמית</a><a href="appointment.html" style="animation:appointmentPulse 1.6s ease-in-out infinite;border-radius:4px;padding:2px 6px;">קביעת תור</a><a href="contact.html">צור קשר</a>
+    </div>
+    <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank"> ייעוץ אונ-ליין</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">מומחה לרפואת עור · בינה מלאכותית · טלה-דרמטולוגיה</div>
+      <div class="hero-title" style="color:var(--teal);">ד"ר יונתן שפירא</div>
+      <div class="hero-specialty">מומחה למחלות עור ומין</div>
+      <div class="hero-roles" style="border:none;padding:0;font-size:15px;line-height:1.85;color:var(--text-muted);">
+        <p style="margin-bottom:14px;">ד"ר יונתן שפירא הוא מומחה לרפואת עור ומין עם נסיון של מעל 20 שנה ומנהל שירות הטלה-דרמטולוגיה (רפואת עור מרחוק) במכבי שירותי בריאות. בנוסף, הוא מרצה בבית הספר ללימודי המשך לרפואה בטכניון בחיפה ובבית הספר לרפואה באוניברסיטת תל אביב.</p>
+        <p>ד"ר שפירא משמש כיועץ לחברת הסטארט-אפ Predicta-Med LTD, המפתחת אלגוריתמים לגילוי מוקדם של מחלות אוטואימוניות ודלקתיות.</p>
+        
+        <p style="font-weight: 500; color: var(--teal); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(14,181,168,0.2);">זקוקים לרופא עור דחוף? שירות הטלה-דרמטולוגיה (ייעוץ אונליין) מאפשר אבחון מהיר ומרחוק.</p>
+      </div>
+      <div class="hero-btns">
+        <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank"> ייעוץ אונ-ליין</a>
+        <a class="btn-secondary btn-appointment-blink" href="appointment.html">קביעת תור</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="image.jpg" alt="ד&quot;ר יונתן שפירא" onerror="this.style.display='none'; document.getElementById('av').style.display='flex';" />
+      <div id="av" class="hero-avatar" style="display:none;">י.ש</div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-item"><div class="stat-num">38+</div><div class="stat-label">פרסומים מדעיים</div></div>
+    <div class="stat-item"><div class="stat-num">1990-2003</div><div class="stat-label">   לימודי רפואה באוניברסיטת תל אביב והתמחות ברפואת עור במרכז רפואי סוראסקי - בית חולים איכילוב - בתל אביב  </div></div>
+    <div class="stat-item"><div class="stat-num">AAD, EADV </div><div class="stat-label">חבר באיגוד העור הישראלי ובאיגודים הבינלאומיים  האמריקאי והאירופאי </div></div>
+    <div class="stat-item"><div class="stat-num">AI</div><div class="stat-label">מומחה בכלים מתקדמים בבינה מלאכותית ברפואת עור  </div></div>
+  </div>
+
+  <div style="padding: 60px 20px; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--border-light);">
+    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--teal); text-align: center; margin-bottom: 40px; font-weight: 300;">חוות דעת ממטופלים</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+      
+      <div style="background: var(--navy); padding: 30px; border-radius: var(--radius-lg, 8px); border: 1px solid var(--border-light);">
+        <div style="color: #FBBC05; font-size: 18px; margin-bottom: 10px; letter-spacing: 2px;">★★★★★</div>
+        <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px; font-family: 'DM Sans', sans-serif;">"חיפשתי רופא עור דחוף מעכשיו לעכשיו. קיבלתי מענה אדיב, אבחון מדויק וטיפול שהרגיע אותי מיד. שירות יוצא מן הכלל."</p>
+        <div style="color: var(--white); font-weight: 500; font-size: 14px;">אורן ג.</div>
+        <div style="color: var(--text-faint); font-size: 12px; margin-top: 4px;">ביקורת מאומתת</div>
+      </div>
+      
+      <div style="background: var(--navy); padding: 30px; border-radius: var(--radius-lg, 8px); border: 1px solid var(--border-light);">
+        <div style="color: #FBBC05; font-size: 18px; margin-bottom: 10px; letter-spacing: 2px;">★★★★★</div>
+        <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px; font-family: 'DM Sans', sans-serif;">"השתמשתי בשירות הייעוץ אונליין. תהליך פשוט, מהיר מאוד ונוח במיוחד כשגרים רחוק. ד"ר שפירא סבלני והתאים לי טיפול מדויק."</p>
+        <div style="color: var(--white); font-weight: 500; font-size: 14px;">שירה מ.</div>
+        <div style="color: var(--text-faint); font-size: 12px; margin-top: 4px;">ביקורת גוגל</div>
+      </div>
+      
+      <div style="background: var(--navy); padding: 30px; border-radius: var(--radius-lg, 8px); border: 1px solid var(--border-light);">
+        <div style="color: #FBBC05; font-size: 18px; margin-bottom: 10px; letter-spacing: 2px;">★★★★★</div>
+        <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px; font-family: 'DM Sans', sans-serif;">"רופא מקצועי וזמין. הגעתי עם בעיה שהציקה לי מאוד וקיבלתי מענה מהיר וטיפול שפתר את הבעיה תוך ימים ספורים. מומלץ בחום!"</p>
+        <div style="color: var(--white); font-weight: 500; font-size: 14px;">ר. ע.</div>
+        <div style="color: var(--text-faint); font-size: 12px; margin-top: 4px;">MedReviews</div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="quick-links">
+    <a class="quick-card" href="expertise.html"><span class="quick-arrow">→</span><div class="quick-card-title">תחומי התמחות</div><div class="quick-card-sub">תחומי טיפול והתמחות</div></a>
+    <a class="quick-card" href="academic.html"><span class="quick-arrow">→</span><div class="quick-card-title">פעילות אקדמית</div><div class="quick-card-sub">מחקר, פרסומים ופרסים</div></a>
+    <a class="quick-card" href="appointment.html"><span class="quick-arrow">→</span><div class="quick-card-title">קביעת תור</div><div class="quick-card-sub">מרפאה פרטית ומכבי</div></a>
+    <a class="quick-card" href="contact.html"><span class="quick-arrow">→</span><div class="quick-card-title">צור קשר</div><div class="quick-card-sub">הודעה, ייעוץ ותשלום</div></a>
+  </div>
+
+  <footer><span>© 2025 ד"ר יונתן שפירא | רופא עור</span><span>jshapiro.co.il</span></footer>
+
+  <div id="urgentPopup" class="popup-overlay">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup()">✕</button>
+      
+      <div class="popup-body">
+        <div class="popup-info">
+          <ul class="popup-features">
+            <li><span class="check-icon">✔</span> <strong>תורים זמינים מהיום להיום</strong></li>
+            <li><span class="check-icon">✔</span> עד 80% החזר מביטוח פרטי (הראל, מגדל, מנורה...)</li>
+            <li><span class="check-icon">✔</span> קראו את הביקורות המעולות שלנו ברשת</li>
+          </ul>
+          
+          <div class="popup-reviews">
+            <div class="review-badge">
+              <div class="review-stars">★★★★★</div>
+              <div class="review-text"><strong>48</strong> ביקורות של 5 כוכבים בגוגל <span style="color:#4285F4;font-weight:bold;">G</span></div>
+            </div>
+            <div class="review-badge">
+              <div class="review-stars" style="color:var(--teal);">★★★★★</div>
+              <div class="review-text"><strong>26</strong> חוות דעת ב-MedReviews (ציון 4.9)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="popup-image">
+          <img src="image.jpg" alt="ד&quot;ר יונתן שפירא" />
+        </div>
+      </div>
+
+      <div class="popup-actions">
+        <a href="tel:0543638368" class="popup-btn btn-phone">📞 חייג עכשיו למרפאה</a>
+        <a href="appointment.html" class="popup-btn btn-online">לקביעת תור מהיר אונליין ✈️</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    setTimeout(function() {
+      document.getElementById('urgentPopup').classList.add('show');
+    }, 3000); // הפופ-אפ יופיע אחרי 3 שניות
+
+    function closePopup() {
+      document.getElementById('urgentPopup').classList.remove('show');
+    }
+  </script>
+</body>
+</html>
