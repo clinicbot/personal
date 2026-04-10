@@ -14,28 +14,74 @@
     </div>
     <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">קביעת ייעוץ</a>
   </nav>
+  <style>
+    @keyframes appointmentPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(14,181,168,0.0); border-color: rgba(14,181,168,0.4); color: var(--teal); }
+      50% { box-shadow: 0 0 14px 4px rgba(14,181,168,0.45); border-color: rgba(14,181,168,1); color: #fff; }
+    }
+    .contact-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+    .btn-consult { background: linear-gradient(135deg,var(--teal),#0a9e92); color: var(--navy); border: none; padding: 13px 32px; border-radius: var(--radius); font-size: 14px; font-weight: 500; cursor: pointer; font-family: 'DM Sans',sans-serif; text-decoration: none; display: inline-block; transition: opacity 0.2s; }
+    .btn-consult:hover { opacity: 0.85; }
+    .btn-appt { background: transparent; color: var(--teal); border: 1px solid rgba(14,181,168,0.4); padding: 13px 32px; border-radius: var(--radius); font-size: 14px; font-weight: 400; font-family: 'DM Sans',sans-serif; text-decoration: none; display: inline-block; animation: appointmentPulse 1.6s ease-in-out infinite; }
+    .contact-form-wrap { background: var(--navy-mid); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 40px; max-width: 620px; }
+    .contact-form-wrap h2 { font-family: 'Cormorant Garamond',serif; font-size: 22px; font-weight: 400; color: var(--white); margin-bottom: 24px; }
+    .form-field { margin-bottom: 18px; }
+    .form-field label { display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 7px; }
+    .form-field input, .form-field textarea { width: 100%; background: var(--navy); border: 1px solid var(--border); border-radius: var(--radius); padding: 11px 14px; font-size: 14px; color: var(--white); font-family: 'DM Sans',sans-serif; box-sizing: border-box; transition: border-color 0.2s; outline: none; }
+    .form-field input:focus, .form-field textarea:focus { border-color: var(--teal); }
+    .form-field textarea { resize: vertical; min-height: 120px; }
+    .form-submit { background: linear-gradient(135deg,var(--teal),#0a9e92); color: var(--navy); border: none; padding: 12px 36px; border-radius: var(--radius); font-size: 14px; font-weight: 500; cursor: pointer; font-family: 'DM Sans',sans-serif; transition: opacity 0.2s; }
+    .form-submit:hover { opacity: 0.85; }
+    .form-success { display: none; color: var(--teal); font-size: 14px; margin-top: 14px; }
+  </style>
+
   <div class="page-header">
     <div class="page-title">צור קשר</div>
     <div class="page-subtitle">ייעוץ, הרצאות ושיתופי פעולה</div>
   </div>
   <div class="content">
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="contact-title">קביעת ייעוץ</div>
-        <div class="contact-sub">ניתן לפנות לייעוץ דרמטולוגי, ייעוץ טלדרמטולוגיה, הרצאות, מחקר משותף ושיתופי פעולה.</div>
-        <div class="contact-detail"><div class="contact-dot"></div> מכבי שירותי בריאות</div>
-        <div class="contact-detail"><div class="contact-dot"></div> הטכניון ואוניברסיטת תל אביב</div>
-        <div class="contact-detail"><div class="contact-dot"></div> חבר AAD ו-EADV</div>
-        <a class="contact-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">מלא שאלון ייעוץ ←</a>
-      </div>
-      <div class="memberships">
-        <div class="membership-label">חברות מקצועית</div>
-        <div class="membership-item"><div class="m-badge">AAD</div> American Academy of Dermatology</div>
-        <div class="membership-item"><div class="m-badge">EADV</div> European Academy of Dermatology and Venereology</div>
-        <div class="membership-item"><div class="m-badge">IDS</div> האגודה הדרמטולוגית הישראלית</div>
-      </div>
+    <div class="contact-actions">
+      <a class="btn-consult" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">מלא שאלון ייעוץ ←</a>
+      <a class="btn-appt" href="appointment.html">קביעת תור</a>
+    </div>
+
+    <div class="contact-form-wrap">
+      <h2>שלח הודעה</h2>
+      <form id="contactForm" action="https://formspree.io/f/mykbqjov" method="POST">
+        <div class="form-field">
+          <label for="name">שם מלא</label>
+          <input type="text" id="name" name="name" placeholder="ישראל ישראלי" required />
+        </div>
+        <div class="form-field">
+          <label for="email">כתובת מייל</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-field">
+          <label for="subject">נושא</label>
+          <input type="text" id="subject" name="subject" placeholder="במה אוכל לעזור?" required />
+        </div>
+        <div class="form-field">
+          <label for="message">הודעה</label>
+          <textarea id="message" name="message" placeholder="כתוב את הודעתך כאן..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">שלח הודעה ←</button>
+        <div class="form-success" id="formSuccess">✓ ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.</div>
+      </form>
     </div>
   </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        form.reset();
+        document.getElementById('formSuccess').style.display = 'block';
+      }
+    });
+  </script>
   <footer><span>© 2025 ד"ר יונתן שפירא | רופא עור</span><span>jshapiro.co.il</span></footer>
 </body>
 </html>
