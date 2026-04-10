@@ -49,18 +49,34 @@
     /* --- סגנונות הפופ-אפ --- */
     .popup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10, 25, 47, 0.85); display: flex; align-items: center; justify-content: center; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
     .popup-overlay.show { opacity: 1; pointer-events: auto; }
-    .popup-content { background: #ffffff; width: 90%; max-width: 600px; border-radius: var(--radius-lg, 12px); position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3); direction: rtl; transform: translateY(20px); transition: transform 0.3s ease; }
+    
+    /* עדכון הרקע של הפופ-אפ שיתאים לאתר */
+    .popup-content { background: var(--navy, #0a192f); border: 1px solid var(--border-light, rgba(255,255,255,0.1)); width: 90%; max-width: 600px; border-radius: var(--radius-lg, 12px); position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); direction: rtl; transform: translateY(20px); transition: transform 0.3s ease; }
     .popup-overlay.show .popup-content { transform: translateY(0); }
-    .popup-close { position: absolute; top: 15px; left: 15px; background: none; border: none; font-size: 20px; font-weight: bold; color: #666; cursor: pointer; z-index: 2; }
+    
+    /* צבע כפתור הסגירה הותאם לרקע כהה */
+    .popup-close { position: absolute; top: 15px; left: 15px; background: none; border: none; font-size: 20px; font-weight: bold; color: var(--text-faint, #8892b0); cursor: pointer; z-index: 2; transition: color 0.2s; }
+    .popup-close:hover { color: var(--white, #fff); }
+    
     .popup-body { display: flex; padding: 30px; gap: 20px; }
     .popup-info { flex: 1; }
     .popup-features { list-style: none; padding: 0; margin: 0 0 20px 0; }
-    .popup-features li { font-family: 'DM Sans', sans-serif; font-size: 14.5px; color: #333; margin-bottom: 10px; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
+    
+    /* התאמת צבעי הטקסט בפופ-אפ שיהיו קריאים על רקע כהה */
+    .popup-features li { font-family: 'DM Sans', sans-serif; font-size: 14.5px; color: var(--text-muted, #ccd6f6); margin-bottom: 10px; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
+    .popup-features li strong { color: var(--white, #ffffff); }
+    
     .check-icon { background: #0eb5a8; color: white; border-radius: 3px; font-size: 11px; padding: 2px 5px; margin-top: 3px; }
-    .popup-reviews { text-align: center; margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee; }
+    
+    /* צבע קו ההפרדה מעל הביקורות הותאם לרקע */
+    .popup-reviews { text-align: center; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-light, rgba(255,255,255,0.1)); }
     .review-badge { margin-bottom: 8px; }
     .review-stars { color: #FBBC05; font-size: 18px; letter-spacing: 2px; }
-    .review-text { font-family: 'DM Sans', sans-serif; font-size: 13px; color: #555; margin-top: 4px; }
+    
+    /* התאמת טקסט הביקורות לרקע כהה */
+    .review-text { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-faint, #8892b0); margin-top: 4px; }
+    .review-text strong { color: var(--white, #ffffff); }
+    
     .popup-image { width: 140px; flex-shrink: 0; border: 3px solid #0eb5a8; border-radius: 8px; overflow: hidden; height: fit-content; }
     .popup-image img { width: 100%; height: auto; display: block; }
     .popup-actions { display: flex; }
