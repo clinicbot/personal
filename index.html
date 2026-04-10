@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>ד"ר יונתן שפירא | רופא עור מומחה - תורים דחופים וייעוץ אונליין</title>
-  
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* --- הסגנונות הקיימים --- */
+    /* --- Styles --- */
     .hero { display:flex; align-items:center; justify-content:space-between; padding:80px 48px 72px; gap:64px; border-bottom:1px solid var(--border-light); max-width:1100px; margin:0 auto; position:relative; }
     .hero::after { content:''; position:absolute; bottom:-1px; left:48px; right:48px; height:1px; background:linear-gradient(90deg,transparent,var(--teal),transparent); }
     .hero-text { flex:1; max-width:580px; }
@@ -24,10 +22,7 @@
     .btn-primary:hover { opacity:0.85; }
     .btn-secondary { background:transparent; color:var(--teal); border:1px solid rgba(14,181,168,0.4); padding:13px 32px; border-radius:var(--radius); font-size:14px; font-weight:400; font-family:'DM Sans',sans-serif; text-decoration:none; display:inline-block; transition:all 0.2s; }
     .btn-secondary:hover { background:var(--teal-dim); }
-    @keyframes appointmentPulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(14,181,168,0.0); border-color: rgba(14,181,168,0.4); color: var(--teal); }
-      50% { box-shadow: 0 0 14px 4px rgba(14,181,168,0.45); border-color: rgba(14,181,168,1); color: #fff; }
-    }
+    @keyframes appointmentPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(14,181,168,0.0); border-color: rgba(14,181,168,0.4); color: var(--teal); } 50% { box-shadow: 0 0 14px 4px rgba(14,181,168,0.45); border-color: rgba(14,181,168,1); color: #fff; } }
     .btn-appointment-blink { animation: appointmentPulse 1.6s ease-in-out infinite; }
     .hero-image { flex-shrink:0; width:260px; height:320px; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border); background:var(--navy-mid); display:flex; align-items:center; justify-content:center; box-shadow:0 0 60px rgba(14,181,168,0.1); }
     .hero-image img { width:100%; height:100%; object-fit:cover; }
@@ -46,37 +41,26 @@
     .quick-card-title { font-size:15px; font-weight:500; color:var(--white); margin-bottom:6px; }
     .quick-card-sub { font-size:12.5px; color:var(--text-faint); }
     
-    /* --- סגנונות הפופ-אפ --- */
+    /* --- Popup Styles --- */
     .popup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10, 25, 47, 0.85); display: flex; align-items: center; justify-content: center; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
     .popup-overlay.show { opacity: 1; pointer-events: auto; }
-    
-    /* עדכון הרקע של הפופ-אפ שיתאים לאתר */
     .popup-content { background: var(--navy, #0a192f); border: 1px solid var(--border-light, rgba(255,255,255,0.1)); width: 90%; max-width: 600px; border-radius: var(--radius-lg, 12px); position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); direction: rtl; transform: translateY(20px); transition: transform 0.3s ease; }
     .popup-overlay.show .popup-content { transform: translateY(0); }
-    
-    /* צבע כפתור הסגירה הותאם לרקע כהה */
     .popup-close { position: absolute; top: 15px; left: 15px; background: none; border: none; font-size: 20px; font-weight: bold; color: var(--text-faint, #8892b0); cursor: pointer; z-index: 2; transition: color 0.2s; }
     .popup-close:hover { color: var(--white, #fff); }
-    
     .popup-body { display: flex; padding: 30px; gap: 20px; }
     .popup-info { flex: 1; }
     .popup-features { list-style: none; padding: 0; margin: 0 0 20px 0; }
-    
-    /* התאמת צבעי הטקסט בפופ-אפ שיהיו קריאים על רקע כהה */
     .popup-features li { font-family: 'DM Sans', sans-serif; font-size: 14.5px; color: var(--text-muted, #ccd6f6); margin-bottom: 10px; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
     .popup-features li strong { color: var(--white, #ffffff); }
-    
     .check-icon { background: #0eb5a8; color: white; border-radius: 3px; font-size: 11px; padding: 2px 5px; margin-top: 3px; }
-    
-    /* צבע קו ההפרדה מעל הביקורות הותאם לרקע */
     .popup-reviews { text-align: center; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-light, rgba(255,255,255,0.1)); }
     .review-badge { margin-bottom: 8px; }
     .review-stars { color: #FBBC05; font-size: 18px; letter-spacing: 2px; }
-    
-    /* התאמת טקסט הביקורות לרקע כהה */
-    .review-text { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-faint, #8892b0); margin-top: 4px; }
-    .review-text strong { color: var(--white, #ffffff); }
-    
+    .review-text-link { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-faint, #8892b0); text-decoration: none; transition: color 0.2s, text-decoration 0.2s; display: inline-block; margin-top: 4px; }
+    .review-text-link strong { color: var(--white, #ffffff); transition: color 0.2s; }
+    .review-text-link:hover { color: var(--teal, #0eb5a8); text-decoration: underline; }
+    .review-text-link:hover strong { color: var(--teal, #0eb5a8); }
     .popup-image { width: 140px; flex-shrink: 0; border: 3px solid #0eb5a8; border-radius: 8px; overflow: hidden; height: fit-content; }
     .popup-image img { width: 100%; height: auto; display: block; }
     .popup-actions { display: flex; }
@@ -84,6 +68,13 @@
     .popup-btn:hover { opacity: 0.9; }
     .btn-phone { background: #1a4b8c; }
     .btn-online { background: #0eb5a8; line-height: 1.3; }
+
+    /* --- Reviews Carousel Styles --- */
+    .reviews-scroll-container { display: flex; gap: 24px; overflow-x: auto; padding-bottom: 24px; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--teal) var(--navy-mid); }
+    .reviews-scroll-container::-webkit-scrollbar { height: 8px; }
+    .reviews-scroll-container::-webkit-scrollbar-track { background: var(--navy-mid); border-radius: 4px; }
+    .reviews-scroll-container::-webkit-scrollbar-thumb { background-color: var(--teal); border-radius: 4px; }
+    .review-card-med { background: var(--navy); padding: 25px; border-radius: 8px; border: 1px solid var(--border-light); min-width: 280px; flex: 0 0 auto; scroll-snap-align: start; display: flex; flex-direction: column; justify-content: space-between; }
 
     @media(max-width:720px){
       .hero{flex-direction:column-reverse;padding:48px 20px;gap:36px}
@@ -137,24 +128,82 @@
   </div>
 
   <div style="padding: 60px 20px; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--border-light);">
-    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--teal); text-align: center; margin-bottom: 40px; font-weight: 300;">חוות דעת ממטופלים</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
-      <div style="background: var(--navy); padding: 30px; border-radius: 8px; border: 1px solid var(--border-light);">
-        <div style="color: #FBBC05; font-size: 18px; margin-bottom: 10px; letter-spacing: 2px;">★★★★★</div>
-        <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">"חיפשתי רופא עור דחוף מעכשיו לעכשיו. קיבלתי מענה אדיב, אבחון מדויק וטיפול שהרגיע אותי מיד. שירות יוצא מן הכלל."</p>
-        <div style="color: var(--white); font-weight: 500; font-size: 14px;">אורן ג.</div>
-      </div>
-      <div style="background: var(--navy); padding: 30px; border-radius: 8px; border: 1px solid var(--border-light);">
-        <div style="color: #FBBC05; font-size: 18px; margin-bottom: 10px; letter-spacing: 2px;">★★★★★</div>
-        <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">"השתמשתי בשירות הייעוץ אונליין. תהליך פשוט, מהיר מאוד ונוח במיוחד כשגרים רחוק. ד"ר שפירא סבלני והתאים לי טיפול מדויק."</p>
-        <div style="color: var(--white); font-weight: 500; font-size: 14px;">שירה מ.</div>
-      </div>
-      <div style="background: var(--navy); padding: 30px; border-radius: 8px; border: 1px solid var(--border-light);">
-        <div style="color: #FBBC05; font-size: 18px; margin-bottom: 10px; letter-spacing: 2px;">★★★★★</div>
-        <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">"רופא מקצועי וזמין. הגעתי עם בעיה שהציקה לי מאוד וקיבלתי מענה מהיר וטיפול שפתר את הבעיה תוך ימים ספורים."</p>
-        <div style="color: var(--white); font-weight: 500; font-size: 14px;">ר. ע.</div>
+    
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; border-bottom: 1px solid var(--border-light); padding-bottom: 15px;">
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--teal); font-weight: 300; margin: 0;">חוות דעת</h2>
+      <div style="display: flex; align-items: center; gap: 12px; color: var(--text-muted); font-size: 14px;">
+        <span style="color: #FBBC05; font-size: 16px; letter-spacing: 2px;">★★★★★</span>
+        <span>26 חוות דעת</span>
+        <span style="color: var(--border-light);">|</span>
+        <a href="https://www.medreviews.co.il/provider/dr-shapiro-jonathan" target="_blank" style="color: var(--teal); text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">לכל חוות הדעת באתר MedReviews</a>
       </div>
     </div>
+
+    <div class="reviews-scroll-container">
+      
+      <div class="review-card-med">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <div style="color: var(--white); font-weight: 500; font-size: 15px;">שירה יניב</div>
+            <div style="color: #FBBC05; font-size: 14px; letter-spacing: 1px;">★★★★★ <span style="color: var(--text-muted); font-size: 12px; margin-right: 4px;">4.8</span></div>
+          </div>
+          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">"ד&quot;ר יונתן שפירא טיפל בי ביסודיות ובאדיבות"</p>
+        </div>
+        <div style="color: var(--text-faint); font-size: 12px; text-align: left;">29.01.2025</div>
+      </div>
+
+      <div class="review-card-med">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <div style="color: var(--white); font-weight: 500; font-size: 15px;">ע.</div>
+            <div style="color: #FBBC05; font-size: 14px; letter-spacing: 1px;">★★★★★ <span style="color: var(--text-muted); font-size: 12px; margin-right: 4px;">5.0</span></div>
+          </div>
+          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">"התרשמתי מאד מהרמה המקצועית הרפואית, מהיסודיות, מהבדיקה וביצוע הליך מוקפד ומההנחיות"</p>
+        </div>
+        <div style="color: var(--text-faint); font-size: 12px; text-align: left;">28.01.2025</div>
+      </div>
+
+      <div class="review-card-med">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <div style="color: var(--white); font-weight: 500; font-size: 15px;">אלב ודט</div>
+            <div style="color: #FBBC05; font-size: 14px; letter-spacing: 1px;">★★★★★ <span style="color: var(--text-muted); font-size: 12px; margin-right: 4px;">4.9</span></div>
+          </div>
+          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">"מקצועי מאוד"</p>
+        </div>
+        <div style="color: var(--text-faint); font-size: 12px; text-align: left;">20.01.2025</div>
+      </div>
+
+      <div class="review-card-med">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <div style="color: var(--white); font-weight: 500; font-size: 15px;">ה.ר.</div>
+            <div style="color: #FBBC05; font-size: 14px; letter-spacing: 1px;">★★★★★ <span style="color: var(--text-muted); font-size: 12px; margin-right: 4px;">5.0</span></div>
+          </div>
+          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">"שירות מצוין"</p>
+        </div>
+        <div style="color: var(--text-faint); font-size: 12px; text-align: left;">08.01.2025</div>
+      </div>
+
+      <div class="review-card-med">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <div style="color: var(--white); font-weight: 500; font-size: 15px;">א.ס.</div>
+            <div style="color: #FBBC05; font-size: 14px; letter-spacing: 1px;">★★★★★ <span style="color: var(--text-muted); font-size: 12px; margin-right: 4px;">5.0</span></div>
+          </div>
+          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">"מעולה. מקצועי."</p>
+        </div>
+        <div style="color: var(--text-faint); font-size: 12px; text-align: left;">05.01.2025</div>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; margin-top: 25px; color: var(--text-muted); font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+      <span style="background: #2196F3; color: white; border-radius: 50%; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; line-height: 1;">+</span>
+      <strong style="color: var(--white); letter-spacing: 0.5px;">MEDREVIEWS</strong>
+      <span>דירוג של <strong>4.9</strong> מתוך 5. מבוסס על <a href="https://www.medreviews.co.il/provider/dr-shapiro-jonathan" target="_blank" style="color: var(--teal); text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">26 חוות דעת ב-MedReviews</a></span>
+    </div>
+
   </div>
 
   <div class="quick-links">
@@ -174,14 +223,13 @@
           <ul class="popup-features">
             <li><span class="check-icon">✔</span> <strong>תורים זמינים מהיום להיום</strong></li>
             <li><span class="check-icon">✔</span> עד 80% החזר מביטוח פרטי (הראל, מגדל, מנורה...)</li>
-            <li><span class="check-icon">✔</span> קראו את הביקורות המעולות  ברשת</li>
+            <li><span class="check-icon">✔</span> קראו את הביקורות המעולות ברשת</li>
             <li><span class="check-icon">✔</span> <strong>תורים דרך המושלם של קופת חולים לאומית</strong></li>
           </ul>
           <div class="popup-reviews">
-
             <div class="review-badge">
               <div class="review-stars">★★★★★</div>
-              <div class="review-text"><strong>26</strong> חוות דעת ב-MedReviews (ציון 4.9)</div>
+              <a href="https://www.medreviews.co.il/provider/dr-shapiro-jonathan" target="_blank" class="review-text-link"><strong>26</strong> חוות דעת ב-MedReviews (ציון 4.9)</a>
             </div>
           </div>
         </div>
