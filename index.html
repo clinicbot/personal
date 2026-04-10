@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ד"ר יונתן שפירא | רופא עור מומחה - תורים דחופים וייעוץ אונליין</title>
+  <title data-en="Dr. Jonathan Shapiro | Expert Dermatologist - Urgent Appointments & Online Consultation">ד"ר יונתן שפירא | רופא עור מומחה - תורים דחופים וייעוץ אונליין</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
@@ -76,6 +76,20 @@
     .reviews-scroll-container::-webkit-scrollbar-thumb { background-color: var(--teal); border-radius: 4px; }
     .review-card-med { background: var(--navy); padding: 25px; border-radius: 8px; border: 1px solid var(--border-light); min-width: 280px; flex: 0 0 auto; scroll-snap-align: start; display: flex; flex-direction: column; justify-content: space-between; }
 
+    /* --- Language Toggle & LTR Support --- */
+    .lang-toggle-btn { background: transparent; border: 1px solid rgba(14,181,168,0.5); color: var(--teal); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; border-radius: 20px; padding: 4px 12px; cursor: pointer; margin-right: 15px; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 4px; }
+    .lang-toggle-btn:hover { background: var(--teal); color: var(--navy); }
+    
+    /* הופך את האתר לתצוגה תקינה משמאל לימין כאשר אנגלית מופעלת */
+    html[dir="ltr"] .hero-roles { border-right: none; border-left: 2px solid var(--teal); padding-right: 0; padding-left: 16px; }
+    html[dir="ltr"] .stat-item { border-left: none; border-right: 1px solid var(--border-light); }
+    html[dir="ltr"] .stat-item:last-child { border-right: none; }
+    html[dir="ltr"] .quick-arrow { transform: scaleX(-1); display: inline-block; }
+    html[dir="ltr"] .popup-content { direction: ltr; }
+    html[dir="ltr"] .popup-close { left: auto; right: 15px; }
+    html[dir="ltr"] .review-card-med { direction: ltr; text-align: left; }
+    html[dir="ltr"] .lang-toggle-btn { margin-right: 0; margin-left: 15px; }
+
     @media(max-width:720px){
       .hero{flex-direction:column-reverse;padding:48px 20px;gap:36px}
       .hero-image{width:180px;height:220px}
@@ -92,50 +106,57 @@
 </head>
 <body>
   <nav>
-    <a class="nav-logo" href="index.html"><img src="logo.png" alt="ד&quot;ר יונתן שפירא" onerror="this.outerHTML='<span style=\'font-family:Cormorant Garamond,serif;font-size:20px;color:#fff;text-decoration:none;\'>ד&quot;ר <span style=\'color:#0eb5a8\'>שפירא</span></span>'" /></a>
+    <a class="nav-logo" href="index.html"><img src="logo.png" alt="logo" onerror="this.style.display='none'" /></a>
     <div class="nav-links">
-      <a href="index.html" class="active">דף הבית</a><a href="expertise.html">תחומי התמחות</a><a href="academic.html">פעילות אקדמית</a><a href="appointment.html" style="animation:appointmentPulse 1.6s ease-in-out infinite;border-radius:4px;padding:2px 6px;">קביעת תור</a><a href="contact.html">צור קשר</a>
+      <a href="index.html" class="active" data-en="Home">דף הבית</a>
+      <a href="expertise.html" data-en="Expertise">תחומי התמחות</a>
+      <a href="academic.html" data-en="Academic Activity">פעילות אקדמית</a>
+      <a href="appointment.html" style="animation:appointmentPulse 1.6s ease-in-out infinite;border-radius:4px;padding:2px 6px;" data-en="Book Appointment">קביעת תור</a>
+      <a href="contact.html" data-en="Contact Us">צור קשר</a>
     </div>
-    <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank"> ייעוץ אונ-ליין</a>
+    <div style="display: flex; align-items: center;">
+      <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank" data-en="Online Consult"> ייעוץ אונ-ליין</a>
+      <button id="langToggle" class="lang-toggle-btn" onclick="toggleLang()">🌐 EN</button>
+    </div>
   </nav>
 
   <div class="hero">
     <div class="hero-text">
-      <div class="hero-eyebrow">מומחה לרפואת עור · בינה מלאכותית · טלה-דרמטולוגיה</div>
-      <div class="hero-title" style="color:var(--teal);">ד"ר יונתן שפירא</div>
-      <div class="hero-specialty">מומחה למחלות עור ומין</div>
+      <div class="hero-eyebrow" data-en="Expert Dermatologist · Artificial Intelligence · Teledermatology">מומחה לרפואת עור · בינה מלאכותית · טלה-דרמטולוגיה</div>
+      <div class="hero-title" style="color:var(--teal);" data-en="Dr. Jonathan Shapiro">ד"ר יונתן שפירא</div>
+      <div class="hero-specialty" data-en="Specialist in Dermatology and Venereology">מומחה למחלות עור ומין</div>
       <div class="hero-roles" style="border:none;padding:0;font-size:15px;line-height:1.85;color:var(--text-muted);">
-        <p style="margin-bottom:14px;">ד"ר יונתן שפירא הוא מומחה לרפואת עור ומין עם נסיון של מעל 20 שנה ומנהל שירות הטלה-דרמטולוגיה (רפואת עור מרחוק) במכבי שירותי בריאות. בנוסף, הוא מרצה בבית הספר ללימודי המשך לרפואה בטכניון בחיפה ובבית הספר לרפואה באוניברסיטת תל אביב.</p>
-        <p>ד"ר שפירא משמש כיועץ לחברת הסטארט-אפ Predicta-Med LTD, המפתחת אלגוריתמים לגילוי מוקדם של מחלות אוטואימוניות ודלקתיות.</p>
-        <p style="font-weight: 500; color: var(--teal); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(14,181,168,0.2);">זקוקים לרופא עור דחוף? שירות הטלה-דרמטולוגיה (ייעוץ אונליין) מאפשר אבחון מהיר ומרחוק.</p>
+        <p style="margin-bottom:14px;" data-en="Dr. Jonathan Shapiro is a specialist in dermatology and venereology with over 20 years of experience, and the director of the Teledermatology service at Maccabi Healthcare Services. In addition, he is a lecturer at the Technion School of Medicine in Haifa and Tel Aviv University.">ד"ר יונתן שפירא הוא מומחה לרפואת עור ומין עם נסיון של מעל 20 שנה ומנהל שירות הטלה-דרמטולוגיה (רפואת עור מרחוק) במכבי שירותי בריאות. בנוסף, הוא מרצה בבית הספר ללימודי המשך לרפואה בטכניון בחיפה ובבית הספר לרפואה באוניברסיטת תל אביב.</p>
+        <p data-en="Dr. Shapiro serves as a consultant for Predicta-Med LTD, a startup developing AI algorithms for the early detection of autoimmune and inflammatory diseases.">ד"ר שפירא משמש כיועץ לחברת הסטארט-אפ Predicta-Med LTD, המפתחת אלגוריתמים לגילוי מוקדם של מחלות אוטואימוניות ודלקתיות.</p>
+        <p style="font-weight: 500; color: var(--teal); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(14,181,168,0.2);" data-en="Need an urgent dermatologist? Our teledermatology service (online consultation) provides fast, remote diagnosis.">זקוקים לרופא עור דחוף? ניתן להתקשר ל 050-5823675 לתיאום תור דחוף או להיעזר בשירות הטלה-דרמטולוגיה (ייעוץ אונליין) מאפשר אבחון מהיר ומרחוק.</p>
       </div>
       <div class="hero-btns">
-        <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank"> ייעוץ אונ-ליין</a>
-        <a class="btn-secondary btn-appointment-blink" href="appointment.html">קביעת תור</a>
+        <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank" data-en="Online Consult"> ייעוץ אונ-ליין</a>
+        <a class="btn-secondary btn-appointment-blink" href="appointment.html" data-en="Book Appointment">קביעת תור</a>
       </div>
     </div>
     <div class="hero-image">
-      <img src="image.jpg" alt="ד&quot;ר יונתן שפירא" onerror="this.style.display='none'; document.getElementById('av').style.display='flex';" />
+      <img src="image.jpg" alt="Dr. Jonathan Shapiro" onerror="this.style.display='none'; document.getElementById('av').style.display='flex';" />
       <div id="av" class="hero-avatar" style="display:none;">י.ש</div>
     </div>
   </div>
 
   <div class="stats-row">
-    <div class="stat-item"><div class="stat-num">38+</div><div class="stat-label">פרסומים מדעיים</div></div>
-    <div class="stat-item"><div class="stat-num">1990-2003</div><div class="stat-label">   לימודי רפואה באוניברסיטת תל אביב והתמחות ברפואת עור במרכז רפואי סוראסקי - בית חולים איכילוב  </div></div>
-    <div class="stat-item"><div class="stat-num">AAD, EADV </div><div class="stat-label">חבר באיגוד העור הישראלי ובאיגודים הבינלאומיים </div></div>
-    <div class="stat-item"><div class="stat-num">AI</div><div class="stat-label">מומחה בכלים מתקדמים בבינה מלאכותית ברפואת עור  </div></div>
+    <div class="stat-item"><div class="stat-num">38+</div><div class="stat-label" data-en="Scientific Publications">פרסומים מדעיים</div></div>
+    <div class="stat-item"><div class="stat-num">1990-2003</div><div class="stat-label" data-en="Medical studies at Tel Aviv University & Dermatology residency at Sourasky Medical Center - Ichilov">   לימודי רפואה באוניברסיטת תל אביב והתמחות ברפואת עור במרכז רפואי סוראסקי - בית חולים איכילוב  </div></div>
+    <div class="stat-item"><div class="stat-num">AAD, EADV </div><div class="stat-label" data-en="Member of the Israeli, European, and American Dermatological Societies">חבר באיגוד העור הישראלי ובאיגודים הבינלאומיים </div></div>
+    <div class="stat-item"><div class="stat-num">AI</div><div class="stat-label" data-en="Expert in advanced Artificial Intelligence tools in dermatology">מומחה בכלים מתקדמים בבינה מלאכותית ברפואת עור  </div></div>
   </div>
 
   <div style="padding: 60px 20px; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--border-light);">
     
     <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; border-bottom: 1px solid var(--border-light); padding-bottom: 15px;">
-      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--teal); font-weight: 300; margin: 0;">חוות דעת</h2>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--teal); font-weight: 300; margin: 0;" data-en="Patient Reviews">חוות דעת</h2>
       <div style="display: flex; align-items: center; gap: 12px; color: var(--text-muted); font-size: 14px;">
         <span style="color: #FBBC05; font-size: 16px; letter-spacing: 2px;">★★★★★</span>
-        <span>26 חוות דעת</span>
+        <span data-en="26 Reviews">26 חוות דעת</span>
         <span style="color: var(--border-light);">|</span>
-        <a href="https://www.medreviews.co.il/provider/dr-shapiro-jonathan" target="_blank" style="color: var(--teal); text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">לכל חוות הדעת באתר MedReviews</a>
+        <a href="https://www.medreviews.co.il/provider/dr-shapiro-jonathan" target="_blank" style="color: var(--teal); text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" data-en="View all reviews on MedReviews">לכל חוות הדעת באתר MedReviews</a>
       </div>
     </div>
 
@@ -144,10 +165,10 @@
       <div class="review-card-med">
         <div>
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-            <div style="color: var(--white); font-weight: 500; font-size: 15px;">שירה יניב</div>
+            <div style="color: var(--white); font-weight: 500; font-size: 15px;" data-en="Shira Yaniv">שירה יניב</div>
             <div style="color: #FBBC05; font-size: 14px; letter-spacing: 1px;">★★★★★ <span style="color: var(--text-muted); font-size: 12px; margin-right: 4px;">4.8</span></div>
           </div>
-          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">"ד&quot;ר יונתן שפירא טיפל בי ביסודיות ובאדיבות"</p>
+          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;" data-en="&quot;Dr. Jonathan Shapiro treated me thoroughly and kindly.&quot;">"ד&quot;ר יונתן שפירא טיפל בי ביסודיות ובאדיבות"</p>
         </div>
         <div style="color: var(--text-faint); font-size: 12px; text-align: left;">29.01.2025</div>
       </div>
@@ -155,10 +176,10 @@
       <div class="review-card-med">
         <div>
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-            <div style="color: var(--white); font-weight: 500; font-size: 15px;">ע.</div>
+            <div style="color: var(--white); font-weight: 500; font-size: 15px;" data-en="A.">ע.</div>
             <div style="color: #FBBC05; font-size: 14px; letter-spacing: 1px;">★★★★★ <span style="color: var(--text-muted); font-size: 12px; margin-right: 4px;">5.0</span></div>
           </div>
-          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">"התרשמתי מאד מהרמה המקצועית הרפואית, מהיסודיות, מהבדיקה וביצוע הליך מוקפד ומההנחיות"</p>
+          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;" data-en="&quot;I was very impressed by the high medical professional level, thoroughness, careful examination, and instructions.&quot;">"התרשמתי מאד מהרמה המקצועית הרפואית, מהיסודיות, מהבדיקה וביצוע הליך מוקפד ומההנחיות"</p>
         </div>
         <div style="color: var(--text-faint); font-size: 12px; text-align: left;">28.01.2025</div>
       </div>
@@ -166,10 +187,10 @@
       <div class="review-card-med">
         <div>
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-            <div style="color: var(--white); font-weight: 500; font-size: 15px;">אלב ודט</div>
+            <div style="color: var(--white); font-weight: 500; font-size: 15px;" data-en="Alev V.">אלב ודט</div>
             <div style="color: #FBBC05; font-size: 14px; letter-spacing: 1px;">★★★★★ <span style="color: var(--text-muted); font-size: 12px; margin-right: 4px;">4.9</span></div>
           </div>
-          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">"מקצועי מאוד"</p>
+          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;" data-en="&quot;Very professional&quot;">"מקצועי מאוד"</p>
         </div>
         <div style="color: var(--text-faint); font-size: 12px; text-align: left;">20.01.2025</div>
       </div>
@@ -177,10 +198,10 @@
       <div class="review-card-med">
         <div>
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-            <div style="color: var(--white); font-weight: 500; font-size: 15px;">ה.ר.</div>
+            <div style="color: var(--white); font-weight: 500; font-size: 15px;" data-en="H.R.">ה.ר.</div>
             <div style="color: #FBBC05; font-size: 14px; letter-spacing: 1px;">★★★★★ <span style="color: var(--text-muted); font-size: 12px; margin-right: 4px;">5.0</span></div>
           </div>
-          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">"שירות מצוין"</p>
+          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;" data-en="&quot;Excellent service&quot;">"שירות מצוין"</p>
         </div>
         <div style="color: var(--text-faint); font-size: 12px; text-align: left;">08.01.2025</div>
       </div>
@@ -188,10 +209,10 @@
       <div class="review-card-med">
         <div>
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-            <div style="color: var(--white); font-weight: 500; font-size: 15px;">א.ס.</div>
+            <div style="color: var(--white); font-weight: 500; font-size: 15px;" data-en="A.S.">א.ס.</div>
             <div style="color: #FBBC05; font-size: 14px; letter-spacing: 1px;">★★★★★ <span style="color: var(--text-muted); font-size: 12px; margin-right: 4px;">5.0</span></div>
           </div>
-          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">"מעולה. מקצועי."</p>
+          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;" data-en="&quot;Excellent. Professional.&quot;">"מעולה. מקצועי."</p>
         </div>
         <div style="color: var(--text-faint); font-size: 12px; text-align: left;">05.01.2025</div>
       </div>
@@ -201,20 +222,20 @@
     <div style="text-align: center; margin-top: 25px; color: var(--text-muted); font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
       <span style="background: #2196F3; color: white; border-radius: 50%; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; line-height: 1;">+</span>
       <strong style="color: var(--white); letter-spacing: 0.5px;">MEDREVIEWS</strong>
-      <span>דירוג של <strong>4.9</strong> מתוך 5. מבוסס על <a href="https://www.medreviews.co.il/provider/dr-shapiro-jonathan" target="_blank" style="color: var(--teal); text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">26 חוות דעת ב-MedReviews</a></span>
+      <span data-en="Rating of <strong style='color:var(--white);'>4.9</strong> out of 5. Based on <a href='https://www.medreviews.co.il/provider/dr-shapiro-jonathan' target='_blank' style='color: var(--teal); text-decoration: none;'>26 reviews on MedReviews</a>">דירוג של <strong style="color:var(--white);">4.9</strong> מתוך 5. מבוסס על <a href="https://www.medreviews.co.il/provider/dr-shapiro-jonathan" target="_blank" style="color: var(--teal); text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">26 חוות דעת ב-MedReviews</a></span>
     </div>
 
   </div>
 
   <div class="quick-links">
-    <a class="quick-card" href="expertise.html"><span class="quick-arrow">→</span><div class="quick-card-title">תחומי התמחות</div></a>
-    <a class="quick-card" href="academic.html"><span class="quick-arrow">→</span><div class="quick-card-title">פעילות אקדמית</div></a>
-    <a class="quick-card" href="appointment.html"><span class="quick-arrow">→</span><div class="quick-card-title">קביעת תור</div></a>
-    <a class="quick-card" href="contact.html"><span class="quick-arrow">→</span><div class="quick-card-title">צור קשר</div></a>
+    <a class="quick-card" href="expertise.html"><span class="quick-arrow">→</span><div class="quick-card-title" data-en="Areas of Expertise">תחומי התמחות</div></a>
+    <a class="quick-card" href="academic.html"><span class="quick-arrow">→</span><div class="quick-card-title" data-en="Academic Activity">פעילות אקדמית</div></a>
+    <a class="quick-card" href="appointment.html"><span class="quick-arrow">→</span><div class="quick-card-title" data-en="Book Appointment">קביעת תור</div></a>
+    <a class="quick-card" href="contact.html"><span class="quick-arrow">→</span><div class="quick-card-title" data-en="Contact Us">צור קשר</div></a>
   </div>
 
 <footer style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; padding: 20px 48px; border-top: 1px solid var(--border-light); max-width: 1100px; margin: 0 auto;">
-    <span style="color: var(--text-muted); font-size: 14px;">© 2025 ד"ר יונתן שפירא | רופא עור</span>
+    <span style="color: var(--text-muted); font-size: 14px;" data-en="© 2025 Dr. Jonathan Shapiro | Dermatologist">© 2025 ד"ר יונתן שפירא | רופא עור</span>
     
     <div style="display: flex; align-items: center; gap: 15px;">
       <a href="https://www.linkedin.com/in/jonathan-shapiro-35989b115/" target="_blank" style="color: #0eb5a8; text-decoration: none; display: flex; align-items: center; gap: 6px; font-family: 'DM Sans', sans-serif; font-size: 14px; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
@@ -232,25 +253,25 @@
       <div class="popup-body">
         <div class="popup-info">
           <ul class="popup-features">
-            <li><span class="check-icon">✔</span> <strong>תורים זמינים מהיום להיום</strong></li>
-            <li><span class="check-icon">✔</span> עד 80% החזר מביטוח פרטי (הראל, מגדל, מנורה...)</li>
-            <li><span class="check-icon">✔</span> קראו את הביקורות המעולות ברשת</li>
-            <li><span class="check-icon">✔</span> <strong>תורים דרך המושלם של קופת חולים לאומית</strong></li>
+            <li><span class="check-icon">✔</span> <strong data-en="Same-day appointments available">תורים זמינים מהיום להיום</strong></li>
+            <li><span class="check-icon">✔</span> <span data-en="Up to 80% refund from private insurance">עד 80% החזר מביטוח פרטי (הראל, מגדל, מנורה...)</span></li>
+            <li><span class="check-icon">✔</span> <span data-en="Read our excellent reviews online">קראו את הביקורות המעולות ברשת</span></li>
+            <li><span class="check-icon">✔</span> <strong data-en="Appointments via Leumit Mushlam">תורים דרך המושלם של קופת חולים לאומית</strong></li>
           </ul>
           <div class="popup-reviews">
             <div class="review-badge">
               <div class="review-stars">★★★★★</div>
-              <a href="https://www.medreviews.co.il/provider/dr-shapiro-jonathan" target="_blank" class="review-text-link"><strong>26</strong> חוות דעת ב-MedReviews (ציון 4.9)</a>
+              <a href="https://www.medreviews.co.il/provider/dr-shapiro-jonathan" target="_blank" class="review-text-link" data-en="<strong>26</strong> reviews on MedReviews (Score 4.9)"><strong>26</strong> חוות דעת ב-MedReviews (ציון 4.9)</a>
             </div>
           </div>
         </div>
         <div class="popup-image">
-          <img src="image.jpg" alt="ד&quot;ר יונתן שפירא" />
+          <img src="image.jpg" alt="Dr. Jonathan Shapiro" />
         </div>
       </div>
       <div class="popup-actions">
-        <a href="tel:0543638368" class="popup-btn btn-phone">📞 חייג עכשיו למרפאה</a>
-        <a href="https://wa.me/972505823675" target="_blank" class="popup-btn btn-online">
+        <a href="tel:0543638368" class="popup-btn btn-phone" data-en="📞 Call clinic now">📞 חייג עכשיו למרפאה</a>
+        <a href="https://wa.me/972505823675" target="_blank" class="popup-btn btn-online" data-en="To book an urgent appointment call 050-5823675 or send a WhatsApp message">
           לקביעת תור מהיר להתקשר ל-050-5823675 וניתן גם לשלוח הודעת וואטסאפ
         </a>
       </div>
@@ -258,6 +279,28 @@
   </div>
 
   <script>
+    // פונקציית החלפת שפה
+    let currentLang = 'he';
+    function toggleLang() {
+      currentLang = currentLang === 'he' ? 'en' : 'he';
+      
+      // החלפת כיוון האתר
+      document.documentElement.dir = currentLang === 'he' ? 'rtl' : 'ltr';
+      document.documentElement.lang = currentLang;
+      
+      // עדכון הכפתור
+      document.getElementById('langToggle').innerHTML = currentLang === 'he' ? '🌐 EN' : '🌐 עב';
+      
+      // ריצה על כל האלמנטים שיש להם תרגום והחלפת הטקסט
+      document.querySelectorAll('[data-en]').forEach(el => {
+        // שמירת הטקסט המקורי בעברית בפעם הראשונה שלוחצים
+        if (!el.hasAttribute('data-he')) {
+          el.setAttribute('data-he', el.innerHTML);
+        }
+        el.innerHTML = currentLang === 'he' ? el.getAttribute('data-he') : el.getAttribute('data-en');
+      });
+    }
+
     setTimeout(function() {
       document.getElementById('urgentPopup').classList.add('show');
     }, 3000);
