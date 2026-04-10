@@ -7,19 +7,20 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     /* תת-לשוניות */
-    .sub-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border-light); margin-bottom: 36px; }
+    .sub-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border-light); margin-bottom: 36px; overflow-x: auto; white-space: nowrap; }
     .sub-tab { padding: 12px 28px; font-size: 13.5px; font-family: 'DM Sans', sans-serif; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.2s; background: none; border-top: none; border-right: none; border-left: none; }
     .sub-tab:hover { color: var(--teal); }
     .sub-tab.active { color: var(--teal); border-bottom-color: var(--teal); font-weight: 500; }
-    .sub-panel { display: none; }
+    .sub-panel { display: none; animation: fadeIn 0.3s ease; }
     .sub-panel.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* תחומי מחקר */
+    /* תחומי מחקר וכללי */
     .timeline-item { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--border-light); align-items: flex-start; }
     .timeline-item:last-child { border-bottom: none; }
-    .timeline-year { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 500; color: var(--teal); min-width: 80px; padding-top: 3px; letter-spacing: 0.05em; }
-    .timeline-title { font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
-    .timeline-sub { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+    .timeline-year { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 500; color: var(--teal); min-width: 85px; padding-top: 2px; letter-spacing: 0.05em; }
+    .timeline-title { font-size: 14.5px; font-weight: 500; color: var(--white); margin-bottom: 6px; direction: ltr; text-align: left; }
+    .timeline-sub { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; direction: ltr; text-align: left; }
 
     /* פרסומים */
     .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
@@ -41,11 +42,32 @@
     .pub-link:hover { background: var(--teal); color: var(--navy); }
 
     /* פרסים */
-    .awards-section-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--white); margin: 48px 0 24px; padding-top: 40px; border-top: 1px solid var(--border-light); }
+    .section-divider { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--white); margin: 48px 0 24px; padding-top: 40px; border-top: 1px solid var(--border-light); }
     .award-item { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--border-light); align-items: flex-start; }
     .award-item:last-child { border-bottom: none; }
     .award-icon { font-size: 18px; color: var(--gold); flex-shrink: 0; padding-top: 2px; }
     .award-text { font-size: 13.5px; color: var(--text); line-height: 1.7; }
+
+    /* --- עיצוב אזור הכתבות וההרצאות --- */
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-bottom: 24px; }
+    .video-card { background: var(--navy); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
+    .video-card:hover { transform: translateY(-4px); border-color: var(--teal); }
+    .video-thumb { height: 160px; background-color: #1a2942; position: relative; display: flex; align-items: center; justify-content: center; }
+    .video-overlay { position: absolute; top:0; left:0; right:0; bottom:0; background: rgba(10,25,47,0.35); transition: background 0.2s; }
+    .video-card:hover .video-overlay { background: rgba(10,25,47,0.15); }
+    .video-play-btn { width: 48px; height: 48px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--navy); font-size: 20px; padding-left: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.2s; position: relative; z-index: 2; }
+    .video-card:hover .video-play-btn { transform: scale(1.1); }
+    .video-info { padding: 18px; display: flex; flex-direction: column; gap: 6px; }
+    .video-title { font-size: 14.5px; font-weight: 500; color: var(--white); line-height: 1.4; }
+    .video-sub { font-size: 12.5px; color: var(--text-muted); }
+    
+    .article-list { display: flex; flex-direction: column; gap: 12px; }
+    .article-item { display: flex; align-items: center; gap: 18px; padding: 18px 20px; background: var(--navy-mid); border: 1px solid var(--border-light); border-radius: 12px; text-decoration: none; transition: all 0.2s; }
+    .article-item:hover { border-color: var(--teal); background: rgba(14,181,168,0.05); }
+    .article-icon { font-size: 24px; color: var(--teal); opacity: 0.8; }
+    .article-details { flex: 1; }
+    .article-title { font-size: 14.5px; font-weight: 500; color: var(--white); margin-bottom: 4px; }
+    .article-source { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -66,34 +88,33 @@
     <div class="sub-tabs">
       <button class="sub-tab active" onclick="showTab('research', this)">תחומי מחקר</button>
       <button class="sub-tab" onclick="showTab('publications', this)">פרסומים ופרסים</button>
+      <button class="sub-tab" onclick="showTab('media', this)">כתבות והרצאות</button>
     </div>
 
-    <!-- תחומי מחקר -->
     <div class="sub-panel active" id="tab-research">
-      <div class="timeline-item">
+      <div class="timeline-item" style="direction: rtl;">
         <div class="timeline-year">AI</div>
         <div class="timeline-content">
-          <div class="timeline-title">בינה מלאכותית  בדרמטולוגיה</div>
-          <div class="timeline-sub">פיתוח אלגוריתמים לגילוי מוקדם, פיתוח מודלים לניתוח תמונה, שימוש ב-NLP לניתוח תיקים רפואיים.</div>
+          <div class="timeline-title" style="direction: rtl; text-align: right;">בינה מלאכותית בדרמטולוגיה</div>
+          <div class="timeline-sub" style="direction: rtl; text-align: right;">פיתוח אלגוריתמים לגילוי מוקדם, פיתוח מודלים לניתוח תמונה, שימוש ב-NLP לניתוח תיקים רפואיים.</div>
         </div>
       </div>
-      <div class="timeline-item">
+      <div class="timeline-item" style="direction: rtl;">
         <div class="timeline-year">פסוריאזיס</div>
         <div class="timeline-content">
-          <div class="timeline-title">פסוריאזיס ופסוריאטיק ארתריטיס (PSA)</div>
-          <div class="timeline-sub"> מחקרים על חיידקי המעי של חולי פסוריאזיס . שימוש בבינה מלאכותית לגילוי מוקדם של דלקת מפרקים פסוריאטית, מחקרים אפידמיולוגים לאיתור תחלואה נלווית לפסוריאזיס.</div>
+          <div class="timeline-title" style="direction: rtl; text-align: right;">פסוריאזיס ופסוריאטיק ארתריטיס (PSA)</div>
+          <div class="timeline-sub" style="direction: rtl; text-align: right;">מחקרים על חיידקי המעי של חולי פסוריאזיס. שימוש בבינה מלאכותית לגילוי מוקדם של דלקת מפרקים פסוריאטית, מחקרים אפידמיולוגים לאיתור תחלואה נלווית לפסוריאזיס.</div>
         </div>
       </div>
-      <div class="timeline-item">
+      <div class="timeline-item" style="direction: rtl;">
         <div class="timeline-year">טלרפואה</div>
         <div class="timeline-content">
-          <div class="timeline-title">טלדרמטולוגיה</div>
-          <div class="timeline-sub">מחקרים על יעילות ייעוץ אסינכרוני, מחקרים על יעילות שימוש בבינה מלאכותית בטלה-דרמטולוגיה </div>
+          <div class="timeline-title" style="direction: rtl; text-align: right;">טלדרמטולוגיה</div>
+          <div class="timeline-sub" style="direction: rtl; text-align: right;">מחקרים על יעילות ייעוץ אסינכרוני, מחקרים על יעילות שימוש בבינה מלאכותית בטלה-דרמטולוגיה </div>
         </div>
       </div>
     </div>
 
-    <!-- פרסומים -->
     <div class="sub-panel" id="tab-publications">
       <div class="filter-bar">
         <button class="filter-btn active" onclick="filterPubs('all',this)">הכל (38)</button>
@@ -143,8 +164,7 @@
         <div class="pub-item" data-cat="other"><div class="pub-num">38</div><div class="pub-body"><div class="pub-title">New Insights into Associated Co-morbidities in Patients with Cutaneous T-cell Lymphoma (Mycosis Fungoides)</div><div class="pub-authors">Hodak E, Lessin S, Friedland R, Freud T, David M, Pavlovsky L, <strong>Shapiro J</strong>, Cohen AD.</div><div class="pub-journal">Acta Derm Venereol. 2013 Jan 10.</div><div class="pub-tags"><span class="pub-tag cited">צוטט 32×</span><a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Hodak+Shapiro+mycosis+fungoides+comorbidities+2013" target="_blank">PubMed ↗</a></div></div></div>
       </div>
 
-      <!-- פרסים -->
-      <div class="awards-section-title">הישגים ופרסים</div>
+      <div class="section-divider">הישגים ופרסים</div>
       <div class="award-item">
         <div class="award-icon">&#9733;</div>
         <div class="award-text"><strong>עבודה מצטיינת</strong> — "יעילות חיסון השפעת – ניתוח מסד נתונים ממוחשב"<br><span style="font-size:12.5px;color:var(--text-faint);">הכנס השנתי של מערכות מידע ברפואה, תל אביב 2003</span></div>
@@ -157,6 +177,183 @@
         <div class="award-icon">&#9733;</div>
         <div class="award-text"><strong>JD Award — המאמר המצוטט ביותר 2021</strong><br><span style="font-size:12.5px;color:var(--text-faint);">The Journal of Dermatology · Psoriatic Patients Have a Distinct Fecal Microbiota (2019)</span></div>
       </div>
+    </div>
+
+    <div class="sub-panel" id="tab-media">
+      
+      <div class="section-divider" style="margin-top: 10px; border-top: none;">הרצאות מוקלטות ב-YouTube</div>
+      <div class="video-grid">
+        
+        <a href="https://www.youtube.com/watch?v=rRxG2OsygSk" target="_blank" class="video-card">
+          <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/rRxG2OsygSk/hqdefault.jpg'); background-size: cover; background-position: center;">
+             <div class="video-overlay"></div>
+             <div class="video-play-btn">▶</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">סרטן עור, סוגי נגעים וגילוי מוקדם</div>
+            <div class="video-sub">הרצאת זום למבוטחי מכבי שירותי בריאות</div>
+          </div>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=-HmMZZ_WmXA" target="_blank" class="video-card">
+          <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/-HmMZZ_WmXA/hqdefault.jpg'); background-size: cover; background-position: center;">
+             <div class="video-overlay"></div>
+             <div class="video-play-btn">▶</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">האם טלה-דרמטולוגיה יכולה להחליף רפואת עור פנים אל פנים? (Debate)</div>
+            <div class="video-sub">כנס EADV, אמסטרדם • 2024</div>
+          </div>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=XKUGxSPdcPI&t=27s" target="_blank" class="video-card">
+          <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/XKUGxSPdcPI/hqdefault.jpg'); background-size: cover; background-position: center;">
+             <div class="video-overlay"></div>
+             <div class="video-play-btn">▶</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">כיצד להטמיע מערכת טלה-דרמטולוגיה בארגון רפואי</div>
+            <div class="video-sub">כנס EADV, ברלין • 2023</div>
+          </div>
+        </a>
+        
+      </div>
+
+      <div class="section-divider">כתבות וראיונות בתקשורת</div>
+      <div class="article-list">
+        
+        <a href="https://www.mako.co.il/news-n12_magazine/2026_q1/Article-c6c9f59f9be6b91027.htm" target="_blank" class="article-item">
+          <div class="article-icon">📰</div>
+          <div class="article-details">
+            <div class="article-title">כבר בגיל 4: מאחורי הטיפול הקוסמטי שחולל סערה בישראל</div>
+            <div class="article-source">ראיון מומחה ב-N12 (מאקו) על ההיבטים הרפואיים והפסיכולוגיים של הסרת שיער בלייזר בילדים • 2026</div>
+          </div>
+        </a>
+
+        <a href="https://www.mako.co.il/news-lifestyle/2023_q2/Article-4460c3f834d2881026.htm" target="_blank" class="article-item">
+          <div class="article-icon">📰</div>
+          <div class="article-details">
+            <div class="article-title">חזר מברזיל עם תולעת בעור: אבחון וטיפול במחלות טרופיות נדירות</div>
+            <div class="article-source">כתבה ב-mako בריאות על אבחון טלה-דרמטולוגי מדויק של תולעת שהתחפרה בעור לאחר טיול גלישה • 2023</div>
+          </div>
+        </a>
+
+        <a href="https://www.mako.co.il/news-israel/health-q1_2019/Article-843498baf900961004.htm" target="_blank" class="article-item">
+          <div class="article-icon">📰</div>
+          <div class="article-details">
+            <div class="article-title">הסיבה לגירודים: תולעת מתחת לעור</div>
+            <div class="article-source">כתבה ב-N12 (מאקו) על גילוי וטיפול בזיהום עורי טרופי אצל מטייל שחזר מהודו, במסגרת שירותי מכבי • 2019</div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="section-divider">הרצאות בשנים האחרונות</div>
+      
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Identifying psoriasis nail, joint involvement, and affected body areas using ai-driven natural language processing to analyze unstructured data</div>
+          <div class="timeline-sub">XIV International Congress of Dermatology, Rome, Italy (Speaker)</div>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Temporal Dynamics of Face-to-Face Consultations Following Asynchronous Teledermatology Sessions: An 18-month Cohort Analysis</div>
+          <div class="timeline-sub">World Congress of Digital Health in Dermatology at the AAD, Orlando (Speaker)</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Controversies sessions – Can teledermatology replace face-to-face consultations – Yes</div>
+          <div class="timeline-sub">EADV Amsterdam 26.10.2024 (Speaker)</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <div class="timeline-title">AI and digital health</div>
+          <div class="timeline-sub">National Academy for Dermatologists in the Community and Hospitals, Hilton Tel-Aviv, 18.9.2024 (Speaker)</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <div class="timeline-title">A machine learning tool for early diagnosis of psoriatic arthritis. Is it possible</div>
+          <div class="timeline-sub">14th international congress on autoimmunity, Ljubljana, Slovenia, 17-20 May 2024 (Speaker)</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <div class="timeline-title">AI and digital health</div>
+          <div class="timeline-sub">The 3rd Type 2 Multidisciplinary Conference, Hilton Tel Aviv (Speaker)</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Artificial intelligence: can it foresee psoriatic disease</div>
+          <div class="timeline-sub">Immunohematology Block 3 webinar, Sweden, Dec 2023 (Speaker)</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Implementing store-and-forward teledermatology consultations in general practice</div>
+          <div class="timeline-sub">EADV Berlin 2023 (Chair and speaker)</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-content">
+          <div class="timeline-title">High Diagnostic Accuracy and Low Face-to Face Follow-up Rates of a Store-and-Forward Teledermatology Platform in Maccabi healthcare services: An 18-month Cohort Study</div>
+          <div class="timeline-sub">25th World Congress of Dermatology, Singapore 2023 (Speaker)</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-content">
+          <div class="timeline-title">A machine learning tool for early diagnosis of psoriatic arthritis. Is it possible?</div>
+          <div class="timeline-sub">Mosaic of Autoimmunity International ZOOM, Feb 2023 (Speaker)</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2022</div>
+        <div class="timeline-content">
+          <div class="timeline-title">A machine learning tool for early diagnosis of psoriatic arthritis. Is it possible</div>
+          <div class="timeline-sub">EADV Milan, Sep 2022 (Speaker)</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2022</div>
+        <div class="timeline-content">
+          <div class="timeline-title">High diagnostic accuracy and low face to face follow-up rates of a store and forward teledermatology platform in Maccabi healthcare services: an 18-month cohort study</div>
+          <div class="timeline-sub">42th Annual Meeting of the Israel Dermatological Society, Tel Aviv, 13th-16th June 2022 (Speaker)</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2022</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Development of a machine learning tool for early diagnosis of psoriatic arthritis in the primary care setting: A population-based study</div>
+          <div class="timeline-sub">EADV Symposium, Ljubljana, 12-14 May 2022 (Speaker)</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
