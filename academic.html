@@ -406,5 +406,29 @@
       });
     }
   </script>
+
+  <script>
+    // פונקציית החלפת שפה
+    let currentLang = 'he';
+    function toggleLang() {
+      currentLang = currentLang === 'he' ? 'en' : 'he';
+      
+      // החלפת כיוון האתר
+      document.documentElement.dir = currentLang === 'he' ? 'rtl' : 'ltr';
+      document.documentElement.lang = currentLang;
+      
+      // עדכון הכפתור
+      document.getElementById('langToggle').innerHTML = currentLang === 'he' ? '🌐 EN' : '🌐 עב';
+      
+      // ריצה על כל האלמנטים שיש להם תרגום והחלפת הטקסט
+      document.querySelectorAll('[data-en]').forEach(el => {
+        if (!el.hasAttribute('data-he')) {
+          el.setAttribute('data-he', el.innerHTML);
+        }
+        el.innerHTML = currentLang === 'he' ? el.getAttribute('data-he') : el.getAttribute('data-en');
+      });
+    }
+  </script>
+
 </body>
 </html>
