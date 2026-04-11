@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-en="Autoimmune Skin Diseases | Dr. Jonathan Shapiro">מחלות עור אוטואימוניות | ד"ר יונתן שפירא</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Frank+Ruhl+Libre:wght@400;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+:root {
+  --ai-color: #b33951; /* ארגמן עמוק המותאם למערכת החיסון ומחלות פנימיות */
+  --ai-dim: rgba(179, 57, 81, 0.12);
+  --ai-light: rgba(179, 57, 81, 0.25);
+  --amber: #c9933a;
+  --amber-dim: rgba(201,147,58,0.12);
+  --green-ok: #4a9a4a;
+  --green-ok-dim: rgba(74,154,74,0.12);
+  --red-warn: #c84040;
+  --red-warn-dim: rgba(200,64,64,0.12);
+  --blue-info: #3a7acc;
+  --blue-info-dim: rgba(58,122,204,0.12);
+}
+
+/* --- התאמות התפריט, הכפתור המהבהב והתרגום --- */
+@keyframes solidPulse {
+  0% { box-shadow: 0 0 0 0 rgba(14, 181, 168, 0.9); }
+  70% { box-shadow: 0 0 0 15px rgba(14, 181, 168, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(14, 181, 168, 0); }
+}
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.btn-secondary-nav { background: transparent; color: var(--teal); border: 1px solid rgba(14,181,168,0.5); }
+.btn-secondary-nav:hover { background: var(--teal-dim); }
+.lang-toggle-btn { background: transparent; border: 1px solid rgba(14,181,168,0.5); color: var(--teal); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; border-radius: 20px; padding: 4px 12px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 4px; }
+.lang-toggle-btn:hover { background: var(--teal); color: var(--navy); }
+
+/* --- תמיכה ב-LTR עבור תרגום לאנגלית --- */
+html[dir="ltr"] .mol-hero-text h1, html[dir="ltr"] .mol-hero-text p, html[dir="ltr"] .mol-heading, html[dir="ltr"] .mol-card h2, html[dir="ltr"] .mol-card p, html[dir="ltr"] .info-cell, html[dir="ltr"] .route-body, html[dir="ltr"] .tc-body, html[dir="ltr"] .mol-alert, html[dir="ltr"] .mol-doc-footer { text-align: left; direction: ltr; }
+html[dir="ltr"] .tc-header { flex-direction: row-reverse; justify-content: flex-end; }
+html[dir="ltr"] .tl-wrap { padding-left: 28px; padding-right: 0; }
+html[dir="ltr"] .tl-wrap::before { left: 9px; right: auto; }
+html[dir="ltr"] .tl-dot { left: -24px; right: auto; }
+html[dir="ltr"] .tl-title, html[dir="ltr"] .tl-desc { text-align: left; direction: ltr; }
+html[dir="ltr"] .do-item, html[dir="ltr"] .dont-item { flex-direction: row; text-align: left; direction: ltr;}
+
+/* עיצוב המבנה המרכזי */
+.mol-hero{display:flex;align-items:flex-start;gap:20px;padding:48px 48px 32px;max-width:1100px;margin:0 auto;position:relative;}
+.mol-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--ai-color),transparent);}
+.mol-hero-text h1{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--white);line-height:1.15;margin-bottom:10px;}
+.mol-hero-text p{font-size:16px;color:var(--text-muted);line-height:1.7;margin-bottom:14px;}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;}
+.badge{padding:4px 14px;border-radius:999px;font-size:13px;font-weight:500;border:1px solid;}
+.badge-ai{background:var(--ai-dim);color:var(--ai-color);border-color:rgba(179, 57, 81, 0.3);}
+.badge-amber{background:var(--amber-dim);color:var(--amber);border-color:rgba(201,147,58,0.3);}
+.badge-teal{background:var(--teal-dim);color:var(--teal);border-color:rgba(14,181,168,0.3);}
+
+.mol-tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--border-light);max-width:1100px;margin:0 auto;padding:0 48px;}
+.mol-tabs::-webkit-scrollbar{display:none;}
+.mol-tab{padding:14px 18px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;cursor:pointer;border:none;background:transparent;color:var(--text-faint);white-space:nowrap;border-bottom:2.5px solid transparent;transition:all 0.18s;flex-shrink:0;}
+.mol-tab:hover{color:var(--text-muted);}
+.mol-tab.active{color:var(--ai-color);border-bottom-color:var(--ai-color);font-weight:500;}
+
+.mol-main{max-width:1100px;margin:0 auto;padding:40px 48px 80px;}
+.mol-section{display:none;}
+.mol-section.active{display:block;animation:fadeIn 0.25s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.mol-heading{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--white);margin-bottom:28px;}
+.mol-card{background:var(--navy-mid);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:24px 28px;margin-bottom:16px;}
+.mol-card h2{font-family:'DM Sans',sans-serif;font-size:17px;font-weight:500;color:var(--white);margin-bottom:14px;}
+.mol-card p{font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:10px;}
+.mol-card p:last-child{margin-bottom:0;}
+.mol-card p strong{color:var(--text);font-weight:500;}
+
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+.info-cell{background:var(--navy-mid);border-radius:var(--radius);padding:16px 18px;border:1px solid var(--border-light);}
+.info-cell .label{font-size:11px;color:var(--text-faint);font-weight:500;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+.info-cell .value{font-size:15px;font-weight:500;color:var(--white);}
+.info-cell .sub{font-size:12.5px;color:var(--text-muted);margin-top:3px;}
+
+.route-row{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--border-light);}
+.route-row:last-child{border-bottom:none;}
+.route-icon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--navy-light);}
+.route-body .title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:5px;}
+.route-body .desc{font-size:14px;color:var(--text-muted);line-height:1.7;}
+
+.tx-card{border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:18px 22px;margin-bottom:10px;cursor:pointer;transition:background 0.15s,border-color 0.15s;background:var(--navy-mid);}
+.tx-card:hover{border-color:var(--ai-color);}
+.tc-header{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.tc-title{font-size:15px;font-weight:500;color:var(--white);}
+.tc-tag{font-size:12px;padding:3px 12px;border-radius:999px;font-weight:500;white-space:nowrap;}
+.tc-rx{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(201,147,58,0.3);}
+.tc-systemic{background:var(--ai-dim);color:var(--ai-color);border:1px solid rgba(179, 57, 81, 0.3);}
+.tc-body{font-size:14px;color:var(--text-muted);line-height:1.75;margin-top:14px;display:none;padding-top:14px;border-top:1px solid var(--border-light);}
+.tx-card.open .tc-body{display:block;}
+.tc-chevron{font-size:11px;color:var(--text-faint);transition:transform 0.2s;flex-shrink:0;}
+.tx-card.open .tc-chevron{transform:rotate(180deg);}
+
+.mol-alert{border-radius:var(--radius);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:16px;border:1px solid;}
+.alert-warn{background:var(--amber-dim);color:var(--amber);border-color:rgba(201,147,58,0.3);}
+.alert-info{background:var(--blue-info-dim);color:#78aaee;border-color:rgba(58,122,204,0.3);}
+.alert-ai{background:var(--ai-dim);color:var(--ai-color);border-color:rgba(179, 57, 81, 0.3);}
+
+@media(max-width:720px){
+  nav { padding: 12px 15px 5px; flex-wrap: wrap; height: auto; justify-content: space-between;}
+  .nav-logo { order: 1; }
+  .lang-toggle-btn { order: 2; margin-left: 5px; }
+  .nav-actions { order: 3; width: 100%; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+  .nav-cta { padding: 8px 12px; font-size: 13px; width: 48%; text-align: center; }
+  .nav-links { order: 4; width: 100%; display: flex; overflow-x: auto; padding-top: 12px; padding-bottom: 8px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px; }
+  .mol-hero{padding:36px 20px 24px;flex-direction:column;}
+  .mol-tabs{padding:0 20px;}
+  .mol-main{padding:32px 20px 60px;}
+  .mol-hero-text h1{font-size:30px;}
+  .info-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><img src="logo.png" alt="logo" onerror="this.style.display='none'" /></a>
+  <div class="nav-links">
+    <a href="index.html" data-en="Home">דף הבית</a>
+    <a href="expertise.html" class="active" data-en="Expertise">תחומי התמחות</a>
+    <a href="academic.html" data-en="Academic Activity">פעילות אקדמית</a>
+    <a href="contact.html" data-en="Contact Us">צור קשר</a>
+  </div>
+  
+  <div class="nav-actions">
+    <a class="nav-cta" href="appointment.html" data-en="Book Appointment" style="animation: solidPulse 2s infinite; color: #ffffff;">קביעת תור</a>
+    <a class="nav-cta btn-secondary-nav" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank" data-en="Send Online Consult">שליחת ייעוץ אונ-ליין</a>
+    <button id="langToggle" class="lang-toggle-btn" onclick="toggleLang()">🌐 EN</button>
+  </div>
+</nav>
+
+<div class="mol-hero">
+  <svg style="flex-shrink:0;width:64px;height:64px;" viewBox="0 0 56 56" fill="none">
+    <circle cx="28" cy="28" r="26" fill="rgba(179, 57, 81, 0.12)" stroke="rgba(179, 57, 81, 0.4)" stroke-width="1"/>
+    <path d="M 28 14 L 28 22 M 28 22 L 20 28 M 28 22 L 36 28 M 20 28 L 20 36 M 36 28 L 36 36" stroke="#b33951" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="20" cy="36" r="3" fill="#b33951"/>
+    <circle cx="36" cy="36" r="3" fill="#b33951"/>
+    <circle cx="28" cy="14" r="3" fill="#b33951"/>
+  </svg>
+  <div class="mol-hero-text">
+    <h1 data-en="Autoimmune & Blistering Skin Diseases">מחלות עור אוטואימוניות ושלפוחתיות</h1>
+    <p data-en="Specialized clinical diagnosis, immunofluorescence biopsies, and advanced immunomodulatory treatments to achieve and maintain remission.">אבחון קליני מתמחה, ביופסיות ואימונופלואורסצנציה, ופרוטוקולי טיפול אימונומודולטוריים וביולוגיים מתקדמים להשגת הפוגה מלאה.</p>
+    <div class="badge-row">
+      <span class="badge badge-ai" data-en="Immunology">אימונולוגיה של העור</span>
+      <span class="badge badge-amber" data-en="Pemphigus & Pemphigoid">פמפיגוס ופמפיגואיד</span>
+      <span class="badge badge-teal" data-en="Advanced Diagnostics">אבחון מתקדם</span>
+    </div>
+  </div>
+</div>
+
+<div class="mol-tabs">
+  <button class="mol-tab active" onclick="showSection('what',this)" data-en="What are they?">מהן מחלות אלו?</button>
+  <button class="mol-tab" onclick="showSection('blistering',this)" data-en="Blistering Diseases">מחלות שלפוחתיות</button>
+  <button class="mol-tab" onclick="showSection('connective',this)" data-en="Connective Tissue">זאבת ומחלות חיבור</button>
+  <button class="mol-tab" onclick="showSection('diagnosis',this)" data-en="Diagnosis">תהליך האבחון</button>
+  <button class="mol-tab" onclick="showSection('treat',this)" data-en="Treatments">גישות טיפוליות</button>
+</div>
+
+<main class="mol-main">
+
+<section class="mol-section active" id="section-what">
+  <h2 class="mol-heading" data-en="When the Immune System Attacks the Skin">כאשר מערכת החיסון תוקפת את העור</h2>
+  <div class="mol-card">
+    <h2 data-en="The Underlying Mechanism">המנגנון בבסיס המחלות</h2>
+    <p data-en="Autoimmune skin diseases occur when the body's immune system loses its ability to distinguish between foreign invaders (like viruses and bacteria) and the body's own healthy tissues.">מחלות עור אוטואימוניות מתרחשות כאשר מערכת החיסון של הגוף מאבדת את היכולת להבדיל בין פולשים זרים (כמו וירוסים וחיידקים) לבין הרקמות הבריאות של הגוף עצמו.</p>
+    <p data-en="Instead of protecting the skin, the immune system produces 'autoantibodies' that mistakenly attack specific structures within the skin. Depending on which exact protein is targeted, the result can be widespread blistering, deep inflammation, scarring, or sensitivity to the sun.">במקום להגן על העור, מערכת החיסון מייצרת "נוגדנים עצמיים" (Autoantibodies) שתוקפים בטעות מבנים ספציפיים בעור. בהתאם לחלבון המדויק שמותקף, התוצאה יכולה להתבטא בהיווצרות שלפוחיות נרחבות, דלקת עמוקה, הצטלקות או רגישות קיצונית לשמש.</p>
+  </div>
+  <div class="info-grid">
+    <div class="info-cell"><div class="label" data-en="Disease Course">מהלך המחלה</div><div class="value" data-en="Chronic with Flare-ups">כרוני גלי (התלקחויות)</div><div class="sub" data-en="Requires long-term medical management">דורש ניהול רפואי ארוך טווח</div></div>
+    <div class="info-cell"><div class="label" data-en="Primary Goal">מטרת הטיפול המרכזית</div><div class="value" data-en="Clinical Remission">הפוגה קלינית (Remission)</div><div class="sub" data-en="Calming the immune system safely">השקטת מערכת החיסון בצורה בטוחה</div></div>
+  </div>
+  <div class="mol-alert alert-ai" data-en="These conditions are rare and complex. Proper management requires a dermatologist experienced in immunodermatology to accurately balance disease control with the side effects of immunosuppressive medications.">מחלות אלו נדירות ומורכבות יחסית. הניהול שלהן דורש רופא עור בעל ניסיון באימונולוגיה של העור (Immunodermatology), כדי לאזן במדויק בין שליטה במחלה לבין תופעות הלוואי של התרופות שמדכאות את מערכת החיסון.</div>
+</section>
+
+<section class="mol-section" id="section-blistering">
+  <h2 class="mol-heading" data-en="Autoimmune Blistering Diseases">מחלות עור שלפוחתיות אוטואימוניות</h2>
+  <div class="mol-alert alert-info" data-en="In these diseases, autoantibodies attack the 'glue' that holds the skin cells together, causing the skin to separate and form fluid-filled blisters.">במחלות אלו, הנוגדנים תוקפים את "הדבק" שמחבר את תאי העור זה לזה או את שכבות העור זו לזו, מה שגורם להיפרדות העור ולהיווצרות שלפוחיות מלאות נוזל.</div>
+  
+  <div class="mol-card">
+    <h2 data-en="Key Blistering Conditions">המחלות המרכזיות בקבוצה</h2>
+    <div class="route-row">
+      <div class="route-icon">🩸</div>
+      <div class="route-body">
+        <div class="title" data-en="Pemphigus Vulgaris (PV)">פמפיגוס וולגריס (Pemphigus Vulgaris)</div>
+        <div class="desc" data-en="A severe disease where blisters form in the upper layers of the skin and mucous membranes. The blisters are flaccid, easily rupture, and leave painful, raw sores. It almost always involves the mouth and throat first, making eating and swallowing difficult.">מחלה חמורה בה נוצרות שלפוחיות בשכבות העליונות של העור ובריריות. השלפוחיות רפויות, בוקעות בקלות, ומותירות פצעים פתוחים וכואבים מאוד (ארוזיות). היא כמעט תמיד מערבת תחילה את חלל הפה והלוע, מה שמקשה על אכילה ובליעה.</div>
+      </div>
+    </div>
+    <div class="route-row">
+      <div class="route-icon">💧</div>
+      <div class="route-body">
+        <div class="title" data-en="Bullous Pemphigoid (BP)">בולוס פמפיגואיד (Bullous Pemphigoid)</div>
+        <div class="desc" data-en="The most common autoimmune blistering disease, typically affecting the elderly (over 60). The immune system attacks the deep membrane separating the epidermis from the dermis. Produces large, tense blisters that do not rupture easily, often accompanied by extremely severe itching.">המחלה השלפוחתית האוטואימונית הנפוצה ביותר, פוגעת לרוב באוכלוסייה המבוגרת (מעל גיל 60). מערכת החיסון תוקפת את קרום הבסיס העמוק שמפריד בין שכבות העור. מייצרת שלפוחיות גדולות ומתוחות שאינן בוקעות בקלות, מלוות לרוב בגרד חמור וקשה מאוד.</div>
+      </div>
+    </div>
+    <div class="route-row" style="border:none;">
+      <div class="route-icon">🌾</div>
+      <div class="route-body">
+        <div class="title" data-en="Dermatitis Herpetiformis (DH)">דרמטיטיס הרפטיפורמיס (מחלת עור של הצליאק)</div>
+        <div class="desc" data-en="An intensely itchy, blistering skin manifestation of Celiac disease (gluten sensitivity). Characterized by clusters of small blisters usually on the elbows, knees, and buttocks. Treatment involves a strict gluten-free diet and medication (Dapsone).">הביטוי העורי של מחלת הצליאק (רגישות לגלוטן). מתאפיינת בצברים של שלפוחיות קטנות ומגרדות בטירוף, לרוב על המרפקים, הברכיים והישבן. הטיפול משלב תזונה נטולת גלוטן לחלוטין ותרופה ספציפית (Dapsone).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mol-section" id="section-connective">
+  <h2 class="mol-heading" data-en="Connective Tissue Diseases">מחלות חיבור וזאבת עורית</h2>
+  <div class="mol-card">
+    <h2 data-en="Lupus and the Skin">זאבת (Lupus) והעור</h2>
+    <p data-en="Lupus Erythematosus can be a systemic disease affecting internal organs (SLE), but in many cases, it is confined entirely to the skin (Cutaneous Lupus).">זאבת (Lupus Erythematosus) יכולה להיות מחלה מערכתית שפוגעת באיברים פנימיים (SLE), אך במקרים רבים היא מוגבלת לחלוטין לעור בלבד (Cutaneous Lupus).</p>
+    <div class="tl-wrap" style="margin-top:16px;">
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="Discoid Lupus (DLE)">זאבת עורית כרונית (Discoid Lupus)</div><div class="desc" data-en="Causes thick, coin-shaped, red, and scaly plaques, mainly on the face, scalp, and ears. Without prompt treatment, these lesions can cause permanent scarring and permanent hair loss. Extreme sun protection is mandatory.">גורמת להופעת רבדים עבים, דמויי מטבע, אדומים וקשקשיים, בעיקר בפנים, בקרקפת ובאוזניים. ללא טיפול מהיר, נגעים אלו גורמים להצטלקות קבועה ולאובדן שיער בלתי הפיך בקרקפת. הגנה קיצונית מהשמש היא חובה.</div></div>
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="Acute Cutaneous Lupus (Butterfly Rash)">זאבת עורית אקוטית (פריחת הפרפר)</div><div class="desc" data-en="The classic 'butterfly' rash spanning the cheeks and bridge of the nose. It often appears after sun exposure and is highly associated with Systemic Lupus (SLE).">הפריחה הקלאסית בצורת "פרפר" שמופיעה על הלחיים וגשר האף. מופיעה לרוב לאחר חשיפה לשמש וקשורה באופן הדוק למחלת הזאבת המערכתית (SLE).</div></div>
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="Dermatomyositis">דרמטומיוזיטיס</div><div class="desc" data-en="An autoimmune disease affecting skin and muscles. Features include a purple-red rash on the eyelids (Heliotrope rash) and scaly bumps on the knuckles. Requires comprehensive internal evaluation.">מחלה אוטואימונית הפוגעת בעור ובשרירים. מתאפיינת בפריחה סגולה-אדומה על העפעפיים (Heliotrope) ובליטות קשקשיות על פרקי האצבעות. דורשת בירור פנימי מקיף.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="mol-section" id="section-diagnosis">
+  <h2 class="mol-heading" data-en="The Diagnostic Process">תהליך האבחון המיוחד</h2>
+  <div class="mol-alert alert-warn" data-en="Because autoimmune skin diseases can mimic simple rashes or infections, specialized laboratory techniques are required to make a definitive diagnosis.">מכיוון שמחלות עור אוטואימוניות יכולות לחקות פריחות פשוטות או זיהומים, נדרשות טכניקות מעבדה ייחודיות כדי להגיע לאבחנה ודאית.</div>
+  
+  <div class="mol-card">
+    <h2 data-en="Diagnostic Tools">הכלים האבחוניים</h2>
+    <div class="route-row">
+      <div class="route-icon">🔬</div>
+      <div class="route-body">
+        <div class="title" data-en="Skin Biopsy (H&E)">ביופסיית עור סטנדרטית (H&E)</div>
+        <div class="desc" data-en="A small sample of the affected skin is taken under local anesthesia and examined under a microscope to evaluate the structural changes and inflammation patterns.">דגימה קטנה של העור הנגוע נלקחת בהרדמה מקומית ונבדקת תחת המיקרוסקופ כדי להעריך את השינויים המבניים ותבנית התאים המודלקים.</div>
+      </div>
+    </div>
+    <div class="route-row">
+      <div class="route-icon">✨</div>
+      <div class="route-body">
+        <div class="title" data-en="Direct Immunofluorescence (DIF)">אימונופלואורסצנציה ישירה (DIF)</div>
+        <div class="desc" data-en="The gold standard test. A second biopsy is taken from normal-appearing skin next to a blister. Using fluorescent markers, we can literally 'light up' and see the specific autoantibodies attacking the skin layers under a special microscope.">הבדיקה המועדפת. ביופסיה שנייה נלקחת מעור שנראה תקין, סמוך לשלפוחית. בעזרת סמנים זרחניים, אנו יכולים ממש "להאיר" ולראות את הנוגדנים הספציפיים שתוקפים את שכבות העור תחת מיקרוסקופ מיוחד.</div>
+      </div>
+    </div>
+    <div class="route-row" style="border:none;">
+      <div class="route-icon">💉</div>
+      <div class="route-body">
+        <div class="title" data-en="Serology (Blood Tests)">בדיקות סרולוגיה (דם)</div>
+        <div class="desc" data-en="Blood tests are used to measure the level of circulating autoantibodies (like Desmoglein or BP180). This not only helps with diagnosis but also allows tracking of the disease's activity over time.">בדיקות דם משמשות למדידת רמת הנוגדנים העצמיים שמסתובבים בזרם הדם (כגון Desmoglein או BP180). זה לא רק מסייע באבחנה אלא גם מאפשר לעקוב אחר רמת הפעילות של המחלה לאורך זמן ולהתאים מינוני תרופות.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mol-section" id="section-treat">
+  <h2 class="mol-heading" data-en="Medical Treatment Approach">הגישה הטיפולית</h2>
+  <div class="mol-alert alert-success" data-en="The goal of treatment is to calm the overactive immune system, stop the formation of new lesions, heal existing wounds, and transition to a low-dose maintenance therapy to keep the disease in remission.">מטרת הטיפול היא להשקיט את מערכת החיסון הפעילה-ביתר, לעצור הופעת נגעים חדשים, לרפא פצעים קיימים, ולעבור לטיפול משמר במינון מינימלי שיחזיק את המחלה ברמיסיה.</div>
+
+  <div class="mol-card"><h2 data-en="Systemic & Biologic Therapies">טיפולים מערכתיים וביולוגיים</h2></div>
+  
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Systemic Corticosteroids (Prednisone)">קורטיקוסטרואידים מערכתיים (פרדניזון)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-rx" data-en="Acute Phase">לשלב החריף</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="Often the first line of defense to quickly gain control over aggressive blistering. Due to long-term side effects, the goal is always to taper the dose down as quickly and safely as possible.">לרוב קו ההגנה הראשון שמטרתו להשתלט במהירות על מחלה סוערת או שלפוחתית אגרסיבית. בשל תופעות לוואי בשימוש ממושך, המטרה היא תמיד להפחית את המינון (Tapering) מהר ובטוח ככל האפשר, תוך שילוב תרופות אחרות.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Steroid-Sparing Immunosuppressants">תרופות מדכאות חיסון "חוסכות סטרואידים"</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-rx" data-en="Oral Daily">כדורים</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="Medications like Azathioprine (Imuran), Mycophenolate Mofetil (CellCept), or Methotrexate. These drugs suppress the immune system over the long term, allowing the patient to successfully stop taking steroids without the disease returning.">תרופות כגון אזתיופרין (אימורן), מיקופנולט (סלספט), או מתוטרקסט. תרופות אלו מדכאות את מערכת החיסון לטווח הארוך, ומהוות "שחקן חיזוק" המאפשר למטופל לרדת מהסטרואידים בהצלחה מבלי שהמחלה תחזור.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Biologic Therapy (Rituximab / Dupilumab)">טיפולים ביולוגיים (ריטוקסימאב / דופיקסנט)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-systemic" data-en="Advanced">מתקדם</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="A revolution in modern treatment. Rituximab (given via IV infusion) specifically destroys the B-cells producing the harmful autoantibodies in Pemphigus, often leading to long-term remission. Dupilumab is highly effective for severe Bullous Pemphigoid without broadly suppressing the immune system.">מהפכה בטיפול המודרני. תרופת הריטוקסימאב (ניתנת בעירוי) משמידה באופן ספציפי את תאי ה-B שמייצרים את הנוגדנים ההרסניים בפמפיגוס, ומובילה במקרים רבים להפוגה ארוכת שנים. תרופות כמו דופיקסנט משמשות כיום בהצלחה רבה לטיפול בפמפיגואיד מבלי לדכא את מערכת החיסון הכללית.</div>
+  </div>
+</section>
+
+</main>
+
+<footer style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; padding: 20px 48px; border-top: 1px solid var(--border-light); max-width: 1100px; margin: 0 auto;">
+  <span style="color: var(--text-muted); font-size: 14px;" data-en="© 2025 Dr. Jonathan Shapiro | Dermatologist">© 2025 ד"ר יונתן שפירא | רופא עור</span>
+  <div style="display: flex; align-items: center; gap: 15px;">
+    <a href="https://www.linkedin.com/in/jonathan-shapiro-35989b115/" target="_blank" style="color: #0eb5a8; text-decoration: none; display: flex; align-items: center; gap: 6px; font-family: 'DM Sans', sans-serif; font-size: 14px; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+      LinkedIn
+    </a>
+    <span style="color: var(--border-light);">|</span>
+    <span style="color: var(--text-muted); font-size: 14px;">jshapiro.co.il</span>
+  </div>
+</footer>
+
+<script>
+function showSection(id, btn) {
+  document.querySelectorAll('.mol-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.mol-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('section-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+function toggleTx(card) {
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.tx-card').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) card.classList.add('open');
+}
+
+let currentLang = 'he';
+function toggleLang() {
+  currentLang = currentLang === 'he' ? 'en' : 'he';
+  document.documentElement.dir = currentLang === 'he' ? 'rtl' : 'ltr';
+  document.documentElement.lang = currentLang;
+  document.getElementById('langToggle').innerHTML = currentLang === 'he' ? '🌐 EN' : '🌐 עב';
+  
+  document.querySelectorAll('[data-en]').forEach(el => {
+    if (!el.hasAttribute('data-he')) { el.setAttribute('data-he', el.innerHTML); }
+    el.innerHTML = currentLang === 'he' ? el.getAttribute('data-he') : el.getAttribute('data-en');
+  });
+}
+</script>
+</body>
+</html>
