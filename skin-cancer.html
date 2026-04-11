@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-en="Mole Screening & Skin Cancer | Dr. Jonathan Shapiro">סקירת שומות וסרטן עור | ד"ר יונתן שפירא</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Frank+Ruhl+Libre:wght@400;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+:root {
+  --mole: #b87333; /* גוון נחושת-חום המותאם לפיגמנטציה ושומות */
+  --mole-dim: rgba(184, 115, 51, 0.12);
+  --mole-light: rgba(184, 115, 51, 0.25);
+  --amber: #c9933a;
+  --amber-dim: rgba(201,147,58,0.12);
+  --green-ok: #4a9a4a;
+  --green-ok-dim: rgba(74,154,74,0.12);
+  --red-warn: #c84040;
+  --red-warn-dim: rgba(200,64,64,0.12);
+  --blue-info: #3a7acc;
+  --blue-info-dim: rgba(58,122,204,0.12);
+}
+
+/* --- התאמות התפריט, הכפתור המהבהב והתרגום --- */
+@keyframes solidPulse {
+  0% { box-shadow: 0 0 0 0 rgba(14, 181, 168, 0.9); }
+  70% { box-shadow: 0 0 0 15px rgba(14, 181, 168, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(14, 181, 168, 0); }
+}
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.btn-secondary-nav { background: transparent; color: var(--teal); border: 1px solid rgba(14,181,168,0.5); }
+.btn-secondary-nav:hover { background: var(--teal-dim); }
+.lang-toggle-btn { background: transparent; border: 1px solid rgba(14,181,168,0.5); color: var(--teal); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; border-radius: 20px; padding: 4px 12px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 4px; }
+.lang-toggle-btn:hover { background: var(--teal); color: var(--navy); }
+
+/* --- תמיכה ב-LTR עבור תרגום לאנגלית --- */
+html[dir="ltr"] .mol-hero-text h1, html[dir="ltr"] .mol-hero-text p, html[dir="ltr"] .mol-heading, html[dir="ltr"] .mol-card h2, html[dir="ltr"] .mol-card p, html[dir="ltr"] .info-cell, html[dir="ltr"] .route-body, html[dir="ltr"] .tc-body, html[dir="ltr"] .mol-alert, html[dir="ltr"] .mol-doc-footer { text-align: left; direction: ltr; }
+html[dir="ltr"] .tc-header { flex-direction: row-reverse; justify-content: flex-end; }
+html[dir="ltr"] .tl-wrap { padding-left: 28px; padding-right: 0; }
+html[dir="ltr"] .tl-wrap::before { left: 9px; right: auto; }
+html[dir="ltr"] .tl-dot { left: -24px; right: auto; }
+html[dir="ltr"] .tl-title, html[dir="ltr"] .tl-desc { text-align: left; direction: ltr; }
+html[dir="ltr"] .do-item, html[dir="ltr"] .dont-item { flex-direction: row; text-align: left; direction: ltr;}
+
+/* עיצוב המבנה המרכזי */
+.mol-hero{display:flex;align-items:flex-start;gap:20px;padding:48px 48px 32px;max-width:1100px;margin:0 auto;position:relative;}
+.mol-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--mole),transparent);}
+.mol-hero-text h1{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--white);line-height:1.15;margin-bottom:10px;}
+.mol-hero-text p{font-size:16px;color:var(--text-muted);line-height:1.7;margin-bottom:14px;}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;}
+.badge{padding:4px 14px;border-radius:999px;font-size:13px;font-weight:500;border:1px solid;}
+.badge-mole{background:var(--mole-dim);color:var(--mole);border-color:rgba(184, 115, 51, 0.3);}
+.badge-amber{background:var(--amber-dim);color:var(--amber);border-color:rgba(201,147,58,0.3);}
+.badge-teal{background:var(--teal-dim);color:var(--teal);border-color:rgba(14,181,168,0.3);}
+
+.mol-tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--border-light);max-width:1100px;margin:0 auto;padding:0 48px;}
+.mol-tabs::-webkit-scrollbar{display:none;}
+.mol-tab{padding:14px 18px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;cursor:pointer;border:none;background:transparent;color:var(--text-faint);white-space:nowrap;border-bottom:2.5px solid transparent;transition:all 0.18s;flex-shrink:0;}
+.mol-tab:hover{color:var(--text-muted);}
+.mol-tab.active{color:var(--mole);border-bottom-color:var(--mole);font-weight:500;}
+
+.mol-main{max-width:1100px;margin:0 auto;padding:40px 48px 80px;}
+.mol-section{display:none;}
+.mol-section.active{display:block;animation:fadeIn 0.25s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.mol-heading{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--white);margin-bottom:28px;}
+.mol-card{background:var(--navy-mid);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:24px 28px;margin-bottom:16px;}
+.mol-card h2{font-family:'DM Sans',sans-serif;font-size:17px;font-weight:500;color:var(--white);margin-bottom:14px;}
+.mol-card p{font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:10px;}
+.mol-card p:last-child{margin-bottom:0;}
+.mol-card p strong{color:var(--text);font-weight:500;}
+
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+.info-cell{background:var(--navy-mid);border-radius:var(--radius);padding:16px 18px;border:1px solid var(--border-light);}
+.info-cell .label{font-size:11px;color:var(--text-faint);font-weight:500;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+.info-cell .value{font-size:15px;font-weight:500;color:var(--white);}
+.info-cell .sub{font-size:12.5px;color:var(--text-muted);margin-top:3px;}
+
+.route-row{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--border-light);}
+.route-row:last-child{border-bottom:none;}
+.route-icon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--navy-light);}
+.route-body .title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:5px;}
+.route-body .desc{font-size:14px;color:var(--text-muted);line-height:1.7;}
+
+.tx-card{border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:18px 22px;margin-bottom:10px;cursor:pointer;transition:background 0.15s,border-color 0.15s;background:var(--navy-mid);}
+.tx-card:hover{border-color:var(--mole);}
+.tc-header{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.tc-title{font-size:15px;font-weight:500;color:var(--white);}
+.tc-tag{font-size:12px;padding:3px 12px;border-radius:999px;font-weight:500;white-space:nowrap;}
+.tc-safe{background:var(--teal-dim);color:var(--teal);border:1px solid rgba(14,181,168,0.3);}
+.tc-warn{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(201,147,58,0.3);}
+.tc-danger{background:var(--red-warn-dim);color:#e07070;border:1px solid rgba(200,64,64,0.3);}
+.tc-body{font-size:14px;color:var(--text-muted);line-height:1.75;margin-top:14px;display:none;padding-top:14px;border-top:1px solid var(--border-light);}
+.tx-card.open .tc-body{display:block;}
+.tc-chevron{font-size:11px;color:var(--text-faint);transition:transform 0.2s;flex-shrink:0;}
+.tx-card.open .tc-chevron{transform:rotate(180deg);}
+
+.mol-alert{border-radius:var(--radius);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:16px;border:1px solid;}
+.alert-warn{background:var(--amber-dim);color:var(--amber);border-color:rgba(201,147,58,0.3);}
+.alert-info{background:var(--blue-info-dim);color:#78aaee;border-color:rgba(58,122,204,0.3);}
+.alert-mole{background:var(--mole-dim);color:var(--mole);border-color:rgba(184, 115, 51, 0.3);}
+.alert-danger{background:var(--red-warn-dim);color:#e07070;border-color:rgba(200,64,64,0.3);}
+
+@media(max-width:720px){
+  nav { padding: 12px 15px 5px; flex-wrap: wrap; height: auto; justify-content: space-between;}
+  .nav-logo { order: 1; }
+  .lang-toggle-btn { order: 2; margin-left: 5px; }
+  .nav-actions { order: 3; width: 100%; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+  .nav-cta { padding: 8px 12px; font-size: 13px; width: 48%; text-align: center; }
+  .nav-links { order: 4; width: 100%; display: flex; overflow-x: auto; padding-top: 12px; padding-bottom: 8px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px; }
+  .mol-hero{padding:36px 20px 24px;flex-direction:column;}
+  .mol-tabs{padding:0 20px;}
+  .mol-main{padding:32px 20px 60px;}
+  .mol-hero-text h1{font-size:30px;}
+  .info-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><img src="logo.png" alt="logo" onerror="this.style.display='none'" /></a>
+  <div class="nav-links">
+    <a href="index.html" data-en="Home">דף הבית</a>
+    <a href="expertise.html" class="active" data-en="Expertise">תחומי התמחות</a>
+    <a href="academic.html" data-en="Academic Activity">פעילות אקדמית</a>
+    <a href="contact.html" data-en="Contact Us">צור קשר</a>
+  </div>
+  
+  <div class="nav-actions">
+    <a class="nav-cta" href="appointment.html" data-en="Book Appointment" style="animation: solidPulse 2s infinite; color: #ffffff;">קביעת תור</a>
+    <a class="nav-cta btn-secondary-nav" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank" data-en="Send Online Consult">שליחת ייעוץ אונ-ליין</a>
+    <button id="langToggle" class="lang-toggle-btn" onclick="toggleLang()">🌐 EN</button>
+  </div>
+</nav>
+
+<div class="mol-hero">
+  <svg style="flex-shrink:0;width:64px;height:64px;" viewBox="0 0 56 56" fill="none">
+    <circle cx="28" cy="28" r="26" fill="rgba(184, 115, 51, 0.12)" stroke="rgba(184, 115, 51, 0.4)" stroke-width="1"/>
+    <circle cx="24" cy="24" r="8" stroke="#b87333" stroke-width="2"/>
+    <line x1="29.5" y1="29.5" x2="38" y2="38" stroke="#b87333" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="24" cy="24" r="3" fill="#b87333"/>
+  </svg>
+  <div class="mol-hero-text">
+    <h1 data-en="Mole Screening & Early Detection">סקירת שומות וגילוי מוקדם של סרטן עור</h1>
+    <p data-en="Comprehensive full-body skin examination using advanced dermoscopy. Early detection of melanoma and other skin cancers saves lives.">בדיקה קלינית מקיפה של כלל עור הגוף באמצעות דרמוסקופיה מתקדמת. גילוי מוקדם של מלנומה וסרטני עור אחרים מציל חיים.</p>
+    <div class="badge-row">
+      <span class="badge badge-mole" data-en="Dermoscopy">דרמוסקופיה דיגיטלית</span>
+      <span class="badge badge-amber" data-en="ABCDE Rule">כלל ה-ABCDE</span>
+      <span class="badge badge-teal" data-en="Life Saving">רפואה מונעת מצילת חיים</span>
+    </div>
+  </div>
+</div>
+
+<div class="mol-tabs">
+  <button class="mol-tab active" onclick="showSection('what',this)" data-en="What is Screening?">מהי סקירת שומות?</button>
+  <button class="mol-tab" onclick="showSection('abcde',this)" data-en="The ABCDE Rule">כלל ה-ABCDE</button>
+  <button class="mol-tab" onclick="showSection('types',this)" data-en="Skin Cancers">סוגי סרטן העור</button>
+  <button class="mol-tab" onclick="showSection('risk',this)" data-en="Risk Factors">מי בסיכון?</button>
+  <button class="mol-tab" onclick="showSection('faq',this)" data-en="FAQ">שאלות נפוצות</button>
+</div>
+
+<main class="mol-main">
+
+<section class="mol-section active" id="section-what">
+  <h2 class="mol-heading" data-en="The Importance of Full-Body Screening">חשיבות סקירת העור התקופתית</h2>
+  <div class="mol-card">
+    <h2 data-en="What happens during the examination?">מה קורה במהלך הבדיקה?</h2>
+    <p data-en="A mole screening (skin check) is a painless, non-invasive, and life-saving medical examination. During the appointment, Dr. Shapiro performs a meticulous full-body skin check from head to toe, including hard-to-see areas like the scalp, between the toes, and the back.">סקירת שומות (נקודות חן) היא בדיקה רפואית שאינה כואבת, אינה פולשנית ומצילת חיים. במהלך התור, ד"ר שפירא מבצע סקירה מדוקדקת של כלל עור הגוף מכף רגל ועד ראש, כולל אזורים שקשה לראות לבד כמו הקרקפת, בין אצבעות הרגליים והגב.</p>
+    <p data-en="The examination is performed using a <strong>Dermatoscope</strong> - an advanced optical device equipped with polarized light and high magnification. This allows the dermatologist to see structural patterns and pigments deep within the skin that are completely invisible to the naked eye.">הבדיקה מבוצעת באמצעות <strong>דרמוסקופ (Dermatoscope)</strong> - מכשיר אופטי מתקדם המצויד באור מקוטב והגדלה גבוהה. המכשיר מאפשר לרופא העור לראות תבניות מבניות ופיגמנטים בעומק העור שאינם גלויים כלל לעין הרגילה.</p>
+  </div>
+  <div class="info-grid">
+    <div class="info-cell"><div class="label" data-en="Frequency">תדירות מומלצת</div><div class="value" data-en="Once a year">אחת לשנה</div><div class="sub" data-en="More frequently for high-risk individuals">בתדירות גבוהה יותר לאנשים בסיכון</div></div>
+    <div class="info-cell"><div class="label" data-en="Primary Goal">המטרה המרכזית</div><div class="value" data-en="Early Detection">גילוי מוקדם</div><div class="sub" data-en="Melanoma is 99% curable if caught early">מלנומה ניתנת לריפוי ב-99% אם מתגלה מוקדם</div></div>
+  </div>
+  <div class="mol-alert alert-mole" data-en="You do not need to have a specific 'suspicious' mole to get checked. The purpose of routine screening is to find changes before they become dangerous.">אין צורך לחכות שתופיע שומה "חשודה" כדי להיבדק. מטרת הסקירה השגרתית היא לאתר שינויים מיקרוסקופיים עוד לפני שהם הופכים למסוכנים או בולטים לעין.</div>
+</section>
+
+<section class="mol-section" id="section-abcde">
+  <h2 class="mol-heading" data-en="The ABCDE Rule for Melanoma">כלל ה-ABCDE לזיהוי שומות חשודות</h2>
+  <div class="mol-alert alert-info" data-en="The ABCDE rule is an easy-to-remember guide that helps you monitor your skin at home between doctor visits. If you notice any of these signs, schedule an appointment immediately.">כלל ה-ABCDE הוא כלי פשוט ובינלאומי שעוזר לכם לעקוב אחר העור שלכם בבית בין הביקורים אצל הרופא. אם אתם מזהים אחד מהסימנים הבאים בשומה, יש לקבוע תור בהקדם.</div>
+  
+  <div class="mol-card">
+    <div class="route-row">
+      <div class="route-icon" style="color:var(--white);font-weight:700;">A</div>
+      <div class="route-body">
+        <div class="title" data-en="Asymmetry">חוסר סימטריה (Asymmetry)</div>
+        <div class="desc" data-en="Normal moles are usually symmetrical. If you draw a line through the middle of the mole, the two halves should match. If they don't, it's a warning sign.">שומות תקינות הן לרוב עגולות וסימטריות. אם תעבירו קו דמיוני באמצע השומה, שני החצאים צריכים להיות זהים. חצי אחד שאינו דומה לשני מהווה סימן אזהרה.</div>
+      </div>
+    </div>
+    <div class="route-row">
+      <div class="route-icon" style="color:var(--white);font-weight:700;">B</div>
+      <div class="route-body">
+        <div class="title" data-en="Border">גבולות לא סדירים (Border)</div>
+        <div class="desc" data-en="A benign mole has smooth, even borders. Melanoma borders tend to be uneven, scalloped, blurred, or jagged.">לשומה שפירה יש גבולות חלקים וברורים. גבולות של מלנומה נוטים להיות לא אחידים, מטושטשים, משוננים או נראים כמו "מפרצים".</div>
+      </div>
+    </div>
+    <div class="route-row">
+      <div class="route-icon" style="color:var(--white);font-weight:700;">C</div>
+      <div class="route-body">
+        <div class="title" data-en="Color">ריבוי גוונים (Color)</div>
+        <div class="desc" data-en="Most benign moles are a single shade of brown. Having multiple colors (different shades of brown, black, red, white, or blue) is a red flag.">רוב השומות התקינות הן בעלות גוון אחיד של חום. שומה שמכילה מספר צבעים שונים (גוונים שונים של חום, שחור, אדום, לבן או כחול) היא נורת אזהרה.</div>
+      </div>
+    </div>
+    <div class="route-row">
+      <div class="route-icon" style="color:var(--white);font-weight:700;">D</div>
+      <div class="route-body">
+        <div class="title" data-en="Diameter">קוטר (Diameter)</div>
+        <div class="desc" data-en="Melanomas are usually larger in diameter than the eraser on your pencil (about 6mm), but they can sometimes be smaller when first detected.">שומות שקוטרן עולה על 6 מ"מ (בערך בגודל של מחק בקצה עיפרון) דורשות בדיקה, אם כי מלנומות יכולות להיות קטנות יותר בשלביהן המוקדמים.</div>
+      </div>
+    </div>
+    <div class="route-row" style="border:none;">
+      <div class="route-icon" style="color:var(--white);font-weight:700;">E</div>
+      <div class="route-body">
+        <div class="title" data-en="Evolving">שינוי או התפתחות (Evolving)</div>
+        <div class="desc" data-en="This is the most important sign! Any mole that is evolving—changing in size, shape, color, elevation, or starts to itch, bleed, or crust—must be examined immediately."><strong>זהו הסימן החשוב מכולם!</strong> כל שומה שמשתנה - בגודל, בצורה, בצבע, מתרוממת, או מתחילה לגרד, לדמם או לכאוב - חייבת בבדיקת רופא מידית.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mol-section" id="section-types">
+  <h2 class="mol-heading" data-en="Types of Skin Cancer">הסוגים המרכזיים של סרטן העור</h2>
+  
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Melanoma">מלנומה (Melanoma)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-danger" data-en="Most Dangerous">המסוכן ביותר</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="The most dangerous form of skin cancer because of its ability to spread (metastasize) to other organs rapidly if not treated early. It develops in the melanocytes (pigment-producing cells). It can develop from an existing mole or appear suddenly as a new dark spot on normal skin. Early surgical excision usually cures it completely.">סוג סרטן העור המסוכן ביותר בשל יכולתו לשלוח גרורות לאיברים פנימיים במהירות אם אינו מטופל בזמן. מתפתח בתאים מייצרי הפיגמנט (מלנוציטים). מלנומה יכולה להתפתח מתוך שומה קיימת או להופיע פתאום ככתם כהה חדש על עור תקין. גילוי מוקדם והסרה כירורגית מביאים לריפוי מלא ברוב המוחלט של המקרים.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Basal Cell Carcinoma (BCC)">קרצינומת תאי בסיס (BCC)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-safe" data-en="Most Common">הנפוץ ביותר</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="The most common type of skin cancer. It usually appears on sun-exposed areas (face, neck, scalp) as a pearly, shiny bump or a sore that bleeds easily and won't heal. It grows very slowly and almost never spreads to other organs, but it can cause significant local tissue damage if left untreated.">סרטן העור הנפוץ ביותר מכלל הסוגים. מופיע לרוב באזורים החשופים לשמש (פנים, צוואר, קרקפת) כבליטה פנינתית-מבריקה, או כפצע שמדמם בקלות ומסרב להחלים. גדל לאט מאוד וכמעט לעולם לא שולח גרורות, אך עלול לגרום לנזק מקומי משמעותי לרקמות הסמוכות אם מזניחים אותו.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Squamous Cell Carcinoma (SCC)">קרצינומת תאי קשקש (SCC)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-warn" data-en="Can Spread">עלול להתפשט</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="The second most common skin cancer. Appears as a firm red nodule, a scaly patch, or an open sore with a crusted surface. Also common on sun-exposed areas (ears, lips, bald scalps). Unlike BCC, SCC has a higher risk of spreading to lymph nodes if ignored.">הסוג השני בשכיחותו. מופיע לעיתים קרובות כגוש אדום ונוקשה, רובד קשקשי או פצע פתוח עם קרום מחוספס. שכיח באזורים שספגו נזקי שמש מצטברים (אוזניים, שפתיים, קרקפת קירחת). בשונה מ-BCC, לסוג זה יש סיכוי מסוים לשלוח גרורות לבלוטות לימפה אם אינו מטופל.</div>
+  </div>
+</section>
+
+<section class="mol-section" id="section-risk">
+  <h2 class="mol-heading" data-en="Who is at Higher Risk?">קבוצות סיכון: מי צריך להיבדק?</h2>
+  <div class="mol-card">
+    <p data-en="Skin cancer can affect anyone, regardless of skin color. However, you should definitely schedule an annual screening if you have any of the following risk factors:">סרטן עור יכול להופיע אצל כל אדם, בכל גיל ובכל גוון עור. עם זאת, עליכם להקפיד במיוחד על בדיקה שנתית אם יש לכם אחד מגורמי הסיכון הבאים:</p>
+    <div class="tl-wrap" style="margin-top:16px;">
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="Multiple Moles">ריבוי שומות</div><div class="desc" data-en="Having more than 50 moles on your body, or having large, unusual 'atypical' (dysplastic) moles.">אנשים בעלי מספר רב של שומות (מעל 50), או שומות גדולות בעלות מראה חריג ("שומות דיספלסטיות").</div></div>
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="Family History">היסטוריה אישית או משפחתית</div><div class="desc" data-en="If you or a first-degree relative (parent, sibling, child) have had melanoma or another type of skin cancer.">אם אתם או קרוב משפחה מדרגה ראשונה (הורה, אח/ות, ילד/ה) חליתם בעבר במלנומה או בסוג אחר של סרטן עור.</div></div>
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="Sun Exposure and Sunburns">נזקי שמש וכוויות עבר</div><div class="desc" data-en="A history of severe, blistering sunburns, especially during childhood or adolescence, or extensive use of tanning beds.">היסטוריה של כוויות שמש חמורות עם שלפוחיות (במיוחד בילדות ובגיל ההתבגרות), או שימוש קבוע במיטות שיזוף.</div></div>
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="Fair Skin and Light Eyes">עור בהיר, שיער ג'ינג'י או בלונדיני</div><div class="desc" data-en="People with fair skin that burns easily and rarely tans, light-colored eyes, and freckles have less natural melanin protection.">אנשים בעלי עור בהיר מאוד שנשרף בקלות ואינו משתזף, בעלי עיניים בהירות, שיער אדמוני או בלונדיני מלידה, ונמשים.</div></div>
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="Immunosuppression">מערכת חיסון מוחלשת</div><div class="desc" data-en="Organ transplant recipients or people taking immunosuppressive medications.">מושתלי איברים או מטופלים הנוטלים תרופות המדכאות את מערכת החיסון באופן קבוע.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="mol-section" id="section-faq">
+  <h2 class="mol-heading" data-en="Frequently Asked Questions">שאלות נפוצות (FAQ)</h2>
+  
+  <div class="tx-card open" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Is it dangerous if a mole bleeds or itches?">האם זה מסוכן ששומה מדממת או מגרדת?</span><span class="tc-chevron">▾</span></div>
+    <div class="tc-body" data-en="Yes. A mole that suddenly begins to itch, hurt, crust over, or bleed without being scratched is a significant warning sign that requires an immediate check by a dermatologist.">כן. שומה שפתאום מתחילה לגרד, לכאוב, להעלות קרום או לדמם ללא פציעה חיצונית (כמו גילוח או שריטה), מהווה תמרור אזהרה משמעותי המחייב בדיקת רופא עור בהקדם האפשרי.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="What happens if Dr. Shapiro finds a suspicious mole?">מה קורה אם ד"ר שפירא מוצא שומה חשודה בבדיקה?</span><span class="tc-chevron">▾</span></div>
+    <div class="tc-body" data-en="If a mole appears suspicious under the dermatoscope, the standard procedure is a simple, minor surgical excision under local anesthesia. The mole is entirely removed and sent to a pathology lab for microscopic analysis.">אם שומה נראית חשודה בדרמוסקופיה, הפרוצדורה המקובלת היא כריתה כירורגית פשוטה תחת הרדמה מקומית ( על ידי כירורג פלסטיקאי ). השומה כולה מוסרת ונשלחת למעבדה פתולוגית לבדיקה מיקרוסקופית כדי לקבוע במדויק את טיבה.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Can skin cancer develop in areas not exposed to the sun?">האם סרטן עור יכול להופיע באזורים שלא נחשפו לשמש?</span><span class="tc-chevron">▾</span></div>
+    <div class="tc-body" data-en="Absolutely. While sun exposure is the primary cause, melanoma in particular can appear anywhere on the body, including the soles of the feet, palms, under the fingernails, and the genital area. This is why a full-body check is essential.">בהחלט. למרות שקרינת השמש היא הגורם המרכזי, מלנומה בפרט יכולה להופיע בכל מקום בגוף, כולל כפות הרגליים, כפות הידיים, מתחת לציפורניים, קרקפת ואזורים מוצנעים. לכן בדיקת עור חייבת להיות מקיפה לכל הגוף.</div>
+  </div>
+</section>
+
+</main>
+
+<footer style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; padding: 20px 48px; border-top: 1px solid var(--border-light); max-width: 1100px; margin: 0 auto;">
+  <span style="color: var(--text-muted); font-size: 14px;" data-en="© 2025 Dr. Jonathan Shapiro | Dermatologist">© 2025 ד"ר יונתן שפירא | רופא עור</span>
+  <div style="display: flex; align-items: center; gap: 15px;">
+    <a href="https://www.linkedin.com/in/jonathan-shapiro-35989b115/" target="_blank" style="color: #0eb5a8; text-decoration: none; display: flex; align-items: center; gap: 6px; font-family: 'DM Sans', sans-serif; font-size: 14px; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+      LinkedIn
+    </a>
+    <span style="color: var(--border-light);">|</span>
+    <span style="color: var(--text-muted); font-size: 14px;">jshapiro.co.il</span>
+  </div>
+</footer>
+
+<script>
+function showSection(id, btn) {
+  document.querySelectorAll('.mol-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.mol-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('section-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+function toggleTx(card) {
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.tx-card').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) card.classList.add('open');
+}
+
+let currentLang = 'he';
+function toggleLang() {
+  currentLang = currentLang === 'he' ? 'en' : 'he';
+  document.documentElement.dir = currentLang === 'he' ? 'rtl' : 'ltr';
+  document.documentElement.lang = currentLang;
+  document.getElementById('langToggle').innerHTML = currentLang === 'he' ? '🌐 EN' : '🌐 עב';
+  
+  document.querySelectorAll('[data-en]').forEach(el => {
+    if (!el.hasAttribute('data-he')) { el.setAttribute('data-he', el.innerHTML); }
+    el.innerHTML = currentLang === 'he' ? el.getAttribute('data-he') : el.getAttribute('data-en');
+  });
+}
+</script>
+</body>
+</html>
