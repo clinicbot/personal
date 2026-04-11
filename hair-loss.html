@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-en="Hair Loss & Alopecia | Dr. Jonathan Shapiro">נשירת שיער והתקרחות | ד"ר יונתן שפירא</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Frank+Ruhl+Libre:wght@400;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+:root {
+  --hair: #8860d0; /* סגול רפואי עמוק המותאם לנשירת שיער */
+  --hair-dim: rgba(136, 96, 208, 0.12);
+  --hair-light: rgba(136, 96, 208, 0.25);
+  --amber: #c9933a;
+  --amber-dim: rgba(201,147,58,0.12);
+  --green-ok: #4a9a4a;
+  --green-ok-dim: rgba(74,154,74,0.12);
+  --red-warn: #c84040;
+  --red-warn-dim: rgba(200,64,64,0.12);
+  --blue-info: #3a7acc;
+  --blue-info-dim: rgba(58,122,204,0.12);
+}
+
+/* --- התאמות התפריט, הכפתור המהבהב והתרגום --- */
+@keyframes solidPulse {
+  0% { box-shadow: 0 0 0 0 rgba(14, 181, 168, 0.9); }
+  70% { box-shadow: 0 0 0 15px rgba(14, 181, 168, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(14, 181, 168, 0); }
+}
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.btn-secondary-nav { background: transparent; color: var(--teal); border: 1px solid rgba(14,181,168,0.5); }
+.btn-secondary-nav:hover { background: var(--teal-dim); }
+.lang-toggle-btn { background: transparent; border: 1px solid rgba(14,181,168,0.5); color: var(--teal); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; border-radius: 20px; padding: 4px 12px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 4px; }
+.lang-toggle-btn:hover { background: var(--teal); color: var(--navy); }
+
+/* --- תמיכה ב-LTR עבור תרגום לאנגלית --- */
+html[dir="ltr"] .mol-hero-text h1, html[dir="ltr"] .mol-hero-text p, html[dir="ltr"] .mol-heading, html[dir="ltr"] .mol-card h2, html[dir="ltr"] .mol-card p, html[dir="ltr"] .info-cell, html[dir="ltr"] .route-body, html[dir="ltr"] .tc-body, html[dir="ltr"] .mol-alert, html[dir="ltr"] .mol-doc-footer { text-align: left; direction: ltr; }
+html[dir="ltr"] .tc-header { flex-direction: row-reverse; justify-content: flex-end; }
+html[dir="ltr"] .tl-wrap { padding-left: 28px; padding-right: 0; }
+html[dir="ltr"] .tl-wrap::before { left: 9px; right: auto; }
+html[dir="ltr"] .tl-dot { left: -24px; right: auto; }
+html[dir="ltr"] .tl-title, html[dir="ltr"] .tl-desc { text-align: left; direction: ltr; }
+html[dir="ltr"] .do-item, html[dir="ltr"] .dont-item { flex-direction: row; text-align: left; direction: ltr;}
+
+/* עיצוב המבנה המרכזי */
+.mol-hero{display:flex;align-items:flex-start;gap:20px;padding:48px 48px 32px;max-width:1100px;margin:0 auto;position:relative;}
+.mol-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--hair),transparent);}
+.mol-hero-text h1{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--white);line-height:1.15;margin-bottom:10px;}
+.mol-hero-text p{font-size:16px;color:var(--text-muted);line-height:1.7;margin-bottom:14px;}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;}
+.badge{padding:4px 14px;border-radius:999px;font-size:13px;font-weight:500;border:1px solid;}
+.badge-hair{background:var(--hair-dim);color:var(--hair);border-color:rgba(136, 96, 208, 0.3);}
+.badge-amber{background:var(--amber-dim);color:var(--amber);border-color:rgba(201,147,58,0.3);}
+.badge-teal{background:var(--teal-dim);color:var(--teal);border-color:rgba(14,181,168,0.3);}
+
+.mol-tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--border-light);max-width:1100px;margin:0 auto;padding:0 48px;}
+.mol-tabs::-webkit-scrollbar{display:none;}
+.mol-tab{padding:14px 18px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;cursor:pointer;border:none;background:transparent;color:var(--text-faint);white-space:nowrap;border-bottom:2.5px solid transparent;transition:all 0.18s;flex-shrink:0;}
+.mol-tab:hover{color:var(--text-muted);}
+.mol-tab.active{color:var(--hair);border-bottom-color:var(--hair);font-weight:500;}
+
+.mol-main{max-width:1100px;margin:0 auto;padding:40px 48px 80px;}
+.mol-section{display:none;}
+.mol-section.active{display:block;animation:fadeIn 0.25s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.mol-heading{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--white);margin-bottom:28px;}
+.mol-card{background:var(--navy-mid);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:24px 28px;margin-bottom:16px;}
+.mol-card h2{font-family:'DM Sans',sans-serif;font-size:17px;font-weight:500;color:var(--white);margin-bottom:14px;}
+.mol-card p{font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:10px;}
+.mol-card p:last-child{margin-bottom:0;}
+.mol-card p strong{color:var(--text);font-weight:500;}
+
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+.info-cell{background:var(--navy-mid);border-radius:var(--radius);padding:16px 18px;border:1px solid var(--border-light);}
+.info-cell .label{font-size:11px;color:var(--text-faint);font-weight:500;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+.info-cell .value{font-size:15px;font-weight:500;color:var(--white);}
+.info-cell .sub{font-size:12.5px;color:var(--text-muted);margin-top:3px;}
+
+.route-row{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--border-light);}
+.route-row:last-child{border-bottom:none;}
+.route-icon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--navy-light);}
+.route-body .title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:5px;}
+.route-body .desc{font-size:14px;color:var(--text-muted);line-height:1.7;}
+
+.tx-card{border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:18px 22px;margin-bottom:10px;cursor:pointer;transition:background 0.15s,border-color 0.15s;background:var(--navy-mid);}
+.tx-card:hover{border-color:var(--hair);}
+.tc-header{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.tc-title{font-size:15px;font-weight:500;color:var(--white);}
+.tc-tag{font-size:12px;padding:3px 12px;border-radius:999px;font-weight:500;white-space:nowrap;}
+.tc-topical{background:var(--teal-dim);color:var(--teal);border:1px solid rgba(14,181,168,0.3);}
+.tc-rx{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(201,147,58,0.3);}
+.tc-systemic{background:var(--hair-dim);color:var(--hair);border:1px solid rgba(136, 96, 208, 0.3);}
+.tc-body{font-size:14px;color:var(--text-muted);line-height:1.75;margin-top:14px;display:none;padding-top:14px;border-top:1px solid var(--border-light);}
+.tx-card.open .tc-body{display:block;}
+.tc-chevron{font-size:11px;color:var(--text-faint);transition:transform 0.2s;flex-shrink:0;}
+.tx-card.open .tc-chevron{transform:rotate(180deg);}
+
+.mol-alert{border-radius:var(--radius);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:16px;border:1px solid;}
+.alert-warn{background:var(--amber-dim);color:var(--amber);border-color:rgba(201,147,58,0.3);}
+.alert-info{background:var(--blue-info-dim);color:#78aaee;border-color:rgba(58,122,204,0.3);}
+.alert-success{background:var(--green-ok-dim);color:#7acc7a;border-color:rgba(74,154,74,0.3);}
+.alert-hair{background:var(--hair-dim);color:var(--hair);border-color:rgba(136, 96, 208, 0.3);}
+
+@media(max-width:720px){
+  nav { padding: 12px 15px 5px; flex-wrap: wrap; height: auto; justify-content: space-between;}
+  .nav-logo { order: 1; }
+  .lang-toggle-btn { order: 2; margin-left: 5px; }
+  .nav-actions { order: 3; width: 100%; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+  .nav-cta { padding: 8px 12px; font-size: 13px; width: 48%; text-align: center; }
+  .nav-links { order: 4; width: 100%; display: flex; overflow-x: auto; padding-top: 12px; padding-bottom: 8px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px; }
+  .mol-hero{padding:36px 20px 24px;flex-direction:column;}
+  .mol-tabs{padding:0 20px;}
+  .mol-main{padding:32px 20px 60px;}
+  .mol-hero-text h1{font-size:30px;}
+  .info-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><img src="logo.png" alt="logo" onerror="this.style.display='none'" /></a>
+  <div class="nav-links">
+    <a href="index.html" data-en="Home">דף הבית</a>
+    <a href="expertise.html" class="active" data-en="Expertise">תחומי התמחות</a>
+    <a href="academic.html" data-en="Academic Activity">פעילות אקדמית</a>
+    <a href="contact.html" data-en="Contact Us">צור קשר</a>
+  </div>
+  
+  <div class="nav-actions">
+    <a class="nav-cta" href="appointment.html" data-en="Book Appointment" style="animation: solidPulse 2s infinite; color: #ffffff;">קביעת תור</a>
+    <a class="nav-cta btn-secondary-nav" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank" data-en="Send Online Consult">שליחת ייעוץ אונ-ליין</a>
+    <button id="langToggle" class="lang-toggle-btn" onclick="toggleLang()">🌐 EN</button>
+  </div>
+</nav>
+
+<div class="mol-hero">
+  <svg style="flex-shrink:0;width:64px;height:64px;" viewBox="0 0 56 56" fill="none">
+    <circle cx="28" cy="28" r="26" fill="rgba(136, 96, 208, 0.12)" stroke="rgba(136, 96, 208, 0.4)" stroke-width="1"/>
+    <path d="M28 42 C 20 42 16 32 16 22 C 16 12 28 14 28 14 C 28 14 40 12 40 22 C 40 32 36 42 28 42 Z" fill="rgba(136, 96, 208, 0.2)" stroke="#8860d0" stroke-width="1.5"/>
+    <path d="M28 14 L 28 8" stroke="#8860d0" stroke-width="2" stroke-linecap="round"/>
+    <path d="M24 15 L 20 10" stroke="#8860d0" stroke-width="2" stroke-linecap="round"/>
+    <path d="M32 15 L 36 10" stroke="#8860d0" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+  <div class="mol-hero-text">
+    <h1 data-en="Hair Loss and Alopecia">נשירת שיער והתקרחות</h1>
+    <p data-en="Accurate clinical diagnosis, dermoscopic examination (trichoscopy), and personalized treatment protocols to stop hair loss and stimulate regrowth.">אבחון קליני מדויק, בדיקה דרמוסקופית (טריכוסקופיה) והתאמת פרוטוקול טיפול אישי לעצירת הנשירה ועידוד צמיחה מחודשת.</p>
+    <div class="badge-row">
+      <span class="badge badge-hair" data-en="Dermoscopic Diagnosis">אבחון דרמוסקופי</span>
+      <span class="badge badge-amber" data-en="Hormonal & Genetic">הורמונלי וגנטי</span>
+      <span class="badge badge-teal" data-en="Advanced Protocols">פרוטוקולים מתקדמים</span>
+    </div>
+  </div>
+</div>
+
+<div class="mol-tabs">
+  <button class="mol-tab active" onclick="showSection('what',this)" data-en="What is it?">מהי נשירת שיער?</button>
+  <button class="mol-tab" onclick="showSection('types',this)" data-en="Types & Causes">סוגים וגורמים</button>
+  <button class="mol-tab" onclick="showSection('diagnosis',this)" data-en="Diagnosis">אבחון מקיף</button>
+  <button class="mol-tab" onclick="showSection('treat',this)" data-en="Treatments">אפשרויות טיפול</button>
+  <button class="mol-tab" onclick="showSection('faq',this)" data-en="Myths & Facts">מיתוסים ועובדות</button>
+</div>
+
+<main class="mol-main">
+
+<section class="mol-section active" id="section-what">
+  <h2 class="mol-heading" data-en="Understanding Hair Loss">הבנת מחזור השיער ונשירה</h2>
+  <div class="mol-card">
+    <h2 data-en="When does shedding become a medical issue?">מתי נשירה הופכת לבעיה רפואית?</h2>
+    <p data-en="It is perfectly normal to lose between 50 to 100 hairs a day. This is part of the natural hair growth cycle (Anagen - growth, Catagen - transition, Telogen - resting and shedding).">נשירה של 50 עד 100 שערות ביום היא תקינה לחלוטין ומהווה חלק ממחזור צמיחת השיער הטבעי (אנגן - צמיחה, קטגן - מעבר, טלוגן - מנוחה ונשירה).</p>
+    <p data-en="Hair loss (Alopecia) becomes a medical concern when the rate of shedding significantly exceeds the rate of new growth, when bald patches appear, or when the hair shaft becomes progressively thinner (miniaturization).">נשירת שיער (אלופציה) הופכת לבעיה רפואית כאשר קצב הנשירה עולה משמעותית על קצב הצמיחה החדשה, כאשר מופיעות קרחות אזוריות, או כאשר חלה הידקקות הדרגתית של קוטר השערה (מיניאטוריזציה).</p>
+  </div>
+  <div class="info-grid">
+    <div class="info-cell"><div class="label" data-en="Normal Shedding">נשירה תקינה</div><div class="value" data-en="50-100 hairs daily">50-100 שערות ביום</div><div class="sub" data-en="Part of the natural cycle">חלק ממחזור טבעי</div></div>
+    <div class="info-cell"><div class="label" data-en="Growth Phase (Anagen)">שלב הצמיחה (אנגן)</div><div class="value" data-en="Lasts 2 to 6 years">נמשך 2 עד 6 שנים</div><div class="sub" data-en="Determines hair length">קובע את אורך השיער הפוטנציאלי</div></div>
+  </div>
+  <div class="mol-alert alert-hair" data-en="Early diagnosis is critical. The sooner treatment begins, the higher the chances of preserving existing hair follicles and stimulating new growth.">אבחון מוקדם הוא קריטי. ככל שהטיפול מתחיל מוקדם יותר, כך גדלים הסיכויים לשמר את זקיקי השיער הקיימים ולעודד צמיחה מחודשת לפני שנוצר נזק בלתי הפיך.</div>
+</section>
+
+<section class="mol-section" id="section-types">
+  <h2 class="mol-heading" data-en="Types of Hair Loss">סוגים נפוצים של נשירת שיער</h2>
+  <div class="mol-alert alert-info" data-en="Identifying the exact type of hair loss is the most important step before matching a treatment protocol.">זיהוי סוג הנשירה המדויק הוא הצעד החשוב ביותר לפני התאמת פרוטוקול טיפולי.</div>
+  
+  <div class="mol-card">
+    <h2 data-en="Main Categories">הקטגוריות המרכזיות</h2>
+    <div class="route-row">
+      <div class="route-icon">🧬</div>
+      <div class="route-body">
+        <div class="title" data-en="Androgenetic Alopecia (Hormonal-Genetic)">התקרחות אנדרוגנטית (תורשתית-הורמונלית)</div>
+        <div class="desc" data-en="The most common cause in both men and women. Caused by genetic sensitivity of the hair follicles to DHT (a derivative of testosterone), leading to gradual thinning. In men, it causes a receding hairline and crown thinning. In women, it causes diffuse thinning mainly at the top of the scalp.">הגורם הנפוץ ביותר בקרב גברים ונשים כאחד. נגרמת מרגישות גנטית של זקיקי השיער להורמון DHT (נגזרת של טסטוסטרון), הגורם להידקקות הדרגתית. בגברים תתבטא בנסיגת קו השיער ומפרצים, ובנשים בהידקקות מפושטת בעיקר בקודקוד.</div>
+      </div>
+    </div>
+    <div class="route-row">
+      <div class="route-icon">🍂</div>
+      <div class="route-body">
+        <div class="title" data-en="Telogen Effluvium (Reactive Hair Loss)">טלוגן אפלוביום (נשירה תגובתית)</div>
+        <div class="desc" data-en="Sudden, diffuse shedding usually occurring 2-4 months after a trigger: severe stress, post-pregnancy, high fever, surgery, crash diets, or nutritional deficiencies (iron, B12). Usually temporary and reversible once the trigger is addressed.">נשירה פתאומית ומפושטת המתרחשת לרוב 2-4 חודשים לאחר טריגר פיזי או נפשי: סטרס חמור, לאחר לידה, חום גבוה, ניתוח, דיאטות כאסח או חוסרים תזונתיים (ברזל, B12). לרוב זמנית והפיכה לאחר טיפול בגורם.</div>
+      </div>
+    </div>
+    <div class="route-row">
+      <div class="route-icon">🎯</div>
+      <div class="route-body">
+        <div class="title" data-en="Alopecia Areata (Autoimmune)">אלופציה אראטה (נשירה מוקדית)</div>
+        <div class="desc" data-en="An autoimmune disease where the immune system attacks the hair follicles, creating distinct, round bald patches. It can be limited to small patches or progress to total hair loss on the scalp or body.">מחלה אוטואימונית בה מערכת החיסון תוקפת את זקיקי השיער, מה שיוצר קרחות עגולות ומוגדרות היטב. יכולה להיות מוגבלת למספר מוקדים או להתפשט לאובדן שיער מלא בקרקפת או בגוף.</div>
+      </div>
+    </div>
+    <div class="route-row" style="border:none;">
+      <div class="route-icon">🔥</div>
+      <div class="route-body">
+        <div class="title" data-en="Scarring Alopecia (Cicatricial)">אלופציה צלקתית (Cicatricial Alopecia)</div>
+        <div class="desc" data-en="A group of rare inflammatory skin disorders (like Lichen Planopilaris or Frontal Fibrosing Alopecia) that permanently destroy the hair follicle and replace it with scar tissue. Early aggressive treatment is vital to halt the progression.">קבוצת מחלות עור דלקתיות נדירות (כמו ליכן פלנופילאריס או FFA) ההורסות את זקיק השיער באופן בלתי הפיך ומחליפות אותו ברקמה צלקתית. טיפול אגרסיבי ומוקדם הוא קריטי לעצירת ההידרדרות.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mol-section" id="section-diagnosis">
+  <h2 class="mol-heading" data-en="Comprehensive Diagnosis">אבחון מקיף וטריכוסקופיה</h2>
+  <div class="mol-card">
+    <h2 data-en="The Diagnostic Process">תהליך האבחון במרפאה</h2>
+    <p data-en="Effective treatment begins with an accurate diagnosis. Visual inspection alone is often not enough.">טיפול יעיל מתחיל באבחון מדויק. במקרים רבים, הסתכלות רגילה בעין אינה מספקת כדי לקבוע את סיבת הנשירה.</p>
+    <div class="tl-wrap" style="margin-top:16px;">
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="1. Detailed Medical History">1. תשאול רפואי מקיף</div><div class="desc" data-en="Reviewing timelines, family history, diet, stress levels, recent illnesses, and current medications.">בחינת זמני הופעת הנשירה, היסטוריה משפחתית, תזונה, רמות מתח, מחלות רקע ותרופות הניטלות בשגרה.</div></div>
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="2. Trichoscopy (Dermoscopy of the Hair)">2. טריכוסקופיה (דרמוסקופיה של השיער)</div><div class="desc" data-en="The gold standard in hair diagnosis. Using a highly magnified digital dermatoscope to examine the scalp, hair shafts, and follicular openings. This allows detection of miniaturization (thinning), inflammation, or specific patterns unique to each type of alopecia.">בדיקת הבחירה באבחון שיער. שימוש בדרמוסקופ דיגיטלי בהגדלה גבוהה לבחינת עור הקרקפת, עובי גזע השערה ופתחי הזקיקים. מאפשר לזהות מיניאטוריזציה (הידקקות), סימני דלקת סמויים, או תבניות ייחודיות לכל סוג נשירה.</div></div>
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="3. Pull Test">3. מבחן משיכה (Pull Test)</div><div class="desc" data-en="A gentle clinical test to assess the severity and activity level of the shedding.">בדיקה קלינית עדינה להערכת חומרת ורמת הפעילות של הנשירה הנוכחית.</div></div>
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="4. Laboratory Tests">4. הפניה לבדיקות מעבדה</div><div class="desc" data-en="Blood tests to rule out internal factors such as thyroid dysfunction, anemia, or deficiencies in Iron, Ferritin, Zinc, Vitamin D, and B12.">בדיקות דם לשלילת גורמים פנימיים כגון תפקוד בלוטת התריס, אנמיה, חוסר ברזל (פריטין),  ויטמין D או B12, ופרופיל הורמונלי במידת הצורך.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="mol-section" id="section-treat">
+  <h2 class="mol-heading" data-en="Medical Treatment Options">אפשרויות הטיפול הרפואי</h2>
+  <div class="mol-alert alert-success" data-en="Treatment is highly personalized based on the diagnosis.">הטיפול מותאם באופן אישי בהתאם לאבחנה הקלינית ולתוצאות הטריכוסקופיה.</div>
+
+  <div class="mol-card"><h2 data-en="Topical & Oral Medications">טיפולים תרופתיים (מקומי ופומי)</h2></div>
+  
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Minoxidil (Topical or Oral)">מינוקסידיל (מקומי או בכדורים)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-common" data-en="Growth Stimulator">מעודד צמיחה</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="Extends the growth phase (Anagen) and increases blood flow to the follicles. Available as a foam/solution (2-5%) or recently as a low-dose oral medication prescribed by a dermatologist, showing excellent results for both men and women.">מאריך את שלב הצמיחה (אנגן) ומגביר זרימת דם לזקיקים. זמין כקצף/תמיסה למריחה (2-5%), או לאחרונה בשימוש גובר ככדור במינון נמוך (Oral Minoxidil) במרשם רופא, המציג תוצאות מצוינות לגברים ונשים כאחד.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="DHT Blockers (Finasteride / Dutasteride)">חוסמי DHT (פינסטריד / דוטסטריד)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-rx" data-en="Prescription">מרשם חובה</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="The most effective treatment for stopping genetic hair loss (Androgenetic Alopecia). These oral medications block the enzyme converting testosterone to DHT, protecting the hair follicle from shrinking. Primarily used in men, but specific protocols exist for post-menopausal women.">הטיפול היעיל ביותר לעצירת נשירה תורשתית. כדורים אלו חוסמים את האנזים הממיר טסטוסטרון ל-DHT, ובכך מגנים על הזקיק מהידקקות. בשימוש נרחב בעיקר בגברים, אך קיימים פרוטוקולים מיוחדים גם לנשים לאחר גיל המעבר.</div>
+  </div>
+
+  <div class="mol-card" style="margin-top:20px;"><h2 data-en="Clinical & Advanced Treatments">טיפולי קליניקה וטכנולוגיות מתקדמות</h2></div>
+  
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Steroid Injections (For Alopecia Areata)">הזרקות סטרואידים (לאלופציה אראטה)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-systemic" data-en="Clinic">קליניקה</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="For localized autoimmune hair loss, injecting low-dose corticosteroids directly into the bald patches suppresses the local immune attack and allows hair to regrow within weeks.">במקרי נשירה מוקדית אוטואימונית, הזרקה עדינה של קורטיקוסטרואידים במינון נמוך ישירות לתוך הקרחת מדכאת את התקיפה החיסונית המקומית ומאפשרת לשיער לצמוח מחדש תוך מספר שבועות.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="PRP Therapy (Platelet-Rich Plasma)">טיפול פלזמה עשירה בטסיות (PRP)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-systemic" data-en="Advanced">מתקדם</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="A procedure where a small amount of the patient's blood is drawn, spun in a centrifuge to isolate growth factors, and injected back into the scalp. Stimulates dormant follicles and improves hair thickness. Used as a complementary treatment.">טיפול בו נלקחת כמות קטנה מדמו של המטופל, מופרדת בצנטריפוגה כדי לבודד טסיות עשירות בגורמי גדילה, ומוזרקת חזרה לעור הקרקפת. הטיפול מעורר זקיקים רדומים ומשפר את עובי השערה. משמש כטיפול משלים לתרופות.</div>
+  </div>
+</section>
+
+<section class="mol-section" id="section-faq">
+  <h2 class="mol-heading" data-en="Myths and Facts">מיתוסים ועובדות על נשירת שיער</h2>
+  
+  <div class="tx-card open" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Myth: Washing hair every day causes hair loss.">❌ מיתוס: חפיפת שיער כל יום גורמת לנשירה.</span><span class="tc-chevron">▾</span></div>
+    <div class="tc-body" data-en="Fact: Washing does not cause hair loss. The hair that falls out during a shower was already in the shedding (Telogen) phase and detached from the root days ago. Keeping the scalp clean is actually important for follicle health.">✅ <strong>עובדה:</strong> חפיפה אינה גורמת לנשירה. השיער שנופל במקלחת הוא שיער שכבר סיים את מחזור חייו (בשלב הטלוגן) וניתק מהשורש ימים לפני כן. שמירה על קרקפת נקייה חשובה לבריאות הזקיקים.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Myth: Wearing hats or helmets leads to baldness.">❌ מיתוס: חבישת כובעים או קסדות מובילה להתקרחות.</span><span class="tc-chevron">▾</span></div>
+    <div class="tc-body" data-en="Fact: Unless the hat is so incredibly tight that it cuts off circulation or pulls the hair constantly (Traction Alopecia), wearing normal hats does not cause hair loss. Genetic hair loss is an internal hormonal process.">✅ <strong>עובדה:</strong> אלא אם הכובע צמוד ברמה קיצונית שתולשת את השיער פיזית (Traction Alopecia), חבישת כובעים רגילים אינה גורמת לנשירה. התקרחות גנטית היא תהליך הורמונלי פנימי שאינו מושפע מחמצן חיצוני או כובע.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Myth: Vitamins and supplements alone will cure hair loss.">❌ מיתוס: נטילת ויטמינים לבד תעצור כל נשירה.</span><span class="tc-chevron">▾</span></div>
+    <div class="tc-body" data-en="Fact: Supplements only help if you have a documented deficiency (like low iron or Vitamin D) causing Telogen Effluvium. They will NOT stop genetic hair loss (Androgenetic Alopecia). Medical treatment is required for genetic causes.">✅ <strong>עובדה:</strong> תוספי תזונה עוזרים אך ורק אם קיים אצלך חוסר מוכח (כמו חוסר ברזל או ויטמין D) שגרם לנשירה תגובתית. הם לא יעצרו התקרחות גנטית-הורמונלית בשום צורה. לשם כך נדרש טיפול רפואי ייעודי.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Myth: Hair loss is only passed down from the mother's side.">❌ מיתוס: התקרחות גנטית עוברת רק מהצד של האמא.</span><span class="tc-chevron">▾</span></div>
+    <div class="tc-body" data-en="Fact: The genes responsible for hair loss can be inherited from either the mother's or the father's side of the family, or a combination of both.">✅ <strong>עובדה:</strong> הגנים האחראים להתקרחות יכולים לעבור בתורשה גם מהצד של האם וגם מהצד של האב, או שילוב של שניהם יחד.</div>
+  </div>
+</section>
+
+</main>
+
+<footer style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; padding: 20px 48px; border-top: 1px solid var(--border-light); max-width: 1100px; margin: 0 auto;">
+  <span style="color: var(--text-muted); font-size: 14px;" data-en="© 2025 Dr. Jonathan Shapiro | Dermatologist">© 2025 ד"ר יונתן שפירא | רופא עור</span>
+  <div style="display: flex; align-items: center; gap: 15px;">
+    <a href="https://www.linkedin.com/in/jonathan-shapiro-35989b115/" target="_blank" style="color: #0eb5a8; text-decoration: none; display: flex; align-items: center; gap: 6px; font-family: 'DM Sans', sans-serif; font-size: 14px; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+      LinkedIn
+    </a>
+    <span style="color: var(--border-light);">|</span>
+    <span style="color: var(--text-muted); font-size: 14px;">jshapiro.co.il</span>
+  </div>
+</footer>
+
+<script>
+function showSection(id, btn) {
+  document.querySelectorAll('.mol-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.mol-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('section-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+function toggleTx(card) {
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.tx-card').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) card.classList.add('open');
+}
+
+let currentLang = 'he';
+function toggleLang() {
+  currentLang = currentLang === 'he' ? 'en' : 'he';
+  document.documentElement.dir = currentLang === 'he' ? 'rtl' : 'ltr';
+  document.documentElement.lang = currentLang;
+  document.getElementById('langToggle').innerHTML = currentLang === 'he' ? '🌐 EN' : '🌐 עב';
+  
+  document.querySelectorAll('[data-en]').forEach(el => {
+    if (!el.hasAttribute('data-he')) { el.setAttribute('data-he', el.innerHTML); }
+    el.innerHTML = currentLang === 'he' ? el.getAttribute('data-he') : el.getAttribute('data-en');
+  });
+}
+</script>
+</body>
+</html>
