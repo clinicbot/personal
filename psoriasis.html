@@ -20,6 +20,17 @@
   --blue-info: #3a7acc;
   --blue-info-dim: rgba(58,122,204,0.12);
 }
+/* --- התאמות התפריט והכפתור המהבהב --- */
+    @keyframes solidPulse {
+      0% { box-shadow: 0 0 0 0 rgba(14, 181, 168, 0.9); }
+      70% { box-shadow: 0 0 0 15px rgba(14, 181, 168, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(14, 181, 168, 0); }
+    }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .btn-secondary-nav { background: transparent; color: var(--teal); border: 1px solid rgba(14,181,168,0.5); }
+    .btn-secondary-nav:hover { background: var(--teal-dim); }
+    .lang-toggle-btn { background: transparent; border: 1px solid rgba(14,181,168,0.5); color: var(--teal); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; border-radius: 20px; padding: 4px 12px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 4px; }
+    .lang-toggle-btn:hover { background: var(--teal); color: var(--navy); }
 .mol-hero { display:flex; align-items:flex-start; gap:20px; padding:48px 48px 32px; max-width:1100px; margin:0 auto; position:relative; }
 .mol-hero::before { content:''; position:absolute; top:0;left:0;right:0; height:1px; background:linear-gradient(90deg,transparent,var(--ps),transparent); }
 .mol-hero-text h1 { font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:300; color:var(--white); line-height:1.15; margin-bottom:10px; }
@@ -125,30 +136,37 @@
 .pasi-severity { font-size:16px; font-weight:500; margin-top:8px; }
 .mol-doc-footer { margin-top:36px; padding:16px 20px; background:var(--navy-mid); border-radius:var(--radius-lg); border:1px solid var(--border-light); font-size:13px; color:var(--text-faint); line-height:1.7; }
 .mol-doc-footer strong { color:var(--text-muted); }
-@media(max-width:720px) {
-  .mol-hero{padding:36px 20px 24px;flex-direction:column;}
-  .mol-tabs{padding:0 20px;}
-  .mol-main{padding:32px 20px 60px;}
-  .mol-hero-text h1{font-size:30px;}
-  .info-grid,.do-dont{grid-template-columns:1fr;}
-  .pasi-grid{grid-template-columns:1fr 1fr;}
+@media(max-width:720px){
+      nav { padding: 12px 15px 5px; flex-wrap: wrap; height: auto; justify-content: space-between;}
+      .nav-logo { order: 1; }
+      .lang-toggle-btn { order: 2; margin-left: 5px; }
+      .nav-actions { order: 3; width: 100%; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+      .nav-cta { padding: 8px 12px; font-size: 13px; width: 48%; text-align: center; }
+      .nav-links { order: 4; width: 100%; display: flex; overflow-x: auto; padding-top: 12px; padding-bottom: 8px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px; }
+      
+      .mol-hero{padding:36px 20px 24px;flex-direction:column;}
+      .mol-tabs{padding:0 20px;}
+      .mol-main{padding:32px 20px 60px;}
+      .info-grid,.dos-donts-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html"><img src="logo.png" alt="ד&quot;ר יונתן שפירא" onerror="this.style.display='none'" /></a>
-  <div class="nav-links">
-    <a href="index.html">דף הבית</a>
-    <a href="expertise.html" class="active">תחומי התמחות</a><a href="academic.html">פעילות אקדמית</a>
+    <a class="nav-logo" href="index.html"><img src="logo.png" alt="logo" onerror="this.style.display='none'" /></a>
+    <div class="nav-links">
+      <a href="index.html" data-en="Home">דף הבית</a>
+      <a href="expertise.html" class="active" data-en="Expertise">תחומי התמחות</a>
+      <a href="academic.html" data-en="Academic Activity">פעילות אקדמית</a>
+      <a href="contact.html" data-en="Contact Us">צור קשר</a>
+    </div>
     
-    
-    
-    <a href="appointment.html">קביעת תור</a>
-    <a href="contact.html">צור קשר</a>
-  </div>
-  <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">קביעת ייעוץ</a>
+    <div class="nav-actions">
+      <a class="nav-cta" href="appointment.html" data-en="Book Appointment" style="animation: solidPulse 2s infinite; color: #ffffff;">קביעת תור</a>
+      <a class="nav-cta btn-secondary-nav" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank" data-en="Send Online Consult">שליחת ייעוץ אונ-ליין</a>
+      <button id="langToggle" class="lang-toggle-btn" onclick="toggleLang()">🌐 EN</button>
+    </div>
 </nav>
 
 <!-- HERO -->
