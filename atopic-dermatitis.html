@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-en="Atopic Dermatitis | Dr. Jonathan Shapiro">אטופיק דרמטיטיס | ד"ר יונתן שפירא</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Frank+Ruhl+Libre:wght@400;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+:root {
+  --ad: #5b8dd9; /* כחול רגוע המותאם לאטופיק דרמטיטיס */
+  --ad-dim: rgba(91,141,217,0.12);
+  --ad-light: rgba(91,141,217,0.25);
+  --amber: #c9933a;
+  --amber-dim: rgba(201,147,58,0.12);
+  --green-ok: #4a9a4a;
+  --green-ok-dim: rgba(74,154,74,0.12);
+  --red-warn: #c84040;
+  --red-warn-dim: rgba(200,64,64,0.12);
+  --blue-info: #3a7acc;
+  --blue-info-dim: rgba(58,122,204,0.12);
+}
+
+/* --- התאמות התפריט, הכפתור המהבהב והתרגום --- */
+@keyframes solidPulse {
+  0% { box-shadow: 0 0 0 0 rgba(14, 181, 168, 0.9); }
+  70% { box-shadow: 0 0 0 15px rgba(14, 181, 168, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(14, 181, 168, 0); }
+}
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.btn-secondary-nav { background: transparent; color: var(--teal); border: 1px solid rgba(14,181,168,0.5); }
+.btn-secondary-nav:hover { background: var(--teal-dim); }
+.lang-toggle-btn { background: transparent; border: 1px solid rgba(14,181,168,0.5); color: var(--teal); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; border-radius: 20px; padding: 4px 12px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 4px; }
+.lang-toggle-btn:hover { background: var(--teal); color: var(--navy); }
+
+/* --- תמיכה ב-LTR עבור תרגום לאנגלית --- */
+html[dir="ltr"] .mol-hero-text h1, html[dir="ltr"] .mol-hero-text p, html[dir="ltr"] .mol-heading, html[dir="ltr"] .mol-card h2, html[dir="ltr"] .mol-card p, html[dir="ltr"] .info-cell, html[dir="ltr"] .route-body, html[dir="ltr"] .risk-row, html[dir="ltr"] .tc-body, html[dir="ltr"] .mol-alert, html[dir="ltr"] .mol-doc-footer { text-align: left; direction: ltr; }
+html[dir="ltr"] .tc-header { flex-direction: row-reverse; justify-content: flex-end; }
+html[dir="ltr"] .tl-wrap { padding-left: 28px; padding-right: 0; }
+html[dir="ltr"] .tl-wrap::before { left: 9px; right: auto; }
+html[dir="ltr"] .tl-dot { left: -24px; right: auto; }
+html[dir="ltr"] .tl-title, html[dir="ltr"] .tl-desc { text-align: left; direction: ltr; }
+html[dir="ltr"] .do-item, html[dir="ltr"] .dont-item { flex-direction: row; text-align: left; direction: ltr;}
+
+/* עיצוב המבנה המרכזי */
+.mol-hero{display:flex;align-items:flex-start;gap:20px;padding:48px 48px 32px;max-width:1100px;margin:0 auto;position:relative;}
+.mol-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--ad),transparent);}
+.mol-hero-text h1{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--white);line-height:1.15;margin-bottom:10px;}
+.mol-hero-text p{font-size:16px;color:var(--text-muted);line-height:1.7;margin-bottom:14px;}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;}
+.badge{padding:4px 14px;border-radius:999px;font-size:13px;font-weight:500;border:1px solid;}
+.badge-ad{background:var(--ad-dim);color:var(--ad);border-color:rgba(91,141,217,0.3);}
+.badge-amber{background:var(--amber-dim);color:var(--amber);border-color:rgba(201,147,58,0.3);}
+.badge-teal{background:var(--teal-dim);color:var(--teal);border-color:rgba(14,181,168,0.3);}
+
+.mol-tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--border-light);max-width:1100px;margin:0 auto;padding:0 48px;}
+.mol-tabs::-webkit-scrollbar{display:none;}
+.mol-tab{padding:14px 18px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;cursor:pointer;border:none;background:transparent;color:var(--text-faint);white-space:nowrap;border-bottom:2.5px solid transparent;transition:all 0.18s;flex-shrink:0;}
+.mol-tab:hover{color:var(--text-muted);}
+.mol-tab.active{color:var(--ad);border-bottom-color:var(--ad);font-weight:500;}
+
+.mol-main{max-width:1100px;margin:0 auto;padding:40px 48px 80px;}
+.mol-section{display:none;}
+.mol-section.active{display:block;animation:fadeIn 0.25s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.mol-heading{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--white);margin-bottom:28px;}
+.mol-card{background:var(--navy-mid);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:24px 28px;margin-bottom:16px;}
+.mol-card h2{font-family:'DM Sans',sans-serif;font-size:17px;font-weight:500;color:var(--white);margin-bottom:14px;}
+.mol-card p{font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:10px;}
+.mol-card p:last-child{margin-bottom:0;}
+.mol-card p strong{color:var(--text);font-weight:500;}
+
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+.info-cell{background:var(--navy-mid);border-radius:var(--radius);padding:16px 18px;border:1px solid var(--border-light);}
+.info-cell .label{font-size:11px;color:var(--text-faint);font-weight:500;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+.info-cell .value{font-size:15px;font-weight:500;color:var(--white);}
+.info-cell .sub{font-size:12.5px;color:var(--text-muted);margin-top:3px;}
+
+.route-row{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--border-light);}
+.route-row:last-child{border-bottom:none;}
+.route-icon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--navy-light);}
+.route-body .title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:5px;}
+.route-body .desc{font-size:14px;color:var(--text-muted);line-height:1.7;}
+
+.tx-card{border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:18px 22px;margin-bottom:10px;cursor:pointer;transition:background 0.15s,border-color 0.15s;background:var(--navy-mid);}
+.tx-card:hover{border-color:var(--ad);}
+.tc-header{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.tc-title{font-size:15px;font-weight:500;color:var(--white);}
+.tc-tag{font-size:12px;padding:3px 12px;border-radius:999px;font-weight:500;white-space:nowrap;}
+.tc-common{background:var(--teal-dim);color:var(--teal);border:1px solid rgba(14,181,168,0.3);}
+.tc-rx{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(201,147,58,0.3);}
+.tc-systemic{background:var(--ad-dim);color:var(--ad);border:1px solid rgba(91,141,217,0.3);}
+.tc-body{font-size:14px;color:var(--text-muted);line-height:1.75;margin-top:14px;display:none;padding-top:14px;border-top:1px solid var(--border-light);}
+.tx-card.open .tc-body{display:block;}
+.tc-chevron{font-size:11px;color:var(--text-faint);transition:transform 0.2s;flex-shrink:0;}
+.tx-card.open .tc-chevron{transform:rotate(180deg);}
+
+.mol-alert{border-radius:var(--radius);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:16px;border:1px solid;}
+.alert-warn{background:var(--amber-dim);color:var(--amber);border-color:rgba(201,147,58,0.3);}
+.alert-info{background:var(--blue-info-dim);color:#78aaee;border-color:rgba(58,122,204,0.3);}
+.alert-success{background:var(--green-ok-dim);color:#7acc7a;border-color:rgba(74,154,74,0.3);}
+.alert-ad{background:var(--ad-dim);color:var(--ad);border-color:rgba(91,141,217,0.3);}
+
+.do-dont{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.do-col{padding:18px 20px;border-radius:var(--radius-lg);border:1px solid rgba(74,154,74,0.3);background:var(--green-ok-dim);}
+.dont-col{padding:18px 20px;border-radius:var(--radius-lg);border:1px solid rgba(200,64,64,0.3);background:var(--red-warn-dim);}
+.do-col h3{font-size:14px;font-weight:500;color:#7acc7a;margin-bottom:12px;}
+.dont-col h3{font-size:14px;font-weight:500;color:#e07070;margin-bottom:12px;}
+.do-item,.dont-item{font-size:13.5px;display:flex;gap:8px;margin-bottom:8px;line-height:1.6;align-items:flex-start;}
+.do-marker{color:#7acc7a;font-weight:700;flex-shrink:0;}
+.dont-marker{color:#e07070;font-weight:700;flex-shrink:0;}
+
+@media(max-width:720px){
+  nav { padding: 12px 15px 5px; flex-wrap: wrap; height: auto; justify-content: space-between;}
+  .nav-logo { order: 1; }
+  .lang-toggle-btn { order: 2; margin-left: 5px; }
+  .nav-actions { order: 3; width: 100%; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+  .nav-cta { padding: 8px 12px; font-size: 13px; width: 48%; text-align: center; }
+  .nav-links { order: 4; width: 100%; display: flex; overflow-x: auto; padding-top: 12px; padding-bottom: 8px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px; }
+  .mol-hero{padding:36px 20px 24px;flex-direction:column;}
+  .mol-tabs{padding:0 20px;}
+  .mol-main{padding:32px 20px 60px;}
+  .mol-hero-text h1{font-size:30px;}
+  .info-grid,.do-dont{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><img src="logo.png" alt="logo" onerror="this.style.display='none'" /></a>
+  <div class="nav-links">
+    <a href="index.html" data-en="Home">דף הבית</a>
+    <a href="expertise.html" class="active" data-en="Expertise">תחומי התמחות</a>
+    <a href="academic.html" data-en="Academic Activity">פעילות אקדמית</a>
+    <a href="contact.html" data-en="Contact Us">צור קשר</a>
+  </div>
+  
+  <div class="nav-actions">
+    <a class="nav-cta" href="appointment.html" data-en="Book Appointment" style="animation: solidPulse 2s infinite; color: #ffffff;">קביעת תור</a>
+    <a class="nav-cta btn-secondary-nav" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank" data-en="Send Online Consult">שליחת ייעוץ אונ-ליין</a>
+    <button id="langToggle" class="lang-toggle-btn" onclick="toggleLang()">🌐 EN</button>
+  </div>
+</nav>
+
+<div class="mol-hero">
+  <svg style="flex-shrink:0;width:64px;height:64px;" viewBox="0 0 56 56" fill="none">
+    <circle cx="28" cy="28" r="26" fill="rgba(91,141,217,0.12)" stroke="rgba(91,141,217,0.4)" stroke-width="1"/>
+    <circle cx="28" cy="28" r="14" fill="rgba(91,141,217,0.25)" stroke="#5b8dd9" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <path d="M22 28 Q 28 20 34 28" stroke="#5b8dd9" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <circle cx="28" cy="28" r="3" fill="#5b8dd9"/>
+  </svg>
+  <div class="mol-hero-text">
+    <h1 data-en="Atopic Dermatitis (Eczema)">אטופיק דרמטיטיס (אסטמה של העור)</h1>
+    <p data-en="The comprehensive guide to understanding the disease, preventing flare-ups, and advanced medical treatments to improve your quality of life.">המדריך המקיף להבנת המחלה, מניעת התלקחויות, והטיפולים הרפואיים המתקדמים ביותר לשיפור איכות החיים.</p>
+    <div class="badge-row">
+      <span class="badge badge-ad" data-en="Chronic Inflammatory Condition">מחלה דלקתית כרונית</span>
+      <span class="badge badge-amber" data-en="Itch and Dryness">גרד ויובש</span>
+      <span class="badge badge-teal" data-en="Innovative Biologic Treatments">טיפולים ביולוגיים חדשניים</span>
+    </div>
+  </div>
+</div>
+
+<div class="mol-tabs">
+  <button class="mol-tab active" onclick="showSection('what',this)" data-en="What is it?">מהי המחלה?</button>
+  <button class="mol-tab" onclick="showSection('triggers',this)" data-en="Triggers">טריגרים</button>
+  <button class="mol-tab" onclick="showSection('treat',this)" data-en="Medical Treatment">טיפול רפואי</button>
+  <button class="mol-tab" onclick="showSection('skincare',this)" data-en="Skincare Routine">שגרת טיפוח</button>
+  <button class="mol-tab" onclick="showSection('faq',this)" data-en="FAQ">שאלות נפוצות</button>
+</div>
+
+<main class="mol-main">
+
+<section class="mol-section active" id="section-what">
+  <h2 class="mol-heading" data-en="What is Atopic Dermatitis?">מהי אטופיק דרמטיטיס?</h2>
+  <div class="mol-card">
+    <h2 data-en="Basic Definition">הגדרה בסיסית</h2>
+    <p data-en="Atopic Dermatitis, commonly known as 'Eczema' or 'Skin Asthma', is a chronic inflammatory skin condition. It is characterized by severe itching, extreme dryness, and red, scaly patches on the skin.">אטופיק דרמטיטיס, המוכרת לרבים כ"אקזמה" או "אסטמה של העור", היא מחלת עור דלקתית כרונית. היא מאופיינת בגרד עז, יובש קיצוני, ורבדים אדומים וקשקשיים על העור.</p>
+    <p data-en="The disease results from a combination of genetics and environment: a defect in the epidermal barrier (which allows moisture to escape and irritants to enter) alongside an overactive immune system response.">המחלה נובעת משילוב של גנטיקה וסביבה: פגם במחסום העורי (המאפשר בריחת לחות וחדירת חומרים מגרים) לצד פעילות יתר של מערכת החיסון שמייצרת דלקת עורית.</p>
+  </div>
+  <div class="info-grid">
+    <div class="info-cell"><div class="label" data-en="Prevalence">שכיחות</div><div class="value" data-en="10-20% of children">10-20% מהילדים</div><div class="sub" data-en="And about 2-3% of adults">וכ-2-3% מהמבוגרים</div></div>
+    <div class="info-cell"><div class="label" data-en="Main Symptom">תסמין מרכזי</div><div class="value" data-en="Severe Itch (Pruritus)">גרד עז (Pruritus)</div><div class="sub" data-en="Often worsens at night">לרוב מחמיר בשעות הלילה</div></div>
+    <div class="info-cell"><div class="label" data-en="Common Areas (Children)">אזורים נפוצים (ילדים)</div><div class="value" data-en="Face, elbows, behind knees">פנים, קפלי מרפקים וברכיים</div><div class="sub" data-en="Varies by age group">הפיזור משתנה בהתאם לגיל</div></div>
+    <div class="info-cell"><div class="label" data-en="Course of Disease">מהלך המחלה</div><div class="value" data-en="Flare-ups and Remissions">התלקחויות והפוגות</div><div class="sub" data-en="Requires proactive maintenance">דורשת טיפול משמר (מניעתי)</div></div>
+  </div>
+  <div class="mol-alert alert-ad" data-en="Atopic dermatitis often appears alongside other atopic conditions such as asthma and allergic rhinitis (hay fever).">אטופיק דרמטיטיס מופיעה לעיתים קרובות במשפחות יחד עם מחלות אטופיות אחרות כגון אסטמה נשימתית ונזלת אלרגית.</div>
+</section>
+
+<section class="mol-section" id="section-triggers">
+  <h2 class="mol-heading" data-en="Triggers and Flare-ups">טריגרים והתלקחויות</h2>
+  <div class="mol-alert alert-info" data-en="Because the skin barrier is compromised, the skin is highly sensitive to environmental factors. Identifying your personal triggers is key to preventing flare-ups.">מכיוון שהמחסום העורי פגוע, העור רגיש מאוד לגורמים סביבתיים. זיהוי הטריגרים האישיים שלך הוא המפתח למניעת התלקחויות.</div>
+  
+  <div class="mol-card">
+    <h2 data-en="Common Environmental Triggers">טריגרים סביבתיים נפוצים</h2>
+    <div class="route-row">
+      <div class="route-icon">🌡️</div>
+      <div class="route-body">
+        <div class="title" data-en="Weather and Climate">מזג אוויר ואקלים</div>
+        <div class="desc" data-en="Extreme weather changes, especially dry and cold winter air or sudden transitions between AC and heat, significantly dry out the skin.">שינויי מזג אוויר קיצוניים, במיוחד אוויר חורפי קר ויבש, או מעברים חדים בין מיזוג אוויר לחום, מייבשים את העור באופן משמעותי.</div>
+      </div>
+    </div>
+    <div class="route-row">
+      <div class="route-icon">🧼</div>
+      <div class="route-body">
+        <div class="title" data-en="Harsh Soaps and Detergents">סבונים ודטרגנטים חריפים</div>
+        <div class="desc" data-en="Regular soaps, bubble baths, and strong laundry detergents strip the skin of its natural protective oils.">סבונים רגילים, קצף אמבט, ואבקות כביסה חזקות מסירים מהעור את שכבת השומן הטבעית המגנה עליו.</div>
+      </div>
+    </div>
+    <div class="route-row">
+      <div class="route-icon">👕</div>
+      <div class="route-body">
+        <div class="title" data-en="Irritating Fabrics">בדים מגרים</div>
+        <div class="desc" data-en="Rough fabrics like wool or synthetic materials can physically scratch the sensitive skin and cause immediate itching.">בדים מחוספסים כמו צמר או חומרים סינתטיים מסוימים עלולים לשרוט פיזית את העור הרגיש ולעורר גרד מיידי.</div>
+      </div>
+    </div>
+    <div class="route-row" style="border:none;">
+      <div class="route-icon">🧠</div>
+      <div class="route-body">
+        <div class="title" data-en="Emotional Stress">מתח נפשי (סטרס)</div>
+        <div class="desc" data-en="While stress doesn't 'cause' eczema, the body's inflammatory response to stress can trigger a severe flare-up.">למרות שמתח לא "גורם" לאקזמה, התגובה הדלקתית של הגוף ללחץ נפשי יכולה לעורר התלקחות קשה ולהחמיר גרד.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mol-section" id="section-treat">
+  <h2 class="mol-heading" data-en="Medical Treatment Options">אפשרויות הטיפול הרפואי</h2>
+  <div class="mol-alert alert-success" data-en="In recent years, there has been a revolution in the treatment of atopic dermatitis. Today, even the most severe cases can be effectively controlled.">בשנים האחרונות חלה מהפכה של ממש בטיפול באטופיק דרמטיטיס. כיום, גם מקרים קשים ביותר ניתנים לשליטה מצוינת המאפשרת איכות חיים מלאה.</div>
+
+  <div class="mol-card"><h2 data-en="Topical Treatments">טיפולים מקומיים (משחות וקרמים)</h2></div>
+  
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Topical Corticosteroids">סטרואידים מקומיים</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-common" data-en="For Flare-ups">להתלקחויות</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="The foundation of treatment during active flare-ups. They quickly reduce inflammation and itching. Must be used exactly as directed by the dermatologist (correct potency, duration, and body area) to avoid side effects like skin thinning.">בסיס הטיפול בזמן התלקחות פעילה (מצב אקוטי). מפחיתים במהירות את הדלקת והגרד. יש להשתמש בהם בדיוק לפי הנחיות רופא העור (חוזק מתאים לאזור הגוף, ולמשך זמן מוגבל) כדי למנוע תופעות לוואי כגון הידקקות העור.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Calcineurin Inhibitors (Protopic, Elidel)">מעכבי קלצינורין (פרוטופיק, אלידל)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-common" data-en="Steroid-Free">ללא סטרואידים</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="Anti-inflammatory ointments that do NOT contain steroids. Excellent for sensitive areas like the face, eyelids, and skin folds. Safe for long-term maintenance therapy (proactive treatment) to prevent future flare-ups.">משחות אנטי-דלקתיות שאינן מכילות סטרואידים. מצוינות לאזורים רגישים כמו הפנים, העפעפיים וקפלי העור. בטוחות לשימוש ארוך טווח כטיפול משמר (פרואקטיבי) למניעת התלקחויות עתידיות. עשויות לגרום לתחושת צריבה קלה בימים הראשונים.</div>
+  </div>
+
+  <div class="mol-card" style="margin-top:20px;"><h2 data-en="Advanced Systemic Treatments">טיפולים מערכתיים ומתקדמים (למקרים בינוניים-קשים)</h2></div>
+  
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Biologic Therapy (Dupixent)">טיפול ביולוגי (דופיקסנט - Dupixent)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-systemic" data-en="Injection">זריקה</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="A major breakthrough. A targeted biologic medication given by subcutaneous injection (usually every 2 weeks). It specifically blocks the inflammatory pathways (IL-4, IL-13) responsible for atopic dermatitis. Highly effective and extremely safe, even for children.">פריצת דרך היסטורית. תרופה ביולוגית ממוקדת הניתנת בזריקה תת-עורית (לרוב פעם בשבועיים). היא חוסמת ספציפית את החלבונים (IL-4, IL-13) המעוררים את הדלקת והגרד במחלה. יעילה להפליא ובעלת פרופיל בטיחות גבוה מאוד, מאושרת גם לילדים.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="JAK Inhibitors (Rinvoq, Cibinqo)">מעכבי JAK (רינבוק, סיבינקו)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-rx" data-en="Oral Daily">כדור יומי</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="The newest generation of oral treatments (pills). These small molecules quickly and powerfully block the inflammation signaling pathways within the cells. They provide extremely rapid relief from itching. Requires regular blood test monitoring.">הדור החדש ביותר של טיפולים פומיים (כדורים). מולקולות קטנות החוסמות בצורה מהירה ועוצמתית את מסלולי הדלקת והגרד בתוך התאים. מספקות הקלה מהירה מאוד, אפילו תוך ימים ספורים. מצריכות מעקב בדיקות דם שגרתי.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Phototherapy">פוטותרפיה (טיפול באור)</span><div style="display:flex;gap:8px;align-items:center"><span class="tc-tag tc-office" data-en="Clinic">קליניקה</span><span class="tc-chevron">▾</span></div></div>
+    <div class="tc-body" data-en="Controlled exposure to narrow-band UVB light in medical cabins. The light calms the immune system in the skin. Very effective and safe, but requires committing to clinic visits 2-3 times a week for several months.">חשיפה מבוקרת לקרני אור מסוג UVB בספקטרום צר, בתוך תאי טיפול ייעודיים. האור מרגיע את המערכת החיסונית בעור. טיפול יעיל ובטוח מאוד, אך דורש מחויבות להגעה למרפאה 2-3 פעמים בשבוע למספר חודשים.</div>
+  </div>
+</section>
+
+<section class="mol-section" id="section-skincare">
+  <h2 class="mol-heading" data-en="Daily Skincare Routine">שגרת טיפוח ומניעה</h2>
+  <div class="mol-card">
+    <h2 data-en="The 'Soak and Seal' Method">שיטת "Soak and Seal" (השריה ואטימה)</h2>
+    <p data-en="The absolute core of managing atopic skin is repairing the skin barrier. Proper bathing and moisturizing are non-negotiable.">הבסיס הקריטי ביותר לניהול עור אטופי הוא שיקום המחסום העורי. רחצה נכונה ושימון קבוע הם חובה ולא המלצה.</p>
+    <div class="tl-wrap" style="margin-top:16px;">
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="1. Gentle Bathing">1. רחצה עדינה</div><div class="desc" data-en="Take short baths/showers (5-10 minutes) with lukewarm water. Hot water damages the skin barrier. Use only soap-free cleansers (Syndets) or bath oils. Avoid scrubbing with sponges.">מקלחת או אמבטיה קצרה (5-10 דקות) במים פושרים בלבד. מים חמים ממיסים את שומני העור. השתמשו אך ורק בסבון ללא-סבון (Syndet) או בשמני רחצה רפואיים. הימנעו משפשוף בספוג.</div></div>
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="2. Pat Dry">2. ייבוש בטפיחות</div><div class="desc" data-en="Do not rub the skin with a towel. Gently pat dry, leaving the skin slightly damp.">אל תשפשפו את העור במגבת. ייבשו את העור בטפיחות עדינות בלבד, כך שהעור יישאר מעט לח.</div></div>
+      <div class="tl-item"><div class="tl-dot active"></div><div class="tl-title" data-en="3. Seal with Emollients (Crucial Step)">3. אטימה בקרם לחות (השלב הקריטי!)</div><div class="desc" data-en="Within 3 minutes of exiting the bath, generously apply a thick emollient (moisturizer without perfumes or dyes). This 'seals' the water absorbed during the bath into the skin.">תוך 3 דקות מהיציאה מהרחצה, כשהעור עוד לח, מרחו בנדיבות קרם לחות רפואי עשיר (Emollient) ללא בושם או צבע. פעולה זו "אוטמת" וכולאת את הלחות שנספגה בעור.</div></div>
+    </div>
+  </div>
+
+  <div class="do-dont">
+    <div class="do-col">
+      <h3 data-en="Do's ✓">מומלץ לעשות ✓</h3>
+      <div class="do-item"><span class="do-marker">✓</span><span data-en="Moisturize at least twice a day">מרחו קרם לחות לפחות פעמיים ביום</span></div>
+      <div class="do-item"><span class="do-marker">✓</span><span data-en="Wear soft 100% cotton clothing">לִבשו בגדי 100% כותנה רכים ונושמים</span></div>
+      <div class="do-item"><span class="do-marker">✓</span><span data-en="Keep fingernails short to prevent scratch damage">גזרו ציפורניים קצר כדי למנוע פציעות מהגרד</span></div>
+      <div class="do-item"><span class="do-marker">✓</span><span data-en="Wash new clothes before wearing them">כבסו בגדים חדשים לפני הלבישה הראשונה</span></div>
+    </div>
+    <div class="dont-col">
+      <h3 data-en="Don'ts ✗">יש להימנע ✗</h3>
+      <div class="dont-item"><span class="dont-marker">✗</span><span data-en="Scratching (causes the 'itch-scratch' cycle)">גירוד העור (מחמיר את מעגל ה"גרד-דלקת")</span></div>
+      <div class="dont-item"><span class="dont-marker">✗</span><span data-en="Perfumed lotions or standard cosmetics">קרמים מבושמים או מוצרי קוסמטיקה רגילים</span></div>
+      <div class="dont-item"><span class="dont-marker">✗</span><span data-en="Wool or rough synthetic clothing">בגדי צמר או בדים סינתטיים מחוספסים</span></div>
+      <div class="dont-item"><span class="dont-marker">✗</span><span data-en="Excessive sweating without a shower after">הזעה מוגברת מבלי להתקלח מיד אחריה</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="mol-section" id="section-faq">
+  <h2 class="mol-heading" data-en="Frequently Asked Questions">שאלות נפוצות</h2>
+  
+  <div class="tx-card open" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Is Atopic Dermatitis contagious?">האם אטופיק דרמטיטיס מדבקת?</span><span class="tc-chevron">▾</span></div>
+    <div class="tc-body" data-en="Absolutely not. It is an internal inflammatory/genetic condition. You cannot catch it from someone or pass it to others through touch, swimming pools, or any other way.">לא, בשום אופן לא. זוהי מחלה דלקתית-גנטית פנימית הקשורה למערכת החיסון של המטופל. אי אפשר להידבק מגע, בבריכה או בכל דרך אחרת.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Will my child outgrow it?">האם הילד שלי 'ייצא מזה' כשיגדל?</span><span class="tc-chevron">▾</span></div>
+    <div class="tc-body" data-en="In many cases, yes. A significant percentage of children experience great improvement or complete clearance of symptoms as they enter adolescence. However, some continue to suffer into adulthood, and the skin may remain generally sensitive.">במקרים רבים, כן. אחוז ניכר מהילדים חווים שיפור דרמטי או היעלמות מלאה של התסמינים לקראת גיל ההתבגרות. עם זאת, אצל חלק מהמטופלים המחלה ממשיכה לבגרות, ולרוב העור יישאר נוטה ליובש ולרגישות גם אם הדלקת תחלוף.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Should I eliminate dairy or gluten from the diet?">האם כדאי להפסיק מוצרי חלב או גלוטן?</span><span class="tc-chevron">▾</span></div>
+    <div class="tc-body" data-en="Food allergies are a trigger in a minority of severe pediatric cases, but very rarely the primary cause in older children and adults. Do not start restrictive diets without medical supervision and appropriate allergy testing, as it can cause nutritional deficiencies.">אלרגיה למזון מהווה טריגר רק במיעוט מהמקרים (בעיקר בתינוקות עם מחלה קשה), אך נדיר מאוד שהיא הגורם המרכזי אצל בוגרים ומבוגרים. אין לבצע דיאטות הימנעות קפדניות ללא ייעוץ רפואי ובדיקות אלרגיה מוכחות, שכן הדבר עלול לגרום לחוסרים תזונתיים.</div>
+  </div>
+  <div class="tx-card" onclick="toggleTx(this)">
+    <div class="tc-header"><span class="tc-title" data-en="Are steroids dangerous?">האם השימוש בסטרואידים מסוכן?</span><span class="tc-chevron">▾</span></div>
+    <div class="tc-body" data-en="When used correctly under a dermatologist's guidance (the right strength for the right duration), topical steroids are highly effective and safe. 'Steroid phobia' often leads to undertreatment and immense unnecessary suffering. The key is medical supervision.">כאשר משתמשים בהם נכון ותחת הדרכת רופא עור (החוזק הנכון למשך הזמן הנכון), משחות סטרואידליות הן יעילות ובטוחות מאוד. 'פוביה מסטרואידים' גורמת לעיתים קרובות לתת-טיפול ולסבל מיותר עצום של המטופל. המפתח הוא מעקב רפואי והדרגה נכונה.</div>
+  </div>
+</section>
+
+</main>
+
+<footer style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; padding: 20px 48px; border-top: 1px solid var(--border-light); max-width: 1100px; margin: 0 auto;">
+  <span style="color: var(--text-muted); font-size: 14px;" data-en="© 2025 Dr. Jonathan Shapiro | Dermatologist">© 2025 ד"ר יונתן שפירא | רופא עור</span>
+  <div style="display: flex; align-items: center; gap: 15px;">
+    <a href="https://www.linkedin.com/in/jonathan-shapiro-35989b115/" target="_blank" style="color: #0eb5a8; text-decoration: none; display: flex; align-items: center; gap: 6px; font-family: 'DM Sans', sans-serif; font-size: 14px; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+      LinkedIn
+    </a>
+    <span style="color: var(--border-light);">|</span>
+    <span style="color: var(--text-muted); font-size: 14px;">jshapiro.co.il</span>
+  </div>
+</footer>
+
+<script>
+function showSection(id, btn) {
+  document.querySelectorAll('.mol-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.mol-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('section-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+function toggleTx(card) {
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.tx-card').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) card.classList.add('open');
+}
+
+let currentLang = 'he';
+function toggleLang() {
+  currentLang = currentLang === 'he' ? 'en' : 'he';
+  document.documentElement.dir = currentLang === 'he' ? 'rtl' : 'ltr';
+  document.documentElement.lang = currentLang;
+  document.getElementById('langToggle').innerHTML = currentLang === 'he' ? '🌐 EN' : '🌐 עב';
+  
+  document.querySelectorAll('[data-en]').forEach(el => {
+    if (!el.hasAttribute('data-he')) { el.setAttribute('data-he', el.innerHTML); }
+    el.innerHTML = currentLang === 'he' ? el.getAttribute('data-he') : el.getAttribute('data-en');
+  });
+}
+</script>
+</body>
+</html>
