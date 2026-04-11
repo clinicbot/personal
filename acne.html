@@ -38,6 +38,12 @@
 .mol-section { display:none; }
 .mol-section.active { display:block; animation:fadeIn 0.25s ease; }
 @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+/* אנימציית פעימה (הילה) לכפתור המלא */
+    @keyframes solidPulse {
+      0% { box-shadow: 0 0 0 0 rgba(14, 181, 168, 0.9); }
+      70% { box-shadow: 0 0 0 15px rgba(14, 181, 168, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(14, 181, 168, 0); }
+    }
 .mol-heading { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:var(--white); margin-bottom:28px; }
 .mol-card { background:var(--navy-mid); border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:24px 28px; margin-bottom:16px; }
 .mol-card h2 { font-family:'DM Sans',sans-serif; font-size:17px; font-weight:500; color:var(--white); margin-bottom:14px; }
@@ -163,19 +169,25 @@
 </style>
 </head>
 <body>
+
 <nav>
-  <a class="nav-logo" href="index.html"><img src="logo.png" alt="ד&quot;ר יונתן שפירא" onerror="this.style.display='none'" /></a>
-  <div class="nav-links">
-    <a href="index.html">דף הבית</a>
-    <a href="expertise.html" class="active">תחומי התמחות</a><a href="academic.html">פעילות אקדמית</a>
+    <a class="nav-logo" href="index.html"><img src="logo.png" alt="logo" onerror="this.style.display='none'" /></a>
+    <div class="nav-links">
+      <a href="index.html" data-en="Home">דף הבית</a>
+      <a href="expertise.html" class="active" data-en="Expertise">תחומי התמחות</a>
+      <a href="academic.html" data-en="Academic Activity">פעילות אקדמית</a>
+      <a href="contact.html" data-en="Contact Us">צור קשר</a>
+    </div>
     
-    
-    
-    <a href="appointment.html">קביעת תור</a>
-    <a href="contact.html">צור קשר</a>
-  </div>
-  <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">קביעת ייעוץ</a>
+    <div class="nav-actions">
+
+      <a class="nav-cta" href="appointment.html" data-en="Book Appointment" style="animation: solidPulse 2s infinite; color: #ffffff;">קביעת תור</a>
+      <a class="nav-cta btn-secondary-nav" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank" data-en="Send Online Consult">שליחת ייעוץ אונ-ליין</a>
+      <button id="langToggle" class="lang-toggle-btn" onclick="toggleLang()">🌐 EN</button>
+    </div>
 </nav>
+    
+
 
 <!-- HERO -->
 <div class="mol-hero">
@@ -892,4 +904,4 @@ function dBuildTreat(grade,hasComedo,hasInflam,hasNodCyst,counts){
 }
 </script>
 </body>
-</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+</html>
