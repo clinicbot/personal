@@ -18,6 +18,14 @@
     .lang-toggle-btn { background: transparent; border: 1px solid rgba(14,181,168,0.5); color: var(--teal); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; border-radius: 20px; padding: 4px 12px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 4px; }
     .lang-toggle-btn:hover { background: var(--teal); color: var(--navy); }
 
+    /* תפריט נפתח */
+    .nav-dropdown { position: relative; display: inline-block; }
+    .nav-dropdown-content { display: none; position: absolute; background-color: var(--navy-mid); min-width: 220px; box-shadow: 0px 8px 24px rgba(0,0,0,0.4); z-index: 999; border-radius: 8px; border: 1px solid var(--border-light); top: 100%; right: 0; padding: 8px 0; }
+    .nav-dropdown-content a { color: var(--text-muted); padding: 12px 18px; text-decoration: none; display: block; font-size: 14.5px; transition: background 0.2s, color 0.2s; border-bottom: 1px solid var(--border); }
+    .nav-dropdown-content a:last-child { border-bottom: none; }
+    .nav-dropdown-content a:hover { background-color: var(--navy-light); color: var(--teal); }
+    .nav-dropdown:hover .nav-dropdown-content { display: block; }
+
     @keyframes appointmentPulse {
       0%, 100% { box-shadow: 0 0 0 0 rgba(14,181,168,0.0); border-color: rgba(14,181,168,0.4); color: var(--teal); }
       50% { box-shadow: 0 0 14px 4px rgba(14,181,168,0.45); border-color: rgba(14,181,168,1); color: #fff; }
@@ -54,6 +62,7 @@
     /* התאמה לאנגלית (משמאל לימין) */
     html[dir="ltr"] .page-header, html[dir="ltr"] .contact-form-wrap h2, html[dir="ltr"] .paypal-wrap h2, html[dir="ltr"] .paypal-wrap p, html[dir="ltr"] .form-field label { text-align: left; }
     html[dir="ltr"] .form-field input, html[dir="ltr"] .form-field textarea { text-align: left; direction: ltr; }
+    html[dir="ltr"] .nav-dropdown-content { right: auto; left: 0; text-align: left; }
 
     /* התאמה למובייל */
     @media(max-width:720px){
@@ -66,7 +75,8 @@
       .nav-links::-webkit-scrollbar { height: 3px; }
       .nav-links::-webkit-scrollbar-track { background: rgba(14,181,168,0.1); border-radius: 3px; }
       .nav-links::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
-      
+      .nav-dropdown:hover .nav-dropdown-content { position: static; box-shadow: none; border: none; padding-right: 15px; }
+
       .contact-actions { justify-content: center; }
       .paypal-amount-row { flex-direction: column; align-items: stretch; }
       .paypal-amount-input { width: 100%; }
@@ -79,7 +89,21 @@
     <a class="nav-logo" href="index.html"><img src="logo.png" alt="logo" onerror="this.style.display='none'" /></a>
     <div class="nav-links">
       <a href="index.html" data-en="Home">דף הבית</a>
-      <a href="expertise.html" data-en="Expertise">תחומי התמחות</a>
+      <div class="nav-dropdown">
+        <a href="expertise.html" data-en="Expertise ▾">תחומי התמחות ▾</a>
+        <div class="nav-dropdown-content">
+          <a href="acne.html" data-en="Acne">אקנה</a>
+          <a href="psoriasis.html" data-en="Psoriasis">פסוריאזיס</a>
+          <a href="warts.html" data-en="Viral Warts">יבלות ויראליות</a>
+          <a href="hair-loss.html" data-en="Hair Loss">נשירת שיער</a>
+          <a href="autoimmune.html" data-en="Autoimmune Diseases">מחלות אוטואימוניות</a>
+          <a href="pediatric.html" data-en="Pediatric Dermatology">מחלות עור בילדים</a>
+          <a href="skin-cancer.html" data-en="Mole Screening">סקירת שומות וסרטן עור</a>
+          <a href="atopic-dermatitis.html" data-en="Atopic Dermatitis">אטופיק דרמטיטיס</a>
+          <a href="molluscum.html" data-en="Molluscum Contagiosum">מולוסקום</a>
+          <a href="cosmetics.html" style="color:var(--teal);" data-en="Dermocosmetics Guide">מדריך תכשירים (דרמוקוסמטיקה)</a>
+        </div>
+      </div>
       <a href="academic.html" data-en="Academic Activity">פעילות אקדמית</a>
       <a href="contact.html" class="active" data-en="Contact Us">צור קשר</a>
     </div>

@@ -5,12 +5,40 @@
   <title>מחקר | ד"ר יונתן שפירא</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* תפריט נפתח */
+    .nav-dropdown { position: relative; display: inline-block; }
+    .nav-dropdown-content { display: none; position: absolute; background-color: var(--navy-mid); min-width: 220px; box-shadow: 0px 8px 24px rgba(0,0,0,0.4); z-index: 999; border-radius: 8px; border: 1px solid var(--border-light); top: 100%; right: 0; padding: 8px 0; }
+    .nav-dropdown-content a { color: var(--text-muted); padding: 12px 18px; text-decoration: none; display: block; font-size: 14.5px; transition: background 0.2s, color 0.2s; border-bottom: 1px solid var(--border); }
+    .nav-dropdown-content a:last-child { border-bottom: none; }
+    .nav-dropdown-content a:hover { background-color: var(--navy-light); color: var(--teal); }
+    .nav-dropdown:hover .nav-dropdown-content { display: block; }
+    @media(max-width:720px){
+      .nav-dropdown:hover .nav-dropdown-content { position: static; box-shadow: none; border: none; padding-right: 15px; }
+    }
+  </style>
 </head>
 <body>
   <nav>
     <a class="nav-logo" href="index.html"><img src="logo.png" alt="logo" onerror="this.style.display='none'" /></a>
     <div class="nav-links">
-      <a href="index.html">דף הבית</a><a href="expertise.html">תחומי התמחות</a><a href="academic.html" class="active">פעילות אקדמית</a><a href="appointment.html">קביעת תור</a><a href="contact.html">צור קשר</a>
+      <a href="index.html">דף הבית</a>
+      <div class="nav-dropdown">
+        <a href="expertise.html">תחומי התמחות ▾</a>
+        <div class="nav-dropdown-content">
+          <a href="acne.html">אקנה</a>
+          <a href="psoriasis.html">פסוריאזיס</a>
+          <a href="warts.html">יבלות ויראליות</a>
+          <a href="hair-loss.html">נשירת שיער</a>
+          <a href="autoimmune.html">מחלות אוטואימוניות</a>
+          <a href="pediatric.html">מחלות עור בילדים</a>
+          <a href="skin-cancer.html">סקירת שומות וסרטן עור</a>
+          <a href="atopic-dermatitis.html">אטופיק דרמטיטיס</a>
+          <a href="molluscum.html">מולוסקום</a>
+          <a href="cosmetics.html" style="color:var(--teal);">מדריך תכשירים (דרמוקוסמטיקה)</a>
+        </div>
+      </div>
+      <a href="academic.html" class="active">פעילות אקדמית</a><a href="appointment.html">קביעת תור</a><a href="contact.html">צור קשר</a>
     </div>
     <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">קביעת ייעוץ</a>
   </nav>
