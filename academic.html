@@ -14,6 +14,12 @@
     .sub-panel { display: none; animation: fadeIn 0.3s ease; }
     .sub-panel.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes appointmentPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(14,181,168,0.0); border-color: rgba(14,181,168,0.4); color: var(--teal); } 50% { box-shadow: 0 0 14px 4px rgba(14,181,168,0.45); border-color: rgba(14,181,168,1); color: #fff; } }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .btn-secondary-nav { background: transparent; color: var(--teal); border: 1px solid rgba(14,181,168,0.5); }
+    .btn-secondary-nav:hover { background: var(--teal-dim); }
+    .lang-toggle-btn { background: transparent; border: 1px solid rgba(14,181,168,0.5); color: var(--teal); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; border-radius: 20px; padding: 4px 12px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 4px; }
+    .lang-toggle-btn:hover { background: var(--teal); color: var(--navy); }
 
     /* תחומי מחקר וכללי */
     .timeline-item { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--border-light); align-items: flex-start; }
@@ -82,7 +88,7 @@
     </div>
     
     <div class="nav-actions">
-      <a class="nav-cta" href="appointment.html" data-en="Book Appointment" style="animation:appointmentPulse 1.6s ease-in-out infinite;">קביעת תור</a>
+      <a class="nav-cta" href="appointment.html" data-en="Book Appointment" style="animation:appointmentPulse 1.6s ease-in-out infinite; color:#fff;">קביעת תור</a>
       
       <a class="nav-cta btn-secondary-nav" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank" data-en="Send Online Consult">שליחת ייעוץ אונ-ליין</a>
       
@@ -92,8 +98,8 @@
   
   
   <div class="page-header" style="text-align: center; padding-bottom: 20px;">
-    <div class="page-title">פעילות אקדמית</div>
-    <div class="page-subtitle">מחקר, פרסומים מדעיים והכרה מקצועית</div>
+    <div class="page-title" data-en="Academic Activity">פעילות אקדמית</div>
+    <div class="page-subtitle" data-en="Research, Scientific Publications and Professional Recognition">מחקר, פרסומים מדעיים והכרה מקצועית</div>
     
     <div style="margin-top: 24px;">
       <a href="https://www.linkedin.com/in/jonathan-shapiro-35989b115/" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #0077b5; color: white; padding: 10px 24px; border-radius: 25px; text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
@@ -391,6 +397,20 @@
   </footer>
 
   <script>
+    let currentLang = 'he';
+    function toggleLang() {
+      currentLang = currentLang === 'he' ? 'en' : 'he';
+      document.documentElement.dir = currentLang === 'he' ? 'rtl' : 'ltr';
+      document.documentElement.lang = currentLang;
+      document.getElementById('langToggle').innerHTML = currentLang === 'he' ? '🌐 EN' : '🌐 עב';
+      document.querySelectorAll('[data-en]').forEach(el => {
+        if (!el.hasAttribute('data-he')) {
+          el.setAttribute('data-he', el.innerHTML);
+        }
+        el.innerHTML = currentLang === 'he' ? el.getAttribute('data-he') : el.getAttribute('data-en');
+      });
+    }
+
     function showTab(name, btn) {
       document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.sub-panel').forEach(p => p.classList.remove('active'));
