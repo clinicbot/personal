@@ -1,0 +1,436 @@
+/* ============================================
+   DR. JONATHAN SHAPIRO — LUXURY MEDICAL THEME
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0a1628;
+  --navy-mid: #112240;
+  --navy-light: #1a3a5c;
+  --teal: #0eb5a8;
+  --teal-light: #14d4c5;
+  --teal-dim: rgba(14,181,168,0.12);
+  --gold: #c9a84c;
+  --gold-dim: rgba(201,168,76,0.15);
+  --white: #ffffff;
+  --off-white: #f0f4f8;
+  --text: #e8edf5;
+  --text-muted: #8fa3bb;
+  --text-faint: #5a7a96;
+  --border: rgba(14,181,168,0.2);
+  --border-light: rgba(255,255,255,0.07);
+  --radius: 6px;
+  --radius-lg: 12px;
+  --shadow: 0 4px 32px rgba(0,0,0,0.35);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--navy);
+  font-size: 18px;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+/* ---- NAV ---- */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 72px;
+  background: rgba(10,22,40,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo img {
+  height: 44px;
+  width: auto;
+  vertical-align: middle;
+  filter: brightness(1.1);
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: var(--radius);
+  transition: all 0.2s;
+  letter-spacing: 0.03em;
+}
+
+.nav-links a:hover { color: var(--teal); }
+.nav-links a.active {
+  color: var(--teal);
+  background: var(--teal-dim);
+}
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--teal), #0a9e92);
+  color: var(--navy);
+  border: none;
+  padding: 9px 22px;
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* ---- PAGE HEADER ---- */
+.page-header {
+  padding: 64px 48px 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+
+.page-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 54px;
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+
+.page-subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---- CONTENT ---- */
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 48px;
+}
+
+/* ---- SECTION CARD ---- */
+.section-card {
+  background: var(--navy-mid);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  border: 1px solid var(--border-light);
+  margin-bottom: 16px;
+}
+
+/* ---- BIO ---- */
+.bio-text {
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--text-muted);
+  max-width: 800px;
+}
+
+/* ---- EXPERTISE ---- */
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.expertise-card {
+  background: var(--navy-mid);
+  border-radius: var(--radius);
+  padding: 20px;
+  border: 1px solid var(--border-light);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.expertise-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-2px);
+}
+
+.expertise-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--teal);
+  margin-bottom: 12px;
+  box-shadow: 0 0 8px var(--teal);
+}
+
+.expertise-name { font-size: 15px; font-weight: 500; color: var(--white); }
+.expertise-desc { font-size: 13.5px; color: var(--text-faint); margin-top: 4px; }
+
+/* ---- TIMELINE ---- */
+.timeline-item {
+  display: flex;
+  gap: 28px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.timeline-item:last-child { border-bottom: none; }
+
+.timeline-year {
+  width: 90px; flex-shrink: 0;
+  font-size: 13px;
+  color: var(--teal);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-top: 3px;
+}
+
+.timeline-content { flex: 1; }
+.timeline-title { font-size: 16px; font-weight: 500; color: var(--white); }
+.timeline-sub { font-size: 15px; color: var(--text-muted); margin-top: 5px; }
+
+/* ---- PUBLICATIONS ---- */
+.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+
+.filter-btn {
+  background: var(--navy-mid);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 7px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-muted);
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+.filter-btn:hover { border-color: var(--teal); color: var(--teal); }
+.filter-btn.active {
+  background: var(--teal);
+  color: var(--navy);
+  border-color: var(--teal);
+  font-weight: 500;
+}
+
+.pub-item {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+.pub-item:last-child { border-bottom: none; }
+
+.pub-num {
+  font-size: 14px;
+  color: var(--text-faint);
+  min-width: 28px;
+  flex-shrink: 0;
+  padding-top: 3px;
+  font-weight: 500;
+}
+
+.pub-body { flex: 1; }
+.pub-title { font-size: 15px; font-weight: 400; line-height: 1.6; color: var(--text); margin-bottom: 5px; }
+.pub-authors { font-size: 13.5px; color: var(--text-faint); margin-bottom: 4px; line-height: 1.5; }
+.pub-journal { font-size: 13.5px; color: var(--text-muted); }
+
+.pub-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; align-items: center; }
+
+.pub-tag {
+  font-size: 12px; padding: 3px 10px; border-radius: 10px;
+  background: var(--teal-dim); color: var(--teal); font-weight: 500;
+  border: 1px solid rgba(14,181,168,0.3);
+}
+.pub-tag.cited {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-faint);
+  border-color: var(--border-light);
+}
+.pub-tag.award {
+  background: var(--gold-dim);
+  color: var(--gold);
+  border-color: rgba(201,168,76,0.3);
+}
+
+.pub-link {
+  font-size: 12px; color: var(--teal); text-decoration: none;
+  padding: 2px 8px; border: 1px solid rgba(14,181,168,0.4); border-radius: 10px;
+  white-space: nowrap; transition: all 0.2s;
+}
+.pub-link:hover { background: var(--teal); color: var(--navy); }
+
+/* ---- AWARDS ---- */
+.award-item {
+  display: flex; gap: 18px; padding: 22px 0;
+  border-bottom: 1px solid var(--border-light); align-items: flex-start;
+}
+.award-item:last-child { border-bottom: none; }
+
+.award-icon {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--gold-dim);
+  border: 1px solid rgba(201,168,76,0.3);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; color: var(--gold); font-size: 16px;
+}
+.award-text { font-size: 15px; line-height: 1.7; color: var(--text-muted); }
+.award-text strong { color: var(--white); font-weight: 500; }
+
+/* ---- CONTACT / APPOINTMENT ---- */
+.contact-grid { display: flex; gap: 48px; align-items: flex-start; }
+.contact-info { flex: 1; }
+.contact-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px; font-weight: 300; color: var(--white);
+  margin-bottom: 12px;
+}
+.contact-sub { font-size: 16px; color: var(--text-muted); margin-bottom: 28px; line-height: 1.8; }
+.contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; font-size: 15px; color: var(--text-muted); }
+.contact-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); flex-shrink: 0; box-shadow: 0 0 6px var(--teal); }
+.contact-cta {
+  margin-top: 32px;
+  display: inline-block;
+  background: linear-gradient(135deg, var(--teal), #0a9e92);
+  color: var(--navy); border: none; padding: 14px 36px;
+  border-radius: var(--radius); font-size: 14px; font-weight: 500;
+  cursor: pointer; font-family: 'DM Sans', sans-serif; text-decoration: none;
+  transition: opacity 0.2s;
+}
+.contact-cta:hover { opacity: 0.85; }
+
+.memberships {
+  flex: 1;
+  background: var(--navy-mid);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  border: 1px solid var(--border-light);
+}
+.membership-label {
+  font-size: 12px; color: var(--text-faint); margin-bottom: 20px;
+  text-transform: uppercase; letter-spacing: 0.12em;
+}
+.membership-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 0; border-bottom: 1px solid var(--border-light);
+  font-size: 15px; font-weight: 400; color: var(--text-muted);
+}
+.membership-item:last-child { border-bottom: none; }
+.m-badge {
+  background: var(--teal-dim); color: var(--teal);
+  font-size: 10px; padding: 3px 8px; border-radius: 6px;
+  font-weight: 500; border: 1px solid rgba(14,181,168,0.3); letter-spacing: 0.05em;
+}
+
+/* ---- CLINIC CARDS ---- */
+.clinic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.clinic-card {
+  background: var(--navy-mid); border-radius: var(--radius-lg);
+  padding: 32px; border: 1px solid var(--border-light);
+}
+.clinic-card-title {
+  font-size: 18px; font-weight: 500; color: var(--teal);
+  margin-bottom: 24px; padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-light);
+  letter-spacing: 0.01em;
+}
+.clinic-row { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border-light); align-items: flex-start; }
+.clinic-row:last-child { border-bottom: none; }
+.clinic-label { font-size: 12px; color: var(--text-faint); min-width: 120px; flex-shrink: 0; padding-top: 2px; letter-spacing: 0.04em; text-transform: uppercase; }
+.clinic-value { font-size: 15px; color: var(--text); line-height: 1.6; }
+.clinic-value a { color: var(--teal); text-decoration: none; }
+.clinic-value a:hover { text-decoration: underline; }
+
+.hours-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border-light); font-size: 15px; }
+.hours-row:last-child { border-bottom: none; }
+.hours-day { font-weight: 500; color: var(--white); }
+.hours-time { color: var(--text-muted); }
+
+.call-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--teal), #0a9e92);
+  color: var(--navy); padding: 13px 28px; border-radius: var(--radius);
+  font-size: 15px; font-weight: 500; text-decoration: none;
+  font-family: 'DM Sans', sans-serif; margin-top: 20px; transition: opacity 0.2s;
+}
+.call-btn:hover { opacity: 0.85; }
+.call-btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--teal);
+  border: 1px solid rgba(14,181,168,0.4);
+  padding: 13px 28px; border-radius: var(--radius);
+  font-size: 15px; font-weight: 500; text-decoration: none;
+  font-family: 'DM Sans', sans-serif; margin-top: 10px; transition: all 0.2s;
+}
+.call-btn-secondary:hover { background: var(--teal-dim); }
+
+/* ---- FOOTER ---- */
+footer {
+  padding: 32px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-light);
+  font-size: 12px;
+  color: var(--text-faint);
+  max-width: 1100px;
+  margin: 0 auto;
+  letter-spacing: 0.03em;
+}
+
+/* ---- MOBILE ---- */
+@media (max-width: 720px) {
+  nav { 
+    padding: 15px 20px 5px; 
+    flex-wrap: wrap; 
+    height: auto; 
+  }
+  .nav-logo { order: 1; }
+  nav > div:not(.nav-links) { order: 2; } 
+  
+  .nav-links { 
+    display: flex; 
+    order: 3; 
+    width: 100%; 
+    overflow-x: auto; 
+    white-space: nowrap; 
+    gap: 16px; 
+    padding-top: 12px;
+    padding-bottom: 8px; 
+    -webkit-overflow-scrolling: touch; 
+  }
+  
+  /* עיצוב פס הגלילה למובייל */
+  .nav-links::-webkit-scrollbar { height: 3px; }
+  .nav-links::-webkit-scrollbar-track { background: rgba(14,181,168,0.1); border-radius: 3px; }
+  .nav-links::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+
+  .page-header { padding: 40px 20px 32px; }
+  .page-title { font-size: 32px; }
+  .content { padding: 32px 20px; }
+  .contact-grid { flex-direction: column; }
+  .clinic-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px 20px; }
+}
