@@ -71,15 +71,26 @@
   </style>
 </head>
 <body>
+  
   <nav>
     <a class="nav-logo" href="index.html"><img src="logo.png" alt="logo" onerror="this.style.display='none'" /></a>
     <div class="nav-links">
-      <a href="index.html">דף הבית</a><a href="expertise.html">תחומי התמחות</a><a href="academic.html" class="active">פעילות אקדמית</a><a href="appointment.html">קביעת תור</a><a href="contact.html">צור קשר</a>
+      <a href="index.html" data-en="Home">דף הבית</a>
+      <a href="expertise.html" data-en="Expertise">תחומי התמחות</a>
+      <a href="academic.html" data-en="Academic Activity">פעילות אקדמית</a>
+      <a href="contact.html" data-en="Contact Us">צור קשר</a>
     </div>
-    <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank">קביעת ייעוץ</a>
+    
+    <div class="nav-actions">
+      <a class="nav-cta" href="appointment.html" data-en="Book Appointment" style="animation:appointmentPulse 1.6s ease-in-out infinite;">קביעת תור</a>
+      
+      <a class="nav-cta btn-secondary-nav" href="https://docs.google.com/forms/d/e/1FAIpQLSeOz4m0_OFp4Ki-1NfylmXEmgr_g4NSaHokBmBEd33tRU2chA/viewform?usp=header" target="_blank" data-en="Send Online Consult">שליחת ייעוץ אונ-ליין</a>
+      
+      <button id="langToggle" class="lang-toggle-btn" onclick="toggleLang()">🌐 EN</button>
+    </div>
   </nav>
-
-
+  
+  
   <div class="page-header" style="text-align: center; padding-bottom: 20px;">
     <div class="page-title">פעילות אקדמית</div>
     <div class="page-subtitle">מחקר, פרסומים מדעיים והכרה מקצועית</div>
