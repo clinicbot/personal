@@ -134,6 +134,78 @@ html[dir="ltr"] .nav-dropdown-content { right: auto; left: 0; text-align: left; 
   .mol-hero-text h1{font-size:30px;}
   .info-grid,.do-dont{grid-template-columns:1fr;}
 }
+
+/* === Severity Rating Questionnaires (AD assessment tools) === */
+.adt-tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:20px;}
+.adt-tool-card{background:var(--navy-mid);border:2px solid var(--border-light);border-radius:var(--radius-lg);padding:18px 14px;cursor:pointer;transition:all 0.18s ease;text-align:center;}
+.adt-tool-card:hover{border-color:var(--ad);transform:translateY(-2px);box-shadow:0 4px 14px rgba(91,141,217,0.18);}
+.adt-tool-card.active{border-color:var(--ad);background:var(--ad-dim);}
+.adt-tool-card .adt-code{font-family:'DM Sans',sans-serif;font-size:18px;font-weight:700;color:var(--ad);margin-bottom:4px;letter-spacing:0.02em;}
+.adt-tool-card .adt-name{font-size:12.5px;color:var(--text-muted);line-height:1.4;}
+
+.adt-panel{background:var(--navy-mid);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:22px 26px;margin-bottom:16px;}
+.adt-panel h3{margin:20px 0 12px 0;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:var(--white);border-bottom:1px solid var(--border-light);padding-bottom:8px;}
+.adt-panel h3:first-child{margin-top:0;}
+.adt-panel-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--white);margin:0 0 4px 0;}
+.adt-panel-sub{font-size:13px;color:var(--text-muted);margin:0 0 18px 0;}
+
+.adt-question-row{margin-bottom:16px;}
+.adt-question-label{font-size:14.5px;font-weight:500;color:var(--text);margin-bottom:8px;line-height:1.6;}
+.adt-question-hint{font-size:12.5px;color:var(--text-faint);margin-bottom:8px;}
+
+.adt-radio-group{display:flex;flex-wrap:wrap;gap:8px;}
+.adt-radio-option{display:inline-flex;align-items:center;padding:7px 14px;border:1px solid var(--border-light);border-radius:var(--radius);cursor:pointer;background:var(--navy);font-size:13.5px;color:var(--text-muted);user-select:none;transition:all 0.15s;font-family:'DM Sans',sans-serif;}
+.adt-radio-option:hover{border-color:var(--ad);color:var(--text);}
+.adt-radio-option input{margin-left:6px;margin-right:0;accent-color:var(--ad);}
+html[dir="ltr"] .adt-radio-option input{margin-left:0;margin-right:6px;}
+.adt-radio-option.selected{background:var(--ad-dim);border-color:var(--ad);color:var(--ad);font-weight:500;}
+.adt-radio-option.adt-block-opt{display:block;padding:12px 16px;margin-bottom:8px;}
+
+.adt-range-wrap{display:flex;align-items:center;gap:12px;}
+.adt-range-wrap input[type="range"]{flex:1;accent-color:var(--ad);}
+.adt-range-value{min-width:44px;text-align:center;font-weight:600;color:var(--ad);background:var(--ad-dim);border-radius:var(--radius);padding:4px 10px;font-family:'DM Sans',sans-serif;}
+
+.adt-region-block{background:var(--navy);border:1px solid var(--border-light);border-radius:var(--radius);padding:16px 18px;margin-bottom:12px;}
+.adt-region-block h4{margin:0 0 12px 0;color:var(--ad);font-size:15px;font-weight:500;}
+
+.adt-info-box{background:var(--ad-dim);border-right:3px solid var(--ad);border-radius:var(--radius);padding:12px 16px;font-size:13.5px;line-height:1.7;color:var(--text-muted);margin-bottom:16px;}
+html[dir="ltr"] .adt-info-box{border-right:none;border-left:3px solid var(--ad);}
+.adt-info-box strong{color:var(--ad);}
+
+.adt-bsa-helper{background:var(--navy);border:1px solid var(--border-light);border-radius:var(--radius);padding:10px 12px;font-size:12.5px;color:var(--text-muted);margin-top:8px;line-height:1.6;}
+.adt-bsa-helper code{background:var(--navy-mid);padding:1px 6px;border-radius:4px;color:var(--ad);font-family:'DM Sans',sans-serif;}
+
+.adt-textarea{width:100%;padding:10px 12px;border:1px solid var(--border-light);border-radius:var(--radius);font-size:14px;font-family:inherit;background:var(--navy);color:var(--text);resize:vertical;}
+.adt-textarea:focus{outline:none;border-color:var(--ad);box-shadow:0 0 0 3px rgba(91,141,217,0.18);}
+
+.adt-score-box{background:linear-gradient(135deg,var(--ad-dim) 0%,rgba(91,141,217,0.06) 100%);border:2px solid var(--ad);border-radius:var(--radius-lg);padding:20px;text-align:center;margin-top:16px;}
+.adt-score-label{font-size:12px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.08em;font-weight:500;}
+.adt-score-value{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--white);margin:6px 0;line-height:1;}
+.adt-score-value .adt-max{font-size:16px;color:var(--text-faint);font-weight:400;font-family:'DM Sans',sans-serif;}
+.adt-severity-band{display:inline-block;margin-top:8px;padding:5px 16px;border-radius:999px;font-weight:500;font-size:13px;border:1px solid;}
+.adt-severity-clear{background:var(--green-ok-dim);color:#7acc7a;border-color:rgba(74,154,74,0.4);}
+.adt-severity-mild{background:var(--amber-dim);color:var(--amber);border-color:rgba(201,147,58,0.4);}
+.adt-severity-moderate{background:rgba(230,140,60,0.14);color:#e68c3c;border-color:rgba(230,140,60,0.4);}
+.adt-severity-severe{background:var(--red-warn-dim);color:#e07070;border-color:rgba(200,64,64,0.4);}
+.adt-severity-very-severe{background:rgba(160,40,40,0.2);color:#ff8080;border-color:rgba(200,64,64,0.6);}
+.adt-subscore{display:inline-block;margin:4px 6px;padding:4px 10px;background:var(--navy);border:1px solid var(--border-light);border-radius:var(--radius);font-size:12.5px;color:var(--text-muted);}
+.adt-subscore strong{color:var(--ad);}
+.adt-interpretation{margin-top:12px;font-size:12.5px;color:var(--text-faint);line-height:1.6;}
+
+.adt-placeholder{text-align:center;color:var(--text-faint);padding:32px 16px;font-size:14px;}
+.adt-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px;}
+.adt-btn{padding:10px 22px;border:1px solid var(--border-light);background:var(--navy-mid);color:var(--text-muted);border-radius:var(--radius);font-size:13.5px;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all 0.15s;}
+.adt-btn:hover{border-color:var(--ad);color:var(--ad);}
+.adt-disclaimer{text-align:center;color:var(--text-faint);font-size:12px;margin-top:18px;line-height:1.6;}
+.adt-hidden{display:none !important;}
+
+html[dir="ltr"] .adt-panel, html[dir="ltr"] .adt-question-label, html[dir="ltr"] .adt-question-hint, html[dir="ltr"] .adt-info-box, html[dir="ltr"] .adt-bsa-helper, html[dir="ltr"] .adt-interpretation, html[dir="ltr"] .adt-placeholder, html[dir="ltr"] .adt-disclaimer, html[dir="ltr"] .adt-region-block h4 { text-align: left; direction: ltr; }
+
+@media(max-width:720px){
+  .adt-tool-grid{grid-template-columns:repeat(2,1fr);}
+  .adt-panel{padding:16px;}
+  .adt-radio-option{font-size:12.5px;padding:6px 10px;}
+}
 </style>
 </head>
 <body>
@@ -192,6 +264,7 @@ html[dir="ltr"] .nav-dropdown-content { right: auto; left: 0; text-align: left; 
   <button class="mol-tab" onclick="showSection('treat',this)" data-en="Medical Treatment">טיפול רפואי</button>
   <button class="mol-tab" onclick="showSection('skincare',this)" data-en="Skincare Routine">שגרת טיפוח</button>
   <button class="mol-tab" onclick="showSection('faq',this)" data-en="FAQ">שאלות נפוצות</button>
+  <button class="mol-tab" onclick="showSection('questionnaires',this)" data-en="Severity Rating Scales">שאלונים לדירוג חומרה</button>
 </div>
 
 <main class="mol-main">
@@ -331,6 +404,50 @@ html[dir="ltr"] .nav-dropdown-content { right: auto; left: 0; text-align: left; 
   </div>
 </section>
 
+<section class="mol-section" id="section-questionnaires">
+  <h2 class="mol-heading" data-en="Severity Rating Questionnaires">שאלונים לדירוג חומרה</h2>
+  <div class="adt-info-box" data-en="Choose a validated assessment tool to grade the severity of atopic dermatitis. Each tool uses different criteria (clinical signs, patient-reported symptoms, or both). Results are calculated live. For educational use — not a substitute for a physician's evaluation.">בחרו כלי הערכה מוכר לדירוג חומרת האטופיק דרמטיטיס. כל כלי משתמש בקריטריונים שונים (סימנים קליניים, תסמינים מדווחי-מטופל, או שילוב). התוצאות מחושבות בזמן אמת. לשימוש חינוכי — אינו תחליף להערכת רופא.</div>
+
+  <div class="adt-tool-grid" id="adt-tool-selector">
+    <div class="adt-tool-card" data-tool="scorad">
+      <div class="adt-code">SCORAD</div>
+      <div class="adt-name" data-en="Clinician + patient (0&ndash;103)">קלינאי + מטופל (0&ndash;103)</div>
+    </div>
+    <div class="adt-tool-card" data-tool="easi">
+      <div class="adt-code">EASI</div>
+      <div class="adt-name" data-en="Clinical signs (0&ndash;72)">סימנים קליניים (0&ndash;72)</div>
+    </div>
+    <div class="adt-tool-card" data-tool="poem">
+      <div class="adt-code">POEM</div>
+      <div class="adt-name" data-en="Patient-reported symptoms (0&ndash;28)">תסמינים מדווחי-מטופל (0&ndash;28)</div>
+    </div>
+    <div class="adt-tool-card" data-tool="iga">
+      <div class="adt-code">IGA</div>
+      <div class="adt-name" data-en="Global assessment (0&ndash;4)">הערכה גלובלית (0&ndash;4)</div>
+    </div>
+    <div class="adt-tool-card" data-tool="sassad">
+      <div class="adt-code">SASSAD</div>
+      <div class="adt-name" data-en="6 signs &times; 6 areas (0&ndash;108)">6 סימנים × 6 אזורים (0&ndash;108)</div>
+    </div>
+  </div>
+
+  <div class="adt-panel" id="adt-questionnaire-panel">
+    <div id="adt-placeholder" class="adt-placeholder" data-en="Select an assessment tool above to begin.">בחרו כלי הערכה למעלה כדי להתחיל.</div>
+    <div id="adt-questionnaire" class="adt-hidden"></div>
+  </div>
+
+  <div class="adt-panel adt-hidden" id="adt-result-section">
+    <h3 data-en="Score">ניקוד</h3>
+    <div id="adt-result-content"></div>
+  </div>
+
+  <div class="adt-actions">
+    <button class="adt-btn" id="adt-reset-btn" data-en="Start Over">התחל מחדש</button>
+  </div>
+
+  <p class="adt-disclaimer" data-en="Educational tool — verify scoring manually and follow local clinical protocols. Not a substitute for clinical judgment.">כלי חינוכי — יש לאמת את הציון ידנית ולפעול לפי פרוטוקולים קליניים מקומיים. אינו תחליף לשיקול דעת קליני.</p>
+</section>
+
 </main>
 
 <footer style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; padding: 20px 48px; border-top: 1px solid var(--border-light); max-width: 1100px; margin: 0 auto;">
@@ -365,12 +482,627 @@ function toggleLang() {
   document.documentElement.dir = currentLang === 'he' ? 'rtl' : 'ltr';
   document.documentElement.lang = currentLang;
   document.getElementById('langToggle').innerHTML = currentLang === 'he' ? '🌐 EN' : '🌐 עב';
-  
+
   document.querySelectorAll('[data-en]').forEach(el => {
     if (!el.hasAttribute('data-he')) { el.setAttribute('data-he', el.innerHTML); }
     el.innerHTML = currentLang === 'he' ? el.getAttribute('data-he') : el.getAttribute('data-en');
   });
+
+  if (typeof adtOnLangChange === 'function') adtOnLangChange();
 }
+
+/* ========================================================================
+   SEVERITY RATING QUESTIONNAIRES — SCORAD / EASI / POEM / IGA / SASSAD
+   Scoring logic preserved from ad.html (unchanged).
+   Bilingual UI via ADT_TEXT[currentLang].
+   ======================================================================== */
+
+const ADT_TEXT = {
+  he: {
+    totalScoreLabel: 'ניקוד כולל',
+    completeMsg: 'השלימו את השאלון כדי לראות את הניקוד.',
+    resetConfirm: 'לנקות את כל התשובות ולהתחיל מחדש?',
+    bands: { clear:'נקי', almostClear:'כמעט נקי', mild:'קל', moderate:'בינוני', severe:'חמור', verySevere:'חמור מאוד' },
+    intensityLabels: ['אין','קל','בינוני','חמור'],
+    severityLabels: ['אין','קל','בינוני','חמור'],
+    scorad: {
+      fullName: 'ציון SCORAD לחומרת דרמטיטיס אטופית',
+      infoBox: '<strong>נוסחת SCORAD:</strong> A/5 + 7B/2 + C. A = היקף (0&ndash;100). B = סכום 6 סימני עצימות (0&ndash;18). C = גרד + אובדן שינה (0&ndash;20).',
+      aHeading: 'A &mdash; היקף המחלה (אחוז שטח גוף מעורב)',
+      aLabel: 'אחוז משוער של שטח גוף מעורב (0&ndash;100)',
+      bsaHelper: 'חוק התשעים (מבוגר): ראש וצוואר <code>9%</code>, כל גפה עליונה <code>9%</code>, חזה <code>18%</code>, גב <code>18%</code>, כל גפה תחתונה <code>18%</code>, איזור מפשעה <code>1%</code>. כף יד &asymp; 1%.',
+      bHeading: 'B &mdash; קריטריוני עצימות (כל אחד מנוקד 0&ndash;3)',
+      intensityItems: ['אריתמה (אדמומיות)','בצקת / פפולציה','הפרשה / קרומים','שריטות (אקסקוריאציה)','ליכניפיקציה (עיבוי עור)','יובש (על עור לא מעורב)'],
+      cHeading: 'C &mdash; תסמינים סובייקטיביים (3 ימים אחרונים, 0&ndash;10 VAS)',
+      itchLabel: 'עצמת גרד (Pruritus)',
+      itchHint: '0 = ללא גרד, 10 = הגרד הגרוע ביותר שאפשר לדמיין',
+      sleepLabel: 'אובדן שינה עקב האקזמה',
+      sleepHint: '0 = ללא אובדן, 10 = לא הצלחתי לישון כלל',
+      interpretation: (t) => `סה"כ SCORAD ${t}/103 (A/5 + 7B/2 + C). טווחי פרשנות: <25 קל, 25&ndash;50 בינוני, >50 חמור.`,
+      breakdown: { A:'A (היקף %)', B:'B (סכום עצימות)', C:'C (סובייקטיבי)', obj:'SCORAD אובייקטיבי' }
+    },
+    easi: {
+      fullName: 'מדד שטח וחומרה לאקזמה (EASI)',
+      infoBox: '<strong>EASI:</strong> לכל אזור, דרגו <em>שטח</em> (0&ndash;6) ו-4 סימנים (כל אחד 0&ndash;3). ציון אזור = שטח × (סכום 4 סימנים) × מכפיל אזורי. מקסימום 72.',
+      ageLabel: 'קבוצת גיל (משנה משקלות לראש/גפיים תחתונות)',
+      ageAdult: 'מבוגר / &ge; 8 שנים',
+      ageChild: 'ילד (0&ndash;7 שנים)',
+      regions: { head:'ראש וצוואר', upper:'גפיים עליונות', trunk:'גו (כולל איזור מפשעה)', lower:'גפיים תחתונות (כולל ישבן)' },
+      signs: { erythema:'אריתמה', induration:'התקשות / פפולציה', excoriation:'שריטות', lichenification:'ליכניפיקציה' },
+      areaLabel: 'שטח מעורב',
+      multiplier: (a,c) => `(מכפיל: מבוגר ${a}, ילד ${c})`,
+      areaScale: ['0 (0%)','1 (1&ndash;9%)','2 (10&ndash;29%)','3 (30&ndash;49%)','4 (50&ndash;69%)','5 (70&ndash;89%)','6 (90&ndash;100%)'],
+      interpretation: (t) => `סה"כ EASI ${t}/72. טווחי Leshem: 0 נקי, 0.1&ndash;1.0 כמעט נקי, 1.1&ndash;7 קל, 7.1&ndash;21 בינוני, 21.1&ndash;50 חמור, 50.1&ndash;72 חמור מאוד.`
+    },
+    poem: {
+      fullName: 'שאלון POEM מדווח-מטופל',
+      infoBox: '<strong>POEM:</strong> דיווח עצמי. חשבו על האקזמה שלכם <em>בשבוע האחרון</em>. 7 שאלות, כל אחת 0&ndash;4. סה"כ 0&ndash;28.',
+      questions: [
+        'בשבוע האחרון, בכמה ימים העור שלכם גירד עקב האקזמה?',
+        'בשבוע האחרון, בכמה לילות השינה שלכם הופרעה עקב האקזמה?',
+        'בשבוע האחרון, בכמה ימים העור שלכם דימם עקב האקזמה?',
+        'בשבוע האחרון, בכמה ימים העור שלכם הפריש או טפטף נוזל צלול עקב האקזמה?',
+        'בשבוע האחרון, בכמה ימים העור שלכם היה סדוק עקב האקזמה?',
+        'בשבוע האחרון, בכמה ימים העור שלכם התקלף עקב האקזמה?',
+        'בשבוע האחרון, בכמה ימים העור שלכם הרגיש יבש או מחוספס עקב האקזמה?'
+      ],
+      options: ['אף יום','1&ndash;2 ימים','3&ndash;4 ימים','5&ndash;6 ימים','כל יום'],
+      interpretation: (t) => `POEM ${t}/28. טווחים: 0&ndash;2 נקי/כמעט נקי, 3&ndash;7 קל, 8&ndash;16 בינוני, 17&ndash;24 חמור, 25&ndash;28 חמור מאוד.`,
+      answeredLabel: 'שאלות שנענו',
+      itemsSumLabel: 'סכום פריטים'
+    },
+    iga: {
+      fullName: 'הערכה גלובלית של חוקר (vIGA-AD)',
+      infoBox: '<strong>IGA (vIGA-AD):</strong> ציון חומרה גלובלי סטטי בן 5 דרגות המדורג ע"י קלינאי. מבוסס על המראה הכללי בזמן ההערכה.',
+      options: [
+        { label:'0 &mdash; נקי', desc:'ללא סימנים דלקתיים של AD. ייתכן היפרפיגמנטציה שלאחר-דלקת.' },
+        { label:'1 &mdash; כמעט נקי', desc:'אריתמה בקושי מורגשת, פפולציה/חדירה בקושי מורגשת, ללא הפרשה או קרומים.' },
+        { label:'2 &mdash; קל', desc:'אריתמה ורודה בהירה, פפולציה/חדירה קלה אך ברורה, ללא הפרשה או קרומים.' },
+        { label:'3 &mdash; בינוני', desc:'אריתמה אדומה כהה וברורה; פפולציה/חדירה ברורה; עם או ללא הפרשה/קרומים.' },
+        { label:'4 &mdash; חמור', desc:'אריתמה אדומה עזה או עמוקה; פפולציה/חדירה נרחבת; ייתכן הפרשה/קרומים.' }
+      ],
+      notesLabel: 'הערות קליניות נוספות (רשות)',
+      notesPlaceholder: 'לדוגמה: פיזור, אזורים בולטים, התלקחות אחרונה...',
+      categoryLabel: 'קטגוריה'
+    },
+    sassad: {
+      fullName: 'ציון חומרה 6-אזורים × 6-סימנים',
+      infoBox: '<strong>SASSAD:</strong> 6 אזורי גוף × 6 סימנים, כל אחד מנוקד 0&ndash;3. סה"כ 0&ndash;108. ללא משקלות אזוריים.',
+      areas: { arms:'זרועות', hands:'ידיים', legs:'רגליים', feet:'כפות רגליים', head_neck:'ראש וצוואר', trunk:'גו' },
+      signs: { erythema:'אריתמה', exudation:'הפרשה', excoriation:'שריטות', dryness:'יובש', cracking:'סדקים', lichenification:'ליכניפיקציה' },
+      sassadSeverityLabels: ['אין','קל','בינוני','חמור'],
+      interpretation: (t) => `SASSAD ${t}/108. הערה: ל-SASSAD אין טווחי פרשנות מוסכמים באופן אוניברסלי; תוויות החומרה המוצגות הן קירוב תיאורי.`
+    }
+  },
+  en: {
+    totalScoreLabel: 'Total score',
+    completeMsg: 'Complete the questionnaire to see the score.',
+    resetConfirm: 'Clear all answers and start over?',
+    bands: { clear:'Clear', almostClear:'Almost clear', mild:'Mild', moderate:'Moderate', severe:'Severe', verySevere:'Very severe' },
+    intensityLabels: ['none','mild','moderate','severe'],
+    severityLabels: ['none','mild','moderate','severe'],
+    scorad: {
+      fullName: 'SCORing Atopic Dermatitis',
+      infoBox: '<strong>SCORAD formula:</strong> A/5 + 7B/2 + C. A = extent (0&ndash;100). B = sum of 6 intensity signs (0&ndash;18). C = itch + sleep loss (0&ndash;20).',
+      aHeading: 'A &mdash; Extent of disease (body surface area involved)',
+      aLabel: 'Estimated % of body surface area affected (0&ndash;100)',
+      bsaHelper: 'Rule of nines (adult): head &amp; neck <code>9%</code>, each upper limb <code>9%</code>, anterior trunk <code>18%</code>, posterior trunk <code>18%</code>, each lower limb <code>18%</code>, genitals <code>1%</code>. Palmar surface &asymp; 1%.',
+      bHeading: 'B &mdash; Intensity criteria (each scored 0&ndash;3)',
+      intensityItems: ['Erythema (redness)','Edema / papulation','Oozing / crusting','Excoriation','Lichenification','Dryness (uninvolved skin)'],
+      cHeading: 'C &mdash; Subjective symptoms (past 3 days, 0&ndash;10 VAS)',
+      itchLabel: 'Pruritus (itch) intensity',
+      itchHint: '0 = no itch, 10 = worst imaginable',
+      sleepLabel: 'Sleep loss due to eczema',
+      sleepHint: '0 = no loss, 10 = could not sleep at all',
+      interpretation: (t) => `Total SCORAD ${t}/103 (A/5 + 7B/2 + C). Interpretation bands: <25 mild, 25&ndash;50 moderate, >50 severe.`,
+      breakdown: { A:'A (extent %)', B:'B (intensity sum)', C:'C (subjective)', obj:'Objective SCORAD' }
+    },
+    easi: {
+      fullName: 'Eczema Area and Severity Index',
+      infoBox: '<strong>EASI:</strong> For each region, score <em>area</em> (0&ndash;6) and 4 signs (each 0&ndash;3). Region score = area &times; (sum of 4 signs) &times; region multiplier. Max 72.',
+      ageLabel: 'Age group (changes head/lower-limb weighting)',
+      ageAdult: 'Adult / &ge; 8 years',
+      ageChild: 'Child (0&ndash;7 years)',
+      regions: { head:'Head & neck', upper:'Upper limbs', trunk:'Trunk (includes genitals)', lower:'Lower limbs (incl. buttocks)' },
+      signs: { erythema:'Erythema', induration:'Induration / papulation', excoriation:'Excoriation', lichenification:'Lichenification' },
+      areaLabel: 'Area affected',
+      multiplier: (a,c) => `(multiplier: adult ${a}, child ${c})`,
+      areaScale: ['0 (0%)','1 (1&ndash;9%)','2 (10&ndash;29%)','3 (30&ndash;49%)','4 (50&ndash;69%)','5 (70&ndash;89%)','6 (90&ndash;100%)'],
+      interpretation: (t) => `Total EASI ${t}/72. Leshem bands: 0 clear, 0.1&ndash;1.0 almost clear, 1.1&ndash;7 mild, 7.1&ndash;21 moderate, 21.1&ndash;50 severe, 50.1&ndash;72 very severe.`
+    },
+    poem: {
+      fullName: 'Patient-Oriented Eczema Measure',
+      infoBox: '<strong>POEM:</strong> Patient-reported. Think about your eczema over the <em>last week</em>. 7 questions, each 0&ndash;4. Total 0&ndash;28.',
+      questions: [
+        'Over the last week, on how many days has your skin been itchy because of your eczema?',
+        'Over the last week, on how many nights has your sleep been disturbed because of your eczema?',
+        'Over the last week, on how many days has your skin been bleeding because of your eczema?',
+        'Over the last week, on how many days has your skin been weeping or oozing clear fluid because of your eczema?',
+        'Over the last week, on how many days has your skin been cracked because of your eczema?',
+        'Over the last week, on how many days has your skin been flaking off because of your eczema?',
+        'Over the last week, on how many days has your skin felt dry or rough because of your eczema?'
+      ],
+      options: ['No days','1&ndash;2 days','3&ndash;4 days','5&ndash;6 days','Every day'],
+      interpretation: (t) => `POEM ${t}/28. Bands: 0&ndash;2 clear/almost clear, 3&ndash;7 mild, 8&ndash;16 moderate, 17&ndash;24 severe, 25&ndash;28 very severe.`,
+      answeredLabel: 'Questions answered',
+      itemsSumLabel: 'Sum of items'
+    },
+    iga: {
+      fullName: "Investigator's Global Assessment (vIGA-AD)",
+      infoBox: "<strong>IGA (vIGA-AD):</strong> A 5-point static clinician-rated global severity score. Based on the overall appearance at the time of assessment.",
+      options: [
+        { label:'0 &mdash; Clear', desc:'No inflammatory signs of AD. Post-inflammatory hyperpigmentation may be present.' },
+        { label:'1 &mdash; Almost clear', desc:'Barely perceptible erythema, barely perceptible papulation/infiltration, no oozing or crusting.' },
+        { label:'2 &mdash; Mild', desc:'Light pink erythema, slight but definite papulation/infiltration, no oozing or crusting.' },
+        { label:'3 &mdash; Moderate', desc:'Dull red, clearly perceptible erythema; clearly perceptible papulation/infiltration; with or without oozing/crusting.' },
+        { label:'4 &mdash; Severe', desc:'Deep or bright red erythema; marked/extensive papulation/infiltration; oozing/crusting may be present.' }
+      ],
+      notesLabel: 'Additional clinical notes (optional)',
+      notesPlaceholder: 'e.g., Distribution, notable areas, recent flare...',
+      categoryLabel: 'Category'
+    },
+    sassad: {
+      fullName: 'Six Area, Six Sign Atopic Dermatitis severity score',
+      infoBox: '<strong>SASSAD:</strong> 6 body areas &times; 6 signs, each scored 0&ndash;3. Total 0&ndash;108. No area weighting.',
+      areas: { arms:'Arms', hands:'Hands', legs:'Legs', feet:'Feet', head_neck:'Head & neck', trunk:'Trunk' },
+      signs: { erythema:'Erythema', exudation:'Exudation', excoriation:'Excoriation', dryness:'Dryness', cracking:'Cracking', lichenification:'Lichenification' },
+      sassadSeverityLabels: ['absent','mild','moderate','severe'],
+      interpretation: (t) => `SASSAD ${t}/108. Note: SASSAD does not have universally agreed interpretation bands; descriptive severity labels shown are approximate.`
+    }
+  }
+};
+
+function adtT() { return ADT_TEXT[currentLang] || ADT_TEXT.he; }
+
+const adtState = { tool: null, answers: {} };
+
+/* ---------- Helpers ---------- */
+function adtEl(html) {
+  const d = document.createElement('div');
+  d.innerHTML = html.trim();
+  return d.firstChild;
+}
+
+function adtRadioGroup(name, options, onChange) {
+  const wrap = document.createElement('div');
+  wrap.className = 'adt-radio-group';
+  options.forEach(opt => {
+    const label = document.createElement('label');
+    label.className = 'adt-radio-option';
+    label.innerHTML = `<input type="radio" name="${name}" value="${opt.value}"> ${opt.label}`;
+    wrap.appendChild(label);
+    const input = label.querySelector('input');
+    input.addEventListener('change', () => {
+      wrap.querySelectorAll('.adt-radio-option').forEach(o => o.classList.remove('selected'));
+      label.classList.add('selected');
+      onChange(parseFloat(opt.value));
+    });
+  });
+  return wrap;
+}
+
+function adtScaleGroup(name, min, max, onChange, labels) {
+  const opts = [];
+  for (let i = min; i <= max; i++) {
+    const lbl = labels && labels[i - min] ? `${i} &mdash; ${labels[i - min]}` : `${i}`;
+    opts.push({ value: i, label: lbl });
+  }
+  return adtRadioGroup(name, opts, onChange);
+}
+
+function adtRangeInput(name, min, max, step, onChange, defaultVal) {
+  const wrap = document.createElement('div');
+  wrap.className = 'adt-range-wrap';
+  wrap.innerHTML = `
+    <input type="range" name="${name}" min="${min}" max="${max}" step="${step}" value="${defaultVal !== undefined ? defaultVal : min}">
+    <div class="adt-range-value">${defaultVal !== undefined ? defaultVal : min}</div>`;
+  const range = wrap.querySelector('input');
+  const display = wrap.querySelector('.adt-range-value');
+  range.addEventListener('input', () => {
+    display.textContent = range.value;
+    onChange(parseFloat(range.value));
+  });
+  return wrap;
+}
+
+function adtSeverityBand(text, cls) {
+  return `<span class="adt-severity-band adt-severity-${cls}">${text}</span>`;
+}
+
+/* ========================================================================
+   SCORAD
+   ======================================================================== */
+const ADT_SCORAD = {
+  key: 'scorad',
+  intensityKeys: ['erythema','edema','oozing','excoriation','lichenification','dryness'],
+  render(q) {
+    const L = adtT().scorad;
+    adtState.answers = { A: 0, B: {}, itch: 0, sleep: 0 };
+    q.innerHTML = '';
+    q.appendChild(adtEl(`<div class="adt-info-box">${L.infoBox}</div>`));
+
+    q.appendChild(adtEl(`<h3>${L.aHeading}</h3>`));
+    const aWrap = document.createElement('div');
+    aWrap.className = 'adt-question-row';
+    aWrap.innerHTML = `<div class="adt-question-label">${L.aLabel}</div>`;
+    aWrap.appendChild(adtRangeInput('scorad-A', 0, 100, 1, v => { adtState.answers.A = v; adtUpdateScore(); }, 0));
+    aWrap.appendChild(adtEl(`<div class="adt-bsa-helper">${L.bsaHelper}</div>`));
+    q.appendChild(aWrap);
+
+    q.appendChild(adtEl(`<h3>${L.bHeading}</h3>`));
+    this.intensityKeys.forEach((key, i) => {
+      const row = document.createElement('div');
+      row.className = 'adt-question-row';
+      row.innerHTML = `<div class="adt-question-label">${L.intensityItems[i]}</div>`;
+      adtState.answers.B[key] = 0;
+      row.appendChild(adtScaleGroup(`scorad-B-${key}`, 0, 3, v => {
+        adtState.answers.B[key] = v; adtUpdateScore();
+      }, adtT().intensityLabels));
+      q.appendChild(row);
+    });
+
+    q.appendChild(adtEl(`<h3>${L.cHeading}</h3>`));
+
+    const itchRow = document.createElement('div');
+    itchRow.className = 'adt-question-row';
+    itchRow.innerHTML = `<div class="adt-question-label">${L.itchLabel}</div><div class="adt-question-hint">${L.itchHint}</div>`;
+    itchRow.appendChild(adtRangeInput('scorad-itch', 0, 10, 1, v => { adtState.answers.itch = v; adtUpdateScore(); }, 0));
+    q.appendChild(itchRow);
+
+    const sleepRow = document.createElement('div');
+    sleepRow.className = 'adt-question-row';
+    sleepRow.innerHTML = `<div class="adt-question-label">${L.sleepLabel}</div><div class="adt-question-hint">${L.sleepHint}</div>`;
+    sleepRow.appendChild(adtRangeInput('scorad-sleep', 0, 10, 1, v => { adtState.answers.sleep = v; adtUpdateScore(); }, 0));
+    q.appendChild(sleepRow);
+  },
+  calculate() {
+    const A = adtState.answers.A || 0;
+    const B = Object.values(adtState.answers.B || {}).reduce((a,b) => a + b, 0);
+    const C = (adtState.answers.itch || 0) + (adtState.answers.sleep || 0);
+    const total = (A/5) + (7*B/2) + C;
+    const objective = (A/5) + (7*B/2);
+    const bands = adtT().bands;
+    let band = '', bandClass = '';
+    if (total < 25) { band = bands.mild; bandClass = 'mild'; }
+    else if (total < 50) { band = bands.moderate; bandClass = 'moderate'; }
+    else { band = bands.severe; bandClass = 'severe'; }
+    const L = adtT().scorad;
+    return {
+      total: total.toFixed(1),
+      breakdown: [
+        { label: L.breakdown.A, value: A },
+        { label: L.breakdown.B, value: B },
+        { label: L.breakdown.C, value: C },
+        { label: L.breakdown.obj, value: objective.toFixed(1) }
+      ],
+      band, bandClass, maxScore: 103,
+      interpretation: L.interpretation(total.toFixed(1))
+    };
+  }
+};
+
+/* ========================================================================
+   EASI
+   ======================================================================== */
+const ADT_EASI = {
+  key: 'easi',
+  regions: [
+    { key: 'head', adult: 0.1, child: 0.2 },
+    { key: 'upper', adult: 0.2, child: 0.2 },
+    { key: 'trunk', adult: 0.3, child: 0.3 },
+    { key: 'lower', adult: 0.4, child: 0.3 }
+  ],
+  signKeys: ['erythema','induration','excoriation','lichenification'],
+  render(q) {
+    const L = adtT().easi;
+    adtState.answers = { ageGroup: 'adult', regions: {} };
+    this.regions.forEach(r => {
+      adtState.answers.regions[r.key] = { area: 0, signs: {} };
+      this.signKeys.forEach(s => adtState.answers.regions[r.key].signs[s] = 0);
+    });
+    q.innerHTML = '';
+    q.appendChild(adtEl(`<div class="adt-info-box">${L.infoBox}</div>`));
+
+    const ageRow = document.createElement('div');
+    ageRow.className = 'adt-question-row';
+    ageRow.innerHTML = `<div class="adt-question-label">${L.ageLabel}</div>`;
+    ageRow.appendChild(adtRadioGroup('easi-age', [
+      { value: 'adult', label: L.ageAdult },
+      { value: 'child', label: L.ageChild }
+    ], v => { adtState.answers.ageGroup = v === 'adult' ? 'adult' : 'child'; adtUpdateScore(); }));
+    ageRow.querySelector('input[value="adult"]').checked = true;
+    ageRow.querySelectorAll('.adt-radio-option')[0].classList.add('selected');
+    q.appendChild(ageRow);
+
+    const areaScale = L.areaScale.map((lbl, i) => ({ value: i, label: lbl }));
+
+    this.regions.forEach(r => {
+      const block = document.createElement('div');
+      block.className = 'adt-region-block';
+      block.innerHTML = `<h4>${L.regions[r.key]} <span style="font-weight:400;font-size:12px;color:var(--text-faint);">${L.multiplier(r.adult, r.child)}</span></h4>`;
+
+      const areaRow = document.createElement('div');
+      areaRow.className = 'adt-question-row';
+      areaRow.innerHTML = `<div class="adt-question-label">${L.areaLabel}</div>`;
+      areaRow.appendChild(adtRadioGroup(`easi-${r.key}-area`, areaScale, v => {
+        adtState.answers.regions[r.key].area = v; adtUpdateScore();
+      }));
+      block.appendChild(areaRow);
+
+      this.signKeys.forEach(s => {
+        const row = document.createElement('div');
+        row.className = 'adt-question-row';
+        row.innerHTML = `<div class="adt-question-label">${L.signs[s]}</div>`;
+        row.appendChild(adtScaleGroup(`easi-${r.key}-${s}`, 0, 3, v => {
+          adtState.answers.regions[r.key].signs[s] = v; adtUpdateScore();
+        }, adtT().severityLabels));
+        block.appendChild(row);
+      });
+      q.appendChild(block);
+    });
+  },
+  calculate() {
+    const L = adtT().easi;
+    const isChild = adtState.answers.ageGroup === 'child';
+    let total = 0;
+    const regionScores = {};
+    this.regions.forEach(r => {
+      const a = adtState.answers.regions[r.key].area;
+      const signSum = Object.values(adtState.answers.regions[r.key].signs).reduce((x,y) => x + y, 0);
+      const mult = isChild ? r.child : r.adult;
+      const rs = a * signSum * mult;
+      regionScores[r.key] = rs;
+      total += rs;
+    });
+    const bands = adtT().bands;
+    let band = '', bandClass = '';
+    if (total === 0) { band = bands.clear; bandClass = 'clear'; }
+    else if (total < 1.1) { band = bands.almostClear; bandClass = 'clear'; }
+    else if (total <= 7) { band = bands.mild; bandClass = 'mild'; }
+    else if (total <= 21) { band = bands.moderate; bandClass = 'moderate'; }
+    else if (total <= 50) { band = bands.severe; bandClass = 'severe'; }
+    else { band = bands.verySevere; bandClass = 'very-severe'; }
+    return {
+      total: total.toFixed(1),
+      breakdown: this.regions.map(r => ({ label: L.regions[r.key], value: regionScores[r.key].toFixed(2) })),
+      band, bandClass, maxScore: 72,
+      interpretation: L.interpretation(total.toFixed(1))
+    };
+  }
+};
+
+/* ========================================================================
+   POEM
+   ======================================================================== */
+const ADT_POEM = {
+  key: 'poem',
+  render(q) {
+    const L = adtT().poem;
+    adtState.answers = { q: new Array(L.questions.length).fill(null) };
+    q.innerHTML = '';
+    q.appendChild(adtEl(`<div class="adt-info-box">${L.infoBox}</div>`));
+    const opts = L.options.map((lbl, i) => ({ value: i, label: lbl }));
+    L.questions.forEach((qt, idx) => {
+      const row = document.createElement('div');
+      row.className = 'adt-question-row';
+      row.innerHTML = `<div class="adt-question-label">${idx + 1}. ${qt}</div>`;
+      row.appendChild(adtRadioGroup(`poem-${idx}`, opts, v => {
+        adtState.answers.q[idx] = v; adtUpdateScore();
+      }));
+      q.appendChild(row);
+    });
+  },
+  calculate() {
+    const L = adtT().poem;
+    const answered = adtState.answers.q.filter(v => v !== null);
+    const total = adtState.answers.q.reduce((a,b) => a + (b || 0), 0);
+    const bands = adtT().bands;
+    let band = '', bandClass = '';
+    if (total <= 2) { band = bands.almostClear; bandClass = 'clear'; }
+    else if (total <= 7) { band = bands.mild; bandClass = 'mild'; }
+    else if (total <= 16) { band = bands.moderate; bandClass = 'moderate'; }
+    else if (total <= 24) { band = bands.severe; bandClass = 'severe'; }
+    else { band = bands.verySevere; bandClass = 'very-severe'; }
+    return {
+      total,
+      breakdown: [
+        { label: L.answeredLabel, value: `${answered.length}/7` },
+        { label: L.itemsSumLabel, value: total }
+      ],
+      band, bandClass, maxScore: 28,
+      interpretation: L.interpretation(total)
+    };
+  }
+};
+
+/* ========================================================================
+   IGA (vIGA-AD)
+   ======================================================================== */
+const ADT_IGA = {
+  key: 'iga',
+  render(q) {
+    const L = adtT().iga;
+    adtState.answers = { score: null, notes: '' };
+    q.innerHTML = '';
+    q.appendChild(adtEl(`<div class="adt-info-box">${L.infoBox}</div>`));
+
+    L.options.forEach((opt, idx) => {
+      const row = document.createElement('label');
+      row.className = 'adt-radio-option adt-block-opt';
+      row.innerHTML = `
+        <input type="radio" name="iga" value="${idx}">
+        <strong>${opt.label}</strong><br>
+        <span style="font-size:12.5px; color:var(--text-faint);">${opt.desc}</span>`;
+      row.querySelector('input').addEventListener('change', () => {
+        document.querySelectorAll('[name="iga"]').forEach(r => r.closest('.adt-radio-option').classList.remove('selected'));
+        row.classList.add('selected');
+        adtState.answers.score = idx;
+        adtUpdateScore();
+      });
+      q.appendChild(row);
+    });
+
+    const notesRow = document.createElement('div');
+    notesRow.className = 'adt-question-row';
+    notesRow.style.marginTop = '16px';
+    notesRow.innerHTML = `<div class="adt-question-label">${L.notesLabel}</div>`;
+    const ta = document.createElement('textarea');
+    ta.className = 'adt-textarea';
+    ta.rows = 3;
+    ta.placeholder = L.notesPlaceholder;
+    ta.value = adtState.answers.notes || '';
+    ta.addEventListener('input', () => { adtState.answers.notes = ta.value; });
+    notesRow.appendChild(ta);
+    q.appendChild(notesRow);
+  },
+  calculate() {
+    const L = adtT().iga;
+    const s = adtState.answers.score;
+    if (s === null || s === undefined) return null;
+    const opt = L.options[s];
+    const bandKeys = ['clear','almostClear','mild','moderate','severe'];
+    const bandClasses = ['clear','clear','mild','moderate','severe'];
+    const bands = adtT().bands;
+    return {
+      total: s,
+      breakdown: [{ label: L.categoryLabel, value: opt.label.replace(/&mdash;/g, '\u2014') }],
+      band: bands[bandKeys[s]], bandClass: bandClasses[s],
+      maxScore: 4,
+      interpretation: opt.desc
+    };
+  }
+};
+
+/* ========================================================================
+   SASSAD
+   ======================================================================== */
+const ADT_SASSAD = {
+  key: 'sassad',
+  areaKeys: ['arms','hands','legs','feet','head_neck','trunk'],
+  signKeys: ['erythema','exudation','excoriation','dryness','cracking','lichenification'],
+  render(q) {
+    const L = adtT().sassad;
+    adtState.answers = { areas: {} };
+    this.areaKeys.forEach(a => {
+      adtState.answers.areas[a] = {};
+      this.signKeys.forEach(s => adtState.answers.areas[a][s] = 0);
+    });
+    q.innerHTML = '';
+    q.appendChild(adtEl(`<div class="adt-info-box">${L.infoBox}</div>`));
+
+    this.areaKeys.forEach(a => {
+      const block = document.createElement('div');
+      block.className = 'adt-region-block';
+      block.innerHTML = `<h4>${L.areas[a]}</h4>`;
+      this.signKeys.forEach(s => {
+        const row = document.createElement('div');
+        row.className = 'adt-question-row';
+        row.innerHTML = `<div class="adt-question-label">${L.signs[s]}</div>`;
+        row.appendChild(adtScaleGroup(`sassad-${a}-${s}`, 0, 3, v => {
+          adtState.answers.areas[a][s] = v; adtUpdateScore();
+        }, L.sassadSeverityLabels));
+        block.appendChild(row);
+      });
+      q.appendChild(block);
+    });
+  },
+  calculate() {
+    const L = adtT().sassad;
+    let total = 0;
+    const areaScores = {};
+    this.areaKeys.forEach(a => {
+      const s = Object.values(adtState.answers.areas[a]).reduce((x,y) => x + y, 0);
+      areaScores[a] = s;
+      total += s;
+    });
+    const bands = adtT().bands;
+    let band = '', bandClass = '';
+    if (total < 10) { band = bands.mild; bandClass = 'mild'; }
+    else if (total < 25) { band = bands.moderate; bandClass = 'moderate'; }
+    else { band = bands.severe; bandClass = 'severe'; }
+    return {
+      total,
+      breakdown: this.areaKeys.map(a => ({ label: L.areas[a], value: areaScores[a] })),
+      band, bandClass, maxScore: 108,
+      interpretation: L.interpretation(total)
+    };
+  }
+};
+
+/* ---------- Tool registry & wiring ---------- */
+const ADT_TOOLS = { scorad: ADT_SCORAD, easi: ADT_EASI, poem: ADT_POEM, iga: ADT_IGA, sassad: ADT_SASSAD };
+
+document.querySelectorAll('#adt-tool-selector .adt-tool-card').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('#adt-tool-selector .adt-tool-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+    adtSelectTool(card.dataset.tool);
+  });
+});
+
+function adtSelectTool(toolKey) {
+  adtState.tool = toolKey;
+  adtState.answers = {};
+  const tool = ADT_TOOLS[toolKey];
+  const L = adtT()[toolKey];
+
+  document.getElementById('adt-placeholder').classList.add('adt-hidden');
+  const qEl = document.getElementById('adt-questionnaire');
+  qEl.classList.remove('adt-hidden');
+  qEl.innerHTML = `<div class="adt-panel-title">${tool.key.toUpperCase()}</div><div class="adt-panel-sub">${L.fullName}</div>`;
+  const body = document.createElement('div');
+  qEl.appendChild(body);
+  tool.render(body);
+
+  document.getElementById('adt-result-section').classList.remove('adt-hidden');
+  adtUpdateScore();
+}
+
+function adtUpdateScore() {
+  if (!adtState.tool) return;
+  const tool = ADT_TOOLS[adtState.tool];
+  const result = tool.calculate();
+  const rc = document.getElementById('adt-result-content');
+  if (!result) {
+    rc.innerHTML = `<div class="adt-placeholder">${adtT().completeMsg}</div>`;
+    return;
+  }
+  let breakdownHtml = '';
+  if (result.breakdown && result.breakdown.length) {
+    breakdownHtml = '<div style="margin-top:10px;">' +
+      result.breakdown.map(b => `<span class="adt-subscore">${b.label}: <strong>${b.value}</strong></span>`).join('') +
+      '</div>';
+  }
+  rc.innerHTML = `
+    <div class="adt-score-box">
+      <div class="adt-score-label">${adtT().totalScoreLabel} — ${tool.key.toUpperCase()}</div>
+      <div class="adt-score-value">${result.total} <span class="adt-max">/ ${result.maxScore}</span></div>
+      ${result.band ? adtSeverityBand(result.band, result.bandClass) : ''}
+      ${breakdownHtml}
+      <div class="adt-interpretation">${result.interpretation}</div>
+    </div>`;
+}
+
+/* Re-render on language change (called from toggleLang) */
+function adtOnLangChange() {
+  if (adtState.tool) {
+    // Preserve selected tool but re-render UI in new language; answers reset per original ad.html render() behavior.
+    adtSelectTool(adtState.tool);
+  }
+}
+
+/* Reset */
+document.getElementById('adt-reset-btn').addEventListener('click', () => {
+  if (!confirm(adtT().resetConfirm)) return;
+  adtState.tool = null;
+  adtState.answers = {};
+  document.querySelectorAll('#adt-tool-selector .adt-tool-card').forEach(c => c.classList.remove('active'));
+  const qEl = document.getElementById('adt-questionnaire');
+  qEl.classList.add('adt-hidden');
+  qEl.innerHTML = '';
+  document.getElementById('adt-placeholder').classList.remove('adt-hidden');
+  document.getElementById('adt-result-section').classList.add('adt-hidden');
+});
 </script>
 </body>
 </html>
