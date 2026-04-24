@@ -406,7 +406,7 @@ html[dir="ltr"] .adt-panel, html[dir="ltr"] .adt-question-label, html[dir="ltr"]
 
 <section class="mol-section" id="section-questionnaires">
   <h2 class="mol-heading" data-en="Severity Rating Questionnaires">שאלונים לדירוג חומרה</h2>
-  <div class="adt-info-box" data-en="Choose a validated assessment tool to grade the severity of atopic dermatitis. Each tool uses different criteria (clinical signs, patient-reported symptoms, or both). Results are calculated live. For educational use — not a substitute for a physician's evaluation.">בחרו כלי הערכה מוכר לדירוג חומרת האטופיק דרמטיטיס. כל כלי משתמש בקריטריונים שונים (סימנים קליניים, תסמינים מדווחי-מטופל, או שילוב). התוצאות מחושבות בזמן אמת. לשימוש חינוכי — אינו תחליף להערכת רופא.</div>
+  <div class="adt-info-box" data-en="Choose a validated assessment tool to grade the severity of atopic dermatitis. Each tool uses different criteria (clinical signs, patient-reported symptoms, or both). Results are calculated live. For educational use — not a substitute for a physician's evaluation.">בחרו כלי הערכה לדירוג חומרת האטופיק דרמטיטיס. כל כלי משתמש בקריטריונים שונים (סימנים קליניים, תסמינים סוביקטיביים, או שילוב). התוצאות מחושבות בזמן אמת.  אינו תחליף להערכת רופא.</div>
 
   <div class="adt-tool-grid" id="adt-tool-selector">
     <div class="adt-tool-card" data-tool="scorad">
@@ -419,11 +419,11 @@ html[dir="ltr"] .adt-panel, html[dir="ltr"] .adt-question-label, html[dir="ltr"]
     </div>
     <div class="adt-tool-card" data-tool="poem">
       <div class="adt-code">POEM</div>
-      <div class="adt-name" data-en="Patient-reported symptoms (0&ndash;28)">תסמינים מדווחי-מטופל (0&ndash;28)</div>
+      <div class="adt-name" data-en="Patient-reported symptoms (0&ndash;28)">תסמינים סוביקטיבים (0&ndash;28)</div>
     </div>
     <div class="adt-tool-card" data-tool="iga">
       <div class="adt-code">IGA</div>
-      <div class="adt-name" data-en="Global assessment (0&ndash;4)">הערכה גלובלית (0&ndash;4)</div>
+      <div class="adt-name" data-en="Global assessment (0&ndash;4)">הערכה כללית (0&ndash;4)</div>
     </div>
     <div class="adt-tool-card" data-tool="sassad">
       <div class="adt-code">SASSAD</div>
@@ -445,7 +445,7 @@ html[dir="ltr"] .adt-panel, html[dir="ltr"] .adt-question-label, html[dir="ltr"]
     <button class="adt-btn" id="adt-reset-btn" data-en="Start Over">התחל מחדש</button>
   </div>
 
-  <p class="adt-disclaimer" data-en="Educational tool — verify scoring manually and follow local clinical protocols. Not a substitute for clinical judgment.">כלי חינוכי — יש לאמת את הציון ידנית ולפעול לפי פרוטוקולים קליניים מקומיים. אינו תחליף לשיקול דעת קליני.</p>
+  <p class="adt-disclaimer" data-en="Educational tool — verify scoring manually and follow local clinical protocols. Not a substitute for clinical judgment."> אינו תחליף לשיקול דעת קליני.</p>
 </section>
 
 </main>
@@ -512,7 +512,7 @@ const ADT_TEXT = {
       aLabel: 'אחוז משוער של שטח גוף מעורב (0&ndash;100)',
       bsaHelper: 'חוק התשעים (מבוגר): ראש וצוואר <code>9%</code>, כל גפה עליונה <code>9%</code>, חזה <code>18%</code>, גב <code>18%</code>, כל גפה תחתונה <code>18%</code>, איזור מפשעה <code>1%</code>. כף יד &asymp; 1%.',
       bHeading: 'B &mdash; קריטריוני עצימות (כל אחד מנוקד 0&ndash;3)',
-      intensityItems: ['אריתמה (אדמומיות)','בצקת / פפולציה','הפרשה / קרומים','שריטות (אקסקוריאציה)','ליכניפיקציה (עיבוי עור)','יובש (על עור לא מעורב)'],
+      intensityItems: ['אריתמה (אדמומיות)','בצקת ','הפרשה ','גרד (אקסקוריאציה)','ליכניפיקציה (עיבוי עור)','יובש '],
       cHeading: 'C &mdash; תסמינים סובייקטיביים (3 ימים אחרונים, 0&ndash;10 VAS)',
       itchLabel: 'עצמת גרד (Pruritus)',
       itchHint: '0 = ללא גרד, 10 = הגרד הגרוע ביותר שאפשר לדמיין',
@@ -528,7 +528,7 @@ const ADT_TEXT = {
       ageAdult: 'מבוגר / &ge; 8 שנים',
       ageChild: 'ילד (0&ndash;7 שנים)',
       regions: { head:'ראש וצוואר', upper:'גפיים עליונות', trunk:'גו (כולל איזור מפשעה)', lower:'גפיים תחתונות (כולל ישבן)' },
-      signs: { erythema:'אריתמה', induration:'התקשות / פפולציה', excoriation:'שריטות', lichenification:'ליכניפיקציה' },
+      signs: { erythema:'אריתמה', induration:'התקשות ', excoriation:'גרד, lichenification:'ליכניפיקציה' },
       areaLabel: 'שטח מעורב',
       multiplier: (a,c) => `(מכפיל: מבוגר ${a}, ילד ${c})`,
       areaScale: ['0 (0%)','1 (1&ndash;9%)','2 (10&ndash;29%)','3 (30&ndash;49%)','4 (50&ndash;69%)','5 (70&ndash;89%)','6 (90&ndash;100%)'],
@@ -552,24 +552,24 @@ const ADT_TEXT = {
       itemsSumLabel: 'סכום פריטים'
     },
     iga: {
-      fullName: 'הערכה גלובלית של חוקר (vIGA-AD)',
-      infoBox: '<strong>IGA (vIGA-AD):</strong> ציון חומרה גלובלי סטטי בן 5 דרגות המדורג ע"י קלינאי. מבוסס על המראה הכללי בזמן ההערכה.',
+      fullName: 'הערכה כללית של חוקר (vIGA-AD)',
+      infoBox: '<strong>IGA (vIGA-AD):</strong>  ציון דרגת חומרה כללית מ  1-5 . מבוסס על המראה הכללי בזמן ההערכה על ידי רופא.',
       options: [
-        { label:'0 &mdash; נקי', desc:'ללא סימנים דלקתיים של AD. ייתכן היפרפיגמנטציה שלאחר-דלקת.' },
-        { label:'1 &mdash; כמעט נקי', desc:'אריתמה בקושי מורגשת, פפולציה/חדירה בקושי מורגשת, ללא הפרשה או קרומים.' },
-        { label:'2 &mdash; קל', desc:'אריתמה ורודה בהירה, פפולציה/חדירה קלה אך ברורה, ללא הפרשה או קרומים.' },
-        { label:'3 &mdash; בינוני', desc:'אריתמה אדומה כהה וברורה; פפולציה/חדירה ברורה; עם או ללא הפרשה/קרומים.' },
-        { label:'4 &mdash; חמור', desc:'אריתמה אדומה עזה או עמוקה; פפולציה/חדירה נרחבת; ייתכן הפרשה/קרומים.' }
+        { label:'0 &mdash; נקי', desc:'ללא אקזמה פעילה . ייתכן היפרפיגמנטציה שלאחר-דלקת.' },
+        { label:'1 &mdash; כמעט נקי', desc:'אריתמה קלה מאד, כמעט ללא אינדורציה, ללא הפרשה .' },
+        { label:'2 &mdash; קל', desc:'אריתמה , אינדורציה קלה, ללא הפרשה .' },
+        { label:'3 &mdash; בינוני', desc:'אריתמה ברורה; אינדורציה ברורה; עם או ללא הפרשה.' },
+        { label:'4 &mdash; חמור', desc:'אריתמה עזה ; אינדורציה נרחבת; תתכן הפרשה.' }
       ],
       notesLabel: 'הערות קליניות נוספות (רשות)',
-      notesPlaceholder: 'לדוגמה: פיזור, אזורים בולטים, התלקחות אחרונה...',
+      notesPlaceholder: 'לדוגמה: פיזור, אזורים נגועים, התלקחות אחרונה...',
       categoryLabel: 'קטגוריה'
     },
     sassad: {
       fullName: 'ציון חומרה 6-אזורים × 6-סימנים',
       infoBox: '<strong>SASSAD:</strong> 6 אזורי גוף × 6 סימנים, כל אחד מנוקד 0&ndash;3. סה"כ 0&ndash;108. ללא משקלות אזוריים.',
       areas: { arms:'זרועות', hands:'ידיים', legs:'רגליים', feet:'כפות רגליים', head_neck:'ראש וצוואר', trunk:'גו' },
-      signs: { erythema:'אריתמה', exudation:'הפרשה', excoriation:'שריטות', dryness:'יובש', cracking:'סדקים', lichenification:'ליכניפיקציה' },
+      signs: { erythema:'אריתמה', exudation:'הפרשה', excoriation:'גרד', dryness:'יובש', cracking:'סדקים', lichenification:'ליכניפיקציה' },
       sassadSeverityLabels: ['אין','קל','בינוני','חמור'],
       interpretation: (t) => `SASSAD ${t}/108. הערה: ל-SASSAD אין טווחי פרשנות מוסכמים באופן אוניברסלי; תוויות החומרה המוצגות הן קירוב תיאורי.`
     }
