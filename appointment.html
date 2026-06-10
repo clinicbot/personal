@@ -47,6 +47,106 @@
 
       .clinic-grid { grid-template-columns: 1fr; gap: 24px; }
     }
+
+    /* --- כפתור צ'אט AI --- */
+    .call-btn-ai {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      background: linear-gradient(135deg, #7c3aed, #5b21b6);
+      color: #ffffff;
+      text-align: center;
+      padding: 12px 20px;
+      margin-top: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+    .call-btn-ai:hover {
+      background: linear-gradient(135deg, #6d28d9, #4c1d95);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+    }
+
+    /* --- מודל "בקרוב" --- */
+    .ai-modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .ai-modal-overlay.open { display: flex; }
+    .ai-modal {
+      background: var(--navy-mid);
+      color: var(--text-muted);
+      padding: 36px 30px 28px;
+      border-radius: 12px;
+      max-width: 480px;
+      width: 100%;
+      border: 1px solid var(--border-light);
+      position: relative;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .ai-modal-close {
+      position: absolute;
+      top: 10px;
+      inset-inline-start: 12px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 24px;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      line-height: 1;
+    }
+    .ai-modal-close:hover { color: var(--teal); }
+    .ai-modal-title {
+      font-size: 22px;
+      color: var(--teal);
+      margin-bottom: 14px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .ai-modal-body {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .ai-modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .ai-modal-cta {
+      display: inline-block;
+      padding: 10px 22px;
+      background: var(--teal);
+      color: var(--navy);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .ai-modal-cta:hover { opacity: 0.85; }
+    .ai-modal-cta.secondary {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border-light);
+    }
   </style>
 </head>
 <body>
@@ -98,6 +198,7 @@
           <div class="clinic-value"><a href="tel:0505823675">050-582-3675</a></div>
         </div>
         <a class="call-btn" href="tel:0505823675" data-en="&#128222; Call Private Clinic">&#128222; חייג למרפאה הפרטית</a>
+        <button class="call-btn-ai" onclick="openAIModal()" data-en="&#129302; Book via AI Chat">&#129302; קביעת תור בצ'אט AI</button>
       </div>
 
       <div class="clinic-card">
@@ -131,6 +232,22 @@
     </div>
   </div>
 
+  <!-- מודל "בקרוב" עבור כפתור צ'אט AI -->
+  <div class="ai-modal-overlay" id="aiModalOverlay" onclick="if(event.target.id==='aiModalOverlay') closeAIModal();">
+    <div class="ai-modal">
+      <button class="ai-modal-close" onclick="closeAIModal()" aria-label="Close">×</button>
+      <div class="ai-modal-title" data-en="&#129302; AI Chat Booking">&#129302; קביעת תור בצ'אט AI</div>
+      <div class="ai-modal-body" data-en="Our AI chat assistant is currently in development and will be launched soon.<br>In the meantime, you can book through the existing options on this page.">
+        העוזר החכם של המרפאה נמצא בשלבי הקמה ויושק בקרוב.<br>
+        בינתיים, אפשר לקבוע תור באחת מהדרכים הקיימות בעמוד.
+      </div>
+      <div class="ai-modal-actions">
+        <a href="tel:0505823675" class="ai-modal-cta" data-en="&#128222; Call Private Clinic">&#128222; חייג למרפאה הפרטית</a>
+        <button class="ai-modal-cta secondary" onclick="closeAIModal()" data-en="Close">סגור</button>
+      </div>
+    </div>
+  </div>
+
   <footer style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; padding: 20px 48px; border-top: 1px solid var(--border-light); max-width: 1100px; margin: 0 auto;">
     <span style="color: var(--text-muted); font-size: 14px;" data-en="© 2025 Dr. Jonathan Shapiro | Dermatologist">© 2025 ד"ר יונתן שפירא | רופא עור</span>
     
@@ -145,6 +262,18 @@
   </footer>
 
   <script>
+    // --- מודל צ'אט AI ---
+    function openAIModal() {
+      document.getElementById('aiModalOverlay').classList.add('open');
+    }
+    function closeAIModal() {
+      document.getElementById('aiModalOverlay').classList.remove('open');
+    }
+    // ESC סוגר את המודל
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeAIModal();
+    });
+
     // פונקציית החלפת שפה
     let currentLang = 'he';
     function toggleLang() {
