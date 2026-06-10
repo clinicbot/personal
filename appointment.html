@@ -73,7 +73,7 @@
       box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
     }
 
-    /* --- מודל "בקרוב" --- */
+    /* --- מודאל צ'אט AI (מטמיע את dermapoint.vercel.app ב-iframe) --- */
     .ai-modal-overlay {
       display: none;
       position: fixed;
@@ -87,65 +87,48 @@
     .ai-modal-overlay.open { display: flex; }
     .ai-modal {
       background: var(--navy-mid);
-      color: var(--text-muted);
-      padding: 36px 30px 28px;
       border-radius: 12px;
-      max-width: 480px;
       width: 100%;
+      max-width: 560px;
+      height: 100%;
+      max-height: 760px;
       border: 1px solid var(--border-light);
       position: relative;
-      text-align: center;
       box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      overflow: hidden;
     }
     .ai-modal-close {
       position: absolute;
-      top: 10px;
-      inset-inline-start: 12px;
-      background: transparent;
+      top: 8px;
+      inset-inline-start: 8px;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.45);
       border: none;
-      color: var(--text-muted);
-      font-size: 24px;
-      cursor: pointer;
-      width: 32px;
-      height: 32px;
-      line-height: 1;
-    }
-    .ai-modal-close:hover { color: var(--teal); }
-    .ai-modal-title {
+      color: #ffffff;
       font-size: 22px;
-      color: var(--teal);
-      margin-bottom: 14px;
-      font-family: 'Cormorant Garamond', serif;
-    }
-    .ai-modal-body {
-      font-size: 15px;
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-    .ai-modal-actions {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .ai-modal-cta {
-      display: inline-block;
-      padding: 10px 22px;
-      background: var(--teal);
-      color: var(--navy);
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-family: 'DM Sans', sans-serif;
       cursor: pointer;
-      border: none;
-      transition: all 0.2s;
+      width: 34px;
+      height: 34px;
+      border-radius: 17px;
+      line-height: 1;
+      transition: background 0.15s;
     }
-    .ai-modal-cta:hover { opacity: 0.85; }
-    .ai-modal-cta.secondary {
-      background: transparent;
-      color: var(--text-muted);
-      border: 1px solid var(--border-light);
+    .ai-modal-close:hover { background: rgba(0, 0, 0, 0.75); }
+    .ai-modal-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    /* On phones, fill the screen */
+    @media (max-width: 600px) {
+      .ai-modal-overlay { padding: 0; }
+      .ai-modal {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 0;
+        border: none;
+      }
     }
   </style>
 </head>
@@ -232,19 +215,11 @@
     </div>
   </div>
 
-  <!-- מודל "בקרוב" עבור כפתור צ'אט AI -->
+  <!-- מודאל צ'אט AI — מטמיע את dermapoint.vercel.app ב-iframe -->
   <div class="ai-modal-overlay" id="aiModalOverlay" onclick="if(event.target.id==='aiModalOverlay') closeAIModal();">
     <div class="ai-modal">
       <button class="ai-modal-close" onclick="closeAIModal()" aria-label="Close">×</button>
-      <div class="ai-modal-title" data-en="&#129302; AI Chat Booking">&#129302; קביעת תור בצ'אט AI</div>
-      <div class="ai-modal-body" data-en="Our AI chat assistant is currently in development and will be launched soon.<br>In the meantime, you can book through the existing options on this page.">
-        העוזר החכם של המרפאה נמצא בשלבי הקמה ויושק בקרוב.<br>
-        בינתיים, אפשר לקבוע תור באחת מהדרכים הקיימות בעמוד.
-      </div>
-      <div class="ai-modal-actions">
-        <a href="tel:0505823675" class="ai-modal-cta" data-en="&#128222; Call Private Clinic">&#128222; חייג למרפאה הפרטית</a>
-        <button class="ai-modal-cta secondary" onclick="closeAIModal()" data-en="Close">סגור</button>
-      </div>
+      <iframe id="aiModalIframe" class="ai-modal-iframe" title="קביעת תור — צ'אט AI"></iframe>
     </div>
   </div>
 
@@ -262,8 +237,13 @@
   </footer>
 
   <script>
-    // --- מודל צ'אט AI ---
+    // --- מודאל צ'אט AI ---
+    const AI_CHAT_URL = 'https://dermapoint.vercel.app/';
     function openAIModal() {
+      // Lazy-load the iframe on first open so visits to /appointment.html
+      // that never open the chat don't ping Vercel.
+      const iframe = document.getElementById('aiModalIframe');
+      if (!iframe.src) iframe.src = AI_CHAT_URL;
       document.getElementById('aiModalOverlay').classList.add('open');
     }
     function closeAIModal() {
